@@ -1,0 +1,10 @@
+{
+  "sites": [
+    {
+      "id": "main",
+      "slug": "main",
+      "name": "Main Zoho Site"
+    }
+  ],
+  "pages": []
+}
