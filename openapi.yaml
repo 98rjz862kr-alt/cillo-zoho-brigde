@@ -1,0 +1,129 @@
+openapi: 3.1.0
+info:
+  title: Cillo Zoho Bridge API
+  version: 0.1.0
+  description: API for an AI agent to create drafts, update drafts, submit pages for review, and publish only already-approved pages displayed inside Zoho Sites.
+servers:
+  - url: https://cillo-zoho-bridge.onrender.com
+components:
+  securitySchemes:
+    AdminPassword:
+      type: apiKey
+      in: header
+      name: x-admin-password
+  schemas:
+    PageDraftInput:
+      type: object
+      additionalProperties: false
+      properties:
+        siteSlug:
+          type: string
+          description: Site identifier, for example main or cillo
+        slug:
+          type: string
+          description: URL slug, for example accueil or services
+        title:
+          type: string
+        metaTitle:
+          type: string
+        metaDescription:
+          type: string
+        markdown:
+          type: string
+        html:
+          type: string
+          description: Clean HTML content without dangerous scripts.
+      required:
+        - siteSlug
+        - slug
+        - title
+        - html
+security:
+  - AdminPassword: []
+paths:
+  /health:
+    get:
+      operationId: health_check
+      summary: Check bridge health
+      x-openai-isConsequential: false
+      security: []
+      responses:
+        "200":
+          description: Bridge health status
+  /api/pages:
+    get:
+      operationId: list_site_pages
+      summary: List pages
+      x-openai-isConsequential: false
+      parameters:
+        - in: query
+          name: siteSlug
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Pages list
+  /api/pages/draft:
+    post:
+      operationId: create_page_draft
+      summary: Create a page draft
+      x-openai-isConsequential: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PageDraftInput"
+      responses:
+        "200":
+          description: Created draft with preview URL
+  /api/pages/{id}:
+    patch:
+      operationId: update_page_draft
+      summary: Update a draft page
+      x-openai-isConsequential: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+      responses:
+        "200":
+          description: Updated page
+  /api/pages/{id}/review:
+    post:
+      operationId: submit_page_for_review
+      summary: Move draft page to review
+      x-openai-isConsequential: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Page in review
+  /api/pages/{id}/publish:
+    post:
+      operationId: publish_approved_page
+      summary: Publish an approved page
+      description: This endpoint refuses to publish if the page is not approved.
+      x-openai-isConsequential: true
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Published page and public URL
