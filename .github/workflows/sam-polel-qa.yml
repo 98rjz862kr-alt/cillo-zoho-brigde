@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - production/sam-polel-bat-final-20260730
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
