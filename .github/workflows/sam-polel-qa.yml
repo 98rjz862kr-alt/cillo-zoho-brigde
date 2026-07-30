@@ -1,0 +1,27 @@
+name: Sam Polel BAT QA
+
+on:
+  push:
+    branches:
+      - production/sam-polel-bat-final-20260730
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-master:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax check
+        run: |
+          node --check server.js
+          node --check sam-polel-master.js
+      - name: Validate 56-page master
+        run: node tests/sam-polel-qa.mjs
