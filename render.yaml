@@ -15,15 +15,19 @@ services:
         value: gpt-5.5
 
   - type: web
-    name: cdm-collectes-v3
+    name: cdm-collectes-validation
     runtime: python
     plan: free
     region: frankfurt
     rootDir: cdm-v3
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn app.main_v4:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     autoDeployTrigger: commit
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.7
+      - key: CDM_DB_PATH
+        value: /tmp/cdm.sqlite3
+      - key: CDM_SEED_DEMO
+        value: "true"
