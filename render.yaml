@@ -13,3 +13,17 @@ services:
         sync: false
       - key: OPENAI_MODEL
         value: gpt-5.5
+
+  - type: web
+    name: cdm-collectes-v3
+    runtime: python
+    plan: free
+    region: frankfurt
+    rootDir: cdm-v3
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    autoDeployTrigger: commit
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
