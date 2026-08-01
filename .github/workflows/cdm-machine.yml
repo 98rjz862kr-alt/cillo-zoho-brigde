@@ -85,3 +85,22 @@ jobs:
           done
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Machine de contrôle'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Contrôle global'
+
+  live-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wake and verify Render service
+        run: |
+          base="https://cillo-zoho-bridge.onrender.com"
+          curl -fsSL --retry 12 --retry-all-errors --retry-delay 10 --max-time 120 \
+            "$base/health" -o /tmp/render-health.json
+          grep '"ok": true' /tmp/render-health.json
+          curl -fsSL --retry 12 --retry-all-errors --retry-delay 10 --max-time 120 \
+            "$base/preview/cdm-validation-v040" -o /tmp/render-machine.html
+          grep 'CDM — Machine de contrôle v1.4' /tmp/render-machine.html
+          grep 'Machine de contrôle & déploiement maîtrisé' /tmp/render-machine.html
+          grep 'Contrôle global' /tmp/render-machine.html
+          grep 'Sauvegarder Drive' /tmp/render-machine.html
+          grep 'Rapports & traçabilité' /tmp/render-machine.html
+          grep 'data-a=' /tmp/render-machine.html
+          test "$(wc -c < /tmp/render-machine.html)" -gt 20000
