@@ -14,6 +14,24 @@ def setup_module():
         path.unlink()
 
 
+def test_machine_is_primary_validation_surface():
+    with TestClient(app) as client:
+        root = client.get("/", follow_redirects=False)
+        assert root.status_code == 307
+        assert root.headers["location"] == "/machine"
+
+        page = client.get("/machine")
+        assert page.status_code == 200
+        assert "Machine de contrôle" in page.text
+        assert "/machine-api.js" in page.text
+        assert page.headers["x-robots-tag"] == "noindex, nofollow, noarchive"
+
+        script = client.get("/machine-api.js")
+        assert script.status_code == 200
+        assert "/api/machine" in script.text
+        assert script.headers["cache-control"] == "no-store"
+
+
 def test_machine_state_and_health():
     with TestClient(app) as client:
         state = client.get("/api/machine/state")
