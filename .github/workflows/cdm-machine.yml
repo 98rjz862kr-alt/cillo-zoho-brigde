@@ -6,6 +6,7 @@ on:
     paths:
       - "cdm-v3/**"
       - "data/pages.json"
+      - "drafts/**"
       - "scripts/validate-pages.mjs"
       - "server.js"
       - ".github/workflows/cdm-machine.yml"
@@ -14,6 +15,7 @@ on:
     paths:
       - "cdm-v3/**"
       - "data/pages.json"
+      - "drafts/**"
       - "scripts/validate-pages.mjs"
       - "server.js"
       - ".github/workflows/cdm-machine.yml"
@@ -69,9 +71,9 @@ jobs:
           node-version: "20"
       - name: Install dependencies
         run: npm install
-      - name: Validate machine page
+      - name: Validate pages and drafts
         run: npm test
-      - name: Verify preview route
+      - name: Verify protected BAT route
         env:
           PORT: "3010"
           ADMIN_PASSWORD: "ci-only"
@@ -83,5 +85,7 @@ jobs:
             curl -fsS http://127.0.0.1:3010/health && break
             sleep 1
           done
+          curl -fsS "http://127.0.0.1:3010/atelier?password=ci-only" | grep 'pouvoir-et-miroirs-recette.html'
+          curl -fsS "http://127.0.0.1:3010/atelier/file/revue-des-satires%2Fpouvoir-et-miroirs-recette.html?password=ci-only" | grep 'La Revue des Satires — Pouvoir et miroirs — Recette humaine'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Machine de contrôle'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Contrôle global'
