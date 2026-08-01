@@ -5,11 +5,17 @@ on:
     branches: [main]
     paths:
       - "cdm-v3/**"
+      - "data/pages.json"
+      - "scripts/validate-pages.mjs"
+      - "server.js"
       - ".github/workflows/cdm-machine.yml"
       - "render.yaml"
   pull_request:
     paths:
       - "cdm-v3/**"
+      - "data/pages.json"
+      - "scripts/validate-pages.mjs"
+      - "server.js"
       - ".github/workflows/cdm-machine.yml"
       - "render.yaml"
 
@@ -17,7 +23,7 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  python-machine:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -41,3 +47,41 @@ jobs:
         run: python -m compileall -q app
       - name: Run tests
         run: python -m pytest -q
+      - name: Verify service routes
+        run: |
+          uvicorn app.main_machine:app --host 127.0.0.1 --port 8010 > /tmp/cdm-machine.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          for attempt in $(seq 1 20); do
+            curl -fsS http://127.0.0.1:8010/health && break
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:8010/api/machine/health | grep '"status":"ok"'
+          curl -fsSL http://127.0.0.1:8010/ | grep 'Machine de contrôle'
+          curl -fsS http://127.0.0.1:8010/machine-api.js | grep 'api/machine'
+
+  render-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install dependencies
+        run: npm install
+      - name: Validate machine page
+        run: npm test
+      - name: Verify preview route
+        env:
+          PORT: "3010"
+          ADMIN_PASSWORD: "ci-only"
+        run: |
+          node server.js > /tmp/cdm-bridge.log 2>&1 &
+          pid=$!
+          trap 'kill $pid' EXIT
+          for attempt in $(seq 1 20); do
+            curl -fsS http://127.0.0.1:3010/health && break
+            sleep 1
+          done
+          curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Machine de contrôle'
+          curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Contrôle global'
