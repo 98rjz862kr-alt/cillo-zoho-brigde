@@ -1,0 +1,42 @@
+name: CDM Machine
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cdm-v3/**"
+      - ".github/workflows/cdm-machine.yml"
+      - "render.yaml"
+  pull_request:
+    paths:
+      - "cdm-v3/**"
+      - ".github/workflows/cdm-machine.yml"
+      - "render.yaml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cdm-v3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: cdm-v3/requirements.txt
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt pytest httpx
+      - name: Compile application
+        run: python -m compileall -q app
+      - name: Run tests
+        env:
+          CDM_DB_PATH: /tmp/cdm-ci.sqlite3
+          CDM_SEED_DEMO: "true"
+        run: pytest -q
