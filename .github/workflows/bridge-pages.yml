@@ -1,0 +1,30 @@
+name: Bridge Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/pages.json"
+      - "scripts/validate-pages.mjs"
+      - "package.json"
+      - ".github/workflows/bridge-pages.yml"
+  pull_request:
+    paths:
+      - "data/pages.json"
+      - "scripts/validate-pages.mjs"
+      - "package.json"
+      - ".github/workflows/bridge-pages.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate preview pages
+        run: npm test
