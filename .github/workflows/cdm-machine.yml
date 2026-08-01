@@ -22,6 +22,10 @@ jobs:
     defaults:
       run:
         working-directory: cdm-v3
+    env:
+      PYTHONPATH: ${{ github.workspace }}/cdm-v3
+      CDM_DB_PATH: /tmp/cdm-ci.sqlite3
+      CDM_SEED_DEMO: "true"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -32,11 +36,8 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt pytest httpx
+          python -m pip install -r requirements.txt pytest httpx
       - name: Compile application
         run: python -m compileall -q app
       - name: Run tests
-        env:
-          CDM_DB_PATH: /tmp/cdm-ci.sqlite3
-          CDM_SEED_DEMO: "true"
-        run: pytest -q
+        run: python -m pytest -q
