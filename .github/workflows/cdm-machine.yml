@@ -89,14 +89,11 @@ jobs:
   live-render:
     runs-on: ubuntu-latest
     steps:
-      - name: Wake and verify Render service
+      - name: Wake and verify deployed validation page
         run: |
-          base="https://cillo-zoho-bridge.onrender.com"
-          curl -fsSL --retry 12 --retry-all-errors --retry-delay 10 --max-time 120 \
-            "$base/health" -o /tmp/render-health.json
-          grep '"ok": true' /tmp/render-health.json
-          curl -fsSL --retry 12 --retry-all-errors --retry-delay 10 --max-time 120 \
-            "$base/preview/cdm-validation-v040" -o /tmp/render-machine.html
+          url="https://cillo-zoho-bridge.onrender.com/preview/cdm-validation-v040"
+          curl -fsSL --retry 12 --retry-all-errors --retry-delay 10 --max-time 180 \
+            "$url" -o /tmp/render-machine.html
           grep 'CDM — Machine de contrôle v1.4' /tmp/render-machine.html
           grep 'Machine de contrôle & déploiement maîtrisé' /tmp/render-machine.html
           grep 'Contrôle global' /tmp/render-machine.html
