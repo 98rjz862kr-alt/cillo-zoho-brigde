@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>DOSSIER PREUVE — Prototype P0 autonome — Validation humaine</title>
+<style>
+:root{--bleu:#143B7D;--ocre:#CC7722;--sable:#75553F;--or:#D4AF37;--nuit:#0F2747;--ivoire:#F6F1E8;--ormat:#C8A96B;--pierre:#C9C3BA;--papier:#fff;--danger:#7a2430;--ombre:0 18px 50px rgba(15,39,71,.12)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 8% 10%,rgba(204,119,34,.08),transparent 330px),var(--ivoire);color:var(--nuit);font-family:Arial,Helvetica,sans-serif;line-height:1.55}.lock{position:sticky;top:0;z-index:100;background:var(--danger);color:#fff;text-align:center;padding:10px 16px;font-size:.72rem;font-weight:900;letter-spacing:.12em}.masthead{background:linear-gradient(135deg,var(--nuit),var(--bleu));color:#fff;padding:42px max(20px,6vw) 48px;overflow:hidden;position:relative}.masthead:after{content:"";position:absolute;width:420px;height:420px;border:1px solid rgba(212,175,55,.35);border-radius:50%;right:-160px;top:-190px;box-shadow:0 0 0 62px rgba(212,175,55,.05),0 0 0 126px rgba(212,175,55,.025)}.brand{display:flex;align-items:center;gap:18px;position:relative;z-index:2}.eye{width:92px;height:66px;flex:0 0 auto}.brand-copy strong{display:block;font:700 1.35rem Georgia,serif;letter-spacing:.03em}.brand-copy small{display:block;color:#f4d77d;font-size:.66rem;font-weight:900;letter-spacing:.2em;margin-top:5px}.hero{position:relative;z-index:2;max-width:980px;margin-top:42px}.kicker{color:#f4d77d;font-size:.72rem;font-weight:900;letter-spacing:.18em}.hero h1{font:700 clamp(3.1rem,8vw,7rem)/.95 Georgia,serif;letter-spacing:-.045em;margin:14px 0 22px}.hero p{font-size:clamp(1rem,2vw,1.28rem);max-width:850px;color:rgba(255,255,255,.82)}.provisional{display:inline-flex;gap:8px;align-items:center;margin-top:18px;padding:8px 12px;border:1px solid rgba(255,255,255,.32);border-radius:999px;font-size:.72rem;font-weight:900;letter-spacing:.08em}.toolbar{position:sticky;top:36px;z-index:80;background:rgba(246,241,232,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(20,59,125,.16);padding:12px 18px;display:flex;gap:9px;flex-wrap:wrap;justify-content:center}.toolbar button{border:1px solid rgba(20,59,125,.2);background:#fff;color:var(--bleu);border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer}.toolbar button:hover,.toolbar button.active{background:var(--bleu);color:#fff}.shell{width:min(1180px,calc(100% - 34px));margin:34px auto 90px}.panel{background:rgba(255,255,255,.92);border:1px solid rgba(20,59,125,.13);border-radius:24px;padding:clamp(20px,4vw,36px);box-shadow:var(--ombre);margin:22px 0}.panel h2{font:700 clamp(2rem,4vw,3.5rem)/1.05 Georgia,serif;color:var(--bleu);margin:0 0 18px}.panel h3{font:700 1.3rem Georgia,serif;color:var(--bleu);margin:0 0 10px}.lede{font-size:1.08rem;color:var(--sable);max-width:900px}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}.span-4{grid-column:span 4}.span-6{grid-column:span 6}.span-8{grid-column:span 8}.span-12{grid-column:1/-1}.card{background:#fff;border:1px solid rgba(20,59,125,.14);border-radius:18px;padding:20px;box-shadow:0 10px 28px rgba(15,39,71,.06)}.card strong.label{display:block;font-size:.65rem;letter-spacing:.14em;color:var(--ocre);margin-bottom:8px}.decision{border-left:6px solid var(--or)}.warning{border-left:6px solid var(--danger)}.stat{font:700 2rem Georgia,serif;color:var(--bleu)}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{border-radius:999px;padding:7px 10px;background:var(--ivoire);border:1px solid rgba(20,59,125,.14);font-size:.77rem;font-weight:900}.steps{counter-reset:step;display:grid;gap:12px}.step{counter-increment:step;display:grid;grid-template-columns:42px 1fr;gap:13px;align-items:start}.step:before{content:counter(step);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--bleu);color:#fff;font-weight:900}.score{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid rgba(20,59,125,.15);border-radius:16px}.score th{background:var(--bleu);color:#fff;text-align:left;padding:12px}.score td{padding:12px;border-top:1px solid rgba(20,59,125,.12)}.qualifications{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:10px}.qualif{padding:16px;border-radius:16px;background:#fff;border:2px solid rgba(20,59,125,.13);min-height:118px}.qualif b{display:block;color:var(--bleu);margin-bottom:6px}.roles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.role{border-top:5px solid var(--ocre)}.dossier{border:2px solid rgba(20,59,125,.14);border-radius:24px;background:#fff;overflow:hidden;margin:22px 0;box-shadow:0 16px 44px rgba(15,39,71,.08)}.dossier-head{background:linear-gradient(135deg,var(--nuit),var(--bleu));color:#fff;padding:24px}.dossier-head small{color:#f4d77d;font-weight:900;letter-spacing:.13em}.dossier-head h3{font:700 clamp(1.8rem,4vw,3rem)/1.05 Georgia,serif;color:#fff;margin:8px 0}.claim{margin:18px 0 0;padding:15px;border-left:5px solid var(--or);background:rgba(255,255,255,.1);font-weight:800}.dossier-body{padding:22px}.budget{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}.tokens{display:flex;gap:5px}.token{width:28px;height:28px;border-radius:50%;background:var(--or);border:3px solid #fff;box-shadow:0 0 0 1px var(--ormat)}.token.spent{background:var(--pierre);opacity:.45}.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.evidence{position:relative;border:1px solid rgba(20,59,125,.18);border-radius:16px;min-height:138px;padding:16px;background:var(--ivoire)}.evidence .code{font-size:.65rem;color:var(--ocre);font-weight:900;letter-spacing:.14em}.evidence h4{margin:5px 0 9px;color:var(--bleu)}.evidence .hidden-text{filter:blur(7px);user-select:none;opacity:.5;transition:.2s}.evidence.revealed .hidden-text{filter:none;user-select:auto;opacity:1}.evidence button{position:absolute;right:10px;bottom:10px;border:0;background:var(--bleu);color:#fff;padding:7px 9px;border-radius:9px;font-weight:900;cursor:pointer}.evidence.revealed button{background:var(--sable)}.verdict{margin-top:18px;border-top:1px solid rgba(20,59,125,.14);padding-top:18px}.verdict fieldset{border:0;padding:0;margin:0}.verdict legend{font-weight:900;color:var(--bleu);margin-bottom:8px}.radios{display:flex;flex-wrap:wrap;gap:8px}.radios label{background:var(--ivoire);border:1px solid rgba(20,59,125,.18);border-radius:999px;padding:8px 10px;font-weight:800}.grid-proof{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}.grid-proof label{font-size:.78rem;font-weight:900;color:var(--sable)}.grid-proof textarea,.grid-proof input{width:100%;margin-top:5px;border:1px solid rgba(20,59,125,.25);border-radius:10px;padding:10px;min-height:44px;font:inherit;background:#fff}.seal{margin-top:12px;border:0;background:var(--ocre);color:#fff;padding:11px 14px;border-radius:10px;font-weight:900;cursor:pointer}.saved{display:none;margin-top:10px;color:var(--bleu);font-weight:900}.resolution{display:none;margin-top:18px;border:2px solid var(--or);border-radius:16px;padding:18px;background:#fffaf0}.resolution.open{display:block}.resolution h4{color:var(--bleu);margin:0 0 8px}.resolution ul{margin-bottom:0}.open-resolution{margin-top:12px;border:1px solid var(--bleu);background:#fff;color:var(--bleu);padding:10px 12px;border-radius:10px;font-weight:900;cursor:pointer}.sheet{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sheet .cell{border:1px solid rgba(20,59,125,.2);border-radius:12px;padding:12px;background:#fff;min-height:88px}.sheet .cell b{color:var(--bleu)}.test-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.test-box{min-height:150px}.footer{background:var(--nuit);color:rgba(255,255,255,.74);padding:28px;text-align:center;font-size:.73rem;letter-spacing:.08em}.view{display:none}.view.active{display:block}.only-print{display:none}@media(max-width:900px){.span-4,.span-6,.span-8{grid-column:1/-1}.qualifications{grid-template-columns:1fr 1fr}.roles{grid-template-columns:1fr 1fr}.evidence-grid,.grid-proof,.sheet,.test-grid{grid-template-columns:1fr}}@media(max-width:560px){.qualifications,.roles{grid-template-columns:1fr}.hero h1{font-size:3.2rem}.eye{width:68px}.toolbar{top:36px;justify-content:flex-start;overflow:auto;flex-wrap:nowrap}.toolbar button{white-space:nowrap}.shell{width:min(100% - 20px,1180px)}}
+@media print{.lock,.toolbar,.no-print,.evidence button,.open-resolution,.seal{display:none!important}body{background:#fff;color:#000}.masthead{background:#fff!important;color:#000!important;padding:14mm 10mm 8mm}.masthead:after{display:none}.brand-copy small,.kicker{color:#000}.hero h1{font-size:38pt}.hero p{color:#000}.shell{width:100%;margin:0}.panel,.dossier,.card{box-shadow:none;break-inside:avoid;border-color:#888}.view{display:block!important}.dossier{break-before:page}.evidence .hidden-text{filter:none;opacity:1}.resolution{display:none!important}.only-print{display:block}.footer{background:#fff;color:#000}.token{border-color:#000}.qualifications{grid-template-columns:repeat(5,1fr)}}
+</style>
+</head>
+<body>
+<div class="lock">BROUILLON PRIVÉ · AUCUNE PUBLICATION · VALIDATION HUMAINE OBLIGATOIRE</div>
+<header class="masthead">
+  <div class="brand">
+    <svg class="eye" viewBox="0 0 180 120" aria-label="Symbole Les Mots Images" role="img"><path d="M8 60C35 20 75 8 111 18c29 8 50 26 61 42-19 31-48 46-82 46C55 106 27 90 8 60Z" fill="none" stroke="#fff" stroke-width="8"/><circle cx="91" cy="61" r="35" fill="none" stroke="#fff" stroke-width="7"/><circle cx="91" cy="61" r="22" fill="#fff"/><circle cx="91" cy="61" r="11" fill="#143B7D"/><path d="M153 31l22-15M158 60h20M153 88l22 15" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/></svg>
+    <div class="brand-copy"><strong>LES MOTS IMAGES</strong><small>LE VERBE PAR L’IMAGE</small></div>
+  </div>
+  <div class="hero">
+    <div class="kicker">JEU D’ENQUÊTE PAPIER · PROTOTYPE 0</div>
+    <h1>Dossier Preuve</h1>
+    <p>Enquêter, recouper et défendre un verdict sur des faits, des sources, des images suspectes, des traces temporelles et des contenus liés à l’intelligence artificielle.</p>
+    <div class="provisional">TITRE DE TRAVAIL · NON VALIDÉ JURIDIQUEMENT</div>
+  </div>
+</header>
+<nav class="toolbar" aria-label="Navigation du BAT">
+  <button class="active" data-view="controle">Contrôle</button>
+  <button data-view="regles">Règles P0</button>
+  <button data-view="dossiers">5 dossiers</button>
+  <button data-view="joueurs">Kit joueurs</button>
+  <button data-view="resolutions">Résolutions</button>
+  <button data-view="tests">Protocole de test</button>
+  <button onclick="window.print()">Imprimer le BAT</button>
+</nav>
+<main class="shell">
+<section id="controle" class="view active">
+  <article class="panel">
+    <h2>Contrôle de cadrage</h2>
+    <p class="lede">Le P0 est verrouillé comme kit papier autonome, sans écran, destiné en priorité aux 10–15 ans. Une partie standard utilise trois dossiers parmi cinq et tient dans une fenêtre de 30 à 45 minutes.</p>
+    <div class="grid">
+      <div class="card span-4"><strong class="label">PUBLIC</strong><div class="stat">10–15 ans</div><p>Lecture accessible, raisonnements exigeants, aucun jargon technique requis.</p></div>
+      <div class="card span-4"><strong class="label">FORMAT</strong><div class="stat">2–6</div><p>Joueurs individuels ou deux équipes. Coopération par défaut au P0.</p></div>
+      <div class="card span-4"><strong class="label">DURÉE</strong><div class="stat">30–45 min</div><p>Installation, trois dossiers, résolutions et score collectif.</p></div>
+      <div class="card span-6 decision"><strong class="label">DÉCISION P0</strong><h3>Autonomie complète</h3><p>Le jeu fonctionne sans meneur obligatoire. Un lecteur tournant peut distribuer et lire les cartes sans connaître la résolution. Le mode médiateur demeure facultatif.</p></div>
+      <div class="card span-6 decision"><strong class="label">DÉCISION P0</strong><h3>Cinq qualifications testées</h3><div class="chips"><span class="chip">FIABLE</span><span class="chip">MANIPULÉE</span><span class="chip">INCOMPLÈTE</span><span class="chip">SATIRIQUE</span><span class="chip">GÉNÉRÉE PAR IA</span></div></div>
+      <div class="card span-12 warning"><strong class="label">VERROU DE PUBLICATION</strong><h3>Validation humaine obligatoire</h3><p>Le titre, le niveau de difficulté, l’utilité des jetons, la clarté des cinq qualifications et l’équilibre du score doivent être validés après tests. Aucun passage vers un site public ou un fabricant n’est autorisé depuis ce BAT.</p></div>
+    </div>
+  </article>
+  <article class="panel">
+    <h2>Promesse testée</h2>
+    <div class="grid">
+      <div class="card span-4"><strong class="label">1 · CHERCHER</strong><h3>Choisir les bonnes preuves</h3><p>Le budget de cinq jetons oblige le groupe à sélectionner les cartes à ouvrir plutôt qu’à tout lire.</p></div>
+      <div class="card span-4"><strong class="label">2 · RELIER</strong><h3>Construire une chaîne</h3><p>Une carte seule ne suffit pas. Le verdict doit associer source, date, contexte, image ou provenance.</p></div>
+      <div class="card span-4"><strong class="label">3 · JUSTIFIER</strong><h3>Dire ce que l’on sait</h3><p>Le groupe cite trois éléments et formule une limite. La prudence rapporte un point.</p></div>
+    </div>
+  </article>
+</section>
+
+<section id="regles" class="view">
+  <article class="panel">
+    <h2>Règles courtes autonomes</h2>
+    <div class="steps">
+      <div class="step"><div><b>Choisissez trois dossiers.</b><br>Pour une première partie, utilisez les dossiers 01, 03 et 05.</div></div>
+      <div class="step"><div><b>Préparez cinq jetons Preuve.</b><br>Posez les sept cartes Indice du dossier face cachée ou utilisez les cartes floutées à l’écran du BAT.</div></div>
+      <div class="step"><div><b>Lisez l’affirmation.</b><br>Le groupe dispose de 45 secondes pour repérer ce qui doit être vérifié : qui, quoi, où, quand et sur quelle base.</div></div>
+      <div class="step"><div><b>Enquêtez pendant cinq minutes.</b><br>Dépenser un jeton permet d’ouvrir une carte Indice. Le groupe ne peut ouvrir que cinq cartes sur sept.</div></div>
+      <div class="step"><div><b>Remplissez la grille.</b><br>Notez la source, la date, l’original, les confirmations, les absences et le biais possible.</div></div>
+      <div class="step"><div><b>Choisissez une qualification.</b><br>FIABLE, MANIPULÉE, INCOMPLÈTE, SATIRIQUE ou GÉNÉRÉE PAR IA.</div></div>
+      <div class="step"><div><b>Citez trois preuves et une limite.</b><br>Une preuve doit être précisément reliée à l’affirmation. « Cette image paraît bizarre » ne suffit pas.</div></div>
+      <div class="step"><div><b>Ouvrez la résolution et comptez.</b><br>Puis passez au dossier suivant. Après trois dossiers, additionnez le score collectif.</div></div>
+    </div>
+  </article>
+  <article class="panel">
+    <h2>Barème P0</h2>
+    <table class="score">
+      <thead><tr><th>Décision</th><th>Points</th><th>Critère</th></tr></thead>
+      <tbody>
+        <tr><td>Qualification exacte</td><td><b>+3</b></td><td>La catégorie principale correspond à la résolution.</td></tr>
+        <tr><td>Preuves recevables</td><td><b>+1 chacune</b></td><td>Maximum trois preuves clairement reliées au verdict.</td></tr>
+        <tr><td>Limite ou incertitude</td><td><b>+1</b></td><td>Le groupe indique ce que le dossier ne permet pas d’affirmer.</td></tr>
+        <tr><td>Certitude inventée</td><td><b>−1</b></td><td>Maximum deux pénalités pour des faits absents du dossier.</td></tr>
+      </tbody>
+    </table>
+    <p><b>Maximum : 7 points par dossier.</b> Sur trois dossiers : 16–21 = Bureau des preuves ; 11–15 = Enquête solide ; 0–10 = chaîne de preuve à reprendre.</p>
+  </article>
+  <article class="panel">
+    <h2>Les cinq qualifications</h2>
+    <div class="qualifications">
+      <div class="qualif"><b>FIABLE</b>La source et les éléments essentiels sont identifiables, cohérents et recoupés.</div>
+      <div class="qualif"><b>MANIPULÉE</b>Le contenu est modifié, recadré, remonté ou présenté de manière à orienter le sens.</div>
+      <div class="qualif"><b>INCOMPLÈTE</b>Une information vraie est amputée d’un élément nécessaire à une décision correcte.</div>
+      <div class="qualif"><b>SATIRIQUE</b>Le contenu imite l’information pour faire rire, critiquer ou exagérer, sans constituer une consigne réelle.</div>
+      <div class="qualif"><b>GÉNÉRÉE PAR IA</b>Le contenu a été produit synthétiquement. Sa provenance et les faits qu’il prétend prouver doivent être vérifiés séparément.</div>
+    </div>
+  </article>
+</section>
+
+<section id="dossiers" class="view">
+  <article class="panel">
+    <h2>Les cinq dossiers P0</h2>
+    <p class="lede">Chaque dossier contient sept indices. Le budget de cinq jetons empêche l’ouverture intégrale et donne une fonction décisionnelle à la grille de preuve.</p>
+  </article>
+
+  <article class="dossier" data-answer="fiable">
+    <div class="dossier-head"><small>DOSSIER 01 · NIVEAU TUTORIEL</small><h3>L’exposition de vendredi</h3><div class="claim">AFFIRMATION : « L’exposition du collège Horizon ouvrira vendredi à 17 h dans la médiathèque. »</div></div>
+    <div class="dossier-body">
+      <div class="budget"><b>Budget :</b><div class="tokens"></div><span class="budget-count">5 jetons</span><button class="open-resolution no-print">Réinitialiser les indices</button></div>
+      <div class="evidence-grid">
+        <div class="evidence"><span class="code">A · SOURCE</span><h4>Bulletin officiel</h4><p class="hidden-text">Le bulletin hebdomadaire du collège, signé par le service culturel, annonce l’exposition vendredi à 17 h dans la médiathèque.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">B · DATE</span><h4>Calendrier interne</h4><p class="hidden-text">Le calendrier de l’établissement indique le même lieu, la même date et la même heure.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">C · REPOST</span><h4>Message d’un élève</h4><p class="hidden-text">Un élève a partagé une capture sans lien, avec la phrase : « Venez nombreux vendredi ! »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">D · CONTACT</span><h4>Adresse de réponse</h4><p class="hidden-text">L’adresse de contact appartient au domaine fictif officiel du collège et correspond au service culturel.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">E · ARCHIVE</span><h4>Version précédente</h4><p class="hidden-text">Une annonce publiée trois jours plus tôt donnait 16 h 30, puis porte la mention « horaire corrigé : 17 h ».</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">F · TÉMOIGNAGE</span><h4>Bibliothécaire</h4><p class="hidden-text">La bibliothécaire confirme qu’elle ouvrira la salle au public à 17 h.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">G · DISTRACTION</span><h4>Affiche décorative</h4><p class="hidden-text">L’affiche est élégante et bien orthographiée, mais son apparence ne prouve ni la date ni la source.</p><button>Ouvrir · 1</button></div>
+      </div>
+      <div class="verdict"></div>
+      <div class="resolution"><h4>Résolution · FIABLE</h4><p>L’heure, le lieu et la date sont confirmés par plusieurs éléments indépendants appartenant à la chaîne officielle. La correction d’horaire est tracée. L’apparence de l’affiche et le repost d’un élève ne suffisent pas seuls.</p><ul><li>Preuves fortes : A + B, A + D, A + F, E pour la traçabilité.</li><li>Limite recevable : le dossier ne prouve pas le contenu exact de l’exposition.</li></ul></div>
+    </div>
+  </article>
+
+  <article class="dossier" data-answer="incomplete">
+    <div class="dossier-head"><small>DOSSIER 02 · INFORMATION TRONQUÉE</small><h3>Le gymnase fermé</h3><div class="claim">AFFIRMATION : « Le gymnase est fermé vendredi. »</div></div>
+    <div class="dossier-body">
+      <div class="budget"><b>Budget :</b><div class="tokens"></div><span class="budget-count">5 jetons</span><button class="open-resolution no-print">Réinitialiser les indices</button></div>
+      <div class="evidence-grid">
+        <div class="evidence"><span class="code">A · CAPTURE</span><h4>Message partagé</h4><p class="hidden-text">La capture montre uniquement : « Gymnase fermé vendredi matin pour intervention technique. »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">B · DOCUMENT COMPLET</span><h4>Note d’origine</h4><p class="hidden-text">La ligne suivante précise : « Réouverture prévue à 14 h ; entraînements du soir maintenus. »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">C · HORODATAGE</span><h4>Heure du partage</h4><p class="hidden-text">La capture a été envoyée à 8 h 07, avant la mise à jour de 10 h 12.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">D · PLANNING</span><h4>Créneaux sportifs</h4><p class="hidden-text">Les créneaux de 17 h et 19 h apparaissent toujours comme confirmés.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">E · MOTIF</span><h4>Intervention</h4><p class="hidden-text">Le technicien doit contrôler l’éclairage de 8 h à 12 h.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">F · RUMEUR</span><h4>Commentaire</h4><p class="hidden-text">Un message affirme : « C’est fermé toute la semaine », sans source ni document.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">G · LIEU</span><h4>Entrée secondaire</h4><p class="hidden-text">L’entrée secondaire reste accessible au personnel, ce qui ne répond pas à la durée de fermeture au public.</p><button>Ouvrir · 1</button></div>
+      </div>
+      <div class="verdict"></div>
+      <div class="resolution"><h4>Résolution · INCOMPLÈTE</h4><p>Le gymnase est bien fermé une partie du vendredi, mais l’affirmation efface la précision « vendredi matin » et la réouverture à 14 h. Elle peut conduire à annuler à tort les activités du soir.</p><ul><li>Preuves fortes : A + B ; B + D ; C explique la circulation de l’ancienne version.</li><li>Limite recevable : une réouverture prévue peut encore être retardée.</li></ul></div>
+    </div>
+  </article>
+
+  <article class="dossier" data-answer="manipulated">
+    <div class="dossier-head"><small>DOSSIER 03 · IMAGE ET CADRAGE</small><h3>La cour inondée</h3><div class="claim">AFFIRMATION : « Une fuite a inondé la cour du collège hier. »</div></div>
+    <div class="dossier-body">
+      <div class="budget"><b>Budget :</b><div class="tokens"></div><span class="budget-count">5 jetons</span><button class="open-resolution no-print">Réinitialiser les indices</button></div>
+      <div class="evidence-grid">
+        <div class="evidence"><span class="code">A · IMAGE PARTAGÉE</span><h4>Recadrage serré</h4><p class="hidden-text">La photo montre une grande flaque et un mur mouillé. Aucun tuyau ni personne n’est visible dans le cadrage.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">B · ORIGINAL</span><h4>Plan large</h4><p class="hidden-text">Le fichier original montre le club cinéma utilisant un tuyau pour tourner une scène de pluie. La zone mouillée est limitée au décor.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">C · LÉGENDE</span><h4>Texte ajouté</h4><p class="hidden-text">La légende « catastrophe au collège » a été ajoutée lors du partage et n’existe pas dans le fichier du club.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">D · DATE</span><h4>Trace temporelle</h4><p class="hidden-text">La photo date bien d’hier, ce qui rend la rumeur plausible sans prouver la fuite.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">E · MAINTENANCE</span><h4>Registre technique</h4><p class="hidden-text">Aucune fuite n’est enregistrée. Une vérification de routine a eu lieu deux semaines plus tôt.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">F · TÉMOIN</span><h4>Membre du club</h4><p class="hidden-text">Une élève explique : « Nous avons arrosé seulement le coin du mur pendant dix minutes. »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">G · MÉTÉO</span><h4>Temps sec</h4><p class="hidden-text">Il n’a pas plu, mais une fuite resterait possible : cette carte ne tranche donc pas seule.</p><button>Ouvrir · 1</button></div>
+      </div>
+      <div class="verdict"></div>
+      <div class="resolution"><h4>Résolution · MANIPULÉE</h4><p>La photo n’est pas nécessairement retouchée pixel par pixel. Le recadrage et la légende retirent le contexte du tournage pour produire un sens trompeur. La manipulation porte ici sur la présentation.</p><ul><li>Preuves fortes : A + B + C ; B + F ; D empêche d’écarter la photo seulement parce qu’elle est récente.</li><li>Limite recevable : le dossier ne permet pas d’identifier la personne ayant ajouté la légende.</li></ul></div>
+    </div>
+  </article>
+
+  <article class="dossier" data-answer="satirical">
+    <div class="dossier-head"><small>DOSSIER 04 · TON ET INTENTION</small><h3>Les chaises-trampolines</h3><div class="claim">AFFIRMATION : « À partir de lundi, toutes les chaises du collège seront remplacées par des trampolines. »</div></div>
+    <div class="dossier-body">
+      <div class="budget"><b>Budget :</b><div class="tokens"></div><span class="budget-count">5 jetons</span><button class="open-resolution no-print">Réinitialiser les indices</button></div>
+      <div class="evidence-grid">
+        <div class="evidence"><span class="code">A · SOURCE</span><h4>Le Bocal du Couloir</h4><p class="hidden-text">Le bandeau présente le site comme « journal satirique des élèves, garanti sans consigne officielle ».</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">B · ARTICLE</span><h4>Promesse impossible</h4><p class="hidden-text">L’article annonce que les devoirs seront désormais corrigés « par rebond contrôlé ».</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">C · PIED DE PAGE</span><h4>Avertissement</h4><p class="hidden-text">Le pied de page indique : « Toute ressemblance avec une décision raisonnable serait accidentelle. »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">D · NOTE OFFICIELLE</span><h4>Inventaire mobilier</h4><p class="hidden-text">La seule note officielle concerne le remplacement de douze chaises cassées par des chaises ordinaires.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">E · ILLUSTRATION</span><h4>Dessin</h4><p class="hidden-text">L’image est un dessin volontairement exagéré montrant des élèves touchant le plafond.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">F · PARTAGE</span><h4>Capture sans bandeau</h4><p class="hidden-text">La capture diffusée dans un groupe a coupé le titre du journal satirique et le pied de page.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">G · DATE</span><h4>Publication</h4><p class="hidden-text">L’article a été publié le 1er avril. Cette date est un indice, mais ne suffit pas à classer tout contenu publié ce jour-là.</p><button>Ouvrir · 1</button></div>
+      </div>
+      <div class="verdict"></div>
+      <div class="resolution"><h4>Résolution · SATIRIQUE</h4><p>Le contenu signale explicitement son intention humoristique et multiplie les éléments absurdes. La capture recadrée peut toutefois faire perdre ces marqueurs et transformer une satire en rumeur.</p><ul><li>Preuves fortes : A + C ; A + B ; D contredit une décision réelle.</li><li>Limite recevable : la satire peut encore tromper lorsqu’elle circule hors de son contexte.</li></ul></div>
+    </div>
+  </article>
+
+  <article class="dossier" data-answer="ai">
+    <div class="dossier-head"><small>DOSSIER 05 · CONTENU SYNTHÉTIQUE</small><h3>Le robot champion</h3><div class="claim">AFFIRMATION : « Cette photo prouve que le collège Horizon a gagné le concours national de robotique. »</div></div>
+    <div class="dossier-body">
+      <div class="budget"><b>Budget :</b><div class="tokens"></div><span class="budget-count">5 jetons</span><button class="open-resolution no-print">Réinitialiser les indices</button></div>
+      <div class="evidence-grid">
+        <div class="evidence"><span class="code">A · IMAGE</span><h4>Podium spectaculaire</h4><p class="hidden-text">L’image montre un podium, un robot et une banderole dont plusieurs lettres sont incohérentes.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">B · PROVENANCE</span><h4>Historique de création</h4><p class="hidden-text">Le fichier provient d’un outil de génération d’images et porte le nom « concept_robot_v4 ».</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">C · CARNET DU CLUB</span><h4>Intention déclarée</h4><p class="hidden-text">Le club note : « Créer une affiche fictive pour imaginer notre participation l’an prochain. »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">D · ORGANISATEUR</span><h4>Liste des lauréats</h4><p class="hidden-text">La liste officielle du concours national ne mentionne pas le collège Horizon.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">E · ÉVÉNEMENT RÉEL</span><h4>Atelier local</h4><p class="hidden-text">Le collège a bien organisé un atelier de robotique local, sans compétition nationale.</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">F · AUTEUR</span><h4>Message du créateur</h4><p class="hidden-text">L’élève auteur précise : « C’était une maquette, pas une photo d’événement. »</p><button>Ouvrir · 1</button></div>
+        <div class="evidence"><span class="code">G · APPARENCE</span><h4>Détails visuels</h4><p class="hidden-text">Des mains et des reflets semblent étranges. Ces anomalies peuvent alerter, mais ne prouvent pas à elles seules l’usage d’une IA.</p><button>Ouvrir · 1</button></div>
+      </div>
+      <div class="verdict"></div>
+      <div class="resolution"><h4>Résolution · GÉNÉRÉE PAR IA</h4><p>La provenance du fichier, le carnet du club et le témoignage du créateur établissent la génération synthétique. La liste officielle montre en outre que l’image ne prouve aucune victoire nationale.</p><ul><li>Preuves fortes : B + C ; B + F ; D vérifie séparément le fait revendiqué.</li><li>Limite recevable : une image générée peut illustrer un projet réel ; son origine synthétique ne suffit pas à conclure que tout le contexte est faux.</li></ul></div>
+    </div>
+  </article>
+</section>
+
+<section id="joueurs" class="view">
+  <article class="panel">
+    <h2>Kit joueurs imprimable</h2>
+    <div class="roles">
+      <div class="card role"><strong class="label">RÔLE 1</strong><h3>Gardien des faits</h3><p>Reformule exactement l’affirmation et empêche le groupe d’ajouter des faits absents.</p></div>
+      <div class="card role"><strong class="label">RÔLE 2</strong><h3>Chasseur de sources</h3><p>Vérifie l’auteur, le document d’origine et la possibilité de remonter à la source.</p></div>
+      <div class="card role"><strong class="label">RÔLE 3</strong><h3>Chronologue</h3><p>Compare les dates, les mises à jour et l’ordre des événements.</p></div>
+      <div class="card role"><strong class="label">RÔLE 4</strong><h3>Observateur d’image</h3><p>Repère cadrage, montage, détails, éléments absents et provenance visuelle.</p></div>
+      <div class="card role"><strong class="label">RÔLE 5</strong><h3>Contradicteur</h3><p>Cherche l’explication concurrente et demande ce qui manque pour être certain.</p></div>
+      <div class="card role"><strong class="label">RÔLE 6</strong><h3>Rapporteur</h3><p>Annonce le verdict, les trois preuves et la limite en moins de 45 secondes.</p></div>
+    </div>
+  </article>
+  <article class="panel">
+    <h2>Grille de preuve</h2>
+    <p class="lede">La grille n’est pas une zone de rangement : chaque case prépare une partie du verdict final.</p>
+    <div class="sheet">
+      <div class="cell"><b>1. Affirmation exacte</b><br>Qui affirme quoi, précisément ?</div>
+      <div class="cell"><b>2. Source</b><br>Qui publie ? Est-ce l’original, une copie ou un repost ?</div>
+      <div class="cell"><b>3. Temps</b><br>Quand le contenu et l’événement ont-ils été produits ? Y a-t-il une mise à jour ?</div>
+      <div class="cell"><b>4. Confirmation</b><br>Quel autre élément indépendant confirme une partie essentielle ?</div>
+      <div class="cell"><b>5. Manque</b><br>Quelle information nécessaire est absente, coupée ou impossible à vérifier ?</div>
+      <div class="cell"><b>6. Biais ou intention</b><br>Le cadrage, le ton, l’auteur ou le contexte orientent-ils la lecture ?</div>
+      <div class="cell"><b>7. Trois preuves</b><br>A : ________ · B : ________ · C : ________</div>
+      <div class="cell"><b>8. Verdict prudent</b><br>Qualification : ________ · Limite : ____________________</div>
+    </div>
+  </article>
+</section>
+
+<section id="resolutions" class="view">
+  <article class="panel">
+    <h2>Fiche de résolution séparée</h2>
+    <p class="lede">Cette section n’est ouverte qu’après le scellement du verdict. Elle ne doit pas être distribuée avec le kit joueurs.</p>
+    <div class="grid">
+      <div class="card span-6"><strong class="label">01 · L’EXPOSITION</strong><h3>FIABLE</h3><p>Chaîne recommandée : bulletin officiel + calendrier + correction tracée ou confirmation de la bibliothécaire.</p></div>
+      <div class="card span-6"><strong class="label">02 · LE GYMNASE</strong><h3>INCOMPLÈTE</h3><p>La fermeture est vraie le matin, mais l’énoncé supprime l’horaire de réouverture et déforme la décision pratique.</p></div>
+      <div class="card span-6"><strong class="label">03 · LA COUR</strong><h3>MANIPULÉE</h3><p>Le recadrage et la légende changent le sens d’une image authentique prise pendant un tournage.</p></div>
+      <div class="card span-6"><strong class="label">04 · LES CHAISES</strong><h3>SATIRIQUE</h3><p>La source, le pied de page et l’exagération signalent une satire ; le recadrage du partage retire ces marqueurs.</p></div>
+      <div class="card span-12"><strong class="label">05 · LE ROBOT</strong><h3>GÉNÉRÉE PAR IA</h3><p>La provenance et les traces de création établissent la génération synthétique. La vérification de la liste officielle traite séparément la prétendue victoire.</p></div>
+    </div>
+  </article>
+</section>
+
+<section id="tests" class="view">
+  <article class="panel">
+    <h2>Protocole de test P0</h2>
+    <div class="test-grid">
+      <div class="card test-box"><strong class="label">COMPRÉHENSION</strong><h3>Qualification spontanée</h3><p>Après un dossier, au moins 80 % des joueurs reformulent correctement la différence entre les cinq catégories.</p></div>
+      <div class="card test-box"><strong class="label">AUTONOMIE</strong><h3>Première manche</h3><p>Le groupe lance et termine un dossier sans explication orale extérieure après lecture des règles.</p></div>
+      <div class="card test-box"><strong class="label">DURÉE</strong><h3>Fenêtre réelle</h3><p>Trois dossiers, installation et score compris : 30 à 45 minutes.</p></div>
+      <div class="card test-box"><strong class="label">JETONS</strong><h3>Choix réel</h3><p>Observer si les joueurs débattent du choix des indices. Si les jetons ne modifient aucune décision, les supprimer ou les transformer.</p></div>
+      <div class="card test-box"><strong class="label">GRILLE</strong><h3>Outil de raisonnement</h3><p>Au moins quatre cases de la grille doivent être utilisées avant le verdict. Noter les cases ignorées.</p></div>
+      <div class="card test-box"><strong class="label">PLAISIR</strong><h3>Pas d’effet scolaire</h3><p>Question finale : « Aviez-vous l’impression d’enquêter ou de passer un contrôle ? »</p></div>
+    </div>
+  </article>
+  <article class="panel">
+    <h2>Feuille d’observation</h2>
+    <div class="sheet">
+      <div class="cell"><b>Groupe / âge / date</b><br><br></div><div class="cell"><b>Dossiers joués</b><br><br></div>
+      <div class="cell"><b>Temps d’explication</b><br><br></div><div class="cell"><b>Temps total</b><br><br></div>
+      <div class="cell"><b>Règle incomprise</b><br><br></div><div class="cell"><b>Indice jamais choisi</b><br><br></div>
+      <div class="cell"><b>Confusion de qualification</b><br><br></div><div class="cell"><b>Moment de débat utile</b><br><br></div>
+      <div class="cell"><b>Moment scolaire ou ennuyeux</b><br><br></div><div class="cell"><b>Correction prioritaire</b><br><br></div>
+      <div class="cell"><b>Score collectif</b><br><br></div><div class="cell"><b>Décision</b><br>GO · CORRECTIF · STOP</div>
+    </div>
+  </article>
+</section>
+</main>
+<footer class="footer">DOSSIER PREUVE · PROTOTYPE P0 · BRIDGE LMI · TITRE PROVISOIRE · 2 AOÛT 2026</footer>
+<script>
+const labels=[['fiable','FIABLE'],['manipulated','MANIPULÉE'],['incomplete','INCOMPLÈTE'],['satirical','SATIRIQUE'],['ai','GÉNÉRÉE PAR IA']];
+function verdictMarkup(){return `<fieldset><legend>Verdict du groupe</legend><div class="radios">${labels.map(([v,l])=>`<label><input type="radio" name="q-${crypto.randomUUID()}" value="${v}"> ${l}</label>`).join('')}</div><div class="grid-proof"><label>Preuve 1<textarea></textarea></label><label>Preuve 2<textarea></textarea></label><label>Preuve 3<textarea></textarea></label><label>Limite ou incertitude<textarea></textarea></label></div><button class="seal" type="button">Sceller le verdict</button><div class="saved">Verdict enregistré. Ouvrez maintenant la résolution.</div><button class="open-resolution" type="button">Ouvrir la résolution</button></fieldset>`}
+document.querySelectorAll('.verdict').forEach(v=>v.innerHTML=verdictMarkup());
+document.querySelectorAll('.dossier').forEach(dossier=>{
+  let remaining=5;const tokenBox=dossier.querySelector('.tokens');const count=dossier.querySelector('.budget-count');
+  const render=()=>{tokenBox.innerHTML='';for(let i=0;i<5;i++){const t=document.createElement('span');t.className='token'+(i>=remaining?' spent':'');tokenBox.appendChild(t)}count.textContent=`${remaining} jeton${remaining>1?'s':''}`};render();
+  dossier.querySelectorAll('.evidence button').forEach(btn=>btn.addEventListener('click',()=>{const card=btn.closest('.evidence');if(card.classList.contains('revealed'))return;if(remaining<=0){btn.textContent='Budget épuisé';return}card.classList.add('revealed');btn.textContent='Ouvert';remaining--;render();if(remaining===0)dossier.querySelectorAll('.evidence:not(.revealed) button').forEach(b=>b.textContent='Budget épuisé')}));
+  const reset=dossier.querySelector('.budget .open-resolution');reset.addEventListener('click',()=>{remaining=5;dossier.querySelectorAll('.evidence').forEach(c=>{c.classList.remove('revealed');c.querySelector('button').textContent='Ouvrir · 1'});dossier.querySelector('.resolution').classList.remove('open');render()});
+  dossier.querySelector('.seal').addEventListener('click',()=>{dossier.querySelector('.saved').style.display='block'});
+  dossier.querySelector('.verdict .open-resolution').addEventListener('click',()=>dossier.querySelector('.resolution').classList.toggle('open'));
+});
+document.querySelectorAll('.toolbar [data-view]').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.toolbar [data-view]').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));document.getElementById(btn.dataset.view).classList.add('active');window.scrollTo({top:document.querySelector('.toolbar').offsetTop-40,behavior:'smooth'})}));
+</script>
+</body>
+</html>
