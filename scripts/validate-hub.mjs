@@ -72,10 +72,10 @@ for (const draft of hubDrafts) {
 }
 
 const decoratedPage = readDraftHtml('hub-lmi-editions/26-feodalisme-religieux.html');
-if (!decoratedPage.includes("'/feodalisme-religieux-fragmentation': '26-feodalisme-religieux.html'")) {
+if (!decoratedPage.includes('"/feodalisme-religieux-fragmentation":"26-feodalisme-religieux.html"')) {
   throw new Error('Legacy Féodalisme religieux route alias is missing');
 }
-if (!decoratedPage.includes("'/le-fleuve-sans-nom': '32-le-fleuve-sans-nom.html'")) {
+if (!decoratedPage.includes('"/le-fleuve-sans-nom":"32-le-fleuve-sans-nom.html"')) {
   throw new Error('Le Fleuve sans nom route alias is missing');
 }
 if (!decoratedPage.includes('lmi-route-breadcrumb')) {
