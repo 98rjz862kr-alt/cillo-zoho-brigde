@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMI Éditions - Choisir son pôle</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --lmi-blue: #143B7D;
+      --lmi-night: #0F2747;
+      --lmi-ochre: #CC7722;
+      --lmi-sand: #75553F;
+      --lmi-gold: #D4AF37;
+      --lmi-ivory: #F6F1E8;
+      --lmi-stone: #C9C3BA;
+      --ink: #1c2635;
+      --white: #fffaf1;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--lmi-ivory);
+      line-height: 1.55;
+    }
+
+    .page {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(20, 59, 125, .95), rgba(15, 39, 71, .92)),
+        var(--lmi-blue);
+      color: var(--white);
+    }
+
+    .shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    header { padding: 28px 0 18px; border-bottom: 1px solid rgba(246, 241, 232, .24); }
+
+    .brand {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 18px;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .brand strong { font-size: clamp(1.25rem, 2vw, 1.65rem); letter-spacing: 0; text-transform: uppercase; }
+    .brand span { color: var(--lmi-gold); font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr);
+      gap: 36px;
+      align-items: end;
+      padding: 64px 0 48px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 18px;
+      color: var(--lmi-gold);
+      font: 700 .8rem/1.2 Arial, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 { margin: 0; max-width: 760px; font-size: clamp(2.35rem, 5vw, 5.1rem); line-height: .98; letter-spacing: 0; }
+
+    .lead {
+      margin: 22px 0 0;
+      max-width: 720px;
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+      color: rgba(255, 250, 241, .9);
+    }
+
+    .source-note {
+      border-left: 4px solid var(--lmi-gold);
+      padding: 18px 0 18px 20px;
+      color: rgba(255, 250, 241, .9);
+      background: rgba(255, 250, 241, .06);
+    }
+
+    .source-note strong { display: block; color: var(--white); margin-bottom: 6px; font-size: 1.12rem; }
+
+    main { background: var(--lmi-ivory); color: var(--ink); }
+    .section { padding: 54px 0; }
+    .section h2 { margin: 0 0 18px; color: var(--lmi-night); font-size: clamp(1.7rem, 2.6vw, 2.5rem); letter-spacing: 0; }
+    .section-intro { max-width: 760px; margin: 0 0 28px; color: #3f4855; font-size: 1.05rem; }
+
+    .poles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+
+    .pole {
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 22px;
+      border-top: 5px solid var(--lmi-gold);
+      background: var(--white);
+      box-shadow: 0 18px 36px rgba(15, 39, 71, .08);
+    }
+
+    .pole h3 { margin: 0 0 12px; color: var(--lmi-blue); font-size: 1.38rem; letter-spacing: 0; }
+    .pole p { margin: 0; color: #394351; }
+
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      margin-top: 22px;
+      padding: 8px 12px;
+      border: 1px solid rgba(20, 59, 125, .22);
+      color: var(--lmi-blue);
+      font: 700 .78rem/1.1 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .routes {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--lmi-stone);
+      border: 1px solid var(--lmi-stone);
+    }
+
+    .route { min-height: 210px; padding: 20px; background: var(--lmi-ivory); }
+    .route strong { display: block; color: var(--lmi-night); margin-bottom: 10px; font-size: 1.05rem; }
+    .route p { margin: 0 0 16px; color: #46505d; }
+
+    .action {
+      display: inline-flex;
+      padding: 8px 11px;
+      border: 1px solid var(--lmi-ochre);
+      color: var(--lmi-sand);
+      font: 700 .78rem/1 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .footer-band { background: var(--lmi-night); color: rgba(255, 250, 241, .88); padding: 34px 0; }
+    .footer-band .shell { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+    .footer-band strong { color: var(--white); }
+
+    @media (max-width: 900px) {
+      .hero, .poles, .routes { grid-template-columns: 1fr; }
+      .hero { padding-top: 44px; }
+      .pole, .route { min-height: auto; }
+    }
+  </style>
+<style>.bridge-status{position:sticky;top:0;z-index:9999;background:#8b1e2d;color:#fff;padding:8px 14px;text-align:center;font:800 10px/1.3 Arial,sans-serif;letter-spacing:.09em}.bridge-status a{color:#fff;margin-left:12px}</style></head>
+<body><div class="bridge-status">BROUILLON PRIVÉ · BRIDGE.LESMOTSIMAGES.COM · VALIDATION HUMAINE OBLIGATOIRE <a href="00-sommaire-hub-lmi-editions.html">Sommaire</a></div>
+  <div class="page">
+    <header>
+      <div class="shell brand">
+        <strong>LMI Éditions</strong>
+        <span>Le verbe par l'image</span>
+      </div>
+    </header>
+
+    <section class="shell hero" aria-labelledby="titre-page">
+      <div>
+        <span class="eyebrow">Hub LMI - P3</span>
+        <h1 id="titre-page">Choisir le bon pôle LMI</h1>
+        <p class="lead">Le hub LMI Éditions aide à comprendre l'écosystème, à partir du verbe et de l'image, puis à rejoindre le pôle le plus juste selon l'intention du visiteur.</p>
+      </div>
+      <aside class="source-note">
+        <strong>LMI Éditions reste le point source.</strong>
+        Maison, Food et Musée prolongent l'esprit LMI sans se confondre avec le hub, ni remplacer son rôle d'orientation.
+      </aside>
+    </section>
+  </div>
+
+  <main>
+    <section class="section">
+      <div class="shell">
+        <h2>Quatre entrées, une même exigence</h2>
+        <p class="section-intro">Chaque pôle porte un territoire distinct. La page P3 sert à choisir le bon point d'entrée, sans diluer LMI Éditions dans les pôles associés.</p>
+        <div class="poles">
+          <article class="pole">
+            <div>
+              <h3>LMI Éditions</h3>
+              <p>Le point source : il donne le cadre, le ton, les textes et les repères qui structurent l'ensemble LMI.</p>
+            </div>
+            <span class="tag">Lire le point source</span>
+          </article>
+          <article class="pole">
+            <div>
+              <h3>LMI Maison</h3>
+              <p>Un prolongement vers les lieux, les objets, les ambiances et les usages sensibles de l'habiter.</p>
+            </div>
+            <span class="tag">Explorer Maison</span>
+          </article>
+          <article class="pole">
+            <div>
+              <h3>LMI Food</h3>
+              <p>Un territoire éditorial autour de la culture du goût, des récits de table et des signes visuels culinaires.</p>
+            </div>
+            <span class="tag">Explorer Food</span>
+          </article>
+          <article class="pole">
+            <div>
+              <h3>LMI Musée</h3>
+              <p>La dimension patrimoniale : mémoire, transmission et mise en regard des oeuvres, des images et des récits.</p>
+            </div>
+            <span class="tag">Explorer Musée</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="parcours">
+      <div class="shell">
+        <h2 id="parcours">Partir du besoin du visiteur</h2>
+        <p class="section-intro">Le choix peut se faire par intention plutôt que par arborescence. Les libellés ci-dessous restent inertes jusqu'à validation des destinations officielles.</p>
+        <div class="routes">
+          <div class="route">
+            <strong>Comprendre l'ensemble</strong>
+            <p>Revenir au hub pour saisir la logique commune et le rôle de LMI Éditions.</p>
+            <span class="action">LMI Éditions</span>
+          </div>
+          <div class="route">
+            <strong>Situer un lieu</strong>
+            <p>Approcher les formes sensibles de l'habiter, de l'objet et de l'ambiance.</p>
+            <span class="action">LMI Maison</span>
+          </div>
+          <div class="route">
+            <strong>Approcher le goût</strong>
+            <p>Lire la table comme récit, culture et expérience visuelle.</p>
+            <span class="action">LMI Food</span>
+          </div>
+          <div class="route">
+            <strong>Relier mémoire et images</strong>
+            <p>Entrer par la transmission, les oeuvres, les signes et les récits patrimoniaux.</p>
+            <span class="action">LMI Musée</span>
+          </div>
+          <div class="route">
+            <strong>Hésiter encore</strong>
+            <p>Commencer par le point source, puis avancer vers le pôle le plus proche de l'intention.</p>
+            <span class="action">Revenir au hub</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-band">
+    <div class="shell">
+      <strong>LMI Éditions - Le verbe par l'image</strong>
+      <span>Page P3 non active, prête pour contrôle privé avant validation.</span>
+    </div>
+  </footer>
+<script>(()=>{const q=location.search||'';document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href')||'';if(/\.html(?:#.*)?$/i.test(h)){const [f,frag='']=h.split('#');a.href='/atelier/file/'+encodeURIComponent('hub-lmi-editions/'+f.split('/').pop())+q+(frag?'#'+frag:'')}})})();</script></body>
+</html>
