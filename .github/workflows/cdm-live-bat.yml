@@ -1,0 +1,43 @@
+name: CDM Live BAT
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/cdm-live-bat.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify Bridge deployment and CDM BAT count
+        run: |
+          url="https://bridge.lesmotsimages.com/health"
+          ok=0
+          for attempt in $(seq 1 36); do
+            code=$(curl -sSL --max-time 30 -o /tmp/health.json -w '%{http_code}' "$url" || true)
+            echo "Attempt $attempt: HTTP $code"
+            cat /tmp/health.json || true
+            if [ "$code" = "200" ] && python - <<'PY'
+import json
+from pathlib import Path
+p = Path('/tmp/health.json')
+try:
+    data = json.loads(p.read_text())
+except Exception:
+    raise SystemExit(1)
+assert data.get('ok') is True
+assert int(data.get('drafts', 0)) >= 36
+PY
+            then
+              ok=1
+              break
+            fi
+            sleep 10
+          done
+          test "$ok" = "1"
+          curl -fsSL --max-time 30 https://bridge.lesmotsimages.com/atelier -o /tmp/atelier.html
+          grep 'Bridge LMI' /tmp/atelier.html
+          grep 'Mot de passe administrateur' /tmp/atelier.html
