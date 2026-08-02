@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex,nofollow,noarchive"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LMI Éditions - Accueil hub</title>
+  <meta name="description" content="LMI Éditions présente le hub source de l'écosystème LMI et oriente vers LMI Maison, LMI Food et LMI Musée sans mélanger les pôles.">
+  <style>
+    :root {
+      --bleu-lmi: #143B7D;
+      --bleu-nuit: #0F2747;
+      --ocre: #CC7722;
+      --sable: #75553F;
+      --or: #D4AF37;
+      --ivoire: #F6F1E8;
+      --pierre: #C9C3BA;
+      --texte: #182235;
+      --blanc: #FFFFFF;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--texte);
+      background: var(--ivoire);
+      line-height: 1.55;
+    }
+
+    .page {
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(20, 59, 125, 0.94), rgba(15, 39, 71, 0.9)),
+        linear-gradient(90deg, rgba(212, 175, 55, 0.12), rgba(204, 119, 34, 0.08));
+      color: var(--blanc);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .brand {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand strong {
+      font-size: 1.08rem;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .brand span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.82rem;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 0.92rem;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    nav span {
+      border-bottom: 1px solid rgba(212, 175, 55, 0.46);
+      padding-bottom: 2px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 46px;
+      align-items: center;
+      min-height: 610px;
+      padding: 56px 0 72px;
+    }
+
+    .eyebrow {
+      color: var(--or);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin: 0 0 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5.15rem);
+      line-height: 0.98;
+      letter-spacing: 0;
+      max-width: 820px;
+    }
+
+    .lead {
+      margin: 28px 0 0;
+      max-width: 720px;
+      font-size: 1.18rem;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .cta {
+      min-height: 44px;
+      border-radius: 6px;
+      padding: 10px 15px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--blanc);
+      font-weight: 700;
+    }
+
+    .cta.primary {
+      background: var(--or);
+      color: var(--bleu-nuit);
+      border-color: var(--or);
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 8px;
+      padding: 24px;
+      backdrop-filter: blur(8px);
+    }
+
+    .panel h2 {
+      margin: 0 0 18px;
+      font-size: 1.22rem;
+      color: var(--or);
+      letter-spacing: 0;
+    }
+
+    .pole {
+      display: grid;
+      gap: 4px;
+      padding: 16px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .pole:first-of-type { border-top: 0; padding-top: 0; }
+
+    .pole strong {
+      font-size: 1rem;
+      color: var(--blanc);
+    }
+
+    .pole span {
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 0.94rem;
+    }
+
+    .section {
+      background: var(--blanc);
+      color: var(--texte);
+      padding: 56px 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 28px;
+    }
+
+    .section h2 {
+      margin: 0 0 12px;
+      color: var(--bleu-lmi);
+      font-size: 1.34rem;
+    }
+
+    .section p {
+      margin: 0;
+      color: #465064;
+    }
+
+    footer {
+      background: var(--ivoire);
+      color: var(--sable);
+      padding: 24px 0;
+      font-size: 0.9rem;
+      border-top: 1px solid var(--pierre);
+    }
+
+    @media (max-width: 840px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 44px 0 56px;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+<style>.bridge-status{position:sticky;top:0;z-index:9999;background:#8b1e2d;color:#fff;padding:8px 14px;text-align:center;font:800 10px/1.3 Arial,sans-serif;letter-spacing:.09em}.bridge-status a{color:#fff;margin-left:12px}</style></head>
+<body><div class="bridge-status">BROUILLON PRIVÉ · BRIDGE.LESMOTSIMAGES.COM · VALIDATION HUMAINE OBLIGATOIRE <a href="00-sommaire-hub-lmi-editions.html">Sommaire</a></div>
+  <main>
+    <section class="page">
+      <div class="wrap">
+        <header aria-label="Repères du hub LMI">
+          <div class="brand">
+            <strong>LMI Éditions</strong>
+            <span>Le verbe par l'image</span>
+          </div>
+          <nav aria-label="Parcours principal">
+            <span>Comprendre</span>
+            <span>Choisir son pôle</span>
+            <span>Pôles associés</span>
+            <span>Contact</span>
+          </nav>
+        </header>
+
+        <div class="hero">
+          <div>
+            <p class="eyebrow">Hub source de l'écosystème LMI</p>
+            <h1>LMI Éditions</h1>
+            <p class="lead">Un point d'entrée clair pour comprendre la démarche LMI, distinguer ses pôles et rejoindre le bon parcours sans confondre édition, maison, food et musée.</p>
+            <div class="cta-row" aria-label="Orientations non actives">
+              <span class="cta primary">Comprendre LMI Éditions</span>
+              <span class="cta">Choisir son pôle</span>
+              <span class="cta">Découvrir les pôles associés</span>
+            </div>
+          </div>
+
+          <aside class="panel" aria-label="Pôles LMI">
+            <h2>Chaque pôle garde son rôle</h2>
+            <div class="pole">
+              <strong>LMI Éditions</strong>
+              <span>Le pôle source : récit, orientation, cohérence éditoriale.</span>
+            </div>
+            <div class="pole">
+              <strong>LMI Maison</strong>
+              <span>Un prolongement autour des lieux, usages et atmosphères.</span>
+            </div>
+            <div class="pole">
+              <strong>LMI Food</strong>
+              <span>Une expression culinaire à présenter sans donnée pratique inventée.</span>
+            </div>
+            <div class="pole">
+              <strong>LMI Musée</strong>
+              <span>Un univers culturel à maintenir sous réserve de droits, crédits et modalités officielles.</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Repères de lecture">
+      <div class="wrap section-grid">
+        <article>
+          <h2>Lire LMI</h2>
+          <p>L'accueil donne d'abord le cadre : LMI Éditions organise le sens, puis oriente vers les autres pôles quand le visiteur sait ce qu'il cherche.</p>
+        </article>
+        <article>
+          <h2>Avancer sans confusion</h2>
+          <p>Les pôles sont nommés ensemble mais restent séparés : aucun parcours ne transforme le hub en boutique, catalogue, menu ou guichet pratique.</p>
+        </article>
+        <article>
+          <h2>Passer au contrôle</h2>
+          <p>Cette version sert de source publique candidate avant pose privée, captures desktop/mobile et validation humaine avant publication.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">LMI Éditions - Accueil hub source - Statut : BROUILLON avant activation.</div>
+  </footer>
+<script>(()=>{const q=location.search||'';document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href')||'';if(/\.html(?:#.*)?$/i.test(h)){const [f,frag='']=h.split('#');a.href='/atelier/file/'+encodeURIComponent('hub-lmi-editions/'+f.split('/').pop())+q+(frag?'#'+frag:'')}})})();</script></body>
+</html>
