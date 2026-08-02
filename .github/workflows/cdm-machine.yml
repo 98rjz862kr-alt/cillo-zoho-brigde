@@ -89,3 +89,35 @@ jobs:
           curl -fsS "http://127.0.0.1:3010/atelier/file/revue-des-satires%2Fpouvoir-et-miroirs-recette.html?password=ci-only" | grep 'La Revue des Satires — Pouvoir et miroirs — Recette humaine'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Machine de contrôle'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Contrôle global'
+
+  live-cdm-bat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify CDM BAT deployment on Bridge
+        run: |
+          url="https://bridge.lesmotsimages.com/health"
+          ok=0
+          for attempt in $(seq 1 36); do
+            code=$(curl -sSL --max-time 30 -o /tmp/health.json -w '%{http_code}' "$url" || true)
+            echo "Attempt $attempt: HTTP $code"
+            cat /tmp/health.json || true
+            if [ "$code" = "200" ] && python - <<'PY'
+import json
+from pathlib import Path
+try:
+    data = json.loads(Path('/tmp/health.json').read_text())
+except Exception:
+    raise SystemExit(1)
+assert data.get('ok') is True
+assert int(data.get('drafts', 0)) >= 36
+PY
+            then
+              ok=1
+              break
+            fi
+            sleep 10
+          done
+          test "$ok" = "1"
+          curl -fsSL --max-time 30 https://bridge.lesmotsimages.com/atelier -o /tmp/atelier.html
+          grep 'Bridge LMI' /tmp/atelier.html
+          grep 'Mot de passe administrateur' /tmp/atelier.html
