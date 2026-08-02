@@ -1,6 +1,7 @@
 import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { decorateHubDraft } from './hub-premium.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,7 +47,8 @@ export function readDraftHtml(relativePath) {
 
   try {
     if (!statSync(absolutePath).isFile()) return null;
-    return readFileSync(absolutePath, 'utf8');
+    const html = readFileSync(absolutePath, 'utf8');
+    return decorateHubDraft(decoded, html);
   } catch {
     return null;
   }
