@@ -96,5 +96,8 @@ jobs:
           curl -fsS "http://127.0.0.1:3010/atelier/file/hub-lmi-editions%2F26-feodalisme-religieux.html?password=ci-only" | grep 'data-lmi-runtime="premium-v2"'
           curl -fsS "http://127.0.0.1:3010/atelier/file/hub-lmi-editions%2F26-feodalisme-religieux.html?password=ci-only" | grep 'lmi-route-breadcrumb'
           curl -fsS "http://127.0.0.1:3010/atelier/file/hub-lmi-editions%2F26-feodalisme-religieux.html?password=ci-only" | grep 'feodalisme-religieux-fragmentation'
+          curl -fsS "http://127.0.0.1:3010/atelier/file/rokku-site%2F00-controle-prepublication.html?password=ci-only" | grep 'SOCLE ROKKU RESTAURÉ'
+          curl -fsS "http://127.0.0.1:3010/atelier/file/rokku-site%2F01-bat-boutique.html?password=ci-only" | grep 'COMMANDES ET PAIEMENTS DÉSACTIVÉS'
+          curl -fsS "http://127.0.0.1:3010/atelier/file/rokku-site%2F01-bat-boutique.html?password=ci-only" | grep 'Le plaisir d’offrir'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Machine de contrôle'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Contrôle global'
