@@ -1,0 +1,201 @@
+{
+  "project": {
+    "code": "LMI-DP-P0",
+    "title": "Dossier Preuve",
+    "sourceTitle": "PREUVE !",
+    "titleStatus": "provisional-pending-legal-clearance",
+    "propertyBoundary": "Distinct de Le Droit de Regarder",
+    "format": "paper-only",
+    "screenRequired": false,
+    "targetAge": {
+      "min": 10,
+      "max": 15,
+      "priority": true
+    },
+    "players": {
+      "min": 2,
+      "max": 6,
+      "teamsAllowed": true
+    },
+    "durationMinutes": {
+      "min": 30,
+      "max": 45
+    },
+    "prototypeStage": "P0",
+    "publicationState": "private-draft",
+    "humanValidationRequired": true
+  },
+  "promise": "Faire enquêter, discuter et justifier une décision sur des faits, sources, indices, biais, images suspectes, traces temporelles et contenus liés à l'IA sans transformer la partie en exercice scolaire lourd.",
+  "coreLoop": [
+    "read-claim",
+    "identify-verification-needs",
+    "spend-proof-tokens",
+    "open-selected-clues",
+    "complete-proof-grid",
+    "choose-qualification",
+    "cite-three-proofs",
+    "state-one-limit",
+    "open-resolution",
+    "score"
+  ],
+  "qualifications": [
+    {
+      "id": "reliable",
+      "label": "FIABLE",
+      "definition": "La source et les éléments essentiels sont identifiables, cohérents et recoupés."
+    },
+    {
+      "id": "manipulated",
+      "label": "MANIPULÉE",
+      "definition": "Le contenu est modifié, recadré, remonté ou présenté de manière à orienter le sens."
+    },
+    {
+      "id": "incomplete",
+      "label": "INCOMPLÈTE",
+      "definition": "Une information vraie est amputée d'un élément nécessaire à une décision correcte."
+    },
+    {
+      "id": "satirical",
+      "label": "SATIRIQUE",
+      "definition": "Le contenu imite l'information pour faire rire, critiquer ou exagérer, sans constituer une consigne réelle."
+    },
+    {
+      "id": "ai-generated",
+      "label": "GÉNÉRÉE PAR IA",
+      "definition": "Le contenu a été produit synthétiquement ; sa provenance et les faits revendiqués doivent être vérifiés séparément."
+    }
+  ],
+  "prototypeRules": {
+    "facilitatorRequired": false,
+    "rotatingReaderAllowed": true,
+    "standardDossiersPerGame": 3,
+    "cluesPerDossier": 7,
+    "proofTokensPerDossier": 5,
+    "allCluesMayBeOpened": false,
+    "proofsRequiredForVerdict": 3,
+    "uncertaintyRequired": true,
+    "blackAndWhitePlayable": true,
+    "colorMayCarryCriticalMeaning": false
+  },
+  "scoring": {
+    "exactQualification": 3,
+    "validProof": 1,
+    "maxValidProofs": 3,
+    "statedLimit": 1,
+    "inventedCertaintyPenalty": -1,
+    "maxInventedCertaintyPenalties": 2,
+    "maxPerDossier": 7
+  },
+  "dossiers": [
+    {
+      "id": "DP-01",
+      "title": "L'exposition de vendredi",
+      "answer": "reliable",
+      "difficulty": "tutorial"
+    },
+    {
+      "id": "DP-02",
+      "title": "Le gymnase fermé",
+      "answer": "incomplete",
+      "difficulty": "standard"
+    },
+    {
+      "id": "DP-03",
+      "title": "La cour inondée",
+      "answer": "manipulated",
+      "difficulty": "standard"
+    },
+    {
+      "id": "DP-04",
+      "title": "Les chaises-trampolines",
+      "answer": "satirical",
+      "difficulty": "standard"
+    },
+    {
+      "id": "DP-05",
+      "title": "Le robot champion",
+      "answer": "ai-generated",
+      "difficulty": "standard"
+    }
+  ],
+  "productionProtocol": {
+    "principle": "Continuité du système de jeu > ajout isolé séduisant",
+    "agentMode": "production-assistant-under-editorial-supervision",
+    "freeGenerationForbidden": true,
+    "states": [
+      "source",
+      "intention",
+      "architecture",
+      "execution",
+      "verification",
+      "correction",
+      "archive"
+    ],
+    "oneControlledLotAtATime": true,
+    "correctionScope": "Correct only the identified drift; do not restart the design direction."
+  },
+  "antiDrift": {
+    "rejectIf": [
+      "Dossier Preuve is merged with Le Droit de Regarder",
+      "The title is presented as legally cleared",
+      "A facilitator becomes mandatory without human approval",
+      "One clue resolves a dossier alone",
+      "All clues can be opened without a resource decision",
+      "The player card reveals the answer",
+      "The proof grid becomes passive storage",
+      "Color is required to understand the rule",
+      "Real persons, brands or current events are introduced",
+      "The content becomes a heavy school exercise",
+      "The five qualifications are reduced or renamed without human approval"
+    ],
+    "acceptanceStatuses": [
+      "validated-reference",
+      "to-correct",
+      "strong-but-nonconforming",
+      "rejected-production"
+    ]
+  },
+  "brand": {
+    "primary": "#143B7D",
+    "ochre": "#CC7722",
+    "sand": "#75553F",
+    "gold": "#D4AF37",
+    "nightBlue": "#0F2747",
+    "ivory": "#F6F1E8",
+    "matteGold": "#C8A96B",
+    "stoneGrey": "#C9C3BA",
+    "forbidden": [
+      "neon-violet",
+      "cyberpunk-turquoise",
+      "fluorescent-pink",
+      "off-charter-green",
+      "video-game-armor",
+      "rpg-fantasy-render",
+      "overloaded-parchment-background",
+      "global-marketing-board"
+    ]
+  },
+  "testGates": {
+    "qualificationUnderstandingRate": 0.8,
+    "firstRoundWithoutExternalExplanation": true,
+    "rulesExplanationMaxMinutes": 10,
+    "standardDurationMinMinutes": 30,
+    "standardDurationMaxMinutes": 45,
+    "proofGridMinimumUsedCells": 4,
+    "tokenChoiceMustAffectDecision": true,
+    "playerExperienceQuestion": "Aviez-vous l'impression d'enquêter ou de passer un contrôle ?",
+    "decisionValues": [
+      "GO",
+      "CORRECTIF",
+      "STOP"
+    ]
+  },
+  "requiredHumanArbitrations": [
+    "Confirm Dossier Preuve as the principal working-title track pending legal review",
+    "Validate full autonomy without a mandatory facilitator",
+    "Validate simultaneous testing of the five qualifications",
+    "Confirm 10-15 as the sole priority target for P0",
+    "Decide whether proof tokens create meaningful choices after observation",
+    "Approve P0 terminology, scoring and print readability"
+  ]
+}
