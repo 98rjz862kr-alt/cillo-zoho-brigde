@@ -14,6 +14,7 @@ const playerKit = readDraftHtml('dossier-preuve/01-kit-joueurs-imprimable-p0.htm
 const resolutions = readDraftHtml('dossier-preuve/02-resolutions-p0.html');
 const testProtocol = readDraftHtml('dossier-preuve/03-protocole-test-p0.html');
 const printableCases = readDraftHtml('dossier-preuve/04-dossiers-indices-imprimables-p0.html');
+const assemblyManifest = readDraftHtml('dossier-preuve/05-manifeste-assemblage-p0.html');
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -22,9 +23,9 @@ function assert(condition, message) {
 assert(config.project.code === 'LMI-DP-P0', 'Invalid project code');
 assert(config.project.propertyBoundary === 'Distinct de Le Droit de Regarder', 'Property boundary missing');
 assert(config.project.humanValidationRequired === true, 'Human validation lock missing');
-assert(config.project.publicationState === 'private-draft-human-approved-for-p0-production', 'P0 production approval state is missing');
+assert(config.project.publicationState === 'private-draft-human-approved-for-p0-testing', 'P0 testing approval state is missing');
 assert(config.validation.status === 'human-approved', 'Human approval was not recorded');
-assert(config.validation.nextGate === 'human-validation-of-printable-p0-kit', 'Unexpected next human gate');
+assert(config.validation.nextGate === 'first-human-playtest-p0', 'Unexpected next human gate');
 assert(config.project.screenRequired === false, 'P0 must remain paper-only');
 assert(config.prototypeRules.facilitatorRequired === false, 'P0 must remain autonomous');
 assert(config.prototypeRules.blackAndWhitePlayable === true, 'Black-and-white requirement missing');
@@ -36,13 +37,15 @@ assert(config.prototypeRules.proofTokensPerDossier < config.prototypeRules.clues
 assert(config.scoring.maxPerDossier === 7, 'Unexpected scoring maximum');
 assert(Array.isArray(config.requiredHumanArbitrations) && config.requiredHumanArbitrations.length === 0, 'Approved arbitrations must be cleared');
 assert(Array.isArray(config.pendingHumanValidation) && config.pendingHumanValidation.length === 3, 'Pending validation gates are incomplete');
+assert(config.validation.scope.some((item) => item.includes('Printable P0 player kit')), 'Printable P0 kit approval scope missing');
 
 for (const [name, html] of [
   ['BAT', bat],
   ['player kit', playerKit],
   ['resolutions', resolutions],
   ['test protocol', testProtocol],
-  ['printable cases', printableCases]
+  ['printable cases', printableCases],
+  ['assembly manifest', assemblyManifest]
 ]) {
   assert(html, `${name} is missing`);
   assert(/noindex,nofollow,noarchive/i.test(html), `Robots lock missing from ${name}`);
@@ -81,7 +84,13 @@ for (const dossier of ['DP-01', 'DP-02', 'DP-03', 'DP-04', 'DP-05']) {
 assert((printableCases.match(/CARTE INDICE · OUVERTURE = 1 JETON/g) || []).length === 35, 'Printable kit must contain exactly 35 clue cards');
 assert(printableCases.includes('63 × 88 mm'), 'Printable clue-card format is missing');
 
-for (const html of [bat, playerKit, resolutions, testProtocol, printableCases]) {
+assert(assemblyManifest.includes('MANIFESTE D’ASSEMBLAGE'), 'Assembly manifest identity missing');
+assert(assemblyManifest.includes('35') && assemblyManifest.includes('Cartes Indice'), 'Assembly manifest must count thirty-five clue cards');
+assert(assemblyManifest.includes('Lot Résolutions'), 'Separated resolution lot missing from assembly manifest');
+assert(assemblyManifest.includes('PRÊT') && assemblyManifest.includes('À CORRIGER') && assemblyManifest.includes('BLOQUÉ'), 'Assembly decision gates missing');
+assert(assemblyManifest.includes('première session de test humain P0'), 'First human playtest gate missing from assembly manifest');
+
+for (const html of [bat, playerKit, resolutions, testProtocol, printableCases, assemblyManifest]) {
   assert(!html.includes('mot de passe public'), 'Public password language forbidden');
   for (const forbidden of config.brand.forbidden) {
     const normalized = forbidden.replaceAll('-', ' ');
@@ -89,4 +98,4 @@ for (const html of [bat, playerKit, resolutions, testProtocol, printableCases]) 
   }
 }
 
-console.log('Validated Dossier Preuve P0 human approval, private BAT, printable player kit, separated resolutions, test protocol, five printable dossiers and thirty-five clue cards.');
+console.log('Validated Dossier Preuve P0 for private human playtesting: BAT, player kit, separated resolutions, protocol, five dossier sheets, thirty-five clue cards and assembly manifest.');
