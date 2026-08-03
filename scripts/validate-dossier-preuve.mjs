@@ -12,6 +12,7 @@ const config = JSON.parse(readFileSync(configPath, 'utf8'));
 const bat = readDraftHtml('dossier-preuve/00-bat-prototype-p0.html');
 const playerKit = readDraftHtml('dossier-preuve/01-kit-joueurs-imprimable-p0.html');
 const resolutions = readDraftHtml('dossier-preuve/02-resolutions-p0.html');
+const testProtocol = readDraftHtml('dossier-preuve/03-protocole-test-p0.html');
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -35,7 +36,7 @@ assert(config.scoring.maxPerDossier === 7, 'Unexpected scoring maximum');
 assert(Array.isArray(config.requiredHumanArbitrations) && config.requiredHumanArbitrations.length === 0, 'Approved arbitrations must be cleared');
 assert(Array.isArray(config.pendingHumanValidation) && config.pendingHumanValidation.length === 3, 'Pending validation gates are incomplete');
 
-for (const [name, html] of [['BAT', bat], ['player kit', playerKit], ['resolutions', resolutions]]) {
+for (const [name, html] of [['BAT', bat], ['player kit', playerKit], ['resolutions', resolutions], ['test protocol', testProtocol]]) {
   assert(html, `${name} is missing`);
   assert(/noindex,nofollow,noarchive/i.test(html), `Robots lock missing from ${name}`);
 }
@@ -56,7 +57,15 @@ for (const expected of ['FIABLE', 'INCOMPLÈTE', 'MANIPULÉE', 'SATIRIQUE', 'GÉ
   assert(resolutions.includes(expected), `Resolution missing: ${expected}`);
 }
 
-for (const html of [bat, playerKit, resolutions]) {
+assert(testProtocol.includes('PROTOCOLE DE TEST'), 'Test protocol identity missing');
+assert(testProtocol.includes('au moins 80 % des joueurs'), 'Qualification understanding threshold missing');
+assert(testProtocol.includes('Aviez-vous l’impression d’enquêter ou de passer un contrôle ?'), 'Player experience question missing');
+for (const decision of ['GO', 'CORRECTIF', 'STOP']) {
+  assert(testProtocol.includes(decision), `Test decision missing: ${decision}`);
+}
+assert(testProtocol.includes('Validation humaine obligatoire avant P1'), 'Next human gate missing from test protocol');
+
+for (const html of [bat, playerKit, resolutions, testProtocol]) {
   assert(!html.includes('mot de passe public'), 'Public password language forbidden');
   for (const forbidden of config.brand.forbidden) {
     const normalized = forbidden.replaceAll('-', ' ');
@@ -64,4 +73,4 @@ for (const html of [bat, playerKit, resolutions]) {
   }
 }
 
-console.log('Validated Dossier Preuve P0 human approval, private BAT, printable player kit, separated resolutions and five-qualification coverage.');
+console.log('Validated Dossier Preuve P0 human approval, private BAT, printable player kit, separated resolutions, test protocol and five-qualification coverage.');
