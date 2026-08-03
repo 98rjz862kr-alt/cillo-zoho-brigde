@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node server.js",
     "start": "node server.js",
-    "test": "node scripts/validate-pages.mjs && node scripts/validate-hub.mjs"
+    "test": "node scripts/validate-pages.mjs && node scripts/validate-hub.mjs && node scripts/validate-dossier-preuve.mjs"
   },
   "dependencies": {},
   "engines": {
