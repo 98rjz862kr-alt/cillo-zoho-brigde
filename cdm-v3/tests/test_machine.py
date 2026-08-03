@@ -24,12 +24,25 @@ def test_machine_is_primary_validation_surface():
         assert page.status_code == 200
         assert "Machine de contrôle" in page.text
         assert "/machine-api.js" in page.text
+        assert "/lmi-theme.css" in page.text
+        assert "/lmi-brand.svg" in page.text
+        assert "LE VERBE PAR L’IMAGE." in page.text
         assert page.headers["x-robots-tag"] == "noindex, nofollow, noarchive"
 
         script = client.get("/machine-api.js")
         assert script.status_code == 200
         assert "/api/machine" in script.text
         assert script.headers["cache-control"] == "no-store"
+
+        theme = client.get("/lmi-theme.css")
+        assert theme.status_code == 200
+        assert "#143B7D" in theme.text
+        assert "#C9A13B" in theme.text
+
+        brand = client.get("/lmi-brand.svg")
+        assert brand.status_code == 200
+        assert "LES MOTS IMAGES" in brand.text
+        assert "LE VERBE PAR L’IMAGE." in brand.text
 
 
 def test_machine_state_and_health():
