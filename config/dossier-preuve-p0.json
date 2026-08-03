@@ -22,8 +22,26 @@
       "max": 45
     },
     "prototypeStage": "P0",
-    "publicationState": "private-draft",
+    "publicationState": "private-draft-human-approved-for-p0-production",
     "humanValidationRequired": true
+  },
+  "validation": {
+    "status": "human-approved",
+    "approvedAt": "2026-08-03T13:19:00+02:00",
+    "scope": [
+      "Dossier Preuve retained as principal provisional working-title track",
+      "Autonomous play without mandatory facilitator",
+      "Five qualifications tested in P0",
+      "10-15 retained as priority target",
+      "P0 terminology, scoring and print architecture authorized for production"
+    ],
+    "excludedFromApproval": [
+      "Legal clearance of the title",
+      "Public publication",
+      "Manufacturing order",
+      "Final commercial edition"
+    ],
+    "nextGate": "human-validation-of-printable-p0-kit"
   },
   "promise": "Faire enquêter, discuter et justifier une décision sur des faits, sources, indices, biais, images suspectes, traces temporelles et contenus liés à l'IA sans transformer la partie en exercice scolaire lourd.",
   "coreLoop": [
@@ -190,12 +208,10 @@
       "STOP"
     ]
   },
-  "requiredHumanArbitrations": [
-    "Confirm Dossier Preuve as the principal working-title track pending legal review",
-    "Validate full autonomy without a mandatory facilitator",
-    "Validate simultaneous testing of the five qualifications",
-    "Confirm 10-15 as the sole priority target for P0",
-    "Decide whether proof tokens create meaningful choices after observation",
-    "Approve P0 terminology, scoring and print readability"
+  "requiredHumanArbitrations": [],
+  "pendingHumanValidation": [
+    "Printable P0 kit readability and completeness",
+    "Proof-token usefulness after first tests",
+    "Final legal clearance of the title"
   ]
 }
