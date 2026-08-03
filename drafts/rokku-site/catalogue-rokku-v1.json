@@ -1,0 +1,64 @@
+{
+  "brand": "ROKKU",
+  "signature": "Le plaisir d’offrir",
+  "source": "ROKKU BUSINESS PLAN PILOTE — Version 01.1 — 16 juillet 2026",
+  "currency": "EUR",
+  "taxDisplay": "TTC",
+  "operatingModel": "ATO hybride",
+  "publicTarget": "rokku.lesmotsimages.com",
+  "contact": {
+    "email": "lesmotsimages@gmail.com",
+    "phone": "+33 7 53 00 58 18"
+  },
+  "catalogueSummary": {
+    "compositionCount": 8,
+    "publicPriceFloor": 42,
+    "publicPriceCeiling": 128,
+    "pilotCapacity": 60
+  },
+  "collections": [
+    {
+      "id": "signature",
+      "label": "Signature",
+      "composition": "Bougie, gourmandise et message",
+      "priceTtc": 89,
+      "standardLeadTime": "48–72 h"
+    },
+    {
+      "id": "gourmand",
+      "label": "Gourmand",
+      "composition": "Chocolat et papeterie",
+      "priceTtcMin": 55,
+      "priceTtcMax": 64
+    },
+    {
+      "id": "maison",
+      "label": "Maison",
+      "composition": "Textile et senteur",
+      "priceTtcMin": 72,
+      "priceTtcMax": 96
+    },
+    {
+      "id": "exception",
+      "label": "Exception",
+      "composition": "Composition généreuse fabriquée après commande",
+      "priceTtc": 128
+    }
+  ],
+  "business": {
+    "b2b": "Devis de 20 à 500 pièces",
+    "personalization": "Message, ruban, initiales ou fourreau — option ou devis",
+    "customLeadTime": "5–7 jours ouvrés"
+  },
+  "publicationGate": {
+    "paymentEnabled": false,
+    "ordersEnabled": false,
+    "requiredBeforePublicLaunch": [
+      "trois coffrets physiques conformes",
+      "test de transport réel réussi",
+      "marge validée",
+      "procédure de préparation, contrôle et réclamation",
+      "CGV, mentions légales et politique de confidentialité validées"
+    ]
+  }
+}
