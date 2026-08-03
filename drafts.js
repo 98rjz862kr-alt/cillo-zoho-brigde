@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { decorateHubDraft } from './hub-premium.js';
 import { finalizeHubDraft } from './hub-finalize.js';
+import { enforceOfficialHubIdentity } from './hub-identity.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -49,7 +50,7 @@ export function readDraftHtml(relativePath) {
   try {
     if (!statSync(absolutePath).isFile()) return null;
     const html = readFileSync(absolutePath, 'utf8');
-    return finalizeHubDraft(decoded, decorateHubDraft(decoded, html));
+    return enforceOfficialHubIdentity(decoded, finalizeHubDraft(decoded, decorateHubDraft(decoded, html)));
   } catch {
     return null;
   }
