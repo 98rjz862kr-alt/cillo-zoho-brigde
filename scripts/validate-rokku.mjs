@@ -10,7 +10,7 @@ const bat = readDraftHtml('rokku-site/01-bat-boutique.html');
 for (const [name, html] of [['control', control], ['BAT', bat]]) {
   assert(html, `ROKKU ${name} page is missing`);
   assert(/noindex,nofollow,noarchive/i.test(html), `ROKKU ${name} robots lock is missing`);
-  assert(!/paiement actif|commande réelle|acheter maintenant/i.test(html), `ROKKU ${name} contains a forbidden live-commerce signal`);
+  assert(!/paiement\s+(?:activé|disponible)|commande\s+(?:ouverte|active)|acheter maintenant/i.test(html), `ROKKU ${name} contains a forbidden live-commerce signal`);
 }
 
 assert(control.includes('SOCLE ROKKU RESTAURÉ'), 'ROKKU restored-state banner is missing');
