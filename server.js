@@ -2,17 +2,24 @@ import { createServer } from 'http';
 import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { createPageDraft, getPageById, getPublishedPage, listPages, setPageStatus, updatePageDraft, upsertSite } from './store.js';
+import {
+  createPageDraft,
+  getPageById,
+  getPublishedPage,
+  listPages,
+  setPageStatus,
+  updatePageDraft,
+  upsertSite
+} from './store.js';
 import { generatePageWithAI } from './ai.js';
 import { isAuthorized, sanitizePageHtml } from './security.js';
 import { listDraftFiles, readDraftHtml } from './drafts.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const rootDir = __dirname;
+const rootDir = path.dirname(__filename);
 loadEnv(path.join(rootDir, '.env'));
 
-const port = process.env.PORT || 3000;
+const port = Number(process.env.PORT || 3000);
 const publicBaseUrl = (process.env.PUBLIC_BASE_URL || process.env.RENDER_EXTERNAL_URL || `http://localhost:${port}`).replace(/\/$/, '');
 
 function loadEnv(filePath) {
@@ -40,13 +47,14 @@ function sendHtml(res, html, status = 200, headers = {}) {
     'content-type': 'text/html; charset=utf-8',
     'x-robots-tag': 'noindex, nofollow, noarchive',
     'cache-control': 'no-store',
+    'content-security-policy': "default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: https:; frame-ancestors 'self'",
     ...headers
   });
   res.end(html);
 }
 
 function sendText(res, text, status = 200, headers = {}) {
-  res.writeHead(status, { 'content-type': 'text/plain; charset=utf-8', ...headers });
+  res.writeHead(status, { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store', ...headers });
   res.end(text);
 }
 
@@ -78,20 +86,18 @@ function pageShell({ title, metaDescription, html }) {
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>${escapeHtml(title)}</title><meta name="description" content="${escapeHtml(metaDescription || '')}"><style>body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#111827;background:#fff}main{max-width:1100px;margin:auto;padding:48px 20px}.card{border:1px solid #e5e7eb;border-radius:8px;padding:24px;margin:16px 0}</style></head><body><main>${html}</main></body></html>`;
 }
 
-function loginPage(message = '') {
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Atelier</title><style>body{font-family:system-ui;margin:40px;max-width:580px;color:#172238}input,button{font:inherit;padding:12px;margin:7px 0;width:100%;box-sizing:border-box}button{background:#143b7d;color:#fff;border:0;border-radius:8px}.note{color:#75553f}</style></head><body><h1>Bridge LMI</h1><p>Atelier interne de brouillons.</p>${message ? `<p class="note">${escapeHtml(message)}</p>` : ''}<form method="post" action="/atelier"><input name="password" type="password" placeholder="Mot de passe administrateur" required><button>Ouvrir les brouillons</button></form></body></html>`;
+function adminLoginPage(message = '') {
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Administration</title><style>body{font-family:system-ui;margin:40px;max-width:580px;color:#172238}input,button{font:inherit;padding:12px;margin:7px 0;width:100%;box-sizing:border-box}button{background:#143b7d;color:#fff;border:0;border-radius:8px}.note{color:#75553f}</style></head><body><h1>Bridge LMI</h1><p>Administration protégée.</p>${message ? `<p class="note">${escapeHtml(message)}</p>` : ''}<form method="post" action="/admin"><input name="password" type="password" placeholder="Mot de passe administrateur" required><button>Ouvrir l’administration</button></form></body></html>`;
 }
 
-function atelierPage(drafts, password) {
-  const token = encodeURIComponent(password || '');
-  const cards = drafts.map((draft) => `<article><div><strong>${escapeHtml(draft.title)}</strong><small>${escapeHtml(draft.relativePath)} · ${Math.ceil(draft.size / 1024)} Ko</small></div><a href="/atelier/file/${encodeURIComponent(draft.relativePath)}?password=${token}" target="_blank" rel="noopener">Ouvrir le BAT</a></article>`).join('');
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Brouillons</title><style>:root{--bleu:#143b7d;--ocre:#cc7722;--ivoire:#f7f1e6;--encre:#1e2430}*{box-sizing:border-box}body{margin:0;background:#ece9e2;color:var(--encre);font-family:Arial,sans-serif}header{background:var(--bleu);color:#fff;padding:28px max(20px,5vw)}main{max-width:1120px;margin:28px auto;padding:0 18px}.status{background:var(--ivoire);border-left:6px solid var(--ocre);padding:16px;margin-bottom:20px}article{display:flex;justify-content:space-between;gap:20px;align-items:center;background:#fff;border-radius:12px;padding:20px;margin:12px 0;box-shadow:0 5px 18px #0001}small{display:block;color:#75553f;margin-top:7px}a{background:var(--bleu);color:#fff;text-decoration:none;padding:11px 15px;border-radius:8px;white-space:nowrap}@media(max-width:700px){article{align-items:flex-start;flex-direction:column}}</style></head><body><header><h1>LES MOTS IMAGES — ATELIER BROUILLON</h1><p>Bibliothèque interne · aucune publication · aucun référencement</p></header><main><div class="status"><strong>${drafts.length} BAT accessibles.</strong> Les documents sont lus directement depuis le dépôt Bridge et restent séparés des pages publiques.</div>${cards || '<p>Aucun BAT disponible.</p>'}</main></body></html>`;
+function atelierPage(drafts) {
+  const cards = drafts.map((draft) => `<article><div><strong>${escapeHtml(draft.title)}</strong><small>${escapeHtml(draft.relativePath)} · ${Math.ceil(draft.size / 1024)} Ko</small></div><a href="/atelier/file/${encodeURIComponent(draft.relativePath)}" target="_blank" rel="noopener">Ouvrir le BAT</a></article>`).join('');
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Brouillons</title><style>:root{--bleu:#143b7d;--nuit:#0f2747;--ocre:#cc7722;--ivoire:#f6f1e8;--sable:#75553f}*{box-sizing:border-box}body{margin:0;background:#ece9e2;color:#172238;font-family:Arial,sans-serif}header{background:linear-gradient(135deg,var(--nuit),var(--bleu));color:#fff;padding:35px max(20px,5vw);border-bottom:5px solid #d4af37}header h1{font-family:Georgia,serif;margin:0 0 8px;font-size:clamp(2rem,5vw,4rem)}main{max-width:1120px;margin:28px auto;padding:0 18px}.status{background:var(--ivoire);border-left:6px solid var(--ocre);padding:18px;margin-bottom:22px;border-radius:10px}article{display:flex;justify-content:space-between;gap:20px;align-items:center;background:#fff;border-radius:14px;padding:22px;margin:13px 0;box-shadow:0 8px 24px #0001}small{display:block;color:var(--sable);margin-top:7px}a{background:var(--bleu);color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;white-space:nowrap;font-weight:700}@media(max-width:700px){article{align-items:flex-start;flex-direction:column}}</style></head><body><header><h1>LES MOTS IMAGES — BRIDGE</h1><p>Atelier de brouillons en accès direct · aucun code · aucun référencement</p></header><main><div class="status"><strong>${drafts.length} BAT accessibles.</strong> Les documents sont lus directement depuis le dépôt Bridge.</div>${cards || '<p>Aucun BAT disponible.</p>'}</main></body></html>`;
 }
 
 function adminPage(pages, password = '') {
-  const atelierUrl = `/atelier?password=${encodeURIComponent(password)}`;
   const rows = pages.map((p) => `<tr><td>${escapeHtml(p.siteSlug)}</td><td>${escapeHtml(p.slug)}</td><td>${escapeHtml(p.title)}</td><td><strong>${escapeHtml(p.status)}</strong></td><td>${p.version}</td><td><a href="/preview/${p.id}" target="_blank" rel="noopener">Aperçu</a></td></tr>`).join('');
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI</title><style>body{font-family:system-ui;margin:40px;color:#111827}a.button{display:inline-block;background:#143b7d;color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none}table{border-collapse:collapse;width:100%;margin-top:24px}td,th{border:1px solid #ddd;padding:8px;text-align:left}</style></head><body><h1>Bridge LMI</h1><p>Atelier interne. Les brouillons ne sont ni publiés ni référencés.</p><p><a class="button" href="${atelierUrl}">Ouvrir la bibliothèque BAT</a></p><h2>Pages CMS</h2><table><thead><tr><th>Site</th><th>Slug</th><th>Titre</th><th>Statut</th><th>Version</th><th>Aperçu</th></tr></thead><tbody>${rows}</tbody></table></body></html>`;
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI</title><style>body{font-family:system-ui;margin:40px;color:#111827}a.button{display:inline-block;background:#143b7d;color:#fff;padding:12px 16px;border-radius:8px;text-decoration:none}table{border-collapse:collapse;width:100%;margin-top:24px}td,th{border:1px solid #ddd;padding:8px;text-align:left}</style></head><body><h1>Bridge LMI</h1><p>Administration interne protégée.</p><p><a class="button" href="/atelier">Ouvrir la bibliothèque BAT</a></p><h2>Pages CMS</h2><table><thead><tr><th>Site</th><th>Slug</th><th>Titre</th><th>Statut</th><th>Version</th><th>Aperçu</th></tr></thead><tbody>${rows}</tbody></table></body></html>`;
 }
 
 function requireAdmin(req, res, query, body) {
@@ -114,23 +120,32 @@ async function handleRequest(req, res) {
   const segments = url.pathname.split('/').filter(Boolean);
 
   if (req.method === 'GET' && url.pathname === '/') return redirect(res, '/atelier');
-  if (req.method === 'GET' && url.pathname === '/health') return sendJson(res, { ok: true, service: 'cillo-zoho-bridge', drafts: listDraftFiles().length, adminPasswordConfigured: Boolean(process.env.ADMIN_PASSWORD && process.env.ADMIN_PASSWORD !== 'change-me'), openaiConfigured: Boolean(process.env.OPENAI_API_KEY) });
-  if (req.method === 'GET' && (url.pathname === '/openapi.yaml' || url.pathname === '/docs/openapi.yaml')) return sendText(res, renderOpenApi(), 200, { 'content-type': 'application/yaml; charset=utf-8' });
-
-  if (req.method === 'GET' && url.pathname === '/atelier') {
-    if (!isAuthorized({ headers: req.headers, query })) return sendHtml(res, loginPage());
-    return sendHtml(res, atelierPage(listDraftFiles(), query.password));
+  if (req.method === 'GET' && (url.pathname === '/health' || url.pathname === '/api/health')) {
+    return sendJson(res, {
+      ok: true,
+      service: 'cillo-zoho-bridge',
+      publicAtelier: true,
+      drafts: listDraftFiles().length,
+      adminPasswordConfigured: Boolean(process.env.ADMIN_PASSWORD && process.env.ADMIN_PASSWORD !== 'change-me'),
+      openaiConfigured: Boolean(process.env.OPENAI_API_KEY)
+    });
+  }
+  if (req.method === 'GET' && (url.pathname === '/openapi.yaml' || url.pathname === '/docs/openapi.yaml')) {
+    return sendText(res, renderOpenApi(), 200, { 'content-type': 'application/yaml; charset=utf-8' });
   }
 
+  if (req.method === 'GET' && url.pathname === '/atelier') return sendHtml(res, atelierPage(listDraftFiles()));
+
   if (req.method === 'GET' && segments[0] === 'atelier' && segments[1] === 'file' && segments[2]) {
-    if (!isAuthorized({ headers: req.headers, query })) return sendHtml(res, loginPage('Accès au BAT protégé.'));
-    const html = readDraftHtml(decodeURIComponent(segments.slice(2).join('/')));
+    let relativePath = '';
+    try { relativePath = decodeURIComponent(segments.slice(2).join('/')); } catch { return sendText(res, 'Chemin invalide', 400); }
+    const html = readDraftHtml(relativePath);
     if (!html) return sendText(res, 'BAT introuvable', 404);
-    return sendHtml(res, html, 200, { 'content-security-policy': "default-src 'self' 'unsafe-inline' data:; img-src 'self' data: https:; frame-ancestors 'self'" });
+    return sendHtml(res, html);
   }
 
   if (req.method === 'GET' && url.pathname === '/admin') {
-    if (!isAuthorized({ headers: req.headers, query })) return sendHtml(res, loginPage());
+    if (!isAuthorized({ headers: req.headers, query })) return sendHtml(res, adminLoginPage());
     return sendHtml(res, adminPage(await listPages(), query.password));
   }
 
@@ -148,13 +163,10 @@ async function handleRequest(req, res) {
 
   const body = await parseBody(req);
 
-  if (req.method === 'POST' && url.pathname === '/atelier') {
-    if (!isAuthorized({ headers: req.headers, query, body })) return sendHtml(res, loginPage('Mot de passe incorrect.'), 401);
-    return sendHtml(res, atelierPage(listDraftFiles(), body.password));
-  }
+  if (req.method === 'POST' && url.pathname === '/atelier') return redirect(res, '/atelier');
 
   if (req.method === 'POST' && url.pathname === '/admin') {
-    if (!isAuthorized({ headers: req.headers, query, body })) return sendHtml(res, loginPage('Mot de passe incorrect.'), 401);
+    if (!isAuthorized({ headers: req.headers, query, body })) return sendHtml(res, adminLoginPage('Mot de passe incorrect.'), 401);
     return sendHtml(res, adminPage(await listPages(), body.password));
   }
 
