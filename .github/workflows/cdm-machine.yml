@@ -101,3 +101,28 @@ jobs:
           curl -fsS "http://127.0.0.1:3010/atelier/file/rokku-site%2F01-bat-boutique.html?password=ci-only" | grep 'Le plaisir d’offrir'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Machine de contrôle'
           curl -fsS http://127.0.0.1:3010/preview/cdm-validation-v040 | grep 'Contrôle global'
+
+  live-render:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Diagnose deployed Render service
+        run: |
+          base="https://cillo-zoho-bridge.onrender.com"
+          for path in / /health /atelier /admin /preview/cdm-validation-v040; do
+            safe=$(printf '%s' "$path" | tr '/-' '__')
+            code=$(curl -sSL --max-time 60 -D "/tmp/${safe}.headers" -o "/tmp/${safe}.body" -w '%{http_code}' "$base$path" || true)
+            echo "===== $path HTTP $code ====="
+            sed -n '1,20p' "/tmp/${safe}.headers"
+            echo "----- body -----"
+            head -c 1200 "/tmp/${safe}.body" || true
+            echo
+          done
+          preview_code=$(curl -sSL --max-time 60 -o /tmp/render-machine.html -w '%{http_code}' "$base/preview/cdm-validation-v040" || true)
+          test "$preview_code" = "200"
+          grep 'CDM — Machine de contrôle v1.4' /tmp/render-machine.html
+          grep 'Machine de contrôle & déploiement maîtrisé' /tmp/render-machine.html
+          grep 'Contrôle global' /tmp/render-machine.html
+          grep 'Sauvegarder Drive' /tmp/render-machine.html
+          grep 'Rapports & traçabilité' /tmp/render-machine.html
+          grep 'data-a=' /tmp/render-machine.html
+          test "$(wc -c < /tmp/render-machine.html)" -gt 20000
