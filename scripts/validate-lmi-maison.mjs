@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('drafts/lmi-maison-site');
-const requiredPrefixes = ['00-index-', '00-bat-', '01-collection-', '02-certificat-', '03-matrice-', '05-dossier-', '06-parcours-', '07-journal-', '08-registre-', '09-protocole-'];
+const requiredHtmlPrefixes = ['00-index-', '00-bat-', '01-collection-', '02-certificat-', '05-dossier-', '06-parcours-', '07-journal-', '08-registre-', '09-protocole-'];
 const exactFacts = [
   ['Plaid décoratif grand format', '690 €', '620 g/m²', '24 exemplaires', '#0F2747', '#D4AF37', '#F6F1E8'],
   ['Panneau textile mural', '840 €', '480 g/m²', 'Pièce unique', '#143B7D', '#C9C3BA', '#CC7722'],
@@ -10,8 +10,10 @@ const exactFacts = [
 ];
 function assert(condition, message) { if (!condition) throw new Error(message); }
 assert(existsSync(root), 'Dossier LMI Maison absent');
-const files = readdirSync(root).filter((file) => file.endsWith('.html')).sort();
-for (const prefix of requiredPrefixes) assert(files.some((file) => file.startsWith(prefix)), `Page requise absente: ${prefix}`);
+const allFiles = readdirSync(root).sort();
+const files = allFiles.filter((file) => file.endsWith('.html'));
+for (const prefix of requiredHtmlPrefixes) assert(files.some((file) => file.startsWith(prefix)), `Page requise absente: ${prefix}`);
+assert(allFiles.includes('03-matrice-controle-culturel-lmi-maison.md'), 'Matrice culturelle absente');
 for (const file of files) {
   const html = readFileSync(path.join(root, file), 'utf8');
   assert(/<!doctype html>/i.test(html), `DOCTYPE absent: ${file}`);
