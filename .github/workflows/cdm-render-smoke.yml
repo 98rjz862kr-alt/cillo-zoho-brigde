@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      BASE_URL: https://cdm-collectes-validation.onrender.com
+      BASE_URL: https://cdm-collectes-validation-sju9.onrender.com
     steps:
       - name: Wait for Render deployment
         shell: bash
