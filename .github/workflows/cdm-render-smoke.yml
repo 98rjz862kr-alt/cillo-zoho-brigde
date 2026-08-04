@@ -1,0 +1,70 @@
+name: CDM Render smoke test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cdm-v3/**"
+      - "render.yaml"
+      - ".github/workflows/cdm-render-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BASE_URL: https://cdm-collectes-validation.onrender.com
+    steps:
+      - name: Wait for Render deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in $(seq 1 36); do
+            code=$(curl -L -sS -o /tmp/health.json -w '%{http_code}' --max-time 20 "$BASE_URL/health" || true)
+            if [ "$code" = "200" ] && grep -q '"status"' /tmp/health.json; then
+              cat /tmp/health.json
+              exit 0
+            fi
+            echo "Attempt $attempt: health returned $code"
+            sleep 20
+          done
+          echo "Render health endpoint did not become ready"
+          exit 1
+
+      - name: Validate machine page
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L -fsS --max-time 30 "$BASE_URL/machine" -o /tmp/machine.html
+          grep -q "Machine de contrôle" /tmp/machine.html
+          grep -q "/lmi-theme.css" /tmp/machine.html
+          grep -q "/lmi-brand.svg" /tmp/machine.html
+          grep -q "/machine-api.js" /tmp/machine.html
+
+      - name: Validate LMI assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L -fsS --max-time 30 "$BASE_URL/lmi-theme.css" -o /tmp/lmi-theme.css
+          curl -L -fsS --max-time 30 "$BASE_URL/lmi-brand.svg" -o /tmp/lmi-brand.svg
+          grep -qi "143b7d" /tmp/lmi-theme.css
+          grep -qi "c9a13b" /tmp/lmi-theme.css
+          grep -q "LE VERBE PAR L’IMAGE" /tmp/lmi-brand.svg
+
+      - name: Validate machine API
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -L -fsS --max-time 30 "$BASE_URL/api/machine/state" -o /tmp/state.json
+          python - <<'PY'
+          import json
+          data = json.load(open('/tmp/state.json', encoding='utf-8'))
+          assert data['metrics']['repositories'] >= 7
+          assert data['metrics']['quality'] == 100
+          assert len(data['controls']) == 6
+          print('CDM Render validation passed')
+          PY
