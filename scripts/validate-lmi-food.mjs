@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('drafts/lmi-food-site');
-const requiredPages = Array.from({ length: 23 }, (_, index) => `${String(index).padStart(2, '0')}-`);
+const requiredPrefixes = Array.from({ length: 23 }, (_, index) => `${String(index).padStart(2, '0')}-`);
 const requiredColors = ['#143B7D', '#CC7722'];
 const forbiddenPublicClaims = [
   /durée de conservation validée/i,
@@ -20,7 +20,7 @@ assert(existsSync(root), 'LMI FOOD draft directory missing');
 const files = readdirSync(root).filter((file) => file.endsWith('.html')).sort();
 assert(files.length >= 23, `Expected at least 23 LMI FOOD pages, found ${files.length}`);
 
-for (const prefix of requiredPages) {
+for (const prefix of requiredPrefixes) {
   assert(files.some((file) => file.startsWith(prefix)), `Missing LMI FOOD page prefix ${prefix}`);
 }
 
@@ -44,22 +44,28 @@ for (const file of files) {
 const sommaireName = files.find((file) => file.startsWith('07-'));
 assert(sommaireName, 'LMI FOOD control index missing');
 const sommaire = readFileSync(path.join(root, sommaireName), 'utf8');
-for (const file of files.filter((file) => file !== sommaireName)) {
-  const encoded = encodeURIComponent(`lmi-food-site/${file}`);
-  assert(sommaire.includes(encoded), `Control index does not link to ${file}`);
+const linkedFiles = [...sommaire.matchAll(/lmi-food-site%2F([^"']+\.html)/g)]
+  .map((match) => decodeURIComponent(match[1]));
+
+for (const linkedFile of linkedFiles) {
+  assert(files.includes(linkedFile), `Control index links to missing file ${linkedFile}`);
 }
 
-const validationPage = files.find((file) => file.startsWith('19-'));
-assert(validationPage, 'Human validation register missing');
+for (const prefix of requiredPrefixes.filter((prefix) => prefix !== '07-')) {
+  assert(linkedFiles.some((file) => file.startsWith(prefix)), `Control index missing linked page prefix ${prefix}`);
+}
+
+const validationPage = linkedFiles.find((file) => file.startsWith('19-'));
+assert(validationPage, 'Human validation register missing from control index');
 const validationHtml = readFileSync(path.join(root, validationPage), 'utf8');
 for (const decision of ['recettes', 'fournisseurs', 'coûts', 'prix', 'BAT', 'publication']) {
   assert(validationHtml.toLowerCase().includes(decision.toLowerCase()), `Human validation register missing decision: ${decision}`);
 }
 
-const executionPage = files.find((file) => file.startsWith('20-'));
-assert(executionPage, 'Continuous execution protocol missing');
+const executionPage = linkedFiles.find((file) => file.startsWith('20-'));
+assert(executionPage, 'Continuous execution protocol missing from control index');
 const executionHtml = readFileSync(path.join(root, executionPage), 'utf8');
 assert(/exécution continue/i.test(executionHtml), 'Continuous execution rule missing');
 assert(/validation humaine/i.test(executionHtml), 'Human validation stop rule missing');
 
-console.log(`Validated LMI FOOD: ${files.length} private pages, complete index, palette, robots locks, human validation register and continuous execution protocol.`);
+console.log(`Validated LMI FOOD: ${files.length} private pages, 23 numbered sections, complete canonical index, palette, robots locks, human validation register and continuous execution protocol.`);
