@@ -47,13 +47,10 @@ for(const file of files){
 
 if(directFiles.length)throw new Error(`Missing direct Hub HTML targets:\n${directFiles.join('\n')}`);
 if(unresolved.length)throw new Error(`Unresolved internal Hub routes:\n${unresolved.join('\n')}`);
-
-if(placeholders.length){
-  console.warn(`Hub placeholder links retained for editorial review (${placeholders.length}):\n${placeholders.join('\n')}`);
-}
+if(placeholders.length)throw new Error(`Hub placeholder links are forbidden:\n${placeholders.join('\n')}`);
 
 for(const [route,target] of Object.entries(routes)){
   if(!fileSet.has(target))throw new Error(`Route ${route} targets missing file ${target}`);
 }
 
-console.log(`Validated ${files.length} Hub pages, ${Object.keys(routes).length} protected routes and all resolvable internal links.`);
+console.log(`Validated ${files.length} Hub pages, ${Object.keys(routes).length} protected routes and all internal links without placeholders.`);
