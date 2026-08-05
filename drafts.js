@@ -5,6 +5,7 @@ import { decorateHubDraft } from './hub-premium.js';
 import { finalizeHubDraft } from './hub-finalize.js';
 import { enforceOfficialHubIdentity } from './hub-identity.js';
 import { stabilizeHubRuntime } from './hub-stability.js';
+import { enhanceHubAccessibility } from './hub-accessibility.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -54,7 +55,8 @@ export function readDraftHtml(relativePath) {
     const decorated = decorateHubDraft(decoded, html);
     const finalized = finalizeHubDraft(decoded, decorated);
     const identified = enforceOfficialHubIdentity(decoded, finalized);
-    return stabilizeHubRuntime(decoded, html, identified);
+    const stabilized = stabilizeHubRuntime(decoded, html, identified);
+    return enhanceHubAccessibility(decoded, stabilized);
   } catch {
     return null;
   }
