@@ -1,0 +1,30 @@
+{
+  "protocol_version": "1.0.0",
+  "mode": "continuous_silent_production",
+  "active_project": "HUB LMI EDITIONS",
+  "active_scope": "Bridge protected drafts only",
+  "last_verified_merge": "96ab37f3de54401c20d259e817cdddd06ab0fc95",
+  "last_verified_ci": {
+    "workflow": "CDM Machine",
+    "status": "success",
+    "run_number": 164
+  },
+  "current_workstream": "continuous-task protocol and autonomous production governance",
+  "next_work": [
+    "continue source-level Hub quality audit",
+    "continue protected Bridge refinements",
+    "continue automated regression controls",
+    "prepare human recipe only when indispensable"
+  ],
+  "human_validation_required": [],
+  "public_release": {
+    "status": "blocked",
+    "requires_explicit_human_go": true
+  },
+  "communication_policy": {
+    "progress_messages": false,
+    "intermediate_completion_messages": false,
+    "human_validation_messages_only": true
+  },
+  "updated_at": "2026-08-05T14:57:00+02:00"
+}
