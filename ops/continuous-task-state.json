@@ -3,17 +3,16 @@
   "mode": "continuous_silent_production",
   "active_project": "HUB LMI EDITIONS",
   "active_scope": "Bridge protected drafts only",
-  "last_verified_merge": "f31aa3943d6b0aad2b5f588cdbae9109a71b63be",
+  "last_verified_merge": "526f879cf5d5ff5680089f5476fc4de4897d0e4a",
   "last_verified_ci": {
     "workflow": "CDM Machine",
     "status": "success",
-    "run_number": 169
+    "run_number": 171
   },
-  "current_workstream": "Hub pole gateways, protected cross-project navigation and accessibility runtime correction",
+  "current_workstream": "Bridge access protection and decorated draft delivery through the production entrypoint",
   "next_work": [
-    "verify all pole gateways in protected Bridge",
+    "verify protected production entrypoint",
     "continue source-level Hub quality audit",
-    "investigate Bridge access protection consistency",
     "continue automated regression controls",
     "prepare human recipe only when indispensable"
   ],
@@ -27,5 +26,5 @@
     "intermediate_completion_messages": false,
     "human_validation_messages_only": true
   },
-  "updated_at": "2026-08-05T15:12:00+02:00"
+  "updated_at": "2026-08-05T15:18:00+02:00"
 }
