@@ -12,12 +12,18 @@ for(const file of expectedHubFiles){if(!actualFiles.has(file))throw new Error(`H
 for(const draft of hubDrafts){
   const html=readDraftHtml(draft.relativePath);
   if(!html)throw new Error(`Unable to read decorated Hub draft: ${draft.relativePath}`);
+  if(!/<html[^>]+lang=["']fr["']/i.test(html))throw new Error(`French document language missing: ${draft.relativePath}`);
+  if(!/<meta[^>]+name=["']viewport["']/i.test(html))throw new Error(`Viewport metadata missing: ${draft.relativePath}`);
+  if(!/<title[^>]*>[^<]+<\/title>/i.test(html))throw new Error(`Document title missing: ${draft.relativePath}`);
+  const h1Count=(html.match(/<h1\b/gi)||[]).length;
+  if(h1Count!==1)throw new Error(`Expected exactly one h1 in ${draft.relativePath}, found ${h1Count}`);
   if(!/<meta[^>]+name=["']robots["'][^>]+noindex/i.test(html))throw new Error(`Robots noindex missing: ${draft.relativePath}`);
   if(!html.includes('id="lmi-hub-final-script"'))throw new Error(`Hub finalisation layer missing: ${draft.relativePath}`);
   if(!html.includes('id="lmi-accessibility-style"'))throw new Error(`Accessibility stylesheet missing: ${draft.relativePath}`);
   if(!html.includes('id="lmi-accessibility-script"'))throw new Error(`Accessibility script missing: ${draft.relativePath}`);
   if(!html.includes('prefers-reduced-motion'))throw new Error(`Reduced motion support missing: ${draft.relativePath}`);
   if(!html.includes('lmi-mobile-menu'))throw new Error(`Responsive navigation missing: ${draft.relativePath}`);
+  if(!html.includes('lmi-skip-link'))throw new Error(`Skip link missing: ${draft.relativePath}`);
 
   const pageNumber=Number.parseInt(draft.relativePath.split('/').pop().slice(0,2),10);
   if(pageNumber>=2&&pageNumber<=32){
@@ -37,4 +43,4 @@ if(!decoratedPage.includes('lmi-route-breadcrumb'))throw new Error('Hub breadcru
 if(!decoratedPage.includes('lmi-runtime-pager'))throw new Error('Hub previous/next navigation is missing');
 if(decoratedPage.includes('class="lmi-wordmark-mark"'))throw new Error('Unofficial LMI monogram remains in protected Hub output');
 
-console.log(`Validated ${hubDrafts.length} Hub LMI draft pages with protected routing, premium presentation, accessibility and responsive navigation.`);
+console.log(`Validated ${hubDrafts.length} Hub LMI draft pages with protected routing, semantic structure, premium presentation, accessibility and responsive navigation.`);
