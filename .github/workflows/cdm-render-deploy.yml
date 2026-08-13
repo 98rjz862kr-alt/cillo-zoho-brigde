@@ -75,6 +75,10 @@ jobs:
             echo "mode=autodeploy-only" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Report trigger mode
+        shell: bash
+        run: echo "Render trigger mode: ${{ steps.render.outputs.mode }}"
+
       - name: Verify deployed modular system
         shell: bash
         run: |
@@ -83,7 +87,6 @@ jobs:
           import json
           import os
           import time
-          import urllib.error
           import urllib.request
 
           base = os.environ["BASE_URL"]
