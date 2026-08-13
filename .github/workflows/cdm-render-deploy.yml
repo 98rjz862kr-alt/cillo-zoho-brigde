@@ -1,0 +1,116 @@
+name: CDM Render Deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cdm-render-deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BASE_URL: https://cdm-collectes-validation-sju9.onrender.com
+      RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+      RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      RENDER_SERVICE_ID: ${{ secrets.RENDER_SERVICE_ID }}
+    steps:
+      - name: Trigger Render deploy when credentials are configured
+        id: render
+        shell: bash
+        run: |
+          set -euo pipefail
+          hook="${RENDER_DEPLOY_HOOK_URL:-}"
+          if [ -z "$hook" ]; then hook="${RENDER_DEPLOY_HOOK:-}"; fi
+
+          if [ -n "$RENDER_API_KEY" ]; then
+            service_id="${RENDER_SERVICE_ID:-}"
+            if [ -z "$service_id" ]; then
+              python - <<'PY' > /tmp/render-service-id
+          import json
+          import os
+          import urllib.parse
+          import urllib.request
+
+          request = urllib.request.Request(
+              "https://api.render.com/v1/services?" + urllib.parse.urlencode({"name": "cdm-collectes-validation", "limit": 100}),
+              headers={
+                  "Accept": "application/json",
+                  "Authorization": "Bearer " + os.environ["RENDER_API_KEY"],
+              },
+          )
+          with urllib.request.urlopen(request, timeout=30) as response:
+              payload = json.load(response)
+
+          candidates = []
+          for item in payload if isinstance(payload, list) else payload.get("services", []):
+              service = item.get("service", item) if isinstance(item, dict) else {}
+              if service.get("name") == "cdm-collectes-validation" and service.get("id"):
+                  candidates.append(service["id"])
+          if not candidates:
+              raise SystemExit("No Render service named cdm-collectes-validation is accessible to the configured API key")
+          print(candidates[0])
+          PY
+              service_id="$(cat /tmp/render-service-id)"
+            fi
+            curl --fail --silent --show-error \
+              --request POST \
+              --url "https://api.render.com/v1/services/${service_id}/deploys" \
+              --header "Accept: application/json" \
+              --header "Authorization: Bearer ${RENDER_API_KEY}" \
+              --header "Content-Type: application/json" \
+              --data "{\"commitId\":\"${GITHUB_SHA}\",\"clearCache\":\"do_not_clear\"}" \
+              > /tmp/render-deploy.json
+            echo "mode=api" >> "$GITHUB_OUTPUT"
+          elif [ -n "$hook" ]; then
+            curl --fail --silent --show-error --request POST "$hook" > /tmp/render-deploy.json
+            echo "mode=hook" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=autodeploy-only" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify deployed modular system
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json
+          import os
+          import time
+          import urllib.error
+          import urllib.request
+
+          base = os.environ["BASE_URL"]
+          last = None
+          for attempt in range(1, 91):
+              try:
+                  with urllib.request.urlopen(base + "/api/system/state", timeout=20) as response:
+                      state = json.load(response)
+                  if state.get("version") == "0.1.0" and state.get("principle") == "AUTONOME SEUL — PLUS PERFORMANT ENSEMBLE.":
+                      with urllib.request.urlopen(base + "/systeme", timeout=20) as response:
+                          page = response.read().decode("utf-8")
+                      assert "Quatre modules" in page
+                      assert "/system-api.js" in page
+                      print("CDM system live validation passed")
+                      raise SystemExit(0)
+                  last = f"unexpected state version={state.get('version')!r}"
+              except Exception as exc:
+                  last = repr(exc)
+              if attempt % 10 == 0:
+                  print(f"Waiting for Render deployment: attempt {attempt}; last={last}")
+              time.sleep(10)
+
+          try:
+              with urllib.request.urlopen(base + "/api/machine/state", timeout=20) as response:
+                  legacy = json.load(response)
+              print("Legacy machine API remains reachable; keys=", sorted(legacy.keys()))
+          except Exception as exc:
+              print("Legacy machine API diagnostic failed:", repr(exc))
+          raise RuntimeError(f"Render did not expose the modular system: {last}")
+          PY
