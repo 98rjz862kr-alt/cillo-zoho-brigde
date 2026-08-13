@@ -4,8 +4,11 @@ from fastapi.responses import HTMLResponse, RedirectResponse, Response
 
 from .machine_service import init_machine_db, router as machine_router
 from .main_v4 import app
+from .system_page import render_system_page
+from .system_service import init_system_db, router as system_router
 
 app.include_router(machine_router)
+app.include_router(system_router)
 
 for route in list(app.router.routes):
     if getattr(route, "path", None) == "/" and getattr(route, "name", None) == "index":
@@ -15,11 +18,32 @@ for route in list(app.router.routes):
 @app.on_event("startup")
 def startup_machine() -> None:
     init_machine_db()
+    init_system_db()
 
 
 @app.get("/", include_in_schema=False)
 def root() -> RedirectResponse:
-    return RedirectResponse(url="/machine", status_code=307)
+    return RedirectResponse(url="/systeme", status_code=307)
+
+
+@app.get("/systeme", response_class=HTMLResponse, include_in_schema=False)
+def systeme() -> HTMLResponse:
+    return HTMLResponse(
+        content=render_system_page(),
+        headers={"cache-control": "no-store", "x-robots-tag": "noindex, nofollow, noarchive"},
+    )
+
+
+@app.get("/system-api.js", include_in_schema=False)
+def system_api_client() -> Response:
+    content = (Path(__file__).resolve().parent / "system_api.js").read_text(encoding="utf-8")
+    return Response(content=content, media_type="application/javascript", headers={"cache-control": "no-store"})
+
+
+@app.get("/system.css", include_in_schema=False)
+def system_theme() -> Response:
+    content = (Path(__file__).resolve().parent / "system.css").read_text(encoding="utf-8")
+    return Response(content=content, media_type="text/css", headers={"cache-control": "no-store"})
 
 
 @app.get("/machine", response_class=HTMLResponse)

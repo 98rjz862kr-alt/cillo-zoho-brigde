@@ -69,7 +69,10 @@ jobs:
             sleep 1
           done
           curl -fsS http://127.0.0.1:8010/api/machine/health | grep '"status":"ok"'
-          curl -fsSL http://127.0.0.1:8010/ | grep 'Machine de contrôle'
+          curl -fsS http://127.0.0.1:8010/api/system/health | grep '"status":"ok"'
+          curl -fsSL http://127.0.0.1:8010/ | grep 'Quatre modules'
+          curl -fsS http://127.0.0.1:8010/system-api.js | grep 'api/system'
+          curl -fsS http://127.0.0.1:8010/machine | grep 'Machine de contrôle'
           curl -fsS http://127.0.0.1:8010/machine-api.js | grep 'api/machine'
 
   render-preview:
