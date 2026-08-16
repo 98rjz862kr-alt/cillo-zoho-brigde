@@ -1,0 +1,43 @@
+name: Boa Render status diagnostic
+
+on:
+  push:
+    branches:
+      - agent/boa-totem-soya-render-verify-20260816
+    paths:
+      - .github/workflows/boa-render-status.yml
+
+permissions:
+  contents: read
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+    steps:
+      - name: Lire le statut Render du Bridge
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${RENDER_API_KEY:-}" ]; then
+            echo "RENDER_API_KEY_ABSENT"
+            exit 0
+          fi
+          python - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          key=os.environ['RENDER_API_KEY']
+          headers={'Accept':'application/json','Authorization':'Bearer '+key}
+          req=urllib.request.Request('https://api.render.com/v1/services?'+urllib.parse.urlencode({'name':'cillo-zoho-bridge','limit':100}),headers=headers)
+          with urllib.request.urlopen(req,timeout=30) as r: payload=json.load(r)
+          items=payload if isinstance(payload,list) else payload.get('services',[])
+          for item in items:
+              s=item.get('service',item) if isinstance(item,dict) else {}
+              if s.get('name')!='cillo-zoho-bridge': continue
+              print('SERVICE',json.dumps({'id':s.get('id'),'name':s.get('name'),'url':(s.get('serviceDetails') or {}).get('url'),'branch':(s.get('serviceDetails') or {}).get('branch')},ensure_ascii=False))
+              sid=s.get('id')
+              if sid:
+                  req2=urllib.request.Request(f'https://api.render.com/v1/services/{sid}/deploys?limit=10',headers=headers)
+                  with urllib.request.urlopen(req2,timeout=30) as r2: deploys=json.load(r2)
+                  print('DEPLOYS',json.dumps(deploys,ensure_ascii=False))
+          PY
