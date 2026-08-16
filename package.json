@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "description": "Agent CMS bridge for publishing validated pages into Zoho Sites via iframe/embed.",
   "type": "module",
-  "main": "server.js",
+  "main": "public-entry.js",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
-    "test": "node scripts/validate-pages.mjs && node scripts/validate-hub.mjs && node scripts/validate-dossier-preuve.mjs && node scripts/validate-rokku.mjs"
+    "dev": "node public-entry.js",
+    "start": "node public-entry.js",
+    "test": "node scripts/validate-pages.mjs && node scripts/validate-hub.mjs && node scripts/validate-hub-links.mjs && node scripts/validate-public-entry.mjs && node scripts/validate-dossier-preuve.mjs && node scripts/validate-rokku.mjs && node scripts/validate-lmi-musee.mjs && node scripts/validate-lmi-food.mjs && node scripts/validate-lmi-maison.mjs && node scripts/validate-continuous-task.mjs"
   },
   "dependencies": {},
   "engines": {

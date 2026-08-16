@@ -14,11 +14,16 @@ def setup_module():
         path.unlink()
 
 
-def test_machine_is_primary_validation_surface():
+def test_system_is_primary_validation_surface_and_machine_remains_available():
     with TestClient(app) as client:
         root = client.get("/", follow_redirects=False)
         assert root.status_code == 307
-        assert root.headers["location"] == "/machine"
+        assert root.headers["location"] == "/systeme"
+
+        system_page = client.get("/systeme")
+        assert system_page.status_code == 200
+        assert "AUTONOME SEUL" in system_page.text
+        assert system_page.headers["x-robots-tag"] == "noindex, nofollow, noarchive"
 
         page = client.get("/machine")
         assert page.status_code == 200

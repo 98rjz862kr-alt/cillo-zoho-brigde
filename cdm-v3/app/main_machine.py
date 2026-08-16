@@ -4,11 +4,12 @@ from fastapi.responses import HTMLResponse, RedirectResponse, Response
 
 from .machine_service import init_machine_db, router as machine_router
 from .main_v4 import app
+from .system_page import render_system_page
+from .system_service import init_system_db, router as system_router
 
 app.include_router(machine_router)
+app.include_router(system_router)
 
-# The imported collection application already declares a root page. The machine
-# prototype is now the primary human-validation surface for this Render service.
 for route in list(app.router.routes):
     if getattr(route, "path", None) == "/" and getattr(route, "name", None) == "index":
         app.router.routes.remove(route)
@@ -17,32 +18,59 @@ for route in list(app.router.routes):
 @app.on_event("startup")
 def startup_machine() -> None:
     init_machine_db()
+    init_system_db()
 
 
 @app.get("/", include_in_schema=False)
 def root() -> RedirectResponse:
-    return RedirectResponse(url="/machine", status_code=307)
+    return RedirectResponse(url="/systeme", status_code=307)
+
+
+@app.get("/systeme", response_class=HTMLResponse, include_in_schema=False)
+def systeme() -> HTMLResponse:
+    return HTMLResponse(
+        content=render_system_page(),
+        headers={"cache-control": "no-store", "x-robots-tag": "noindex, nofollow, noarchive"},
+    )
+
+
+@app.get("/system-api.js", include_in_schema=False)
+def system_api_client() -> Response:
+    content = (Path(__file__).resolve().parent / "system_api.js").read_text(encoding="utf-8")
+    return Response(content=content, media_type="application/javascript", headers={"cache-control": "no-store"})
+
+
+@app.get("/system.css", include_in_schema=False)
+def system_theme() -> Response:
+    content = (Path(__file__).resolve().parent / "system.css").read_text(encoding="utf-8")
+    return Response(content=content, media_type="text/css", headers={"cache-control": "no-store"})
 
 
 @app.get("/machine", response_class=HTMLResponse)
 def machine() -> HTMLResponse:
     base = Path(__file__).resolve().parent
     html = (base / "machine.html").read_text(encoding="utf-8")
+    html = html.replace("</head>", "<link rel='icon' href='/lmi-brand.svg' type='image/svg+xml'><link rel='stylesheet' href='/lmi-theme.css'></head>")
+    html = html.replace('<div class="brand"><div class="brandmark">LMI</div><div><b>CDM MACHINE</b><small>Contrôle & déploiement</small></div></div>', '<div class="brand"><img class="brand-logo" src="/lmi-brand.svg" alt="Les Mots Images — Le Verbe par l’Image"><div class="brand-copy"><b>CDM MACHINE</b><small>Contrôle & déploiement</small></div></div>')
+    html = html.replace('<header class="topbar"><h1>Machine de contrôle & déploiement maîtrisé</h1>', '<header class="topbar"><div class="topbar-title"><span class="topbar-emblem">CDM</span><div><h1>Machine de contrôle & déploiement maîtrisé</h1><small>Les Mots Images — Le Verbe par l’Image.</small></div></div>')
+    html = html.replace("</main>", "</main><footer class='lmi-footer'><strong>LES MOTS IMAGES</strong> · LE VERBE PAR L’IMAGE. · CDM</footer>")
     html = html.replace("</body>", "<script src='/machine-api.js'></script></body>")
-    return HTMLResponse(
-        content=html,
-        headers={
-            "cache-control": "no-store",
-            "x-robots-tag": "noindex, nofollow, noarchive",
-        },
-    )
+    return HTMLResponse(content=html, headers={"cache-control": "no-store", "x-robots-tag": "noindex, nofollow, noarchive"})
 
 
 @app.get("/machine-api.js", include_in_schema=False)
 def machine_api_client() -> Response:
     content = (Path(__file__).resolve().parent / "machine_api.js").read_text(encoding="utf-8")
-    return Response(
-        content=content,
-        media_type="application/javascript",
-        headers={"cache-control": "no-store"},
-    )
+    return Response(content=content, media_type="application/javascript", headers={"cache-control": "no-store"})
+
+
+@app.get("/lmi-theme.css", include_in_schema=False)
+def lmi_theme() -> Response:
+    content = (Path(__file__).resolve().parent / "lmi-theme.css").read_text(encoding="utf-8")
+    return Response(content=content, media_type="text/css", headers={"cache-control": "public, max-age=300"})
+
+
+@app.get("/lmi-brand.svg", include_in_schema=False)
+def lmi_brand() -> Response:
+    content = (Path(__file__).resolve().parent / "lmi-brand.svg").read_text(encoding="utf-8")
+    return Response(content=content, media_type="image/svg+xml", headers={"cache-control": "public, max-age=300"})

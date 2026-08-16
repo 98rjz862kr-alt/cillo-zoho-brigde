@@ -1,0 +1,80 @@
+{
+  "document": {
+    "code": "DOC-LMI-CP-20260705-001",
+    "title": "Classement multicritères des concepts jeux LMI",
+    "version": "V1.0",
+    "dateUtc": "2026-07-05T20:42:00Z",
+    "dateCest": "2026-07-05T22:42:00+02:00",
+    "type": "portfolio-decision-note",
+    "qualityStatus": "operational-draft-usable",
+    "validationStatus": "human-approved",
+    "validatedAt": "2026-08-04T12:43:00+02:00",
+    "confidentiality": "internal-lmi",
+    "sourceUrl": "https://docs.google.com/document/d/1pMUFQ-Mf-aXBVKrZrJeEWvpR4Q7WGuZVcUhdGzrl5hQ",
+    "humanValidationRequired": true,
+    "publicationState": "private-draft-human-approved-for-execution"
+  },
+  "method": {
+    "scale": 10,
+    "criteria": [
+      { "id": "economic-potential", "label": "Potentiel économique", "weight": 0.35 },
+      { "id": "feasibility", "label": "Faisabilité", "weight": 0.25 },
+      { "id": "launch-speed", "label": "Rapidité de lancement", "weight": 0.20 },
+      { "id": "differentiation", "label": "Différenciation", "weight": 0.20 }
+    ]
+  },
+  "portfolioDecision": {
+    "primaryProduction": "enigmes-de-memoire",
+    "secondaryPrivateProof": "cabinet-des-monstres",
+    "premiumCozyReserve": "atelier-des-heritages",
+    "principle": "Produire un seul jeu complet en premier et éviter la dispersion.",
+    "firstGameRole": "Banc d'essai commercial pour la valeur perçue, l'archive, le paiement, le droit d'usage, le remboursement, le support et la confiance.",
+    "approvedForExecution": true
+  },
+  "ranking": [
+    { "rank": 1, "id": "enigmes-de-memoire", "title": "Énigmes de Mémoire", "score": 84.5, "ratings": { "economicPotential": 8, "feasibility": 9, "launchSpeed": 9, "differentiation": 8 }, "decision": "produce-now-p0" },
+    { "rank": 2, "id": "cabinet-des-monstres", "title": "Cabinet des Monstres", "score": 81.0, "ratings": { "economicPotential": 9, "feasibility": 7, "launchSpeed": 7, "differentiation": 9 }, "decision": "private-publishing-proof-only" },
+    { "rank": 3, "id": "atelier-des-heritages", "title": "Atelier des Héritages", "score": 77.5, "ratings": { "economicPotential": 9, "feasibility": 7, "launchSpeed": 6, "differentiation": 8 }, "decision": "prepare-controlled-p1-after-enigmes-proof" },
+    { "rank": 4, "id": "centre-appels-paranormal", "title": "Centre d'Appels Paranormal", "score": 72.0, "ratings": { "economicPotential": 9, "feasibility": 5, "launchSpeed": 5, "differentiation": 9 }, "decision": "active-watch-audio-solo-duo-prototype-only" },
+    { "rank": 5, "id": "maison-temoin", "title": "Maison Témoin", "score": 71.0, "ratings": { "economicPotential": 8, "feasibility": 7, "launchSpeed": 6, "differentiation": 7 }, "decision": "cozy-decoration-reserve-after-atelier" },
+    { "rank": 6, "id": "soiree-imagier", "title": "Soirée Imagier", "score": 70.0, "ratings": { "economicPotential": 7, "feasibility": 7, "launchSpeed": 7, "differentiation": 7 }, "decision": "opportunistic-prototype-after-enigmes" },
+    { "rank": 7, "id": "boulangerie-logistique", "title": "Boulangerie Logistique", "score": 65.0, "ratings": { "economicPotential": 8, "feasibility": 5, "launchSpeed": 5, "differentiation": 7 }, "decision": "benchmark-production-too-heavy-for-first-cycle" },
+    { "rank": 8, "id": "club-onze-lmi", "title": "Club Onze LMI", "score": 64.5, "ratings": { "economicPotential": 8, "feasibility": 5, "launchSpeed": 6, "differentiation": 6 }, "decision": "defer-rights-data-calendar-social-blockers" },
+    { "rank": 9, "id": "correspondances", "title": "Correspondances", "score": 63.5, "ratings": { "economicPotential": 9, "feasibility": 4, "launchSpeed": 5, "differentiation": 6 }, "decision": "defer-editorial-cadence-and-moderation-too-heavy" },
+    { "rank": 10, "id": "table-des-alliances", "title": "Table des Alliances", "score": 58.0, "ratings": { "economicPotential": 9, "feasibility": 3, "launchSpeed": 4, "differentiation": 6 }, "decision": "suspend-without-live-ops-economy-data-team" },
+    { "rank": 11, "id": "royaumes-compacts", "title": "Royaumes Compacts", "score": 55.0, "ratings": { "economicPotential": 10, "feasibility": 2, "launchSpeed": 3, "differentiation": 5 }, "decision": "suspend-first-cycle-despite-raw-potential" }
+  ],
+  "productionSequence": [
+    {
+      "window": "0-2-weeks",
+      "project": "enigmes-de-memoire",
+      "deliverable": "MVP privé avec trois énigmes, archive et micro-contrat",
+      "businessModel": "Essai gratuit limité puis achat intégré simple par pack ; abonnement archives seulement en phase 2 après preuve de retour volontaire.",
+      "goNoGo": ["value-readable-within-60-seconds", "voluntary-return", "low-support", "payment-understood", "archive-kept", "usage-right-understood", "access-duration-understood", "correction-understood", "simple-refusal-understood", "refund-understood"],
+      "testPanel": 10
+    },
+    { "window": "2-4-weeks", "project": "cabinet-des-monstres", "deliverable": "Store proof privée, mini-run et capsule issue du build", "goNoGo": ["promise-readable", "low-ai-rejection", "acceptable-price", "abandon-before-value-controlled"] },
+    { "window": "4-6-weeks", "project": "atelier-des-heritages", "deliverable": "Fiche de vertical slice et prototype court de restauration", "goNoGo": ["visual-satisfaction", "lmi-singularity", "reuse-enigmes-components"] },
+    { "window": "opportunistic", "project": "soiree-imagier", "deliverable": "Micro-prototype cross-screen", "goNoGo": ["instant-entry", "social-enjoyment-without-support-load"] }
+  ],
+  "enigmesDeMemoire": {
+    "stage": "p0-production-authorized",
+    "format": "private-app-mvp",
+    "targetCompatibility": ["45-plus", "seniors", "general-culture", "private-lmi-app"],
+    "mvpCount": 3,
+    "mandatoryEnigmaStructure": ["image", "micro-investigation", "resolution", "final-keepable-archive"],
+    "dependenciesToAvoid": ["paid-user-acquisition", "network-effects", "live-ops"],
+    "nextHumanGate": "human-validation-of-enigmes-p0-architecture-and-first-three-enigmas"
+  },
+  "sourceReferences": [
+    "rapport analytique LMI",
+    "catalogue V22.0",
+    "stratégie app LMI V22.0",
+    "hub production V22.0",
+    "Sensor Tower — State of Gaming 2026",
+    "Newzoo — PC & Console Gaming Report 2026",
+    "GameDiscoverCo — Steam 2026 business update",
+    "PC Gamer / GameDiscoverCo — cozy trend",
+    "GamesRadar+ — roguelike/deckbuilder signal"
+  ]
+}
