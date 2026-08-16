@@ -1,0 +1,48 @@
+name: Boa Totem - package final recette
+
+on:
+  push:
+    branches:
+      - agent/boa-totem-soya-render-verify-20260816
+    paths:
+      - .github/workflows/boa-final-package.yml
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Valider le lot final
+        run: |
+          node scripts/validate-boa-finalisation.mjs
+          node scripts/validate-boa-bridge-runtime.mjs
+      - name: Construire le paquet de recette
+        shell: bash
+        run: |
+          set -euo pipefail
+          sha="$(git rev-parse HEAD)"
+          mkdir -p package/LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE
+          cp -a drafts/boa-totem-soya/. package/LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE/
+          cp scripts/validate-boa-finalisation.mjs package/LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE/
+          cp scripts/validate-boa-bridge-runtime.mjs package/LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE/
+          printf 'LE BOA TOTEM DE SOYA\nPaquet de recette humaine final\nGitHub main SHA: %s\nDate: 2026-08-16\n' "$sha" > package/LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE/00-TRACE-PACKAGE.txt
+          cd package
+          zip -qr ../LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE-2026-08-16.zip LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE
+          cd ..
+          sha256sum LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE-2026-08-16.zip > LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE-2026-08-16.sha256
+          cat LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE-2026-08-16.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boa-totem-soya-final-recette-2026-08-16
+          path: |
+            LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE-2026-08-16.zip
+            LE-BOA-TOTEM-DE-SOYA-FINAL-RECETTE-2026-08-16.sha256
+          retention-days: 30
