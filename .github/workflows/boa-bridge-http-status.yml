@@ -14,13 +14,20 @@ jobs:
   status:
     runs-on: ubuntu-latest
     steps:
-      - name: Comparer les trois endpoints du Bridge
+      - uses: actions/checkout@v4
+      - name: Comparer le dépôt et les surfaces Render
+        shell: bash
         run: |
           set -x
-          echo '--- custom ---'
-          curl --fail --silent --show-error --max-time 30 https://bridge.lesmotsimages.com/health; echo
-          echo '--- custom origin Render ---'
-          curl --fail --silent --show-error --max-time 30 https://cillo-zoho-bridge-2.onrender.com/health; echo
-          echo '--- blueprint name Render ---'
-          curl --fail --silent --show-error --max-time 30 https://cillo-zoho-bridge.onrender.com/health; echo
-# probe 2026-08-16T15:00+02:00
+          echo '--- count repo ---'
+          node --input-type=module -e "import('./drafts.js').then(m=>console.log(m.listDraftFiles().length))"
+          recipe='boa-totem-soya%2F25-recette-humaine-finale.html'
+          asset='boa-totem-soya%2Fassets%2Froughs%2Fplanche-12.svg'
+          for base in https://bridge.lesmotsimages.com https://cillo-zoho-bridge-2.onrender.com https://cillo-zoho-bridge.onrender.com; do
+            echo "--- $base health ---"
+            curl --silent --show-error --max-time 30 "$base/health" || true
+            echo
+            echo "recipe=$(curl --silent --show-error --max-time 30 -o /dev/null -w '%{http_code}' "$base/atelier/file/$recipe" || true)"
+            echo "asset=$(curl --silent --show-error --max-time 30 -o /dev/null -w '%{http_code}' "$base/atelier/file/$asset" || true)"
+          done
+# probe 2026-08-16T15:02+02:00
