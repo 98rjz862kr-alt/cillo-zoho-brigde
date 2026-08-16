@@ -57,8 +57,10 @@ const server=createServer((req,res)=>{
     return sendHtml(res,'<h1>BAT ou asset introuvable</h1>',404);
   }
   if(req.method==='GET'&&(url.pathname==='/health'||url.pathname==='/api/health')){
+    const boaRecipeReady=Boolean(readDraftHtml('boa-totem-soya/25-recette-humaine-finale.html'));
+    const boaAssetReady=Boolean(readDraftAsset('boa-totem-soya/assets/roughs/planche-12.svg'));
     res.writeHead(200,{'content-type':'application/json; charset=utf-8','cache-control':'no-store'});
-    return res.end(JSON.stringify({ok:true,service:'cillo-zoho-bridge',publicAtelier:false,drafts:listDraftFiles().length,adminPasswordConfigured:Boolean(process.env.ADMIN_PASSWORD&&process.env.ADMIN_PASSWORD!=='change-me')}));
+    return res.end(JSON.stringify({ok:true,service:'cillo-zoho-bridge',publicAtelier:false,drafts:listDraftFiles().length,adminPasswordConfigured:Boolean(process.env.ADMIN_PASSWORD&&process.env.ADMIN_PASSWORD!=='change-me'),boaRecipeReady,boaAssetReady,revision:process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||null}));
   }
   return proxy(req,res);
 });
