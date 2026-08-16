@@ -27,6 +27,8 @@ jobs:
           node-version: '20'
       - name: Revalider le lot Boa Totem
         run: |
+          node --check drafts.js
+          node --check public-entry.js
           node scripts/validate-boa-finalisation.mjs
           node scripts/validate-boa-bridge-runtime.mjs
       - name: Déclencher le déploiement Render si l'API est configurée
