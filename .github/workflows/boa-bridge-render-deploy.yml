@@ -1,0 +1,108 @@
+name: Boa Totem - Bridge Render deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/boa-totem-soya/**"
+      - "drafts.js"
+      - "public-entry.js"
+      - ".github/workflows/boa-bridge-render-deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy-and-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      BRIDGE_CUSTOM_URL: https://bridge.lesmotsimages.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Revalider le lot Boa Totem
+        run: |
+          node --check drafts.js
+          node --check public-entry.js
+          node scripts/validate-boa-finalisation.mjs
+          node scripts/validate-boa-bridge-runtime.mjs
+      - name: Déclencher le déploiement Render si l'API est configurée
+        id: render
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${RENDER_API_KEY:-}" ]; then
+            echo "mode=autodeploy" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          python - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          key=os.environ['RENDER_API_KEY']
+          req=urllib.request.Request(
+              'https://api.render.com/v1/services?'+urllib.parse.urlencode({'name':'cillo-zoho-bridge','limit':100}),
+              headers={'Accept':'application/json','Authorization':'Bearer '+key})
+          with urllib.request.urlopen(req,timeout=30) as r: payload=json.load(r)
+          items=payload if isinstance(payload,list) else payload.get('services',[])
+          service=None
+          for item in items:
+              s=item.get('service',item) if isinstance(item,dict) else {}
+              if s.get('name')=='cillo-zoho-bridge' and s.get('id'):
+                  service=s; break
+          if not service: raise SystemExit('Service Render cillo-zoho-bridge introuvable')
+          open('/tmp/bridge-service-id','w').write(service['id'])
+          details=service.get('serviceDetails') or {}
+          open('/tmp/bridge-service-url','w').write(details.get('url') or '')
+          PY
+          service_id="$(cat /tmp/bridge-service-id)"
+          curl --fail --silent --show-error \
+            --request POST \
+            --url "https://api.render.com/v1/services/${service_id}/deploys" \
+            --header "Accept: application/json" \
+            --header "Authorization: Bearer ${RENDER_API_KEY}" \
+            --header "Content-Type: application/json" \
+            --data "{\"commitId\":\"${GITHUB_SHA}\",\"clearCache\":\"do_not_clear\"}" \
+            > /tmp/bridge-deploy.json
+          echo "mode=api" >> "$GITHUB_OUTPUT"
+      - name: Vérifier la version réellement servie
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, time, urllib.request
+          urls=[]
+          try:
+              service_url=open('/tmp/bridge-service-url').read().strip()
+              if service_url: urls.append(service_url.rstrip('/'))
+          except FileNotFoundError:
+              pass
+          custom=os.environ.get('BRIDGE_CUSTOM_URL','').rstrip('/')
+          if custom and custom not in urls: urls.append(custom)
+          if not urls: raise SystemExit('Aucune URL Bridge disponible')
+          expected=os.environ['GITHUB_SHA']
+          last=[]
+          for attempt in range(1,91):
+              last=[]
+              for base in urls:
+                  try:
+                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/1.0'})
+                      with urllib.request.urlopen(req,timeout=20) as r:
+                          state=json.load(r)
+                      revision=state.get('revision')
+                      ready=(state.get('ok') is True and state.get('service')=='cillo-zoho-bridge' and state.get('boaRecipeReady') is True and state.get('boaAssetReady') is True)
+                      revision_ok=(not revision) or revision==expected
+                      if ready and revision_ok:
+                          print(json.dumps({'url':base,'state':state},ensure_ascii=False))
+                          raise SystemExit(0)
+                      last.append({'url':base,'state':state})
+                  except Exception as exc:
+                      last.append({'url':base,'error':repr(exc)})
+              if attempt % 10 == 0:
+                  print('Attente Render',attempt,last)
+              time.sleep(10)
+          raise RuntimeError('Bridge Render non conforme après attente: '+json.dumps(last,ensure_ascii=False))
+          PY
