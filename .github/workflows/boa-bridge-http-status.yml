@@ -14,13 +14,14 @@ jobs:
   status:
     runs-on: ubuntu-latest
     steps:
-      - name: Lire les endpoints Render et domaine Bridge
+      - name: Diagnostiquer le routage du Bridge
         run: |
           set -x
-          echo '--- custom domain ---'
-          curl --fail --silent --show-error --max-time 30 https://bridge.lesmotsimages.com/health
-          echo
-          echo '--- render domain ---'
-          curl --fail --silent --show-error --max-time 30 https://cillo-zoho-bridge.onrender.com/health
-          echo
-# probe 2026-08-16T14:55+02:00
+          echo '--- DNS custom domain ---'
+          dig +short CNAME bridge.lesmotsimages.com || true
+          dig +short bridge.lesmotsimages.com || true
+          echo '--- custom headers ---'
+          curl -sSIL --max-time 30 https://bridge.lesmotsimages.com/health || true
+          echo '--- known Render headers ---'
+          curl -sSIL --max-time 30 https://cillo-zoho-bridge.onrender.com/health || true
+# probe 2026-08-16T14:57+02:00
