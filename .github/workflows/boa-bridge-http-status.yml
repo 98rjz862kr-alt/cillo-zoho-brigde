@@ -55,7 +55,12 @@ jobs:
           done
           test -n "$URL"
           PASS="$(cat /tmp/boa-preview-password)"
-          CODE="$(curl -sS -o /tmp/recipe.html -w '%{http_code}' "$URL/atelier/file/boa-totem-soya%2F25-recette-humaine-finale.html?password=$PASS")"
+          CODE=''
+          for i in $(seq 1 60); do
+            CODE="$(curl -sS --max-time 20 -o /tmp/recipe.html -w '%{http_code}' "$URL/atelier/file/boa-totem-soya%2F25-recette-humaine-finale.html?password=$PASS" || true)"
+            if [ "$CODE" = 200 ] && grep -q 'RECETTE HUMAINE FINALE' /tmp/recipe.html 2>/dev/null; then break; fi
+            sleep 2
+          done
           test "$CODE" = 200
           grep -q 'RECETTE HUMAINE FINALE' /tmp/recipe.html
           {
