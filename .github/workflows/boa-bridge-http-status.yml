@@ -14,39 +14,15 @@ jobs:
   status:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Identifier les branches correspondant aux services Render
+      - name: Vérifier le Bridge après synchronisation de branche historique
         shell: bash
         run: |
           set -euo pipefail
-          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
-          echo '--- branche|sha|html|server_old|public_entry|start ---'
-          while IFS= read -r ref; do
-            branch="${ref#refs/remotes/origin/}"
-            [ "$branch" = HEAD ] && continue
-            sha="$(git rev-parse "$ref")"
-            count="$(git ls-tree -r --name-only "$ref" -- drafts 2>/dev/null | grep -E '\.html$' | wc -l | tr -d ' ')"
-            server_old=no; public_entry=no; start=unknown
-            if git cat-file -e "$ref:server.js" 2>/dev/null; then
-              body="$(git show "$ref:server.js" 2>/dev/null || true)"
-              if printf '%s' "$body" | grep -q 'openaiConfigured' && printf '%s' "$body" | grep -q 'drafts: listDraftFiles().length' && ! printf '%s' "$body" | grep -q 'publicAtelier: true'; then server_old=yes; fi
-            fi
-            if git cat-file -e "$ref:public-entry.js" 2>/dev/null; then
-              body2="$(git show "$ref:public-entry.js" 2>/dev/null || true)"
-              if printf '%s' "$body2" | grep -q 'publicAtelier: true'; then public_entry=yes; fi
-            fi
-            if git cat-file -e "$ref:package.json" 2>/dev/null; then
-              start="$(git show "$ref:package.json" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{console.log(JSON.parse(s).scripts?.start||'none')}catch{console.log('invalid')}})")"
-            fi
-            if [ "$count" = 68 ] || [ "$count" = 100 ] || [ "$server_old" = yes ]; then
-              printf '%s|%s|%s|%s|%s|%s\n' "$branch" "$sha" "$count" "$server_old" "$public_entry" "$start"
-            fi
-          done < <(git for-each-ref --format='%(refname)' refs/remotes/origin | sort)
-          echo '--- current repo count ---'
-          node --input-type=module -e "import('./drafts.js').then(m=>console.log(m.listDraftFiles().length))"
-          echo '--- live endpoints ---'
-          curl --silent --show-error --max-time 30 https://bridge.lesmotsimages.com/health || true; echo
-          curl --silent --show-error --max-time 30 https://cillo-zoho-bridge.onrender.com/health || true; echo
-# probe 2026-08-16T15:05+02:00
+          echo '--- custom health ---'
+          curl --fail --silent --show-error --max-time 30 https://bridge.lesmotsimages.com/health
+          echo
+          echo '--- recipe status ---'
+          curl --silent --show-error --max-time 30 -o /tmp/recipe.html -w '%{http_code}\n' 'https://bridge.lesmotsimages.com/atelier/file/boa-totem-soya%2F25-recette-humaine-finale.html'
+          echo '--- recipe fingerprint ---'
+          grep -o 'RECETTE HUMAINE FINALE' /tmp/recipe.html | head -n 1 || true
+# probe 2026-08-16T15:10+02:00
