@@ -13,16 +13,69 @@ permissions:
 jobs:
   status:
     runs-on: ubuntu-latest
+    timeout-minutes: 355
     steps:
-      - name: Vérifier le Bridge après synchronisation de branche historique
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Valider le lot final
+        run: |
+          node scripts/validate-boa-finalisation.mjs
+          node scripts/validate-boa-bridge-runtime.mjs
+      - name: Démarrer le Bridge privé local
         shell: bash
         run: |
           set -euo pipefail
-          echo '--- custom health ---'
-          curl --fail --silent --show-error --max-time 30 https://bridge.lesmotsimages.com/health
-          echo
-          echo '--- recipe status ---'
-          curl --silent --show-error --max-time 30 -o /tmp/recipe.html -w '%{http_code}\n' 'https://bridge.lesmotsimages.com/atelier/file/boa-totem-soya%2F25-recette-humaine-finale.html'
-          echo '--- recipe fingerprint ---'
-          grep -o 'RECETTE HUMAINE FINALE' /tmp/recipe.html | head -n 1 || true
-# probe 2026-08-16T15:10+02:00
+          PASS="$(openssl rand -hex 18)"
+          printf '%s' "$PASS" > /tmp/boa-preview-password
+          chmod 600 /tmp/boa-preview-password
+          ADMIN_PASSWORD="$PASS" PORT=3000 node public-entry.js >/tmp/boa-bridge.log 2>&1 &
+          echo $! > /tmp/boa-bridge.pid
+          for i in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:3000/health >/tmp/boa-health.json; then break; fi
+            sleep 1
+          done
+          node -e "const j=require('/tmp/boa-health.json'); if(!j.ok||!j.boaRecipeReady||!j.boaAssetReady||j.publicAtelier!==false) process.exit(1)"
+      - name: Ouvrir le tunnel privé de recette
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 -o /tmp/cloudflared https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64
+          chmod +x /tmp/cloudflared
+          /tmp/cloudflared tunnel --url http://127.0.0.1:3000 --no-autoupdate >/tmp/cloudflared.log 2>&1 &
+          echo $! > /tmp/cloudflared.pid
+          URL=''
+          for i in $(seq 1 60); do
+            URL="$(grep -Eo 'https://[a-z0-9-]+\.trycloudflare\.com' /tmp/cloudflared.log | head -n 1 || true)"
+            [ -n "$URL" ] && break
+            sleep 2
+          done
+          test -n "$URL"
+          PASS="$(cat /tmp/boa-preview-password)"
+          CODE="$(curl -sS -o /tmp/recipe.html -w '%{http_code}' "$URL/atelier/file/boa-totem-soya%2F25-recette-humaine-finale.html?password=$PASS")"
+          test "$CODE" = 200
+          grep -q 'RECETTE HUMAINE FINALE' /tmp/recipe.html
+          {
+            echo "LE BOA TOTEM DE SOYA — RECETTE HUMAINE PRIVÉE"
+            echo "ATELIER_URL=$URL/atelier?password=$PASS"
+            echo "RECETTE_URL=$URL/atelier/file/boa-totem-soya%2F25-recette-humaine-finale.html?password=$PASS"
+            echo "PASSWORD=$PASS"
+            echo "SOURCE_SHA=$(git rev-parse HEAD)"
+            echo "EXPIRES_APPROX=5h après démarrage du job"
+          } > /tmp/boa-recipe-access.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: boa-recette-humaine-privee-acces
+          path: /tmp/boa-recipe-access.txt
+          retention-days: 1
+      - name: Maintenir la recette privée disponible
+        shell: bash
+        run: |
+          for i in $(seq 1 300); do
+            kill -0 "$(cat /tmp/boa-bridge.pid)" || exit 1
+            kill -0 "$(cat /tmp/cloudflared.pid)" || exit 1
+            sleep 60
+          done
