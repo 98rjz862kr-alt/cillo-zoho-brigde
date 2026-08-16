@@ -2,7 +2,7 @@ import { createServer, request as httpRequest } from 'http';
 import { spawn } from 'child_process';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { listDraftFiles, readDraftHtml } from './drafts.js';
+import { listDraftFiles, readDraftHtml, readDraftAsset } from './drafts.js';
 import { isAuthorized } from './security.js';
 
 const __filename=fileURLToPath(import.meta.url);
@@ -18,6 +18,7 @@ const core=spawn(process.execPath,[path.join(rootDir,'server.js')],{
 function escapeHtml(value){return String(value||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 
 function sendHtml(res,html,status=200){res.writeHead(status,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: https:; frame-ancestors 'self'"});res.end(html);}
+function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox"});res.end(asset.content);}
 
 function loginPage(message=''){
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Accès protégé</title><style>:root{--b:#143B7D;--n:#0F2747;--g:#D4AF37;--i:#F6F1E8;--s:#75553F}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,var(--n),var(--b));font-family:Arial,sans-serif}.card{width:min(520px,100%);background:var(--i);border-radius:24px;padding:34px;box-shadow:0 30px 80px #0005;border-top:5px solid var(--g)}h1{margin:0 0 10px;color:var(--b);font:700 2.4rem Georgia,serif}p{color:var(--s);line-height:1.6}input,button{width:100%;font:inherit;padding:14px 16px;border-radius:10px}input{border:1px solid #143b7d44;background:#fff}button{margin-top:12px;border:0;background:var(--b);color:#fff;font-weight:900;cursor:pointer}.error{color:#8b1e2d;font-weight:800}</style></head><body><main class="card"><h1>Bridge LMI</h1><p>Bibliothèque privée de brouillons et de BAT.</p>${message?`<p class="error">${escapeHtml(message)}</p>`:''}<form method="get" action="/atelier"><input type="password" name="password" autocomplete="current-password" placeholder="Mot de passe" required><button type="submit">Ouvrir l’atelier</button></form></main></body></html>`;
@@ -50,8 +51,10 @@ const server=createServer((req,res)=>{
     let relativePath='';
     try{relativePath=decodeURIComponent(encoded);}catch{return sendHtml(res,'<h1>Chemin invalide</h1>',400);}
     const html=readDraftHtml(relativePath);
-    if(!html)return sendHtml(res,'<h1>BAT introuvable</h1>',404);
-    return sendHtml(res,html);
+    if(html)return sendHtml(res,html);
+    const asset=readDraftAsset(relativePath);
+    if(asset)return sendAsset(res,asset);
+    return sendHtml(res,'<h1>BAT ou asset introuvable</h1>',404);
   }
   if(req.method==='GET'&&(url.pathname==='/health'||url.pathname==='/api/health')){
     res.writeHead(200,{'content-type':'application/json; charset=utf-8','cache-control':'no-store'});
