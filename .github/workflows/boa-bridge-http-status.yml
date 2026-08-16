@@ -1,0 +1,20 @@
+name: Boa Bridge HTTP status diagnostic
+
+on:
+  push:
+    branches:
+      - agent/boa-totem-soya-render-verify-20260816
+    paths:
+      - .github/workflows/boa-bridge-http-status.yml
+
+permissions:
+  contents: read
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lire /health du Bridge
+        run: |
+          set -x
+          curl --fail --silent --show-error --max-time 30 https://bridge.lesmotsimages.com/health
