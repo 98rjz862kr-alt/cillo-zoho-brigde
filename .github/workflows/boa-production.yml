@@ -7,6 +7,7 @@ on:
     paths:
       - scripts/generate-boa-finalisation.mjs
       - scripts/validate-boa-finalisation.mjs
+      - scripts/validate-boa-bridge-runtime.mjs
       - scripts/normalize-boa-dialogues.mjs
       - drafts.js
       - public-entry.js
@@ -36,6 +37,8 @@ jobs:
         run: node scripts/generate-boa-finalisation.mjs
       - name: Valider la production
         run: node scripts/validate-boa-finalisation.mjs
+      - name: Valider le service des assets Bridge
+        run: node scripts/validate-boa-bridge-runtime.mjs
       - name: Enregistrer les livrables
         run: |
           if git diff --quiet; then
