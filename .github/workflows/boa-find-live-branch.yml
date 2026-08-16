@@ -1,0 +1,48 @@
+name: Boa Find Render live branch diagnostic
+
+on:
+  push:
+    branches:
+      - agent/boa-totem-soya-render-verify-20260816
+    paths:
+      - .github/workflows/boa-find-live-branch.yml
+
+permissions:
+  contents: read
+
+jobs:
+  locate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Comparer les branches au fingerprint des services Render
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch origin '+refs/heads/*:refs/remotes/origin/*' --prune
+          printf 'branch|sha|html_drafts|server_old68|public_entry_public|package_start\n'
+          while IFS= read -r ref; do
+            branch="${ref#refs/remotes/origin/}"
+            [ "$branch" = HEAD ] && continue
+            sha="$(git rev-parse "$ref")"
+            count="$(git ls-tree -r --name-only "$ref" -- drafts 2>/dev/null | grep -E '\.html$' | wc -l | tr -d ' ')"
+            server_old68=no
+            public_entry_public=no
+            package_start=unknown
+            if git cat-file -e "$ref:server.js" 2>/dev/null; then
+              body="$(git show "$ref:server.js" 2>/dev/null || true)"
+              if printf '%s' "$body" | grep -q 'openaiConfigured' && printf '%s' "$body" | grep -q 'drafts: listDraftFiles().length' && ! printf '%s' "$body" | grep -q 'publicAtelier: true'; then server_old68=yes; fi
+            fi
+            if git cat-file -e "$ref:public-entry.js" 2>/dev/null; then
+              body2="$(git show "$ref:public-entry.js" 2>/dev/null || true)"
+              if printf '%s' "$body2" | grep -q 'publicAtelier: true'; then public_entry_public=yes; fi
+            fi
+            if git cat-file -e "$ref:package.json" 2>/dev/null; then
+              package_start="$(git show "$ref:package.json" | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{console.log(JSON.parse(s).scripts?.start||'none')}catch{console.log('invalid')}})")"
+            fi
+            if [ "$count" = 68 ] || [ "$count" = 100 ] || [ "$server_old68" = yes ]; then
+              printf '%s|%s|%s|%s|%s|%s\n' "$branch" "$sha" "$count" "$server_old68" "$public_entry_public" "$package_start"
+            fi
+          done < <(git for-each-ref --format='%(refname)' refs/remotes/origin | sort)
