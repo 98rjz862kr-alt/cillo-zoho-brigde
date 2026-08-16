@@ -1,22 +1,39 @@
 {
   "protocol_version": "1.0.0",
   "mode": "continuous_silent_production",
-  "active_project": "HUB LMI EDITIONS",
-  "active_scope": "Bridge protected drafts only",
-  "last_verified_merge": "526f879cf5d5ff5680089f5476fc4de4897d0e4a",
+  "active_project": "LE BOA TOTEM DE SOYA",
+  "active_scope": "Final transmedia recipe package: BD, album graphique, dessin anime, continuity assets and QA",
+  "last_verified_merge": "af485cabaee590a621eb61701547455842ab0d19",
   "last_verified_ci": {
-    "workflow": "CDM Machine",
+    "workflow": "Boa Totem - package final recette",
     "status": "success",
-    "run_number": 171
+    "run_id": 31948724768
   },
-  "current_workstream": "Bridge access protection and decorated draft delivery through the production entrypoint",
-  "next_work": [
-    "verify protected production entrypoint",
-    "continue source-level Hub quality audit",
-    "continue automated regression controls",
-    "prepare human recipe only when indispensable"
+  "current_workstream": "Final human recipe after completion of the internal production package",
+  "completed_work": [
+    "18 BD roughs and dialogue continuity package",
+    "12 album spreads and 32-page working pagination",
+    "50-shot animated-film exposure and internal animatic package",
+    "SOYA CILLO SIDAAT continuity model sheets",
+    "locked dialogue reconciliation across BD album DA SRT lettering and pagination",
+    "final transmedia QA and human-recipe page",
+    "archivable ZIP package deposited in Google Drive"
   ],
-  "human_validation_required": [],
+  "infrastructure_state": {
+    "github_main": "final production merged",
+    "drive_package": "ready",
+    "bridge_render_custom_domain": "service reachable but deployment revision not synchronized with final GitHub production",
+    "render_credentials_in_github": "not configured",
+    "private_recipe_preview": "prepared independently for final human recipe"
+  },
+  "next_work": [
+    "collect final human recipe decision",
+    "apply only corrections raised by the human recipe",
+    "prepare external fabrication or finished media production only after human approval"
+  ],
+  "human_validation_required": [
+    "final transmedia human recipe"
+  ],
   "public_release": {
     "status": "blocked",
     "requires_explicit_human_go": true
@@ -26,5 +43,5 @@
     "intermediate_completion_messages": false,
     "human_validation_messages_only": true
   },
-  "updated_at": "2026-08-05T15:18:00+02:00"
+  "updated_at": "2026-08-16T15:10:00+02:00"
 }
