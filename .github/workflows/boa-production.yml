@@ -8,6 +8,8 @@ on:
       - scripts/generate-boa-finalisation.mjs
       - scripts/validate-boa-finalisation.mjs
       - scripts/normalize-boa-dialogues.mjs
+      - drafts.js
+      - public-entry.js
       - .github/workflows/boa-production.yml
 
 permissions:
@@ -24,6 +26,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Verifier le runtime Bridge
+        run: |
+          node --check drafts.js
+          node --check public-entry.js
       - name: Harmoniser les dialogues
         run: node scripts/normalize-boa-dialogues.mjs
       - name: Generer les livrables transmedia
