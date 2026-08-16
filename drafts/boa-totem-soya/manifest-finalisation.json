@@ -1,0 +1,27 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "generatedAt": "2026-08-16T12:31:10.827Z",
+  "branch": "agent/boa-totem-soya-finalisation-20260816",
+  "canon": {
+    "cillo": "Attends... ça recommence seulement quand tu avances.",
+    "sidaat1": "Soya, tes jambes ont peur ?",
+    "cillo2": "On doit demander qui les a faites.",
+    "sidaat2": "Le boa aussi a eu mal ?",
+    "soya": "C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer."
+  },
+  "counts": {
+    "bdRoughs": 18,
+    "albumSpreads": 12,
+    "daShots": 50,
+    "modelSheets": 3
+  },
+  "files": [
+    "19-roughs-bd-01-18.html",
+    "20-model-sheets-line-art.html",
+    "21-album-maquette-finale-32p.html",
+    "22-da-asset-exposure-sheet.html",
+    "23-da-animatic-interne.html",
+    "24-qa-finale-transmedia.html",
+    "25-recette-humaine-finale.html"
+  ]
+}

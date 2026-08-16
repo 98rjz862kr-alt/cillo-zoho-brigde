@@ -1,74 +1,73 @@
 1
-00:00:12,000 --> 00:00:15,000
+00:00:10,000 --> 00:00:14,000
 Ça sent le pain chaud.
 
 2
-00:00:58,000 --> 00:01:01,000
+00:01:07,000 --> 00:01:10,000
 Tu les as vues ?
 
 3
-00:01:05,000 --> 00:01:08,000
+00:01:19,000 --> 00:01:22,000
 Elles te regardent aussi.
 
 4
-00:02:03,000 --> 00:02:06,000
+00:02:00,000 --> 00:02:04,000
 Vous avez senti ?
 
 5
-00:02:31,000 --> 00:02:38,000
-Attends… ça recommence seulement quand tu avances.
+00:02:37,000 --> 00:02:43,000
+Attends... ça recommence seulement quand tu avances.
 
 6
-00:03:02,000 --> 00:03:06,000
+00:02:57,000 --> 00:03:02,000
 Soya, tes jambes ont peur ?
 
 7
-00:03:14,000 --> 00:03:18,000
+00:03:09,000 --> 00:03:14,000
 Elles veulent me dire quelque chose.
 
 8
-00:03:44,000 --> 00:03:49,000
+00:03:42,000 --> 00:03:47,000
 On doit demander qui les a faites.
 
 9
-00:04:12,000 --> 00:04:16,000
+00:04:07,000 --> 00:04:12,000
 Qui a fait ces motifs ?
 
 10
-00:05:01,000 --> 00:05:03,000
+00:04:47,000 --> 00:04:51,000
 Quel serpent ?
 
 11
-00:05:10,000 --> 00:05:12,000
+00:04:57,000 --> 00:05:00,000
 Un boa.
 
 12
-00:05:43,000 --> 00:05:48,000
+00:05:47,000 --> 00:05:54,000
 Il faut trouver quelqu’un qui comprend.
 
 13
-00:06:25,000 --> 00:06:28,000
+00:06:29,000 --> 00:06:33,000
 Pose-les là.
 
 14
-00:06:52,000 --> 00:06:59,000
+00:06:50,000 --> 00:06:59,000
 Certains animaux protègent une lignée
 et avertissent lorsqu’un lien est rompu.
 
 15
-00:07:12,000 --> 00:07:17,000
+00:07:13,000 --> 00:07:18,000
 Quelque chose a été utilisé sans respect.
 
 16
-00:07:30,000 --> 00:07:34,000
+00:07:31,000 --> 00:07:36,000
 Le boa aussi a eu mal ?
 
 17
-00:07:55,000 --> 00:08:01,000
+00:07:53,000 --> 00:08:00,000
 Oui. Et le signe demande
 qu’on commence à réparer.
 
 18
-00:08:25,000 --> 00:08:35,000
-C’est moi que le signe a arrêtée.
-Alors c’est moi qui dois commencer.
+00:08:35,000 --> 00:08:45,000
+C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer.
