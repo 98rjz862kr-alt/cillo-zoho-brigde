@@ -33,6 +33,15 @@ for(const f of cilloFiles){if(existsSync(resolve(root,f)))must(txt(f).includes(c
 const soyaFiles=['01-bd-18-planches.html','03-da-storyboard.html','06-script-bd-dialogues.html','07-album-graphique-texte-integral.html','08-da-script-technique.html','09-da-sous-titres-fr.srt','14-guide-lettrage-bd.html','16-album-maquette-pagination.html','18-dialogues-verrouilles-reference.html'];
 for(const f of soyaFiles){if(existsSync(resolve(root,f)))must(txt(f).includes(soya),`${f}: réplique SOYA non canonique`)}
 
+const srt=txt('09-da-sous-titres-fr.srt');
+const srtBlocks=srt.trim().split(/\n\s*\n/);
+must(srtBlocks.length===18,`Sous-titres: ${srtBlocks.length}/18 cues`);
+const expectedTiming=[
+'00:00:10,000 --> 00:00:14,000','00:01:07,000 --> 00:01:10,000','00:01:19,000 --> 00:01:22,000','00:02:00,000 --> 00:02:04,000','00:02:37,000 --> 00:02:43,000','00:02:57,000 --> 00:03:02,000','00:03:09,000 --> 00:03:14,000','00:03:42,000 --> 00:03:47,000','00:04:07,000 --> 00:04:12,000','00:04:47,000 --> 00:04:51,000','00:04:57,000 --> 00:05:00,000','00:05:47,000 --> 00:05:54,000','00:06:29,000 --> 00:06:33,000','00:06:50,000 --> 00:06:59,000','00:07:13,000 --> 00:07:18,000','00:07:31,000 --> 00:07:36,000','00:07:53,000 --> 00:08:00,000','00:08:35,000 --> 00:08:45,000'];
+for(let i=0;i<expectedTiming.length;i++)must(srtBlocks[i]?.includes(expectedTiming[i]),`Sous-titres: cue ${i+1} hors timing du plan verrouillé`);
+must(srtBlocks[4]?.includes(cillo),'Sous-titres: réplique CILLO verrouillée absente au cue 5');
+must(srtBlocks[17]?.includes(soya),'Sous-titres: décision SOYA indivisible absente au cue 18');
+
 for(const f of readdirSync(root).filter(x=>/\.(html|srt|json)$/i.test(x))){
  const s=txt(f).toLowerCase();
  must(!s.includes('braconnage'),`${f}: axe braconnage interdit`);
@@ -54,4 +63,4 @@ must(manifest.counts?.daShots===50,'Manifest: plans != 50');
 
 if(fail.length){console.error(fail.join('\n'));process.exit(1)}
 console.log('BOA TOTEM DE SOYA — validation finale automatisée: CONFORME');
-console.log('18 roughs BD · 12 doubles pages · 50 plans DA · 3 model sheets · recette finale raccordée');
+console.log('18 roughs BD · 12 doubles pages · 50 plans DA · 3 model sheets · 18 cues SRT · recette finale raccordée');
