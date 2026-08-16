@@ -16,7 +16,7 @@ Vous avez senti ?
 
 5
 00:02:31,000 --> 00:02:38,000
-Attends… ça recommence seulement quand tu avances.
+Attends... ça recommence seulement quand tu avances.
 
 6
 00:03:02,000 --> 00:03:06,000
@@ -70,5 +70,4 @@ qu’on commence à réparer.
 
 18
 00:08:25,000 --> 00:08:35,000
-C’est moi que le signe a arrêtée.
-Alors c’est moi qui dois commencer.
+C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer.
