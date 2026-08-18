@@ -1,0 +1,45 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "auditDate": "2026-08-18",
+  "sources": [
+    {
+      "id": "DRV-SOURCE-BD-V2",
+      "driveId": "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ",
+      "priority": "A",
+      "status": "ACCEPTED_WITH_CORRECTIONS",
+      "use": ["line-up trio", "visages", "proportions", "SOYA concept", "SIDAAT concept", "storyboard planche 12"],
+      "warnings": ["CILLO concept arrière montre une extension/tresse non conforme", "concepts non BAT", "accessoires à simplifier si nécessaire"]
+    },
+    {
+      "id": "DRV-MOBILE-V03-12",
+      "driveFolderId": "12LWyeU632usX7dJ9EBun_PyaAxQQOWjb",
+      "originalContactSheetDriveId": "1zCV19bphPgS5nUPF3B7ECmqtETltcSIQ",
+      "priority": "B",
+      "status": "ACCEPTED_AS_VISUAL_REFERENCE_ONLY",
+      "use": ["matière aquarelle", "lumière", "rue/décor", "gestuelle trio", "proportions simplifiées", "palette costumes"],
+      "warnings": ["adaptation mobile courte", "narration non autoritaire", "textes et ponctuation non autoritaires", "aucun écran ne vaut planche finale", "contrôler coiffure CILLO à chaque angle"]
+    },
+    {
+      "id": "DRV-JUNE-REFERENCE",
+      "driveIds": ["18TnkUST3T58xZi91TSXGdD0-SVKek4mf", "1KsCtlHmEluN_qEbCG6rP8LRogrLOZXzl"],
+      "priority": "NONE",
+      "status": "REJECTED_FOR_CHARACTER_CONTINUITY",
+      "use": ["ambiance de marché uniquement si besoin"],
+      "warnings": ["trio non canonique", "deux garçons au lieu du trio SOYA/CILLO/SIDAAT", "coiffures et silhouettes incompatibles", "ne jamais utiliser comme référence personnage"]
+    },
+    {
+      "id": "PROC-SVG-20260816",
+      "priority": "NONE",
+      "status": "SCHEMATIC_PREPRODUCTION_ONLY",
+      "use": ["structure de cases", "comptage technique", "repérage plans"],
+      "warnings": ["pictogrammes/geometries", "aucune valeur d'artwork final", "ne jamais présenter comme planche/model sheet/animation finale"]
+    }
+  ],
+  "continuityLocks": {
+    "SOYA": "9-11 ans, héroïne centrale, tresses peules longues, aucun voile",
+    "CILLO": "6-9 ans, côtés très courts, bande centrale front-nuque arrêtée à la nuque, aucune tresse/natte/queue/retombée arrière",
+    "SIDAAT": "4-6 ans, plus petite et plus ronde, tresses peules courtes, aucun voile",
+    "BOA": "protecteur, noble, calme, jamais agressif ou frontal comme menace"
+  },
+  "rule": "Une source visuelle n'est jamais promue au rang d'asset final sans contrôle visuel réel et inscription explicite dans visual-qa-final.json."
+}
