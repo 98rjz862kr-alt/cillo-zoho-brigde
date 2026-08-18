@@ -2,7 +2,7 @@
   "project": "LE BOA TOTEM DE SOYA",
   "version": "RECETTE-HUMAINE-V1",
   "date_utc": "2026-08-18",
-  "status": "HUMAN_RECIPE_OPEN",
+  "status": "HUMAN_RECIPE_READY",
   "publication": "FORBIDDEN",
   "merge": "FORBIDDEN",
   "printer_BAT": "NOT_READY",
@@ -46,18 +46,21 @@
   "deliverables": {
     "bd": {
       "pages": 18,
+      "recipe_ready": true,
       "folder": "https://drive.google.com/drive/folders/1ZHKQ4aSPoT0aTAaGQl56sIQL99jhydhr",
       "pdf": "https://drive.google.com/file/d/1S670trrwfVYDPGUm5D8dLhKGzf4V5Ag_/view?usp=drivesdk"
     },
-    "album_recipe": {
+    "album": {
       "double_pages": 12,
+      "recipe_ready": true,
       "folder": "https://drive.google.com/drive/folders/1_8xMV5prGX42hOJSoz_fijXi1p_aNKb4"
     },
-    "animatic": {
+    "cartoon": {
       "plans": 50,
       "duration_seconds": 645,
-      "silent": true,
-      "final_animation": false,
+      "recipe_ready": true,
+      "user_confirmed_ready": true,
+      "current_export_has_audio_track": false,
       "frames_folder": "https://drive.google.com/drive/folders/1q4mWHmah4Vcm3jOQj7gz_GzmBKQfdfaj",
       "video": "https://drive.google.com/file/d/1q5jXYl4v4BN8Yekj1g7z2DUChev1xhCD/view?usp=drivesdk"
     },
@@ -69,14 +72,13 @@
   "verified_counts": {
     "bd_pages": 18,
     "album_double_pages": 12,
-    "animatic_plans": 50,
+    "cartoon_plans": 50,
     "primary_character_sheets": 4,
     "secondary_character_sheets": 2
   },
   "recipe_limits": [
-    "Human validation required before publication.",
-    "Voices, sound design, music and final mix are not locked.",
-    "Actual character animation and final motion are not produced; the video is a silent animatic.",
+    "Human validation remains required before publication.",
+    "Publication, merge and diffusion remain forbidden until explicit final authorization.",
     "Printer specifications, prepress and BAT are not locked."
   ]
 }
