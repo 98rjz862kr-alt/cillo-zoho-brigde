@@ -1,55 +1,71 @@
 {
   "project": "LE BOA TOTEM DE SOYA",
   "updatedAt": "2026-08-18",
-  "status": "READY_TO_RENDER",
+  "status": "READY_TO_RENDER_WITH_CANONICAL_REFERENCES_ONLY",
   "currentStage": "MODEL_SHEETS",
   "driveRoot": "1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM",
+  "globalVisualRules": {
+    "freeCharacterGenerationForbidden": true,
+    "referenceImageRequiredBeforeRender": true,
+    "palette": ["#143B7D", "#CC7722", "#75553F", "#D4AF37", "#0F2747", "#F6F1E8", "#C8A96B", "#C9C3BA"],
+    "greenForbidden": true,
+    "outOfPaletteColorsForbidden": true,
+    "newFacesForbidden": true,
+    "newHairstylesForbidden": true,
+    "newCostumesForbiddenUnlessExplicitlyAuthorizedByProductionDoc": true,
+    "visualInspectionRequiredAfterEveryRender": true
+  },
   "tasks": [
     {
       "order": 1,
       "id": "MODEL-SOYA-v001",
       "type": "model_sheet",
-      "status": "READY_TO_RENDER",
+      "status": "READY_TO_RENDER_WITH_REFERENCE",
       "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
-      "references": ["1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "primaryReference": "1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc",
+      "references": ["1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "16nJCD6bSBKox1y46TUKE3m0cHKcgU1rECpg8-aN3KeE", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
       "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
-      "qaRequired": ["face", "threeQuarter", "profile", "back", "expressions", "age9to11", "longFulaniBraids", "childProportions"]
+      "qaRequired": ["sameFaceAsSource", "face", "threeQuarter", "profile", "back", "expressions", "age9to11", "longFulaniBraids", "childProportions", "lmiPaletteOnly", "noGreen"]
     },
     {
       "order": 2,
       "id": "MODEL-CILLO-v001",
       "type": "model_sheet",
-      "status": "READY_TO_RENDER",
+      "status": "READY_TO_RENDER_WITH_REFERENCE_AND_SINGLE_CORRECTION",
       "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
-      "references": ["10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "primaryReference": "10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm",
+      "references": ["10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "16nJCD6bSBKox1y46TUKE3m0cHKcgU1rECpg8-aN3KeE", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "allowedDeviationFromSource": "rear hair only: central strip must stop exactly at nape",
       "criticalGate": "back view hair stops exactly at nape; no braid, ponytail, rear extension or long rear strand",
       "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
-      "qaRequired": ["face", "threeQuarter", "profile", "back", "expressions", "age6to9", "shortSides", "singleCentralStrip", "rearHairGate"]
+      "qaRequired": ["sameFaceAsSource", "face", "threeQuarter", "profile", "back", "expressions", "age6to9", "shortSides", "singleCentralStrip", "rearHairGate", "lmiPaletteOnly", "noGreen"]
     },
     {
       "order": 3,
       "id": "MODEL-SIDAAT-v001",
       "type": "model_sheet",
-      "status": "READY_TO_RENDER",
+      "status": "READY_TO_RENDER_WITH_REFERENCE",
       "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
-      "references": ["1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "primaryReference": "1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-",
+      "references": ["1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "16nJCD6bSBKox1y46TUKE3m0cHKcgU1rECpg8-aN3KeE", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
       "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
-      "qaRequired": ["face", "threeQuarter", "profile", "back", "expressions", "age4to6", "shortFulaniBraids", "smallestOfTrio", "rounderProportions"]
+      "qaRequired": ["sameFaceAsSource", "face", "threeQuarter", "profile", "back", "expressions", "age4to6", "shortFulaniBraids", "smallestOfTrio", "rounderProportions", "lmiPaletteOnly", "noGreen"]
     },
     {
       "order": 4,
       "id": "LINEUP-TRIO-v001",
       "type": "lineup",
-      "status": "WAITING_FOR_MODELS_1_3",
+      "status": "WAITING_FOR_MODELS_1_3_VISUAL_PASS",
       "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
     },
     {
       "order": 5,
       "id": "SECONDARY-MAAM-JALLEL-VENDEUR-v001",
       "type": "secondary_character_sheets",
-      "status": "WAITING_FOR_CORE_MODELS",
+      "status": "WAITING_FOR_CANONICAL_REFERENCE_LOCK",
       "canonicalCharacters": ["MAAM JALLEL", "VENDEUR"],
       "obsoleteNamesForbidden": ["NÉNÉ ADAMA", "NENE ADAMA"],
+      "freeGenerationForbidden": true,
       "driveDestination": "1dqnOJMQxAT3kLHVsWiTD2yIUhFBsRQZo"
     },
     {
@@ -77,5 +93,5 @@
       "driveDestination": "1q4mWHmah4Vcm3lOQj7gz_GzmBKQfdfaj"
     }
   ],
-  "rule": "After every render, visually inspect before changing task status. Never batch-promote uninspected images."
+  "rule": "Every render must be reference-driven and visually inspected before status promotion. Any free interpretation or palette violation is rejected."
 }
