@@ -1,0 +1,191 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "version": "2026-08-18-audit-correctif",
+  "status": "PRODUCTION_VISUELLE_A_REFAIRE",
+  "targetStyle": "aquarelle numérique réaliste, illustration jeunesse premium, lumière naturelle, matière papier, personnages cohérents",
+  "authoritativeReferences": {
+    "visualDrive": "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ",
+    "characterTextDrive": "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes",
+    "auditVisualDrive": "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc",
+    "dialogues": "18-dialogues-verrouilles-reference.html"
+  },
+  "globalLocks": {
+    "soya": "fille 9-11 ans, héroïne centrale, tresses peules longues et nettes, robe simple, sandales avant retrait, aucune lecture adolescente, aucun voile",
+    "cillo": "garçon 6-9 ans, côtés très courts, bande centrale front-nuque arrêt strict à la nuque, aucune tresse/natte/queue/mèche arrière, silhouette compacte, aucune barbe",
+    "sidaat": "fille 4-6 ans, plus petite et plus ronde, tresses peules courtes, expression sensible, aucun voile",
+    "boa": "protecteur, noble, calme, symbolique, jamais agressif, jamais frontal comme menace",
+    "religiousSigns": "aucun signe religieux visible; Néné Adama/Maam Jallel peut porter un foulard simple non religieux",
+    "forbiddenLook": ["pictogramme", "bonhomme géométrique", "SVG procédural", "wireframe", "maquette UI", "clipart", "bulle vide"]
+  },
+  "dialoguesCanon": {
+    "cillo1": "Attends... ça recommence seulement quand tu avances.",
+    "sidaat1": "Soya, tes jambes ont peur ?",
+    "cillo2": "On doit demander qui les a faites.",
+    "sidaat2": "Le boa aussi a eu mal ?",
+    "soyaFinal": "C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer."
+  },
+  "pages": [
+    {
+      "page": 1,
+      "title": "Le marché s’éveille",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "grand marché matinal sahélien, étoffes, paniers, fruits, poussière lumineuse; SOYA légèrement devant; trio immédiatement lisible",
+      "dialogue": ["SIDAAT : Ça sent le pain chaud."],
+      "qa": ["SOYA centre visuel", "CILLO coiffure conforme", "SIDAAT nettement plus petite", "aucun signe religieux"]
+    },
+    {
+      "page": 2,
+      "title": "L’étal des sandales",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "VENDEUR"],
+      "visualBeat": "étal de sandales en éventail; une paire porte des motifs d’écailles subtils; gros plan sur le regard de SOYA",
+      "dialogue": ["CILLO : Tu les as vues ?", "SIDAAT : Elles te regardent aussi."],
+      "qa": ["motifs subtils non fantastiques", "SOYA déclenche le focus narratif"]
+    },
+    {
+      "page": 3,
+      "title": "Le désir",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "VENDEUR"],
+      "visualBeat": "SOYA prend la paire; doigts sur le motif; CILLO examine; SIDAAT pressent un malaise",
+      "dialogue": ["SOYA : On dirait que ça bouge.", "CILLO : Non. C’est juste le dessin."],
+      "qa": ["aucun effet magique spectaculaire", "gestuelle enfantine naturelle"]
+    },
+    {
+      "page": 4,
+      "title": "L’hésitation",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "SOYA enfile les sandales; le marché se dilue légèrement autour d’elle; SIDAAT touche son bras",
+      "dialogue": ["SIDAAT : Tu as froid ?"],
+      "qa": ["dilution aquarelle subtile", "pas d’aura surnaturelle criarde"]
+    },
+    {
+      "page": 5,
+      "title": "Le premier signe",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "sortie du marché; trois pas; vibration discrète sous la semelle; SOYA s’arrête tandis que le monde continue",
+      "dialogue": ["SOYA : Vous avez senti ?"],
+      "qa": ["arrêt de SOYA lisible par contraste de mouvement", "vibration non spectaculaire"]
+    },
+    {
+      "page": 6,
+      "title": "Marche et arrêt",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "test marche/arrêt; CILLO se baisse pour observer les pieds; SOYA reste calme",
+      "dialogue": ["CILLO : Attends... ça recommence seulement quand tu avances."],
+      "qa": ["trois points ASCII exactement", "CILLO coiffure sans retombée arrière"]
+    },
+    {
+      "page": 7,
+      "title": "La règle invisible",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "CILLO trace une ligne avec un bâton; SOYA la franchit; SIDAAT observe son visage; SOYA comprend",
+      "dialogue": ["SOYA : C’est moi qu’elles arrêtent."],
+      "qa": ["SOYA reste celle qui comprend le signe", "CILLO aide sans prendre la décision"]
+    },
+    {
+      "page": 8,
+      "title": "Les boutons",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "SOYA examine ses jambes; petits boutons visibles sans horreur; SIDAAT se penche; pied qui refuse d’avancer",
+      "dialogue": ["SIDAAT : Ils n’étaient pas là."],
+      "qa": ["aucun body horror", "robe manipulée avec pudeur enfantine naturelle"]
+    },
+    {
+      "page": 9,
+      "title": "Les jambes qui ont peur",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "SOYA contre un mur bas; SIDAAT lui prend la main; regard sur les sandales; CILLO se redresse décidé",
+      "dialogue": ["SIDAAT : Soya, tes jambes ont peur ?", "SOYA : Elles veulent me dire quelque chose."],
+      "qa": ["tendresse SIDAAT/SOYA", "SOYA non passive"]
+    },
+    {
+      "page": 10,
+      "title": "Commencer l’enquête",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "CILLO reconstitue le trajet; insert motifs; SOYA acquiesce; trio rebrousse chemin plus compact",
+      "dialogue": ["CILLO : On doit demander qui les a faites."],
+      "qa": ["CILLO enquêteur, pas héros central", "SOYA garde l’axe narratif"]
+    },
+    {
+      "page": 11,
+      "title": "Le vendeur hésite",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "VENDEUR"],
+      "visualBeat": "retour à l’étal; sandales sur le comptoir; vendeur détourne les yeux; mention d’une peau ancienne près d’un grand serpent",
+      "dialogue": ["CILLO : Qui a fait ces motifs ?"],
+      "qa": ["aucune violence illustrée", "aucun braconnage explicitement nommé"]
+    },
+    {
+      "page": 12,
+      "title": "Le mot boa",
+      "cases": 7,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "VENDEUR", "ADULTE"],
+      "visualBeat": "référence storyboard prioritaire: vendeur, trio, mot boa, gros plan SOYA, sandales/écailles, ombre protectrice du boa, trio reformé",
+      "dialogue": ["VENDEUR : Un boa.", "SOYA : Il faut trouver quelqu’un qui comprend."],
+      "qa": ["planche source illustrée comme base de cadrage", "boa protecteur et non menaçant", "SOYA seule au gros plan clé"]
+    },
+    {
+      "page": 13,
+      "title": "Chez Néné Adama",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "NÉNÉ ADAMA"],
+      "visualBeat": "maison calme; Néné Adama ouvre; regarde SOYA puis les sandales; trio assis; elle approche la paire sans toucher",
+      "dialogue": [],
+      "qa": ["foulard simple non religieux", "atmosphère intime et calme"]
+    },
+    {
+      "page": 14,
+      "title": "La transmission",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "NÉNÉ ADAMA"],
+      "visualBeat": "explication du lien protecteur; SOYA au premier plan; CILLO comprend la logique; SIDAAT regarde les motifs comme une blessure silencieuse",
+      "dialogue": [],
+      "qa": ["transmission culturelle sans exotisation", "SOYA au premier plan"]
+    },
+    {
+      "page": 15,
+      "title": "Ce qui a été blessé",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT", "NÉNÉ ADAMA"],
+      "visualBeat": "matière utilisée sans respect; SIDAAT interroge; silence; lumière en motif d’écailles; réponse de Néné Adama",
+      "dialogue": ["SIDAAT : Le boa aussi a eu mal ?", "NÉNÉ ADAMA : Oui. Et le signe demande qu’on commence à réparer."],
+      "qa": ["pas de scène de blessure animale", "symbolisme lumineux subtil"]
+    },
+    {
+      "page": 16,
+      "title": "Le choix de Soya",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "SOYA regarde ses jambes; retire les sandales; CILLO attend; SIDAAT reste auprès d’elle; SOYA relève la tête et décide",
+      "dialogue": ["SOYA : C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer."],
+      "qa": ["réplique indivisible en une seule bulle", "SOYA clairement décisionnaire"]
+    },
+    {
+      "page": 17,
+      "title": "Le geste réparateur",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "CILLO prépare tissu/eau; SIDAAT dépose une feuille; SOYA nettoie puis défait l’ornement fautif; vibration diminue; ombre boa calme et lointaine",
+      "dialogue": [],
+      "qa": ["SOYA exécute le geste central", "CILLO et SIDAAT assistent", "boa non frontal"]
+    },
+    {
+      "page": 18,
+      "title": "Le premier mouvement du trio",
+      "cases": 4,
+      "characters": ["SOYA", "CILLO", "SIDAAT"],
+      "visualBeat": "SOYA pieds nus; boutons s’effacent; trio repart au marché; dernier plan large; trace d’écailles se dissout dans la lumière",
+      "dialogue": [],
+      "qa": ["aucune répétition de la réplique finale", "fin ouverte de série", "lumière douce, pas d’effet magique spectaculaire"]
+    }
+  ]
+}
