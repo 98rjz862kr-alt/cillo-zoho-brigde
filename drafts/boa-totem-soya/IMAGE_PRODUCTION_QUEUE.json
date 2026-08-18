@@ -1,5 +1,6 @@
 {
   "project": "LE BOA TOTEM DE SOYA",
+  "updatedAt": "2026-08-18",
   "status": "READY_TO_RENDER",
   "currentStage": "MODEL_SHEETS",
   "driveRoot": "1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM",
@@ -10,8 +11,9 @@
       "type": "model_sheet",
       "status": "READY_TO_RENDER",
       "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
-      "references": ["1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
-      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+      "references": ["1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
+      "qaRequired": ["face", "threeQuarter", "profile", "back", "expressions", "age9to11", "longFulaniBraids", "childProportions"]
     },
     {
       "order": 2,
@@ -19,9 +21,10 @@
       "type": "model_sheet",
       "status": "READY_TO_RENDER",
       "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
-      "references": ["1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
-      "criticalGate": "back view hair stops exactly at nape; no braid, ponytail or rear extension",
-      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+      "references": ["10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "criticalGate": "back view hair stops exactly at nape; no braid, ponytail, rear extension or long rear strand",
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
+      "qaRequired": ["face", "threeQuarter", "profile", "back", "expressions", "age6to9", "shortSides", "singleCentralStrip", "rearHairGate"]
     },
     {
       "order": 3,
@@ -29,8 +32,9 @@
       "type": "model_sheet",
       "status": "READY_TO_RENDER",
       "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
-      "references": ["1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
-      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+      "references": ["1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-", "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
+      "qaRequired": ["face", "threeQuarter", "profile", "back", "expressions", "age4to6", "shortFulaniBraids", "smallestOfTrio", "rounderProportions"]
     },
     {
       "order": 4,
@@ -41,10 +45,12 @@
     },
     {
       "order": 5,
-      "id": "SECONDARY-NENE-VENDEUR-v001",
+      "id": "SECONDARY-MAAM-JALLEL-VENDEUR-v001",
       "type": "secondary_character_sheets",
       "status": "WAITING_FOR_CORE_MODELS",
-      "driveDestination": "13VuZHeTmtYjgFzABqp88OsLN16ZSYY3w"
+      "canonicalCharacters": ["MAAM JALLEL", "VENDEUR"],
+      "obsoleteNamesForbidden": ["NÉNÉ ADAMA", "NENE ADAMA"],
+      "driveDestination": "1dqnOJMQxAT3kLHVsWiTD2yIUhFBsRQZo"
     },
     {
       "order": 6,
@@ -60,7 +66,7 @@
       "type": "album_artwork",
       "status": "BLOCKED_UNTIL_MODEL_SHEETS_PASS",
       "promptSource": "final-assets/PROMPTS-ALBUM-12.md",
-      "driveDestination": "1S8z1kbhiQ2BcZDDNR1lJM4CyIEG-d_0R"
+      "driveDestination": "1_8xMV5prGX42hOJSoz_fijXi1p_aNKb4"
     },
     {
       "order": 8,
@@ -68,7 +74,7 @@
       "type": "da_visual_assets",
       "status": "BLOCKED_UNTIL_MODEL_SHEETS_PASS",
       "promptSource": "final-assets/PROMPTS-DA-50.md",
-      "driveDestination": "1v1d7ExHGtwbm_lPYCYg9fsYxFfWW0wBc"
+      "driveDestination": "1q4mWHmah4Vcm3lOQj7gz_GzmBKQfdfaj"
     }
   ],
   "rule": "After every render, visually inspect before changing task status. Never batch-promote uninspected images."
