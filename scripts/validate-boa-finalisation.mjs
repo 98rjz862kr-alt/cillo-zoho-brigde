@@ -23,7 +23,7 @@ must(shots.length===50,`Layouts schématiques DA: ${shots.length}/50`);
 must(spreads.length===12,`Maquettes schématiques album: ${spreads.length}/12`);
 must(models.length===3,`Model sheets schématiques: ${models.length}/3`);
 
-const htmlFiles=['00-index-production.html','19-roughs-bd-01-18.html','20-model-sheets-line-art.html','21-album-maquette-finale-32p.html','22-da-asset-exposure-sheet.html','23-da-animatic-interne.html','24-qa-finale-transmedia.html','25-recette-humaine-finale.html'];
+const htmlFiles=['00-index-production.html','19-roughs-bd-01-18.html','20-model-sheets-line-art.html','21-album-maquette-finale-32p.html','22-da-asset-exposure-sheet.html','23-da-animatic-interne.html','24-qa-finale-transmedia.html','25-recette-humaine-finale.html','26-reprise-production-visuelle.html'];
 for(const f of htmlFiles){
   must(existsSync(resolve(root,f)),`${f}: absent`);
   if(existsSync(resolve(root,f))){
@@ -35,13 +35,23 @@ for(const f of htmlFiles){
 
 const cillo='Attends... ça recommence seulement quand tu avances.';
 const soya="C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer.";
-const canonFiles=['01-bd-18-planches.html','03-da-storyboard.html','06-script-bd-dialogues.html','07-album-graphique-texte-integral.html','08-da-script-technique.html','09-da-sous-titres-fr.srt','14-guide-lettrage-bd.html','16-album-maquette-pagination.html','18-dialogues-verrouilles-reference.html'];
+const canonFiles=['01-bd-18-planches.html','03-da-storyboard.html','06-script-bd-dialogues.html','07-album-graphique-texte-integral.html','08-da-script-technique.html','09-da-sous-titres-fr.srt','14-guide-lettrage-bd.html','15-plan-voix-et-direction-acteurs.html','16-album-maquette-pagination.html','18-dialogues-verrouilles-reference.html'];
 for(const f of canonFiles){
   if(existsSync(resolve(root,f))){
     must(txt(f).includes(cillo),`${f}: réplique CILLO non canonique`);
     must(txt(f).includes(soya),`${f}: réplique SOYA non canonique`);
   }
 }
+
+const voice=txt('15-plan-voix-et-direction-acteurs.html');
+must((voice.match(/C'est moi que le signe a arrêtée\. Alors c'est moi qui dois commencer\./g)||[]).length===1,'Plan voix: décision de SOYA doit apparaître une seule fois et en une seule réplique');
+must(voice.includes('Voix d’enfant 6–9 ans'),'Plan voix: âge CILLO doit être 6–9 ans');
+
+const sound=txt('17-da-plan-sonore.html');
+for(const stamp of ['00:00–00:45','00:45–01:35','01:35–02:45','02:45–03:40','03:40–04:45','04:45–06:00','06:00–07:50','07:50–08:50','08:50–10:00','10:00–10:45']){
+  must(sound.includes(stamp),`Plan sonore: séquence ${stamp} absente`);
+}
+must(sound.includes('durée verrouillée 10 min 45 s'),'Plan sonore: durée 10:45 non verrouillée');
 
 const srt=txt('09-da-sous-titres-fr.srt');
 const srtBlocks=srt.trim().split(/\n\s*\n/);
@@ -59,6 +69,10 @@ must(manifest.humanRecipe==='SUSPENDED','Manifest: recette humaine doit rester s
 must(manifest.schematicAssets?.finalArtwork===false,'Manifest: les SVG schématiques ne doivent jamais être déclarés artworks finaux');
 must(manifest.authoritativeVisualReference?.driveDocumentId==='1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ','Manifest: source visuelle prioritaire manquante');
 
+const references=JSON.parse(txt('visual-reference-register.json'));
+must(references.sources?.some(x=>x.id==='DRV-MOBILE-V03-12'&&x.status==='ACCEPTED_AS_VISUAL_REFERENCE_ONLY'),'Références: V0.3 mobile doit rester secondaire et non finale');
+must(references.sources?.some(x=>x.id==='PROC-SVG-20260816'&&x.status==='SCHEMATIC_PREPRODUCTION_ONLY'),'Références: SVG procéduraux doivent rester schématiques');
+
 const recipe=txt('25-recette-humaine-finale.html').toLowerCase();
 must(recipe.includes('recette humaine suspendue'),'Recette: suspension explicite absente');
 must(recipe.includes('ne pas valider ce lot'),'Recette: interdiction de validation absente');
@@ -71,6 +85,15 @@ must(qa.includes('non conforme'),'QA: non-conformité graphique absente');
 const index=txt('00-index-production.html').toLowerCase();
 must(index.includes('préproduction'),'Index: requalification préproduction absente');
 must(index.includes('recette suspendue'),'Index: suspension de recette absente');
+must(index.includes('26-reprise-production-visuelle.html'),'Index: portail de reprise visuelle absent');
+
+const modelsPage=txt('20-model-sheets-line-art.html').toLowerCase();
+must(modelsPage.includes('non finaux'),'Model sheets: statut NON FINAUX absent');
+must(!modelsPage.includes('model sheets verrouillés'),'Model sheets: ancien faux verrouillage encore présent');
+
+const albumPage=txt('21-album-maquette-finale-32p.html').toLowerCase();
+must(albumPage.includes('non finale'),'Album: statut NON FINALE absent');
+must(albumPage.includes('layouts procéduraux'),'Album: nature schématique non déclarée');
 
 const anim=txt('23-da-animatic-interne.html');
 must((anim.match(/shot-\d{3}\.svg/g)||[]).length===50,'Animatique: 50 sources de plans schématiques non trouvées');
@@ -82,4 +105,4 @@ if(fail.length){
 
 console.log('BOA TOTEM DE SOYA — contrôle structurel de PREPRODUCTION: CONFORME');
 console.log('Statut graphique: NON FINAL · recette humaine: SUSPENDUE');
-console.log('18 roughs schématiques · 12 maquettes album · 50 layouts DA · 3 sheets schématiques · dialogues structurés');
+console.log('18 roughs schématiques · 12 maquettes album · 50 layouts DA · 3 sheets schématiques · dialogues/timing/son structurés');
