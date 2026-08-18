@@ -1,0 +1,20 @@
+{
+  "stage": "SECONDARY_CHARACTERS",
+  "driveFolder": "13VuZHeTmtYjgFzABqp88OsLN16ZSYY3w",
+  "requiredBeforeBdPage11": [
+    {
+      "id": "NENE_ADAMA",
+      "activeName": "NÉNÉ ADAMA",
+      "historicalLabelDoNotDuplicate": "MAAM JALLEL",
+      "mustPass": ["brownSkin", "elderlyWarmCalmPresence", "simpleNonReligiousHeadscarf", "noReligiousVeil", "noVisibleBun", "noFolkloricCaricature", "repeatableDesign"]
+    },
+    {
+      "id": "VENDEUR",
+      "mustPass": ["brownSkin", "credibleMarketVendor", "simpleWorkClothes", "hesitantNotVillain", "noCaricature", "repeatableDesign"]
+    }
+  ],
+  "adultPlan12": {
+    "fullSheetRequired": false,
+    "rule": "simple coherent market adult silhouette; must not compete visually with SOYA/CILLO/SIDAAT"
+  }
+}
