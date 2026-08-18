@@ -1,0 +1,37 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "SOYA": {
+    "primaryVisualSource": "DRV-SOURCE-BD-V2",
+    "secondaryVisualSource": "DRV-MOBILE-V03-12",
+    "acceptFromPrimary": ["face", "longFulaniBraids", "childAgeRead", "generalProportions"],
+    "acceptFromSecondary": ["watercolorMaterial", "naturalLight", "gesture", "bluePalette"],
+    "doNotInheritFromSecondaryWithoutExplicitSource": ["pantsTunicOutfitAsCanonical"],
+    "absoluteLocks": ["heroineCentral", "age9to11", "noVeil", "childProportions"]
+  },
+  "CILLO": {
+    "primaryVisualSource": "DRV-SOURCE-BD-V2_WITH_HAIR_CORRECTION",
+    "secondaryVisualSource": "DRV-MOBILE-V03-12",
+    "acceptFromPrimary": ["face", "compactProportions", "childAgeRead"],
+    "rejectFromPrimary": ["rearBraidOrTail", "hairBelowNape"],
+    "acceptFromSecondary": ["watercolorMaterial", "ochrePalette", "gesture", "shortSides"],
+    "absoluteLocks": ["age6to9", "shortSides", "singleCentralStripFrontToNape", "hairStopsExactlyAtNape", "noBraid", "noPonytail", "noRearExtension", "noBeard"]
+  },
+  "SIDAAT": {
+    "primaryVisualSource": "DRV-SOURCE-BD-V2",
+    "secondaryVisualSource": "DRV-MOBILE-V03-12",
+    "acceptFromPrimary": ["face", "shortFulaniBraids", "youngChildProportions"],
+    "acceptFromSecondary": ["watercolorMaterial", "gesture", "ivoryPalette", "relativeSmallScale"],
+    "absoluteLocks": ["age4to6", "smallestOfTrio", "rounderProportions", "noVeil"]
+  },
+  "NENE_ADAMA": {
+    "activeNarrativeName": "NÉNÉ ADAMA",
+    "historicalLabelDoNotDuplicate": "MAAM JALLEL",
+    "absoluteLocks": ["simpleNonReligiousHeadscarfAllowed", "noReligiousVeil", "noVisibleBun", "calmTransmissionRole"]
+  },
+  "BOA": {
+    "visualStatus": "ABSTRACT_PRESENCE_ONLY",
+    "allowed": ["breath", "nonFigurativeShadow", "lightCurve", "trace", "vibration", "scalePattern", "silence"],
+    "forbidden": ["fullPhysicalSnake", "realisticHead", "visibleBody", "frontalThreat", "aggression", "childContact", "reuseOfV03VisibleBoa"]
+  },
+  "rejectedCharacterSources": ["18TnkUST3T58xZi91TSXGdD0-SVKek4mf", "1KsCtlHmEluN_qEbCG6rP8LRogrLOZXzl"]
+}
