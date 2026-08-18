@@ -8,7 +8,7 @@
       "priority": "A",
       "status": "ACCEPTED_WITH_CORRECTIONS",
       "use": ["line-up trio", "visages", "proportions", "SOYA concept", "SIDAAT concept", "storyboard planche 12"],
-      "warnings": ["CILLO concept arrière montre une extension/tresse non conforme", "concepts non BAT", "accessoires à simplifier si nécessaire"]
+      "warnings": ["CILLO concept arrière montre une extension/tresse non conforme", "concepts non BAT", "accessoires à simplifier si nécessaire", "une checklist historique V4 mentionne explicitement le braconnage; cette formulation n'est pas retenue dans les scripts verrouillés actuels et ne doit pas être réintroduite sans source ultérieure explicite", "le boa doit rester absent physiquement de la scène et n'apparaître que par signes abstraits"]
     },
     {
       "id": "DRV-MOBILE-V03-12",
@@ -17,7 +17,7 @@
       "priority": "B",
       "status": "ACCEPTED_AS_VISUAL_REFERENCE_ONLY",
       "use": ["matière aquarelle", "lumière", "rue/décor", "gestuelle trio", "proportions simplifiées", "palette générale"],
-      "warnings": ["adaptation mobile courte et distincte du script BD 18 planches", "narration non autoritaire", "textes et ponctuation non autoritaires", "aucun écran ne vaut planche finale", "contrôler coiffure CILLO à chaque angle", "la tenue pantalon/tunique de SOYA dans V0.3 est spécifique à cette adaptation et ne remplace pas la tenue canonique du support principal sans source explicite"]
+      "warnings": ["adaptation mobile courte et distincte du script BD 18 planches", "narration non autoritaire", "textes et ponctuation non autoritaires", "aucun écran ne vaut planche finale", "contrôler coiffure CILLO à chaque angle", "la tenue pantalon/tunique de SOYA dans V0.3 est spécifique à cette adaptation et ne remplace pas la tenue canonique du support principal sans source explicite", "la représentation visible d'un grand boa dans certains écrans V0.3 est NON CONFORME au verrou BD/DA actuel: ne jamais reprendre le serpent physique, sa tête ou son corps comme personnage de scène"]
     },
     {
       "id": "DRV-JUNE-REFERENCE",
@@ -39,7 +39,7 @@
     "SOYA": "9-11 ans, héroïne centrale, tresses peules longues, tenue canonique du support principal, aucun voile",
     "CILLO": "6-9 ans, côtés très courts, bande centrale front-nuque arrêtée à la nuque, aucune tresse/natte/queue/retombée arrière",
     "SIDAAT": "4-6 ans, plus petite et plus ronde, tresses peules courtes, aucun voile",
-    "BOA": "protecteur, noble, calme, jamais agressif ou frontal comme menace"
+    "BOA": "protecteur, noble, calme, jamais agressif ou frontal comme menace; pas de boa physique complet en scène"
   },
   "rule": "Une source visuelle n'est jamais promue au rang d'asset final sans contrôle visuel réel et inscription explicite dans visual-qa-final.json."
 }
