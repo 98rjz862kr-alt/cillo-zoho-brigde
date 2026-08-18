@@ -1,0 +1,40 @@
+name: Boa Totem - canonicaliser Maam Jallel
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/boa-normalize-maam-jallel.yml'
+      - 'scripts/normalize-boa-maam-jallel.mjs'
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Canonicaliser Maam Jallel
+        run: node scripts/normalize-boa-maam-jallel.mjs
+      - name: Vérifier les noms obsolètes
+        run: |
+          if grep -RniE 'N(É|E)N(É|E)[[:space:]]+ADAMA|Néné[[:space:]]+Adama|Nene[[:space:]]+Adama' drafts/boa-totem-soya --include='*.html' --include='*.md' --include='*.txt' --include='*.srt' --include='*.json'; then
+            echo 'Nom obsolète détecté après normalisation.' >&2
+            exit 1
+          fi
+      - name: Commit correction
+        run: |
+          if git diff --quiet; then
+            echo 'Aucun changement nécessaire.'
+            exit 0
+          fi
+          git config user.name 'LMI Production Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add drafts/boa-totem-soya
+          git commit -m 'Boa Totem: remplacer Néné Adama par Maam Jallel'
+          git push origin HEAD:main
