@@ -94,7 +94,7 @@ jobs:
               last=[]
               for base in urls:
                   try:
-                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/3.0'})
+                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/3.1'})
                       with urllib.request.urlopen(req,timeout=20) as r:
                           state=json.load(r)
                       correct=(
@@ -106,6 +106,8 @@ jobs:
                           and state.get('boaVisualAuditRequired') is True
                           and state.get('boaSchematicAssetsReady') is True
                           and state.get('boaManifestStatus')=='PREPRODUCTION_GRAPHIC_REVIEW_REQUIRED'
+                          and state.get('boaProductionOverallStatus')=='IN_PRODUCTION'
+                          and state.get('boaPublicationStatus')=='FORBIDDEN'
                       )
                       if correct:
                           payload={
