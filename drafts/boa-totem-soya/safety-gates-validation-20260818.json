@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-18",
+  "status": "PASS",
+  "checks": {
+    "publicEntrySyntax": "PASS",
+    "draftsRuntimeSyntax": "PASS",
+    "finalPackagingWithoutVisualQa": "BLOCKED_AS_REQUIRED"
+  },
+  "meaning": "The runtime parses correctly and the final package script refuses to produce a final package while visual-qa-final.json / visual final gates are not satisfied.",
+  "humanRecipe": "SUSPENDED"
+}
