@@ -1,0 +1,43 @@
+name: Boa Totem - normalisation MAAM JALLEL
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/normalize-boa-maam-jallel.mjs'
+      - 'drafts/boa-totem-soya/**'
+      - '.github/workflows/boa-maam-jallel-normalize.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Normaliser MAAM JALLEL
+        run: node scripts/normalize-boa-maam-jallel.mjs
+      - name: Verifier absence du nom errone
+        run: |
+          if grep -RniE 'N(É|E)N(É|E)[[:space:]]+ADAMA' drafts/boa-totem-soya --include='*.html' --include='*.md' --include='*.txt' --include='*.srt' --include='*.json'; then
+            echo 'Nom errone encore present dans la production active.' >&2
+            exit 1
+          fi
+      - name: Commit correctif si necessaire
+        shell: bash
+        run: |
+          if git diff --quiet && git diff --cached --quiet && [ -z "$(git status --porcelain)" ]; then
+            echo 'Aucune correction restante.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add drafts/boa-totem-soya
+          git commit -m 'Boa Totem: remplacer le nom errone par MAAM JALLEL'
+          git push origin HEAD:main
