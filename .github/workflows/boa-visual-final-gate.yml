@@ -1,0 +1,24 @@
+name: Boa Totem - visual final gate
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/boa-totem-soya/visual-qa-final.json"
+      - "scripts/validate-boa-visual-final.mjs"
+      - ".github/workflows/boa-visual-final-gate.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  visual-final-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verifier le gate de recette graphique
+        run: node scripts/validate-boa-visual-final.mjs
