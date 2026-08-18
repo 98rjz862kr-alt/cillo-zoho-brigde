@@ -1,0 +1,23 @@
+name: Boa Totem - voice cue concordance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/boa-totem-soya/09-da-sous-titres-fr.srt"
+      - "drafts/boa-totem-soya/voice-cues-1045.json"
+      - "scripts/validate-boa-voice-cues.mjs"
+      - ".github/workflows/boa-audio-cue-concordance.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/validate-boa-voice-cues.mjs
