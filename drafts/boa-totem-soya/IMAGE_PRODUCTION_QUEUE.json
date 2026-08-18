@@ -1,0 +1,75 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "status": "READY_TO_RENDER",
+  "currentStage": "MODEL_SHEETS",
+  "driveRoot": "1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM",
+  "tasks": [
+    {
+      "order": 1,
+      "id": "MODEL-SOYA-v001",
+      "type": "model_sheet",
+      "status": "READY_TO_RENDER",
+      "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
+      "references": ["1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+    },
+    {
+      "order": 2,
+      "id": "MODEL-CILLO-v001",
+      "type": "model_sheet",
+      "status": "READY_TO_RENDER",
+      "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
+      "references": ["1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "criticalGate": "back view hair stops exactly at nape; no braid, ponytail or rear extension",
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+    },
+    {
+      "order": 3,
+      "id": "MODEL-SIDAAT-v001",
+      "type": "model_sheet",
+      "status": "READY_TO_RENDER",
+      "promptSource": "final-assets/PROMPTS-MODEL-SHEETS.md",
+      "references": ["1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ", "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes", "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc"],
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+    },
+    {
+      "order": 4,
+      "id": "LINEUP-TRIO-v001",
+      "type": "lineup",
+      "status": "WAITING_FOR_MODELS_1_3",
+      "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn"
+    },
+    {
+      "order": 5,
+      "id": "SECONDARY-NENE-VENDEUR-v001",
+      "type": "secondary_character_sheets",
+      "status": "WAITING_FOR_CORE_MODELS",
+      "driveDestination": "13VuZHeTmtYjgFzABqp88OsLN16ZSYY3w"
+    },
+    {
+      "order": 6,
+      "id": "BD-P01-P18",
+      "type": "bd_artwork_and_lettering",
+      "status": "BLOCKED_UNTIL_MODEL_SHEETS_PASS",
+      "promptSource": "final-assets/PROMPTS-BD-18.md",
+      "driveDestination": "1ZHKQ4aSPoT0aTAaGQl56sIQL99jhydhr"
+    },
+    {
+      "order": 7,
+      "id": "ALBUM-DP01-DP12",
+      "type": "album_artwork",
+      "status": "BLOCKED_UNTIL_MODEL_SHEETS_PASS",
+      "promptSource": "final-assets/PROMPTS-ALBUM-12.md",
+      "driveDestination": "1S8z1kbhiQ2BcZDDNR1lJM4CyIEG-d_0R"
+    },
+    {
+      "order": 8,
+      "id": "DA-SHOT-001-050",
+      "type": "da_visual_assets",
+      "status": "BLOCKED_UNTIL_MODEL_SHEETS_PASS",
+      "promptSource": "final-assets/PROMPTS-DA-50.md",
+      "driveDestination": "1v1d7ExHGtwbm_lPYCYg9fsYxFfWW0wBc"
+    }
+  ],
+  "rule": "After every render, visually inspect before changing task status. Never batch-promote uninspected images."
+}
