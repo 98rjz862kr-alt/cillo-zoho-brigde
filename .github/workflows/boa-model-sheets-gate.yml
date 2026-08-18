@@ -1,0 +1,24 @@
+name: Boa Totem - model sheets gate
+
+on:
+  push:
+    branches:
+      - agent/boa-model-sheets-production-20260818
+    paths:
+      - "drafts/boa-totem-soya/final-assets/model-sheets/**"
+      - "scripts/validate-boa-model-sheets.mjs"
+      - ".github/workflows/boa-model-sheets-gate.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gate model sheets définitifs
+        run: node scripts/validate-boa-model-sheets.mjs
