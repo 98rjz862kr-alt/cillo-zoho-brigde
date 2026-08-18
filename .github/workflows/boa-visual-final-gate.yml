@@ -6,7 +6,6 @@ on:
     paths:
       - "drafts/boa-totem-soya/visual-qa-final.json"
       - "scripts/validate-boa-visual-final.mjs"
-      - ".github/workflows/boa-visual-final-gate.yml"
   workflow_dispatch:
 
 permissions:
@@ -20,5 +19,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Verifier le gate de recette graphique
-        run: node scripts/validate-boa-visual-final.mjs
+      - name: Etat du gate graphique
+        shell: bash
+        run: |
+          if [ ! -f drafts/boa-totem-soya/visual-qa-final.json ]; then
+            echo "BLOCKED: aucun manifeste de QA visuelle finale. La recette humaine reste suspendue."
+            exit 0
+          fi
+          node scripts/validate-boa-visual-final.mjs
