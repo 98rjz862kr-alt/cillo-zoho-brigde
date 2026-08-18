@@ -57,10 +57,12 @@ const srt=txt('09-da-sous-titres-fr.srt');
 const srtBlocks=srt.trim().split(/\n\s*\n/);
 must(srtBlocks.length===18,`Sous-titres: ${srtBlocks.length}/18 cues`);
 
-for(const f of readdirSync(root).filter(x=>/\.(html|srt|json)$/i.test(x))){
+// Les contenus narratifs actifs ne doivent pas réintroduire l'ancien axe lexical « braconnage ».
+// Le registre de références est exclu ici car il documente explicitement cette divergence historique pour empêcher sa réintroduction.
+for(const f of readdirSync(root).filter(x=>/\.(html|srt|json)$/i.test(x)&&x!=='visual-reference-register.json')){
   const s=txt(f).toLowerCase();
-  must(!s.includes('braconnage'),`${f}: axe braconnage interdit`);
-  must(!s.includes('braconnier'),`${f}: terme braconnier interdit`);
+  must(!s.includes('braconnage'),`${f}: axe braconnage interdit dans le contenu actif`);
+  must(!s.includes('braconnier'),`${f}: terme braconnier interdit dans le contenu actif`);
 }
 
 const manifest=JSON.parse(txt('manifest-finalisation.json'));
@@ -72,6 +74,14 @@ must(manifest.authoritativeVisualReference?.driveDocumentId==='1-Sds8HUOvPxHnivP
 const references=JSON.parse(txt('visual-reference-register.json'));
 must(references.sources?.some(x=>x.id==='DRV-MOBILE-V03-12'&&x.status==='ACCEPTED_AS_VISUAL_REFERENCE_ONLY'),'Références: V0.3 mobile doit rester secondaire et non finale');
 must(references.sources?.some(x=>x.id==='PROC-SVG-20260816'&&x.status==='SCHEMATIC_PREPRODUCTION_ONLY'),'Références: SVG procéduraux doivent rester schématiques');
+const v03=references.sources?.find(x=>x.id==='DRV-MOBILE-V03-12');
+must(v03?.warnings?.some(x=>String(x).includes('boa')&&String(x).includes('NON CONFORME')),'Références: divergence du boa visible en V0.3 doit rester explicitement signalée');
+const sourceV2=references.sources?.find(x=>x.id==='DRV-SOURCE-BD-V2');
+must(sourceV2?.warnings?.some(x=>String(x).includes('braconnage')&&String(x).includes("n'est pas retenue")),'Références: divergence historique braconnage doit rester documentée');
+
+const bible=txt('04-bible-visuelle.html');
+must(bible.includes('Aucun boa physique complet'),'Bible visuelle: interdiction du boa physique complet absente');
+must(bible.includes('Aucun contact enfant/boa'),'Bible visuelle: interdiction de contact enfant/boa absente');
 
 const recipe=txt('25-recette-humaine-finale.html').toLowerCase();
 must(recipe.includes('recette humaine suspendue'),'Recette: suspension explicite absente');
