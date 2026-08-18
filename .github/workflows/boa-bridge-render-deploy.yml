@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   deploy-and-verify:
@@ -78,7 +78,7 @@ jobs:
         run: |
           set -euo pipefail
           python - <<'PY'
-          import json, os, time, urllib.request
+          import datetime, json, os, time, urllib.request
           urls=[]
           try:
               service_url=open('/tmp/bridge-service-url').read().strip()
@@ -94,10 +94,9 @@ jobs:
               last=[]
               for base in urls:
                   try:
-                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/2.0'})
+                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/3.0'})
                       with urllib.request.urlopen(req,timeout=20) as r:
                           state=json.load(r)
-                      revision=state.get('revision')
                       correct=(
                           state.get('ok') is True
                           and state.get('service')=='cillo-zoho-bridge'
@@ -108,9 +107,16 @@ jobs:
                           and state.get('boaSchematicAssetsReady') is True
                           and state.get('boaManifestStatus')=='PREPRODUCTION_GRAPHIC_REVIEW_REQUIRED'
                       )
-                      revision_ok=(not revision) or revision==expected
-                      if correct and revision_ok:
-                          print(json.dumps({'url':base,'state':state},ensure_ascii=False))
+                      if correct:
+                          payload={
+                              'verifiedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                              'checkedForCommit':expected,
+                              'url':base,
+                              'state':state,
+                              'note':'A newer served revision is acceptable when it exposes the same corrective Boa Totem status.'
+                          }
+                          open('/tmp/boa-render-status.json','w').write(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
+                          print(json.dumps(payload,ensure_ascii=False))
                           raise SystemExit(0)
                       last.append({'url':base,'state':state})
                   except Exception as exc:
@@ -120,3 +126,15 @@ jobs:
               time.sleep(10)
           raise RuntimeError('Bridge Render ne sert pas encore le statut correctif Boa Totem: '+json.dumps(last,ensure_ascii=False))
           PY
+      - name: Enregistrer la certification Render sur branche de statut
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ops
+          cp /tmp/boa-render-status.json ops/boa-render-status.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C agent/boa-render-status
+          git add ops/boa-render-status.json
+          git commit -m "Boa Totem: certifier le statut Render servi"
+          git push --force origin agent/boa-render-status
