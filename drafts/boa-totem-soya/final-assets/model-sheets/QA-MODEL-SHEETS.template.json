@@ -1,0 +1,48 @@
+{
+  "status": "BLOCKED",
+  "reviewedAt": "",
+  "reviewMethod": "open each real PNG and visually inspect all views",
+  "characters": {
+    "SOYA": {
+      "status": "NOT_PRODUCED",
+      "ageReads9to11": false,
+      "longFulaniBraidsConsistent": false,
+      "noVeil": false,
+      "canonicalOutfit": false,
+      "repeatableDesign": false,
+      "notes": ""
+    },
+    "CILLO": {
+      "status": "NOT_PRODUCED",
+      "ageReads6to9": false,
+      "shortSides": false,
+      "singleCentralStripFrontToNape": false,
+      "backViewHairStopsAtNape": false,
+      "noBraid": false,
+      "noPonytail": false,
+      "noRearExtension": false,
+      "noBeard": false,
+      "repeatableDesign": false,
+      "notes": ""
+    },
+    "SIDAAT": {
+      "status": "NOT_PRODUCED",
+      "ageReads4to6": false,
+      "shortFulaniBraidsConsistent": false,
+      "smallerAndRounder": false,
+      "noVeil": false,
+      "repeatableDesign": false,
+      "notes": ""
+    }
+  },
+  "lineup": {
+    "status": "NOT_PRODUCED",
+    "sameGroundLine": false,
+    "constantScale": false,
+    "soyaTallest": false,
+    "cilloIntermediateCompact": false,
+    "sidaatSmallest": false,
+    "noPhysicalBoa": false,
+    "notes": ""
+  }
+}
