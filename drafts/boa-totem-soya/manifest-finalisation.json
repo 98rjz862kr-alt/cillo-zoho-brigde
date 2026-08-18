@@ -1,7 +1,15 @@
 {
   "project": "LE BOA TOTEM DE SOYA",
+  "status": "PREPRODUCTION_GRAPHIC_REVIEW_REQUIRED",
+  "humanRecipe": "SUSPENDED",
+  "visualAuditDate": "2026-08-18",
   "generatedAt": "2026-08-16T12:31:10.827Z",
-  "branch": "agent/boa-totem-soya-finalisation-20260816",
+  "sourceBranch": "agent/boa-totem-soya-finalisation-20260816",
+  "authoritativeVisualReference": {
+    "driveDocumentId": "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ",
+    "label": "Dossier de production BD v2 - références illustrées trio, model sheets conceptuels et storyboard planche 12",
+    "priority": "VISUAL_CONTINUITY_SOURCE"
+  },
   "canon": {
     "cillo": "Attends... ça recommence seulement quand tu avances.",
     "sidaat1": "Soya, tes jambes ont peur ?",
@@ -9,12 +17,30 @@
     "sidaat2": "Le boa aussi a eu mal ?",
     "soya": "C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer."
   },
-  "counts": {
+  "schematicAssets": {
     "bdRoughs": 18,
     "albumSpreads": 12,
     "daShots": 50,
-    "modelSheets": 3
+    "modelSheets": 3,
+    "format": "SVG_PROCEDURAL_LAYOUT",
+    "finalArtwork": false
   },
+  "visualLocks": {
+    "soya": "9-11 ans, tresses peules nettes, héroïne centrale, aucun voile",
+    "cillo": "6-9 ans, côtés très courts, bande de cheveux front-nuque, aucune tresse ni queue arrière",
+    "sidaat": "4-6 ans, plus petite, proportions plus rondes, tresses peules nettes, aucun voile",
+    "boa": "protecteur, noble, calme, jamais agressif ni frontal comme menace"
+  },
+  "remainingBeforeHumanRecipe": [
+    "produire et contrôler les vrais assets graphiques BD page par page",
+    "verrouiller les model sheets définitifs avec correction de la coiffure arrière de CILLO",
+    "produire et contrôler les illustrations finales de l'album",
+    "produire et contrôler l'animatique/animation réelle plan par plan",
+    "poser et contrôler le lettrage définitif",
+    "verrouiller le prépresse",
+    "finaliser voix, bruitages, musique et mixage",
+    "reconstituer un nouveau lot de recette humaine après QA visuelle réelle"
+  ],
   "files": [
     "19-roughs-bd-01-18.html",
     "20-model-sheets-line-art.html",
