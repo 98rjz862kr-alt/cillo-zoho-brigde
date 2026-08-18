@@ -1,0 +1,41 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "version": "RECETTE-HUMAINE-V1",
+  "date_utc": "2026-08-18",
+  "status": "HUMAN_RECIPE_OPEN",
+  "publication": "FORBIDDEN",
+  "merge": "FORBIDDEN",
+  "printer_BAT": "NOT_READY",
+  "branch": "agent/boa-model-sheets-production-20260818",
+  "canon": {
+    "boa_visibility": "ABSTRACT_SIGNS_ONLY",
+    "boa_physical_or_frontal_depiction": "FORBIDDEN",
+    "unique_transmission_figure": "MAAM JALLEL",
+    "forbidden_active_name": "NENE ADAMA",
+    "morphology_reference_rule": "Every character appearance must reference the locked illustration code/model sheet."
+  },
+  "illustration_codes": [
+    "LMI-BTS-CHARACTER-LINEUP-V1",
+    "LMI-BTS-CHR-SOYA-V1-MODEL-SHEET",
+    "LMI-BTS-CHR-CILLO-V1-MODEL-SHEET",
+    "LMI-BTS-CHR-SIDAAT-V1-MODEL-SHEET",
+    "LMI-BTS-CHR-MAAM-JALLEL-V1-MODEL-SHEET",
+    "LMI-BTS-CHR-VENDEUR-V1-MODEL-SHEET"
+  ],
+  "deliverables": {
+    "bd_pages": 18,
+    "album_recipe_double_pages": 12,
+    "animatic_plans": 50,
+    "animatic_duration_seconds": 645,
+    "animatic_silent": true,
+    "final_animation": false,
+    "checksums_present": true,
+    "drive_links_location": "RECETTE-HUMAINE-V1.txt in the private production package"
+  },
+  "recipe_limits": [
+    "Human validation required before publication.",
+    "Voices, sound design, music and final mix are not locked.",
+    "Actual character animation and final motion are not produced; the video is a silent animatic.",
+    "Printer specifications, prepress and BAT are not locked."
+  ]
+}
