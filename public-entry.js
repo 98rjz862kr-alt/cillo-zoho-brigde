@@ -20,19 +20,20 @@ function escapeHtml(value){return String(value||'').replaceAll('&','&amp;').repl
 function sendHtml(res,html,status=200){res.writeHead(status,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: https:; frame-ancestors 'self'"});res.end(html);}
 function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox"});res.end(asset.content);}
 
-function readBoaManifest(){
-  const manifestPath=path.join(rootDir,'drafts','boa-totem-soya','manifest-finalisation.json');
+function readBoaJson(fileName){
+  const filePath=path.join(rootDir,'drafts','boa-totem-soya',fileName);
   try{
-    if(!existsSync(manifestPath)) return null;
-    return JSON.parse(readFileSync(manifestPath,'utf8'));
+    if(!existsSync(filePath)) return null;
+    return JSON.parse(readFileSync(filePath,'utf8'));
   }catch{return null;}
 }
 
 function boaRuntimeStatus(){
-  const manifest=readBoaManifest();
+  const manifest=readBoaJson('manifest-finalisation.json');
+  const production=readBoaJson('PRODUCTION_STATUS.json');
   const recipePagePresent=Boolean(readDraftHtml('boa-totem-soya/25-recette-humaine-finale.html'));
   const schematicAssetReady=Boolean(readDraftAsset('boa-totem-soya/assets/roughs/planche-12.svg'));
-  const recipeStatus=manifest?.humanRecipe||'UNKNOWN';
+  const recipeStatus=manifest?.humanRecipe||production?.humanRecipe||'UNKNOWN';
   const graphicsFinal=manifest?.schematicAssets?.finalArtwork===true;
   const recipeReady=recipePagePresent&&graphicsFinal&&recipeStatus==='READY';
   return {
@@ -44,7 +45,14 @@ function boaRuntimeStatus(){
     boaAssetReady:graphicsFinal,
     boaPreproductionReady:schematicAssetReady&&recipePagePresent,
     boaManifestStatus:manifest?.status||'UNKNOWN',
-    boaVisualReferenceDriveId:manifest?.authoritativeVisualReference?.driveDocumentId||null
+    boaProductionOverallStatus:production?.overallStatus||'UNKNOWN',
+    boaPublicationStatus:production?.publication||'UNKNOWN',
+    boaFinalModelSheetsDone:production?.visualFinal?.modelSheets?.done??null,
+    boaFinalBdPagesDone:production?.visualFinal?.bdPages?.done??null,
+    boaFinalAlbumSpreadsDone:production?.visualFinal?.albumSpreads?.done??null,
+    boaFinalDaShotsDone:production?.visualFinal?.daShots?.done??null,
+    boaVisualReferenceDriveId:manifest?.authoritativeVisualReference?.driveDocumentId||null,
+    boaProductionDriveRoot:production?.authoritativeDriveProductionRoot||null
   };
 }
 
@@ -57,7 +65,7 @@ function atelierPage(password){
   const q=`?password=${encodeURIComponent(password)}`;
   const cards=drafts.map((draft)=>`<article><div><strong>${escapeHtml(draft.title)}</strong><small>${escapeHtml(draft.relativePath)} · ${Math.ceil(draft.size/1024)} Ko</small></div><a href="/atelier/file/${encodeURIComponent(draft.relativePath)}${q}" target="_blank" rel="noopener noreferrer">Ouvrir</a></article>`).join('');
   const boa=boaRuntimeStatus();
-  const boaNotice=boa.boaRecipeStatus==='SUSPENDED'?'<div class="warning"><strong>LE BOA TOTEM DE SOYA — RECETTE SUSPENDUE.</strong> Le lot graphique est classé en préproduction et requiert une QA visuelle réelle avant toute nouvelle validation humaine.</div>':'';
+  const boaNotice=boa.boaRecipeStatus==='SUSPENDED'?'<div class="warning"><strong>LE BOA TOTEM DE SOYA — RECETTE SUSPENDUE.</strong> Le lot graphique est classé en production visuelle incomplète et requiert une QA visuelle réelle avant toute nouvelle validation humaine.</div>':'';
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Brouillons privés</title><style>:root{--bleu:#143b7d;--nuit:#0f2747;--ocre:#cc7722;--ivoire:#f6f1e8;--sable:#75553f;--rouge:#85202d}*{box-sizing:border-box}body{margin:0;background:#ece9e2;color:#172238;font-family:Arial,sans-serif}header{background:linear-gradient(135deg,var(--nuit),var(--bleu));color:#fff;padding:35px max(20px,5vw);border-bottom:5px solid #d4af37}header h1{font-family:Georgia,serif;margin:0 0 8px;font-size:clamp(2rem,5vw,4rem)}main{max-width:1120px;margin:28px auto;padding:0 18px}.status,.warning{background:var(--ivoire);padding:18px;margin-bottom:22px;border-radius:10px}.status{border-left:6px solid var(--ocre)}.warning{border-left:6px solid var(--rouge)}article{display:flex;justify-content:space-between;gap:20px;align-items:center;background:#fff;border-radius:14px;padding:22px;margin:13px 0;box-shadow:0 8px 24px #0001}small{display:block;color:var(--sable);margin-top:7px}a{background:var(--bleu);color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;white-space:nowrap;font-weight:700}@media(max-width:700px){article{align-items:flex-start;flex-direction:column}}</style></head><body><header><h1>LES MOTS IMAGES — BRIDGE</h1><p>Atelier privé · aucun référencement · aucune publication</p></header><main>${boaNotice}<div class="status"><strong>${drafts.length} éléments protégés.</strong> Leur présence technique ne vaut pas validation artistique.</div>${cards||'<p>Aucun élément disponible.</p>'}</main></body></html>`;
 }
 
