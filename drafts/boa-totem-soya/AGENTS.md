@@ -13,13 +13,18 @@
 - Production : `IN_PRODUCTION`.
 - Recette humaine : `SUSPENDED`.
 - Publication : `FORBIDDEN`.
-- Étape active : model sheets définitifs SOYA / CILLO / SIDAAT, puis personnages secondaires NÉNÉ ADAMA / VENDEUR.
+- Étape active : model sheets définitifs SOYA / CILLO / SIDAAT, puis personnages secondaires MAAM JALLEL / VENDEUR.
 - Drive production : `1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM`.
-- Branche model sheets : `agent/boa-model-sheets-production-20260818`.
+- Dépôt Bridge : `98rjz862kr-alt/cillo-zoho-brigde`, production active actuellement synchronisée sur `main`.
 
 ## Sources visuelles
 
 Priorité A : Drive `1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ` + référentiel audit `1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc`.
+
+Références PNG isolées extraites directement de la source prioritaire :
+- SOYA : `1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc`.
+- CILLO : `10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm` — visage/âge/proportions utiles, arrière de coiffure NON CONFORME à corriger.
+- SIDAAT : `1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-`.
 
 Priorité B : V0.3 mobile, dossier Drive `12LWyeU632usX7dJ9EBun_PyaAxQQOWjb`, uniquement pour matière/lumière/décor/gestuelle. Ne pas reprendre son boa visible ni ses textes comme canon.
 
@@ -27,12 +32,14 @@ Sources rejetées pour personnages : `18TnkUST3T58xZi91TSXGdD0-SVKek4mf`, `1KsCt
 
 ## Verrous absolus
 
-- SOYA : 9–11 ans, héroïne centrale, tresses peules longues, aucun voile.
-- CILLO : 6–9 ans, côtés très courts, une bande centrale front–nuque arrêtée exactement à la nuque, aucune tresse/natte/queue/retombée arrière, aucune barbe.
-- SIDAAT : 4–6 ans, plus petite et plus ronde, tresses peules courtes, aucun voile.
-- NÉNÉ ADAMA : nom actif dans les scripts ; MAAM JALLEL est un label historique, ne jamais créer deux personnages.
-- Boa : aucune présence physique complète ; uniquement signes abstraits. Aucun contact enfant/boa.
-- Aucun signe religieux visible.
+- SOYA : fille peule 9–11 ans, héroïne centrale, tresses peules longues, silhouette enfantine, aucun voile.
+- CILLO : garçon peul 6–9 ans, côtés très courts, une bande centrale front–nuque arrêtée exactement à la nuque, aucune tresse/natte/queue/mèche longue/retombée arrière, aucune barbe. La vue arrière doit être ouverte et contrôlée avant validation.
+- SIDAAT : fille peule 4–6 ans, nettement plus petite et plus ronde, tresses peules courtes, aucun voile.
+- MAAM JALLEL : grand-mère de SOYA et personne de transmission. Foulard simple non religieux autorisé ; aucun voile religieux, aucun chignon. Elle transmet sans décider à la place de SOYA.
+- `NÉNÉ ADAMA` / `NENE ADAMA` : noms de travail obsolètes, archives de provenance uniquement ; interdits dans les livrables actifs.
+- VENDEUR : adulte du marché, retenu, non caricaturé, aucun signe religieux imposé.
+- Boa : aucune présence physique complète ; aucune tête ni corps visible comme personnage de scène ; uniquement signes abstraits — souffle, ombre non figurative, vibration, trace, motifs d’écailles. Aucun contact enfant/boa.
+- Aucun signe religieux visible imposé.
 - Direction : aquarelle numérique réaliste, jeunesse premium, lumière naturelle.
 
 ## Dialogues verrouillés
@@ -47,4 +54,4 @@ La décision SOYA est en P16 C4, une seule bulle. P18 n’ajoute aucun dialogue.
 
 ## Gate final
 
-Ne créer/promouvoir `visual-qa-final.json` qu’après contrôle visuel réel de tous les assets. `scripts/validate-boa-visual-final.mjs` doit passer avant réouverture de la recette humaine. Les model sheets ont en plus leur gate sur la branche dédiée.
+Ne créer/promouvoir `visual-qa-final.json` qu’après contrôle visuel réel de tous les assets. `scripts/validate-boa-visual-final.mjs` doit passer avant réouverture de la recette humaine. Les model sheets définitifs doivent être contrôlés en face, trois-quarts, profil, dos et expressions ; CILLO reçoit un gate arrière spécifique.
