@@ -1,0 +1,32 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "stage": "MODEL_SHEETS",
+  "driveDestination": "1HPXyRKx0pyABCYJDfAePz7cSlYHY7nhn",
+  "required": [
+    {
+      "id": "SOYA",
+      "targetFile": "MODEL-SOYA-v001.png",
+      "age": "9-11",
+      "mustPass": ["front", "threeQuarter", "profile", "back", "threeQuarterBack", "fullBody", "expressions", "longFulaniBraidsConsistent", "childProportions", "noVeil", "canonicalOutfit", "repeatableDesign"]
+    },
+    {
+      "id": "CILLO",
+      "targetFile": "MODEL-CILLO-v001.png",
+      "age": "6-9",
+      "mustPass": ["front", "threeQuarter", "profile", "back", "threeQuarterBack", "fullBody", "expressions", "shortShavedSides", "singleCentralStripFrontToNape", "hairStopsExactlyAtNape", "noBraid", "noPonytail", "noRearExtension", "noBeard", "childProportions", "repeatableDesign"]
+    },
+    {
+      "id": "SIDAAT",
+      "targetFile": "MODEL-SIDAAT-v001.png",
+      "age": "4-6",
+      "mustPass": ["front", "threeQuarter", "profile", "back", "threeQuarterBack", "fullBody", "expressions", "shortFulaniBraidsConsistent", "smallerAndRounderThanSoyaAndCillo", "noVeil", "childProportions", "repeatableDesign"]
+    }
+  ],
+  "lineup": {
+    "targetFile": "LINEUP-TRIO-v001.png",
+    "mustPass": ["sameGroundLine", "constantScale", "soyaTallest", "cilloIntermediateCompact", "sidaatSmallest", "frontView", "profileView", "walkingGroup", "marketGroup", "noPhysicalBoa"]
+  },
+  "visualStyle": ["realisticDigitalWatercolor", "premiumYouthIllustration", "naturalLight", "ivoryPaperTexture", "LMIColorHarmony"],
+  "forbidden": ["3DRender", "genericCartoon", "geometricPictogram", "adultProportions", "religiousVeil", "physicalBoa", "duplicatedCharacter", "styleMismatchBetweenViews"],
+  "approvalRule": "No file is accepted by presence. Every view must be opened and visually inspected. CILLO back view is a mandatory independent check."
+}
