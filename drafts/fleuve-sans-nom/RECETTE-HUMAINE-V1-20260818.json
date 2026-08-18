@@ -1,0 +1,48 @@
+{
+  "project": "LE FLEUVE SANS NOM",
+  "source_work": "Destination connue, itinéraires incertains",
+  "author": "Baaboy Cillo",
+  "version": "RECETTE-HUMAINE-V1",
+  "date_utc": "2026-08-18",
+  "status": "HUMAN_RECIPE_READY",
+  "publication": "FORBIDDEN",
+  "merge": "FORBIDDEN",
+  "printer_BAT": "NOT_READY",
+  "branch": "agent/fleuve-sans-nom-production-20260818",
+  "canon": {
+    "public_adaptation_title": "LE FLEUVE SANS NOM",
+    "source_book_title_unchanged": "Destination connue, itinéraires incertains",
+    "series_architecture": "4 seasons × 6 episodes × 11 minutes",
+    "contemporary_memory_passers": [
+      "SOYA",
+      "SIDAAT"
+    ],
+    "historical_insertion_of_soya_or_sidaat": "FORBIDDEN",
+    "opening": "Pirogue amarrée au premier plan; le père pêche depuis la berge; Baaboy enfant observe.",
+    "morphology_reference_rule": "Every character appearance must reference the locked LMI-LFSN model-sheet code.",
+    "sensitive_scenes": "No frontal death, no graphic suffering, no spectacle."
+  },
+  "illustration_codes": [
+    "LMI-LFSN-CHR-BAABOY-LIFECYCLE-V1",
+    "LMI-LFSN-CHR-PERE-V1",
+    "LMI-LFSN-CHR-MERE-V1",
+    "LMI-LFSN-CHR-XADIJATU-JALLO-V1",
+    "LMI-LFSN-CHR-ULEYNI-V1",
+    "LMI-LFSN-CHR-UMMU-V1",
+    "LMI-LFSN-BD-DP01-V1 through LMI-LFSN-BD-DP14-V1",
+    "LMI-LFSN-S1E1-PLAN-001-V1 through LMI-LFSN-S1E1-PLAN-030-V1"
+  ],
+  "verified_counts": {
+    "model_sheets": 6,
+    "bd_double_pages": 14,
+    "pilot_plans": 30,
+    "pilot_duration_seconds": 660,
+    "checksum_manifest": true
+  },
+  "private_links_location": "RECETTE-HUMAINE-V1.txt inside the restricted Drive recipe package",
+  "scope_limits": [
+    "The pilot covers S1E1 only; it is not the complete 24-episode series.",
+    "Human validation is required before publication.",
+    "Final credits, legal notices, printer specifications, prepress and BAT remain to be locked."
+  ]
+}
