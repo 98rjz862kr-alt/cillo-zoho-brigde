@@ -6,12 +6,25 @@
   "publication": "FORBIDDEN",
   "authoritativeDriveProductionRoot": "1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM",
   "bridgeEntry": "26-reprise-production-visuelle.html",
+  "canonicalNames": {
+    "SOYA": "ACTIVE",
+    "CILLO": "ACTIVE",
+    "SIDAAT": "ACTIVE",
+    "MAAM JALLEL": "ACTIVE_GRANDMOTHER_TRANSMISSION",
+    "VENDEUR": "ACTIVE",
+    "NÉNÉ ADAMA": "OBSOLETE_ARCHIVE_ONLY"
+  },
   "references": {
     "visualAudit": "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc",
     "visualProductionPlan": "1tGPDVpkipLTcIyQxh-bM7jvJtSrSyFVRdXWJ2qcBMDM",
     "primaryIllustratedSource": "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ",
     "characterTextSource": "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes",
-    "mobileV03ReferenceFolder": "12LWyeU632usX7dJ9EBun_PyaAxQQOWjb"
+    "mobileV03ReferenceFolder": "12LWyeU632usX7dJ9EBun_PyaAxQQOWjb",
+    "extractedCharacterPng": {
+      "SOYA": "1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc",
+      "CILLO": "10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm",
+      "SIDAAT": "1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-"
+    }
   },
   "completed": {
     "storyAndDialogues": true,
@@ -24,6 +37,9 @@
     "soundPlanAligned1045": true,
     "visualReferenceAudit": true,
     "driveFinalProductionStructure": true,
+    "maamJallelNamingLock": true,
+    "characterReferencesExtractedAndVisuallyInspected": true,
+    "cilloRearHairNonConformityIdentified": true,
     "renderBridgeCorrectiveStatus": "PENDING_RUNTIME_CERTIFICATION"
   },
   "visualFinal": {
@@ -41,7 +57,8 @@
     "finalExports": false
   },
   "nextOrder": [
-    "produce definitive model sheets SOYA CILLO SIDAAT",
+    "produce definitive model sheets SOYA CILLO SIDAAT from isolated source references",
+    "correct CILLO rear hair to stop exactly at nape",
     "visually inspect model sheets and lock continuity",
     "produce BD artwork 01-18 using page production plan and page 12 source storyboard",
     "letter and visually inspect all 18 BD pages",
