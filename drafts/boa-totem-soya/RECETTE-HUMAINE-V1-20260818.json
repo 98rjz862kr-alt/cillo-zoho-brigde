@@ -8,6 +8,9 @@
   "printer_BAT": "NOT_READY",
   "branch": "agent/boa-model-sheets-production-20260818",
   "canon": {
+    "canonical_title": "LE BOA TOTEM DE SOYA",
+    "canonical_hero_spelling": "SOYA",
+    "forbidden_spelling": "SOJA",
     "boa_visibility": "ABSTRACT_SIGNS_ONLY",
     "boa_physical_or_frontal_depiction": "FORBIDDEN",
     "unique_transmission_figure": "MAAM JALLEL",
