@@ -16,8 +16,8 @@
       "originalContactSheetDriveId": "1zCV19bphPgS5nUPF3B7ECmqtETltcSIQ",
       "priority": "B",
       "status": "ACCEPTED_AS_VISUAL_REFERENCE_ONLY",
-      "use": ["matière aquarelle", "lumière", "rue/décor", "gestuelle trio", "proportions simplifiées", "palette costumes"],
-      "warnings": ["adaptation mobile courte", "narration non autoritaire", "textes et ponctuation non autoritaires", "aucun écran ne vaut planche finale", "contrôler coiffure CILLO à chaque angle"]
+      "use": ["matière aquarelle", "lumière", "rue/décor", "gestuelle trio", "proportions simplifiées", "palette générale"],
+      "warnings": ["adaptation mobile courte et distincte du script BD 18 planches", "narration non autoritaire", "textes et ponctuation non autoritaires", "aucun écran ne vaut planche finale", "contrôler coiffure CILLO à chaque angle", "la tenue pantalon/tunique de SOYA dans V0.3 est spécifique à cette adaptation et ne remplace pas la tenue canonique du support principal sans source explicite"]
     },
     {
       "id": "DRV-JUNE-REFERENCE",
@@ -36,7 +36,7 @@
     }
   ],
   "continuityLocks": {
-    "SOYA": "9-11 ans, héroïne centrale, tresses peules longues, aucun voile",
+    "SOYA": "9-11 ans, héroïne centrale, tresses peules longues, tenue canonique du support principal, aucun voile",
     "CILLO": "6-9 ans, côtés très courts, bande centrale front-nuque arrêtée à la nuque, aucune tresse/natte/queue/retombée arrière",
     "SIDAAT": "4-6 ans, plus petite et plus ronde, tresses peules courtes, aucun voile",
     "BOA": "protecteur, noble, calme, jamais agressif ou frontal comme menace"
