@@ -9,6 +9,7 @@ on:
       - "public-entry.js"
       - "scripts/validate-boa-finalisation.mjs"
       - "scripts/validate-boa-bridge-runtime.mjs"
+      - "scripts/validate-boa-da-timing.mjs"
       - "render.yaml"
       - ".github/workflows/boa-bridge-render-deploy.yml"
   workflow_dispatch:
@@ -34,6 +35,7 @@ jobs:
           node --check public-entry.js
           node scripts/validate-boa-finalisation.mjs
           node scripts/validate-boa-bridge-runtime.mjs
+          node scripts/validate-boa-da-timing.mjs
       - name: Declencher le deploiement Render si l'API est configuree
         id: render
         shell: bash
