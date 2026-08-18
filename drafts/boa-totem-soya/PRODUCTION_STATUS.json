@@ -1,0 +1,56 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "updatedAt": "2026-08-18",
+  "overallStatus": "IN_PRODUCTION",
+  "humanRecipe": "SUSPENDED",
+  "publication": "FORBIDDEN",
+  "authoritativeDriveProductionRoot": "1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM",
+  "bridgeEntry": "26-reprise-production-visuelle.html",
+  "references": {
+    "visualAudit": "1qcd_MMlvVMCvKJknUGjH-MQGiFyc_PXBKDZV-JMxeMc",
+    "visualProductionPlan": "1tGPDVpkipLTcIyQxh-bM7jvJtSrSyFVRdXWJ2qcBMDM",
+    "primaryIllustratedSource": "1-Sds8HUOvPxHnivPTsarik_xxBXhXd9Kwpv0E9UY-xQ",
+    "characterTextSource": "1V_GM33aHWqV9BaykEEO_cTDxlUvKEYGBR61mTHgvRes",
+    "mobileV03ReferenceFolder": "12LWyeU632usX7dJ9EBun_PyaAxQQOWjb"
+  },
+  "completed": {
+    "storyAndDialogues": true,
+    "bdBreakdown18Pages": true,
+    "albumText12Spreads": true,
+    "daTechnicalScript50Shots": true,
+    "daTiming645Seconds": true,
+    "srt18Cues": true,
+    "voiceDirection": true,
+    "soundPlanAligned1045": true,
+    "visualReferenceAudit": true,
+    "driveFinalProductionStructure": true,
+    "renderBridgeCorrectiveStatus": "PENDING_RUNTIME_CERTIFICATION"
+  },
+  "visualFinal": {
+    "modelSheets": {"done": 0, "target": 3},
+    "bdPages": {"done": 0, "target": 18},
+    "albumSpreads": {"done": 0, "target": 12},
+    "daShots": {"done": 0, "target": 50},
+    "coverArtwork": false,
+    "lettering": false,
+    "prepress": false,
+    "animation": false,
+    "voices": false,
+    "soundDesign": false,
+    "mix": false,
+    "finalExports": false
+  },
+  "nextOrder": [
+    "produce definitive model sheets SOYA CILLO SIDAAT",
+    "visually inspect model sheets and lock continuity",
+    "produce BD artwork 01-18 using page production plan and page 12 source storyboard",
+    "letter and visually inspect all 18 BD pages",
+    "produce 12 illustrated album spreads and inspect them",
+    "produce 50 DA final visual layouts/animation assets and inspect them",
+    "produce animatic/animation, voices, sound design and mix",
+    "lock prepress and final exports",
+    "generate visual-qa-final.json only after all real visual checks pass",
+    "open human recipe once and only once at the true end"
+  ],
+  "rule": "File presence, successful CI, SVG counts or generated thumbnails never equal visual completion. Every final asset must be opened and visually inspected."
+}
