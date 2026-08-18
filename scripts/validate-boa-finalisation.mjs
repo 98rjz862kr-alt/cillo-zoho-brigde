@@ -43,6 +43,12 @@ for(const f of canonFiles){
   }
 }
 
+const bdOverview=txt('01-bd-18-planches.html');
+const p16Overview=(bdOverview.split('Planche 16')[1]||'').split('Planche 17')[0]||'';
+const p18Overview=bdOverview.split('Planche 18')[1]||'';
+must(p16Overview.includes(soya),'Découpage BD: la décision complète de SOYA doit être située en planche 16');
+must(!p18Overview.includes(soya),'Découpage BD: la planche 18 ne doit pas répéter la décision de SOYA');
+
 const voice=txt('15-plan-voix-et-direction-acteurs.html');
 must((voice.match(/C'est moi que le signe a arrêtée\. Alors c'est moi qui dois commencer\./g)||[]).length===1,'Plan voix: décision de SOYA doit apparaître une seule fois et en une seule réplique');
 must(voice.includes('Voix d’enfant 6–9 ans'),'Plan voix: âge CILLO doit être 6–9 ans');
