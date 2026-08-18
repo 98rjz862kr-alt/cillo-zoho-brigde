@@ -1,4 +1,4 @@
-name: Boa Totem - Bridge Render deploy
+name: Boa Totem - Bridge Render preproduction audit
 
 on:
   push:
@@ -26,13 +26,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Revalider le lot Boa Totem
+      - name: Revalider la preproduction Boa Totem
         run: |
           node --check drafts.js
           node --check public-entry.js
           node scripts/validate-boa-finalisation.mjs
           node scripts/validate-boa-bridge-runtime.mjs
-      - name: Déclencher le déploiement Render si l'API est configurée
+      - name: Declencher le deploiement Render si l'API est configuree
         id: render
         shell: bash
         run: |
@@ -69,7 +69,7 @@ jobs:
             --data "{\"commitId\":\"${GITHUB_SHA}\",\"clearCache\":\"do_not_clear\"}" \
             > /tmp/bridge-deploy.json
           echo "mode=api" >> "$GITHUB_OUTPUT"
-      - name: Vérifier la version réellement servie
+      - name: Verifier le statut reellement servi
         shell: bash
         run: |
           set -euo pipefail
@@ -90,13 +90,22 @@ jobs:
               last=[]
               for base in urls:
                   try:
-                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/1.0'})
+                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Boa-Render-Verify/2.0'})
                       with urllib.request.urlopen(req,timeout=20) as r:
                           state=json.load(r)
                       revision=state.get('revision')
-                      ready=(state.get('ok') is True and state.get('service')=='cillo-zoho-bridge' and state.get('boaRecipeReady') is True and state.get('boaAssetReady') is True)
+                      correct=(
+                          state.get('ok') is True
+                          and state.get('service')=='cillo-zoho-bridge'
+                          and state.get('boaRecipeReady') is False
+                          and state.get('boaRecipeStatus')=='SUSPENDED'
+                          and state.get('boaGraphicsFinal') is False
+                          and state.get('boaVisualAuditRequired') is True
+                          and state.get('boaSchematicAssetsReady') is True
+                          and state.get('boaManifestStatus')=='PREPRODUCTION_GRAPHIC_REVIEW_REQUIRED'
+                      )
                       revision_ok=(not revision) or revision==expected
-                      if ready and revision_ok:
+                      if correct and revision_ok:
                           print(json.dumps({'url':base,'state':state},ensure_ascii=False))
                           raise SystemExit(0)
                       last.append({'url':base,'state':state})
@@ -105,5 +114,5 @@ jobs:
               if attempt % 10 == 0:
                   print('Attente Render',attempt,last)
               time.sleep(10)
-          raise RuntimeError('Bridge Render non conforme après attente: '+json.dumps(last,ensure_ascii=False))
+          raise RuntimeError('Bridge Render ne sert pas encore le statut correctif Boa Totem: '+json.dumps(last,ensure_ascii=False))
           PY
