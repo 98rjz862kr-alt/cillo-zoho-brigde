@@ -1,0 +1,12 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "activeNarrativeNames": ["SOYA", "CILLO", "SIDAAT", "NÉNÉ ADAMA", "VENDEUR"],
+  "historicalSourceNames": {
+    "MAAM JALLEL": {
+      "foundIn": "source/checklist V4 antérieure",
+      "status": "HISTORICAL_LABEL_NOT_ACTIVE_IN_CURRENT_LOCKED_SCRIPTS",
+      "rule": "Ne jamais ajouter MAAM JALLEL comme personnage supplémentaire à côté de NÉNÉ ADAMA. Ne pas renommer automatiquement NÉNÉ ADAMA sans une source ultérieure explicite. Si une réconciliation devient nécessaire, la traiter comme une décision éditoriale de continuité et non comme un nouveau personnage."
+    }
+  },
+  "currentRule": "Les scripts verrouillés BD/album/DA utilisent NÉNÉ ADAMA. Les visuels de production doivent suivre ce nom actif tant qu'aucune source ultérieure explicite ne le remplace."
+}
