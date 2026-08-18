@@ -1,0 +1,15 @@
+{
+  "status": "PENDING_RUNTIME_CERTIFICATION",
+  "initializedAt": "2026-08-18",
+  "expected": {
+    "boaRecipeReady": false,
+    "boaRecipeStatus": "SUSPENDED",
+    "boaGraphicsFinal": false,
+    "boaVisualAuditRequired": true,
+    "boaSchematicAssetsReady": true,
+    "boaManifestStatus": "PREPRODUCTION_GRAPHIC_REVIEW_REQUIRED",
+    "boaProductionOverallStatus": "IN_PRODUCTION",
+    "boaPublicationStatus": "FORBIDDEN"
+  },
+  "note": "Ce fichier sera remplacé automatiquement par le workflow Boa Totem - Bridge Render preproduction audit après lecture conforme du /health réellement servi."
+}
