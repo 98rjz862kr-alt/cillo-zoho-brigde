@@ -8,7 +8,12 @@
       "priority": "A",
       "status": "ACCEPTED_WITH_CORRECTIONS",
       "use": ["line-up trio", "visages", "proportions", "SOYA concept", "SIDAAT concept", "storyboard planche 12"],
-      "warnings": ["CILLO concept arrière montre une extension/tresse non conforme", "concepts non BAT", "accessoires à simplifier si nécessaire", "une checklist historique V4 mentionne explicitement le braconnage; cette formulation n'est pas retenue dans les scripts verrouillés actuels et ne doit pas être réintroduite sans source ultérieure explicite", "le boa doit rester absent physiquement de la scène et n'apparaître que par signes abstraits"]
+      "isolatedCharacterReferences": {
+        "SOYA": "1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc",
+        "CILLO": "10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm",
+        "SIDAAT": "1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-"
+      },
+      "warnings": ["CILLO concept arrière montre une extension non conforme et ne doit pas être copiée", "concepts non BAT", "accessoires à simplifier si nécessaire", "le boa doit rester absent physiquement de la scène et n'apparaître que par signes abstraits"]
     },
     {
       "id": "DRV-MOBILE-V03-12",
@@ -37,9 +42,11 @@
   ],
   "continuityLocks": {
     "SOYA": "9-11 ans, héroïne centrale, tresses peules longues, tenue canonique du support principal, aucun voile",
-    "CILLO": "6-9 ans, côtés très courts, bande centrale front-nuque arrêtée à la nuque, aucune tresse/natte/queue/retombée arrière",
+    "CILLO": "6-9 ans, côtés très courts, bande centrale front-nuque arrêtée exactement à la nuque, aucune tresse/natte/queue/retombée arrière; vue arrière obligatoire avant validation",
     "SIDAAT": "4-6 ans, plus petite et plus ronde, tresses peules courtes, aucun voile",
-    "BOA": "protecteur, noble, calme, jamais agressif ou frontal comme menace; pas de boa physique complet en scène"
+    "MAAM JALLEL": "grand-mère de SOYA, personne de transmission, foulard simple non religieux autorisé, aucun voile religieux ni chignon, ne décide jamais à la place de SOYA",
+    "BOA": "protecteur, noble, calme, jamais agressif ou frontal comme menace; aucune tête ni corps complet en scène"
   },
+  "obsoleteNames": ["NÉNÉ ADAMA", "NENE ADAMA"],
   "rule": "Une source visuelle n'est jamais promue au rang d'asset final sans contrôle visuel réel et inscription explicite dans visual-qa-final.json."
 }
