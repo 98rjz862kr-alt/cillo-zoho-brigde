@@ -1,9 +1,10 @@
-import { existsSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { resolve, relative } from 'node:path';
 
 const root = resolve('drafts/boa-totem-soya');
 if (!existsSync(root)) throw new Error('Dossier drafts/boa-totem-soya introuvable');
 
+// Normalisation canonique active : MAAM JALLEL est la grand-mère de SOYA et la personne de transmission.
 const textExtensions = new Set(['.html', '.md', '.txt', '.srt', '.json', '.js', '.mjs', '.css']);
 const replacements = [
   [/NÉNÉ ADAMA/g, 'MAAM JALLEL'],
