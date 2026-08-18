@@ -1,8 +1,10 @@
 {
   "project": "LE BOA TOTEM DE SOYA",
+  "updatedAt": "2026-08-18",
   "durationSeconds": 645,
   "sampleRate": 48000,
   "bitDepth": 24,
+  "sourceOfTruth": "09-da-sous-titres-fr.srt",
   "cues": [
     {"cue":1,"plan":2,"speaker":"SIDAAT","start":"00:00:10,000","end":"00:00:14,000","text":"Ça sent le pain chaud."},
     {"cue":2,"plan":7,"speaker":"CILLO","start":"00:01:07,000","end":"00:01:10,000","text":"Tu les as vues ?"},
@@ -13,20 +15,23 @@
     {"cue":7,"plan":18,"speaker":"SOYA","start":"00:03:09,000","end":"00:03:14,000","text":"Elles veulent me dire quelque chose."},
     {"cue":8,"plan":21,"speaker":"CILLO","start":"00:03:42,000","end":"00:03:47,000","text":"On doit demander qui les a faites."},
     {"cue":9,"plan":23,"speaker":"CILLO","start":"00:04:07,000","end":"00:04:12,000","text":"Qui a fait ces motifs ?"},
-    {"cue":10,"plan":26,"speaker":"ADULTE","start":"00:04:47,000","end":"00:04:51,000","text":"De quel serpent ?"},
+    {"cue":10,"plan":26,"speaker":"ADULTE","start":"00:04:47,000","end":"00:04:51,000","text":"Quel serpent ?"},
     {"cue":11,"plan":27,"speaker":"VENDEUR","start":"00:04:57,000","end":"00:05:00,000","text":"Un boa."},
     {"cue":12,"plan":31,"speaker":"SOYA","start":"00:05:47,000","end":"00:05:54,000","text":"Il faut trouver quelqu’un qui comprend."},
-    {"cue":13,"plan":34,"speaker":"NÉNÉ ADAMA","start":"00:06:29,000","end":"00:06:33,000","text":"Regarde les motifs. Ce n’est pas seulement un dessin."},
-    {"cue":14,"plan":35,"speaker":"NÉNÉ ADAMA","start":"00:06:50,000","end":"00:06:59,000","text":"Certains animaux protègent une lignée."},
-    {"cue":15,"plan":36,"speaker":"NÉNÉ ADAMA","start":"00:07:13,000","end":"00:07:18,000","text":"Ils préviennent quand quelque chose est rompu."},
-    {"cue":16,"plan":37,"speaker":"SIDAAT","start":"00:07:31,000","end":"00:07:34,000","text":"Le boa aussi a eu mal ?"},
-    {"cue":16,"plan":37,"speaker":"NÉNÉ ADAMA","start":"00:07:34,000","end":"00:07:36,000","text":"Oui. Et le signe demande qu’on commence à réparer."},
-    {"cue":17,"plan":38,"speaker":"SOYA","start":"00:07:53,000","end":"00:08:00,000","text":"C’est moi qu’elles arrêtent."},
+    {"cue":13,"plan":34,"speaker":"MAAM JALLEL","start":"00:06:29,000","end":"00:06:33,000","text":"Pose-les là."},
+    {"cue":14,"plan":35,"speaker":"MAAM JALLEL","start":"00:06:50,000","end":"00:06:59,000","text":"Certains animaux protègent une lignée et avertissent lorsqu’un lien est rompu."},
+    {"cue":15,"plan":36,"speaker":"MAAM JALLEL","start":"00:07:13,000","end":"00:07:18,000","text":"Quelque chose a été utilisé sans respect."},
+    {"cue":16,"plan":37,"speaker":"SIDAAT","start":"00:07:31,000","end":"00:07:36,000","text":"Le boa aussi a eu mal ?"},
+    {"cue":17,"plan":38,"speaker":"MAAM JALLEL","start":"00:07:53,000","end":"00:08:00,000","text":"Oui. Et le signe demande qu’on commence à réparer."},
     {"cue":18,"plan":41,"speaker":"SOYA","start":"00:08:35,000","end":"00:08:45,000","text":"C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer."}
   ],
+  "canonicalRelations": {
+    "MAAM JALLEL": "grand-mère de SOYA et personne de transmission"
+  },
   "rules": [
+    "Exactly 18 voice cues aligned one-to-one with the 18 SRT blocks.",
     "SOYA final cue 18 is indivisible in recording and edit.",
-    "Cue 16 contains two speakers inside one SRT block; record and edit as two separate voice clips within the shared subtitle interval.",
+    "MAAM JALLEL is the only active transmission character name; NÉNÉ ADAMA is archive-only.",
     "No fabricated accent, no caricature, no mystical voice effect.",
     "All final spoken lines must remain intelligible over music and ambience."
   ]
