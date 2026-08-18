@@ -1,4 +1,4 @@
-name: Boa Totem - production finale
+name: Boa Totem - preproduction guard
 
 on:
   push:
@@ -9,44 +9,30 @@ on:
       - scripts/validate-boa-finalisation.mjs
       - scripts/validate-boa-bridge-runtime.mjs
       - scripts/normalize-boa-dialogues.mjs
+      - drafts/boa-totem-soya/**
       - drafts.js
       - public-entry.js
       - .github/workflows/boa-production.yml
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  produce:
+  guard:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/boa-totem-soya-finalisation-20260816
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Verifier le runtime Bridge
+      - name: Interdire toute regeneration automatique de visuels declares finaux
+        run: |
+          echo "Le generateur procedural Boa Totem est classe PREPRODUCTION uniquement."
+          echo "Aucune generation ni ecriture automatique de roughs/model sheets/album/DA ne sera executee par ce workflow."
+      - name: Controler le runtime sans produire de nouveaux visuels
         run: |
           node --check drafts.js
           node --check public-entry.js
-      - name: Harmoniser les dialogues
-        run: node scripts/normalize-boa-dialogues.mjs
-      - name: Generer les livrables transmedia
-        run: node scripts/generate-boa-finalisation.mjs
-      - name: Valider la production
-        run: node scripts/validate-boa-finalisation.mjs
-      - name: Valider le service des assets Bridge
-        run: node scripts/validate-boa-bridge-runtime.mjs
-      - name: Enregistrer les livrables
-        run: |
-          if git diff --quiet; then
-            echo "Aucun livrable a enregistrer"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add drafts/boa-totem-soya
-          git commit -m "Boa Totem: produire roughs, maquette et animatique de recette"
-          git push origin HEAD:agent/boa-totem-soya-finalisation-20260816
