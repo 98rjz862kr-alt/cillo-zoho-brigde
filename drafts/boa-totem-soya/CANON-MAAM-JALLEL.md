@@ -14,8 +14,10 @@ Elle interprète les signes liés au boa, transmet à SOYA ce qu’elle doit com
 - Aucun signe religieux visible imposé.
 - Design définitif à verrouiller comme personnage secondaire récurrent avant illustration finale.
 
-## Supersession
-Toute occurrence historique de « Néné Adama », « NENE ADAMA » ou variante équivalente est un **nom de travail obsolète**. Les archives restent conservées comme provenance, mais **MAAM JALLEL est l’unique nom autoritaire** dans toute production active, tout média et tout futur produit dérivé.
+## Correction canonique
+« Néné Adama », « NENE ADAMA » et toute variante équivalente sont des **erreurs de production**. Ce personnage n’existe pas dans _Le Boa Totem de Soya_ et ne doit jamais être présenté comme ayant existé dans le canon.
+
+Les archives techniques peuvent conserver la trace de cette erreur uniquement pour la traçabilité. Dans toute production active, toute mention erronée doit être remplacée par **MAAM JALLEL**.
 
 ## Règle de production
-Toute génération, rough, planche, album, storyboard, animation, fiche voix, sous-titre, packaging ou produit dérivé doit utiliser MAAM JALLEL. Aucun asset contenant le nom obsolète ne peut passer le gate de recette humaine finale.
+Toute génération, rough, planche, album, storyboard, animation, fiche voix, sous-titre, packaging ou produit dérivé doit utiliser MAAM JALLEL. Aucun asset contenant le nom erroné ne peut passer le gate de recette humaine finale.
