@@ -1,0 +1,39 @@
+name: Boa Totem - canon MAAM JALLEL
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/normalize-boa-maam-jallel.mjs'
+      - '.github/workflows/boa-canon-maam-jallel.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  normalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Normalize canonical name
+        run: node scripts/normalize-boa-maam-jallel.mjs
+      - name: Commit normalized production files
+        run: |
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config user.name "LMI Production Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add drafts/boa-totem-soya
+          git commit -m "Boa Totem: canoniser MAAM JALLEL dans la production active"
+          git push origin HEAD:main
