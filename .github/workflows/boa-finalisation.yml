@@ -1,4 +1,4 @@
-name: Boa Totem - finalisation continue
+name: Boa Totem - continuity guard
 
 on:
   push:
@@ -6,32 +6,28 @@ on:
       - agent/boa-totem-soya-finalisation-20260816
     paths:
       - scripts/normalize-boa-dialogues.mjs
+      - drafts/boa-totem-soya/**
       - .github/workflows/boa-finalisation.yml
+  workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  normalize:
+  guard:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: agent/boa-totem-soya-finalisation-20260816
           fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Normaliser et controler les dialogues
-        run: node scripts/normalize-boa-dialogues.mjs
-      - name: Enregistrer les corrections
+      - name: Verifier la continuite sans modifier le depot
+        shell: bash
         run: |
-          if git diff --quiet; then
-            echo "Aucune correction supplementaire"
-            exit 0
-          fi
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add drafts/boa-totem-soya
-          git commit -m "Boa Totem: harmoniser les dialogues verrouilles"
-          git push origin HEAD:agent/boa-totem-soya-finalisation-20260816
+          set -euo pipefail
+          echo "Workflow lecture seule: aucune normalisation automatique n'est ecrite dans le depot."
+          test -f drafts/boa-totem-soya/18-dialogues-verrouilles-reference.html
+          grep -F "Attends... ça recommence seulement quand tu avances." drafts/boa-totem-soya/18-dialogues-verrouilles-reference.html >/dev/null
+          grep -F "C'est moi que le signe a arrêtée. Alors c'est moi qui dois commencer." drafts/boa-totem-soya/18-dialogues-verrouilles-reference.html >/dev/null
