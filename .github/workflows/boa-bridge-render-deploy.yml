@@ -7,6 +7,8 @@ on:
       - "drafts/boa-totem-soya/**"
       - "drafts.js"
       - "public-entry.js"
+      - "scripts/validate-boa-finalisation.mjs"
+      - "scripts/validate-boa-bridge-runtime.mjs"
       - "render.yaml"
       - ".github/workflows/boa-bridge-render-deploy.yml"
   workflow_dispatch:
