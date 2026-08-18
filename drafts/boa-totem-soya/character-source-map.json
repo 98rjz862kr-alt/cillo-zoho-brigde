@@ -1,7 +1,9 @@
 {
   "project": "LE BOA TOTEM DE SOYA",
+  "updatedAt": "2026-08-18",
   "SOYA": {
     "primaryVisualSource": "DRV-SOURCE-BD-V2",
+    "isolatedReferenceDriveId": "1-0B2VnhvByKfssbirdyYcvDpnzu-Xexc",
     "secondaryVisualSource": "DRV-MOBILE-V03-12",
     "acceptFromPrimary": ["face", "longFulaniBraids", "childAgeRead", "generalProportions"],
     "acceptFromSecondary": ["watercolorMaterial", "naturalLight", "gesture", "bluePalette"],
@@ -10,23 +12,33 @@
   },
   "CILLO": {
     "primaryVisualSource": "DRV-SOURCE-BD-V2_WITH_HAIR_CORRECTION",
+    "isolatedReferenceDriveId": "10nFDAhtGjTpeI1Zz6f1wF9ooYE5kUhIm",
+    "isolatedReferenceStatus": "FACE_AGE_PROPORTIONS_VALID_REAR_HAIR_NONCONFORMING",
     "secondaryVisualSource": "DRV-MOBILE-V03-12",
-    "acceptFromPrimary": ["face", "compactProportions", "childAgeRead"],
+    "acceptFromPrimary": ["face", "compactProportions", "childAgeRead", "expressions"],
     "rejectFromPrimary": ["rearBraidOrTail", "hairBelowNape"],
     "acceptFromSecondary": ["watercolorMaterial", "ochrePalette", "gesture", "shortSides"],
-    "absoluteLocks": ["age6to9", "shortSides", "singleCentralStripFrontToNape", "hairStopsExactlyAtNape", "noBraid", "noPonytail", "noRearExtension", "noBeard"]
+    "absoluteLocks": ["age6to9", "shortSides", "singleCentralStripFrontToNape", "hairStopsExactlyAtNape", "noBraid", "noPonytail", "noRearExtension", "noBeard"],
+    "qaGate": "rearViewMustBeOpenedAndVisuallyVerifiedBeforePromotion"
   },
   "SIDAAT": {
     "primaryVisualSource": "DRV-SOURCE-BD-V2",
+    "isolatedReferenceDriveId": "1O1-BH7LtLhXjK0dXc2yjy3SclZno21z-",
     "secondaryVisualSource": "DRV-MOBILE-V03-12",
     "acceptFromPrimary": ["face", "shortFulaniBraids", "youngChildProportions"],
     "acceptFromSecondary": ["watercolorMaterial", "gesture", "ivoryPalette", "relativeSmallScale"],
     "absoluteLocks": ["age4to6", "smallestOfTrio", "rounderProportions", "noVeil"]
   },
-  "NENE_ADAMA": {
-    "activeNarrativeName": "NÉNÉ ADAMA",
-    "historicalLabelDoNotDuplicate": "MAAM JALLEL",
-    "absoluteLocks": ["simpleNonReligiousHeadscarfAllowed", "noReligiousVeil", "noVisibleBun", "calmTransmissionRole"]
+  "MAAM_JALLEL": {
+    "activeNarrativeName": "MAAM JALLEL",
+    "relationship": "grandmotherOfSOYA",
+    "role": "transmissionWithoutDecisionSubstitution",
+    "obsoleteAliasesArchiveOnly": ["NÉNÉ ADAMA", "NENE ADAMA"],
+    "absoluteLocks": ["simpleNonReligiousHeadscarfAllowed", "noReligiousVeil", "noVisibleBun", "calmTransmissionRole", "grandmotherOfSOYA"]
+  },
+  "VENDEUR": {
+    "role": "marketSellerWhoRevealsBoaOrigin",
+    "absoluteLocks": ["adult", "restrained", "notCaricatured", "noImposedReligiousSign"]
   },
   "BOA": {
     "visualStatus": "ABSTRACT_PRESENCE_ONLY",
