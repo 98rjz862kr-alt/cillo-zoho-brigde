@@ -14,23 +14,61 @@
     "forbidden_active_name": "NENE ADAMA",
     "morphology_reference_rule": "Every character appearance must reference the locked illustration code/model sheet."
   },
-  "illustration_codes": [
-    "LMI-BTS-CHARACTER-LINEUP-V1",
-    "LMI-BTS-CHR-SOYA-V1-MODEL-SHEET",
-    "LMI-BTS-CHR-CILLO-V1-MODEL-SHEET",
-    "LMI-BTS-CHR-SIDAAT-V1-MODEL-SHEET",
-    "LMI-BTS-CHR-MAAM-JALLEL-V1-MODEL-SHEET",
-    "LMI-BTS-CHR-VENDEUR-V1-MODEL-SHEET"
-  ],
+  "model_sheets": {
+    "lineup": {
+      "code": "LMI-BTS-CHARACTER-LINEUP-V1",
+      "url": "https://drive.google.com/file/d/1rPHE4GjiQMSr67EocdmY-VWUOmKyk67s/view?usp=drivesdk"
+    },
+    "soya": {
+      "code": "LMI-BTS-CHR-SOYA-V1-MODEL-SHEET",
+      "url": "https://drive.google.com/file/d/1DZ-I0tWhm4X27kQ5pYLeNY2A0uhtk3XW/view?usp=drivesdk"
+    },
+    "cillo": {
+      "code": "LMI-BTS-CHR-CILLO-V1-MODEL-SHEET",
+      "url": "https://drive.google.com/file/d/13QQ4H4eJrsbzvT3PY4pEuVS1NNkGx-2t/view?usp=drivesdk"
+    },
+    "sidaat": {
+      "code": "LMI-BTS-CHR-SIDAAT-V1-MODEL-SHEET",
+      "url": "https://drive.google.com/file/d/17d0n7Ygyls9FaetfQ_oGbya8kQ-uaF_m/view?usp=drivesdk"
+    },
+    "maam_jallel": {
+      "code": "LMI-BTS-CHR-MAAM-JALLEL-V1-MODEL-SHEET",
+      "url": "https://drive.google.com/file/d/1lbNeCKYyQlnf6tbpmJkXAn8-nd2QFrhS/view?usp=drivesdk"
+    },
+    "vendeur": {
+      "code": "LMI-BTS-CHR-VENDEUR-V1-MODEL-SHEET",
+      "url": "https://drive.google.com/file/d/1vZmZho1ej-0Xtan8kqfk1zk8SmUIXhPJ/view?usp=drivesdk"
+    }
+  },
   "deliverables": {
+    "bd": {
+      "pages": 18,
+      "folder": "https://drive.google.com/drive/folders/1ZHKQ4aSPoT0aTAaGQl56sIQL99jhydhr",
+      "pdf": "https://drive.google.com/file/d/1S670trrwfVYDPGUm5D8dLhKGzf4V5Ag_/view?usp=drivesdk"
+    },
+    "album_recipe": {
+      "double_pages": 12,
+      "folder": "https://drive.google.com/drive/folders/1_8xMV5prGX42hOJSoz_fijXi1p_aNKb4"
+    },
+    "animatic": {
+      "plans": 50,
+      "duration_seconds": 645,
+      "silent": true,
+      "final_animation": false,
+      "frames_folder": "https://drive.google.com/drive/folders/1q4mWHmah4Vcm3jOQj7gz_GzmBKQfdfaj",
+      "video": "https://drive.google.com/file/d/1q5jXYl4v4BN8Yekj1g7z2DUChev1xhCD/view?usp=drivesdk"
+    },
+    "human_recipe_manifest": "https://drive.google.com/file/d/1FA_hLuCDN8k0KAB4ex6z9xT60xnimhNd/view?usp=drivesdk",
+    "checksums": "https://drive.google.com/file/d/1MZljrRSne9-6tyyyujzdanB90p6H0ta2/view?usp=drivesdk",
+    "qa_folder": "https://drive.google.com/drive/folders/1v4N1FZDfMC3L9g8h6txEsKrjI7tbv5By",
+    "production_root": "https://drive.google.com/drive/folders/1wHHgFc9IYdc4OhNk0eeq1O3t42IL2FkM"
+  },
+  "verified_counts": {
     "bd_pages": 18,
-    "album_recipe_double_pages": 12,
+    "album_double_pages": 12,
     "animatic_plans": 50,
-    "animatic_duration_seconds": 645,
-    "animatic_silent": true,
-    "final_animation": false,
-    "checksums_present": true,
-    "drive_links_location": "RECETTE-HUMAINE-V1.txt in the private production package"
+    "primary_character_sheets": 4,
+    "secondary_character_sheets": 2
   },
   "recipe_limits": [
     "Human validation required before publication.",
