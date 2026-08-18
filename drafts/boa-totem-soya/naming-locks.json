@@ -1,12 +1,21 @@
 {
   "project": "LE BOA TOTEM DE SOYA",
-  "activeNarrativeNames": ["SOYA", "CILLO", "SIDAAT", "NÉNÉ ADAMA", "VENDEUR"],
-  "historicalSourceNames": {
-    "MAAM JALLEL": {
-      "foundIn": "source/checklist V4 antérieure",
-      "status": "HISTORICAL_LABEL_NOT_ACTIVE_IN_CURRENT_LOCKED_SCRIPTS",
-      "rule": "Ne jamais ajouter MAAM JALLEL comme personnage supplémentaire à côté de NÉNÉ ADAMA. Ne pas renommer automatiquement NÉNÉ ADAMA sans une source ultérieure explicite. Si une réconciliation devient nécessaire, la traiter comme une décision éditoriale de continuité et non comme un nouveau personnage."
+  "updatedAt": "2026-08-18",
+  "activeNarrativeNames": ["SOYA", "CILLO", "SIDAAT", "MAAM JALLEL", "VENDEUR"],
+  "canonicalRelationships": {
+    "MAAM JALLEL": "grand-mère de SOYA et personne de transmission"
+  },
+  "obsoleteWorkingNames": {
+    "NÉNÉ ADAMA": {
+      "status": "OBSOLETE_SUPERSEDED",
+      "supersededBy": "MAAM JALLEL",
+      "rule": "Autorisé uniquement dans les archives historiques de provenance. Interdit dans tout livrable actif, script, storyboard, album, DA, lettrage, voix, asset ou produit dérivé."
+    },
+    "NENE ADAMA": {
+      "status": "OBSOLETE_SUPERSEDED",
+      "supersededBy": "MAAM JALLEL",
+      "rule": "Autorisé uniquement dans les archives historiques de provenance."
     }
   },
-  "currentRule": "Les scripts verrouillés BD/album/DA utilisent NÉNÉ ADAMA. Les visuels de production doivent suivre ce nom actif tant qu'aucune source ultérieure explicite ne le remplace."
+  "currentRule": "MAAM JALLEL est l'unique nom actif de la grand-mère de SOYA et de la personne de transmission. Elle transmet sans retirer à SOYA son rôle central ni sa décision de réparation."
 }
