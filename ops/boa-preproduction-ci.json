@@ -1,0 +1,7 @@
+{
+  "status": "PENDING_CI_CERTIFICATION",
+  "scope": "PREPRODUCTION_STRUCTURE_ONLY",
+  "humanRecipe": "SUSPENDED",
+  "graphicsFinal": false,
+  "note": "Ce fichier sera remplacé automatiquement par le workflow Boa Totem - preproduction CI après exécution conforme des validateurs."
+}
