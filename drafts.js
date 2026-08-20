@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import { decorateHubDraft } from './hub-premium.js';
 import { finalizeHubDraft } from './hub-finalize.js';
 import { enforceOfficialHubIdentity } from './hub-identity.js';
+import { integrateHubVisuals } from './hub-visuals.js';
 import { stabilizeHubRuntime } from './hub-stability.js';
 import { enhanceHubAccessibility } from './hub-accessibility.js';
 
@@ -78,7 +79,8 @@ export function readDraftHtml(relativePath) {
     const decorated = decorateHubDraft(resolved.decoded, html);
     const finalized = finalizeHubDraft(resolved.decoded, decorated);
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
-    const stabilized = stabilizeHubRuntime(resolved.decoded, html, identified);
+    const visualized = integrateHubVisuals(resolved.decoded, identified);
+    const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
     return enhanceHubAccessibility(resolved.decoded, stabilized);
   } catch {
     return null;

@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node public-entry.js",
     "start": "node public-entry.js",
-    "test": "node scripts/validate-pages.mjs && node scripts/validate-hub.mjs && node scripts/validate-hub-links.mjs && node scripts/validate-public-entry.mjs && node scripts/validate-dossier-preuve.mjs && node scripts/validate-rokku.mjs && node scripts/validate-lmi-musee.mjs && node scripts/validate-lmi-food.mjs && node scripts/validate-lmi-maison.mjs && node scripts/validate-continuous-task.mjs"
+    "test": "node scripts/validate-pages.mjs && node scripts/validate-hub.mjs && node scripts/validate-hub-links.mjs && node scripts/validate-hub-visuals.mjs && node scripts/validate-public-entry.mjs && node scripts/validate-dossier-preuve.mjs && node scripts/validate-rokku.mjs && node scripts/validate-lmi-musee.mjs && node scripts/validate-lmi-food.mjs && node scripts/validate-lmi-maison.mjs && node scripts/validate-continuous-task.mjs"
   },
   "dependencies": {},
   "engines": {
