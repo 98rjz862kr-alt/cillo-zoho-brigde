@@ -1,0 +1,76 @@
+name: Delete obsolete LMI ATLAS Render machine
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/delete-legacy-atlas-render-now.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  delete-render-services:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Delete and verify exact legacy services
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${RENDER_API_KEY:-}" || { echo "RENDER_API_KEY missing" >&2; exit 1; }
+          ids=(srv-da9279lg1s2s738vi2qg srv-da690nrtqb8s738avou0 srv-da6927ifngtc738qet6g)
+          for id in "${ids[@]}"; do
+            code="$(curl -sS -o "/tmp/delete-${id}.json" -w '%{http_code}' -X DELETE \
+              "https://api.render.com/v1/services/${id}" \
+              -H 'Accept: application/json' \
+              -H "Authorization: Bearer ${RENDER_API_KEY}")"
+            case "$code" in
+              200|202|204|404) ;;
+              *) echo "DELETE ${id} returned HTTP ${code}" >&2; cat "/tmp/delete-${id}.json" >&2 || true; exit 1 ;;
+            esac
+          done
+          for attempt in $(seq 1 30); do
+            remaining=0
+            for id in "${ids[@]}"; do
+              code="$(curl -sS -o "/tmp/get-${id}.json" -w '%{http_code}' \
+                "https://api.render.com/v1/services/${id}" \
+                -H 'Accept: application/json' \
+                -H "Authorization: Bearer ${RENDER_API_KEY}")"
+              case "$code" in
+                404) ;;
+                200) remaining=$((remaining + 1)) ;;
+                *) echo "GET ${id} returned HTTP ${code}" >&2; cat "/tmp/get-${id}.json" >&2 || true; exit 1 ;;
+              esac
+            done
+            if [ "$remaining" -eq 0 ]; then
+              echo "VERIFIED: all legacy ATLAS Render services are deleted"
+              exit 0
+            fi
+            [ "$attempt" -lt 30 ] || { echo "Legacy services still present" >&2; exit 1; }
+            sleep 5
+          done
+
+      - name: Remove one-off workflow
+        if: ${{ success() }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          encoded='.github%2Fworkflows%2Fdelete-legacy-atlas-render-now.yml'
+          sha="$(curl -fsS \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${encoded}?ref=main" \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' | python -c 'import json,sys; print(json.load(sys.stdin)["sha"])')"
+          curl -fsS -X DELETE \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/contents/${encoded}" \
+            -H 'Accept: application/vnd.github+json' \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H 'X-GitHub-Api-Version: 2022-11-28' \
+            -H 'Content-Type: application/json' \
+            --data "{\"message\":\"ops(atlas): remove completed deletion workflow\",\"sha\":\"${sha}\",\"branch\":\"main\"}" >/dev/null
