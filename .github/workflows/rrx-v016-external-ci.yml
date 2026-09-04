@@ -1,0 +1,40 @@
+name: RRX v0.16 External CI Evidence
+
+on:
+  push:
+    branches:
+      - rrx-ci-evidence-v016
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  rrx-a01:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run RRX evidence gate
+        working-directory: rrx-ci-v016
+        run: python ci_gate.py
+      - name: Publish exact CI identity
+        run: |
+          printf '%s\n' \
+            'BUILD_ID=RRX-V0.16-20260904T080143Z-109a493df0b1' \
+            'SOURCE_REPO=98rjz862kr-alt/lmi-application-privee-integration-contenus' \
+            'SOURCE_COMMIT=9005d597c82e0a69f8b7d0bc06f6059fb411d6cd' \
+            "CI_REPO=${GITHUB_REPOSITORY}" \
+            "CI_COMMIT=${GITHUB_SHA}" \
+            > rrx-ci-v016/A01_CI_IDENTITY.txt
+          cat rrx-ci-v016/A01_CI_IDENTITY.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rrx-v016-a01-${{ github.sha }}
+          path: rrx-ci-v016/A01_CI_IDENTITY.txt
+          retention-days: 30
