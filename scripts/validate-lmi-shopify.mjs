@@ -1,35 +1,29 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-
-const file = resolve('drafts/lmi-shopify/boutique-lmi-v1.html');
-const html = readFileSync(file, 'utf8');
-
-const checks = [
-  ['doctype', /<!doctype html>/i],
-  ['langue française', /<html[^>]+lang="fr"/i],
-  ['viewport mobile', /name="viewport"/i],
-  ['noindex recette privée', /noindex/i],
-  ['bleu LMI', /#143B7D/i],
-  ['ocre LMI', /#CC7722/i],
-  ['sable LMI', /#75553F/i],
-  ['or LMI', /#D4AF37/i],
-  ['signature LMI', /LE VERBE PAR L[’']IMAGE/i],
-  ['navigation nouveautés', /Nouveautés/i],
-  ['navigation éditions', /Éditions/i],
-  ['navigation maison', /Maison/i],
-  ['navigation lifestyle', /Lifestyle/i],
-  ['panier visible', /Panier · 0/i],
-  ['grille produits', /class="grid"/i],
-  ['prix renseignés', /24 €[\s\S]*18 €[\s\S]*690 €[\s\S]*49 €/i],
-  ['responsive mobile', /@media\(max-width:560px\)/i],
-  ['aucun script tiers', !/<script\b/i]
-];
-
-const failures = checks.filter(([, rule]) => rule instanceof RegExp ? !rule.test(html) : !rule);
-
-if (failures.length) {
-  console.error(`Validation Shopify LMI échouée: ${failures.map(([name]) => name).join(', ')}`);
-  process.exit(1);
-}
-
-console.log(`Shopify LMI: ${checks.length}/${checks.length} contrôles conformes.`);
+const html=readFileSync(resolve('drafts/lmi-shopify/boutique-lmi-v1.html'),'utf8');
+const s=JSON.parse(readFileSync(resolve('drafts/lmi-shopify/structure-shopify-v1.json'),'utf8'));
+const failures=[]; const check=(n,ok)=>{if(!ok)failures.push(n)};
+check('doctype',/<!doctype html>/i.test(html));
+check('fr',/<html[^>]+lang="fr"/i.test(html));
+check('viewport',/name="viewport"/i.test(html));
+check('noindex',/noindex,nofollow,noarchive/i.test(html));
+for(const c of ['#143B7D','#CC7722','#75553F','#D4AF37']) check(`couleur ${c}`,html.includes(c));
+check('signature',/LE VERBE PAR L[’']IMAGE/i.test(html));
+check('6 nav',s.primaryNavigation.length===6);
+for(const x of s.primaryNavigation) check(`nav ${x}`,html.includes(x));
+for(const x of [...s.footer.legal,...s.footer.serviceClient]) check(`footer ${x}`,html.includes(x));
+check('8 accueil',s.homepageSections.length===8);
+check('3 familles',s.phase1Families.length===3);
+check('recherche',/id="search-form"/.test(html)&&/id="search-results"/.test(html));
+check('mobile',/class="menu-toggle"/.test(html)&&/@media\(max-width:880px\)/.test(html));
+check('44px',/min-(?:width|height):44px/.test(html));
+check('pas script externe',!/<script[^>]+src=/i.test(html));
+check('brouillon',s.publicationCommerciale===false&&s.status==='brouillon');
+check('pas prix',s.dataPolicy.inventPrices===false&&!/\b\d+[\s\u00a0]*€/.test(html));
+check('pas livraison inventée',s.dataPolicy.inventDelivery===false&&!/livraison offerte/i.test(html));
+check('anciens produits retirés',!/Plaid Adinkra|Casquette LMI/i.test(html));
+check('branche dédiée',s.branch==='shopify/structure-final');
+const declared=new Set([...html.matchAll(/data-route="([^"]+)"/g)].map(m=>m[1]));
+for(const route of [...html.matchAll(/href="#\/([a-z0-9-]+)"/g)].map(m=>m[1])) check(`route ${route}`,declared.has(route));
+if(failures.length){console.error(`Validation Shopify Structure échouée: ${failures.join(', ')}`);process.exit(1)}
+console.log(`Shopify Structure conforme: ${declared.size} routes.`);
