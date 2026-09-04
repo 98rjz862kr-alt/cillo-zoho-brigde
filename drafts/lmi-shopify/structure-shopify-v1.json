@@ -1,0 +1,26 @@
+{
+  "project": "SHOPIFY 1/6 — STRUCTURE",
+  "status": "brouillon",
+  "publicationCommerciale": false,
+  "branch": "shopify/structure-final",
+  "integrationBranch": "codex/shopify-finalisation-produit",
+  "sourceBaseBranch": "codex/lmi-shopify-boutique-v1",
+  "sourceBaseSha": "c060c35706389296124e07f9e9198e87a9896de7",
+  "primaryNavigation": ["Accueil","Boutique","Éditions","Collections","Journal","La Maison LMI"],
+  "boutiqueNavigation": ["Toutes les nouveautés","Éditions","Tirages & images","Objets éditoriaux","Cadeaux & coffrets"],
+  "editionsNavigation": ["Livres","BD","Éditions limitées","Précommandes","Archives éditoriales"],
+  "collectionsNavigation": ["Sélection phase 1","Les essentiels LMI","Pièces limitées","À offrir"],
+  "footer": {"maison":["À propos","Journal","Contact"],"serviceClient":["Livraison","Retours","FAQ"],"legal":["Conditions générales","Confidentialité","Mentions légales"]},
+  "phase1Families": [
+    {"name":"Éditions","subcollections":["Livres","BD","Éditions limitées","Précommandes"],"role":"ancrage premium"},
+    {"name":"Tirages & images","subcollections":["Tirages numérotés","Affiches","Images encadrables","Séries limitées"],"role":"élévation du panier moyen"},
+    {"name":"Objets éditoriaux","subcollections":["Carnets","Cartes","Marque-pages","Coffrets","Petits objets de lecture"],"role":"offre d'entrée et cadeau"}
+  ],
+  "homepageSections": ["Hero éditorial","Manifeste court","Sélection phase 1","Les éditions","Tirages & images","Objets éditoriaux","Journal LMI","Newsletter"],
+  "pages": {"commerciales":["Accueil","Boutique générale","Éditions","Tirages & images","Objets éditoriaux","Sélection phase 1"],"editoriales":["La Maison LMI","Journal"],"confiance":["Contact","Livraison","Retours","FAQ"],"legales":["Conditions générales","Confidentialité","Mentions légales"]},
+  "mobile": {"strategy":"mobile-first","navigation":"menu repliable","breakpointPx":880,"minimumControlPx":44},
+  "search": {"status":"structurelle","scope":"pages et collections","productIndex":"à raccorder par le lot Catalogue"},
+  "dataPolicy": {"inventProductData":false,"inventPrices":false,"inventStock":false,"inventDelivery":false,"inventLegalData":false},
+  "isolatedLegacy": ["Le prototype historique contenait des prix, produits lifestyle et une promesse de livraison non sourcés ; ils sont retirés de la version Structure."],
+  "deferredToOtherLots": ["Fiches produits et données catalogue","Prix, stock, variantes et médias produits","Règles de livraison et retours","Paiement et fiscalité","Consentement newsletter et automatisations","Contenu juridique final","Publication Shopify native"]
+}
