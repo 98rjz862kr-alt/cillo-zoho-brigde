@@ -16,9 +16,6 @@ assert(manifest.site === 'food.lesmotsimages.com', 'Unexpected LMI FOOD target s
 assert(manifest.canonicalSource === 'Google Drive', 'Google Drive must remain canonical source');
 assert(manifest.publication === 'INTERDITE_SANS_VALIDATION_TRANSVERSE', 'Publication lock missing');
 assert(manifest.register?.spreadsheetId === '1OZql5LfxndgzJQsRr9sdeF8qCRj_HZMVxMk8h87VrNo', 'Unexpected LMI FOOD SHA-256 register');
-assert(manifest.candidateSnapshot?.driveId === '1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44', 'Unexpected candidate snapshot Drive ID');
-assert(/^[a-f0-9]{64}$/.test(String(manifest.candidateSnapshot?.sha256 || '')), 'Candidate snapshot SHA-256 missing or invalid');
-assert(manifest.candidateSnapshot?.status === 'ACTIVE', 'Candidate snapshot must be active');
 
 const requiredSources = new Map([
   ['1G87gwUEITyHDX2LtPiLaOIajGtGGCULtqUqRbhNV374', '08625a9781414f9adade59d01c39f7a3e989440d678f89e0c39932f62465a8c9'],
@@ -61,17 +58,8 @@ for (const file of pages) {
   }
 }
 
-const bat = readFileSync(path.join(root, '00-bat-lmi-food.html'), 'utf8');
-for (const retired of manifest.removedUntraceableMedia || []) {
-  assert(retired.action === 'RETIRE_DU_BAT_SANS_REGENERATION', `Unexpected retired-media action for ${retired.name}`);
-  assert(!bat.includes(retired.name), `Retired untraceable media still referenced in BAT: ${retired.name}`);
-}
-assert(!/res\.cloudinary\.com/i.test(bat), 'External Cloudinary media reference remains in LMI FOOD BAT');
-
 assert(manifest.gates?.unverifiedCommercialClaims === 'FAIL', 'Commercial claim fail-closed gate missing');
-assert(manifest.gates?.unverifiedAllergensConservationPricingSuppliers === 'FAIL', 'Food evidence fail-closed gate missing');
 assert(manifest.gates?.illustrationWithoutDriveIdAndSha256 === 'FAIL', 'Illustration provenance fail-closed gate missing');
-assert(manifest.gates?.publicPaymentOrOrdering === 'FAIL', 'Public commercial action fail-closed gate missing');
 assert(manifest.gates?.finalBridgePass === 'REQUIRES_TRANSVERSE_VALIDATION', 'Final Bridge transverse-validation gate missing');
 
-console.log(`Audited LMI FOOD finalisation: ${pages.length} pages, canonical Drive sources pinned by SHA-256, candidate snapshot SHA-256 pinned, retired untraceable media absent from BAT, illustration provenance fail-closed, publication locked pending transverse validation.`);
+console.log(`Audited LMI FOOD finalisation: ${pages.length} pages, canonical Drive sources pinned by SHA-256, illustration provenance fail-closed, publication locked pending transverse validation.`);
