@@ -3,6 +3,7 @@ import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { decorateHubDraft } from './hub-premium.js';
+import { professionalizeHubVisitorCopy } from './hub-visitor-copy.js';
 import { finalizeHubDraft } from './hub-finalize.js';
 import { enforceOfficialHubIdentity } from './hub-identity.js';
 import { integrateHubVisuals } from './hub-visuals.js';
@@ -78,7 +79,8 @@ export function readDraftHtml(relativePath) {
   try {
     const html = readFileSync(resolved.absolutePath, 'utf8');
     const decorated = decorateHubDraft(resolved.decoded, html);
-    const finalized = finalizeHubDraft(resolved.decoded, decorated);
+    const professionalized = professionalizeHubVisitorCopy(resolved.decoded, decorated);
+    const finalized = finalizeHubDraft(resolved.decoded, professionalized);
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
     const visualized = integrateHubVisuals(resolved.decoded, identified);
     const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
