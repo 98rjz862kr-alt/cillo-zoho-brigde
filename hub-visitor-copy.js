@@ -83,7 +83,6 @@ function replaceFirstParagraphAfterH1(html,text){
 
 function removeInternalChrome(html){
   let output=String(html||'');
-  output=output.replace(/<style\b[^>]*>[\s\S]*?\.bridge(?:-status)?\b[\s\S]*?<\/style>/gi,'');
   output=output.replace(/<(?:div|aside)\b[^>]*class=["'][^"']*\bbridge(?:-status)?\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|aside)>/gi,'');
   output=output.replace(/<span\b[^>]*>[\s\S]*?(?:Bridge priv[ée]|version de recette|aucune publication)[\s\S]*?<\/span>/gi,'');
   output=output.replace(/<section\b[^>]*>[\s\S]*?<\/section>/gi,(section)=>INTERNAL_BLOCK_MARKERS.test(stripTags(section))?'':section);
