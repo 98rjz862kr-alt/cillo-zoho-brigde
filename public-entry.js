@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { listDraftFiles, readDraftHtml, readDraftAsset } from './drafts.js';
+import { listHubVisualProvenance } from './hub-provenance.js';
 import { isAuthorized } from './security.js';
 
 const __filename=fileURLToPath(import.meta.url);
@@ -18,7 +19,8 @@ const core=spawn(process.execPath,[path.join(rootDir,'server.js')],{
 
 function escapeHtml(value){return String(value||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function sendHtml(res,html,status=200){res.writeHead(status,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: https:; frame-ancestors 'self'"});res.end(html);}
-function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox"});res.end(asset.content);}
+function sendJson(res,payload,status=200){const body=JSON.stringify(payload);res.writeHead(status,{'content-type':'application/json; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-length':Buffer.byteLength(body)});res.end(body);}
+function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox",'x-lmi-sha256':asset.sha256,'etag':`"sha256-${asset.sha256}"`,'content-length':asset.size});res.end(asset.content);}
 
 function readBoaJson(fileName){
   const filePath=path.join(rootDir,'drafts','boa-totem-soya',fileName);
@@ -56,6 +58,32 @@ function boaRuntimeStatus(){
   };
 }
 
+function hubIntegrityStatus(){
+  const assets=listHubVisualProvenance().map((provenance)=>{
+    const asset=readDraftAsset(`hub-lmi-editions/assets/${provenance.assetName}`);
+    return {
+      assetName:provenance.assetName,
+      servedSha256:asset?.sha256||null,
+      servedBytes:asset?.size||null,
+      servedContentType:asset?.contentType||null,
+      sourceDriveId:provenance.sourceDriveId,
+      sourceName:provenance.sourceName,
+      sourceMimeType:provenance.sourceMimeType,
+      sourceSha256:provenance.sourceSha256,
+      sourceRole:provenance.sourceRole,
+      sourceStatus:provenance.sourceStatus,
+      ready:Boolean(asset&&/^[a-f0-9]{64}$/.test(asset.sha256||'')&&/^[a-f0-9]{64}$/.test(provenance.sourceSha256||''))
+    };
+  });
+  return {
+    site:'www.lesmotsimages.com',
+    branch:'agent/hub-www-continuation-20260906',
+    revision:process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||null,
+    ready:assets.length===3&&assets.every((asset)=>asset.ready),
+    assets
+  };
+}
+
 function loginPage(message=''){
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Accès protégé</title><style>:root{--b:#143B7D;--n:#0F2747;--g:#D4AF37;--i:#F6F1E8;--s:#75553F}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,var(--n),var(--b));font-family:Arial,sans-serif}.card{width:min(520px,100%);background:var(--i);border-radius:24px;padding:34px;box-shadow:0 30px 80px #0005;border-top:5px solid var(--g)}h1{margin:0 0 10px;color:var(--b);font:700 2.4rem Georgia,serif}p{color:var(--s);line-height:1.6}input,button{width:100%;font:inherit;padding:14px 16px;border-radius:10px}input{border:1px solid #143b7d44;background:#fff}button{margin-top:12px;border:0;background:var(--b);color:#fff;font-weight:900;cursor:pointer}.error{color:#8b1e2d;font-weight:800}</style></head><body><main class="card"><h1>Bridge LMI</h1><p>Bibliothèque privée de brouillons, préproductions et BAT.</p>${message?`<p class="error">${escapeHtml(message)}</p>`:''}<form method="get" action="/atelier"><input type="password" name="password" autocomplete="current-password" placeholder="Mot de passe" required><button type="submit">Ouvrir l’atelier</button></form></main></body></html>`;
 }
@@ -83,6 +111,10 @@ const server=createServer((req,res)=>{
     if(!isAuthorized({headers:req.headers,query}))return sendHtml(res,loginPage(query.password?'Mot de passe incorrect.':''),query.password?401:200);
     return sendHtml(res,atelierPage(query.password));
   }
+  if(req.method==='GET'&&url.pathname==='/api/hub-integrity'){
+    if(!isAuthorized({headers:req.headers,query}))return sendJson(res,{error:'Accès refusé.'},401);
+    return sendJson(res,hubIntegrityStatus());
+  }
   if(req.method==='GET'&&url.pathname.startsWith('/atelier/file/')){
     if(!isAuthorized({headers:req.headers,query}))return sendHtml(res,loginPage('Accès refusé.'),401);
     const encoded=url.pathname.slice('/atelier/file/'.length);
@@ -96,8 +128,8 @@ const server=createServer((req,res)=>{
   }
   if(req.method==='GET'&&(url.pathname==='/health'||url.pathname==='/api/health')){
     const boa=boaRuntimeStatus();
-    res.writeHead(200,{'content-type':'application/json; charset=utf-8','cache-control':'no-store'});
-    return res.end(JSON.stringify({ok:true,service:'cillo-zoho-bridge',publicAtelier:false,drafts:listDraftFiles().length,adminPasswordConfigured:Boolean(process.env.ADMIN_PASSWORD&&process.env.ADMIN_PASSWORD!=='change-me'),...boa,revision:process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||null}));
+    const hub=hubIntegrityStatus();
+    return sendJson(res,{ok:true,service:'cillo-zoho-bridge',publicAtelier:false,drafts:listDraftFiles().length,adminPasswordConfigured:Boolean(process.env.ADMIN_PASSWORD&&process.env.ADMIN_PASSWORD!=='change-me'),hubIntegrityReady:hub.ready,...boa,revision:process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||null});
   }
   return proxy(req,res);
 });
