@@ -1,3 +1,4 @@
+import { createHash } from 'crypto';
 import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -92,9 +93,12 @@ export function readDraftAsset(relativePath) {
   if (!resolved) return null;
 
   try {
+    const content=readFileSync(resolved.absolutePath);
     return {
-      content: readFileSync(resolved.absolutePath),
-      contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream'
+      content,
+      contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream',
+      sha256:createHash('sha256').update(content).digest('hex'),
+      size:content.length
     };
   } catch {
     return null;
