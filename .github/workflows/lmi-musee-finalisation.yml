@@ -1,0 +1,32 @@
+name: LMI Musee Finalisation
+
+on:
+  push:
+    branches:
+      - agent/lmi-musee-finalisation-20260906
+  pull_request:
+    paths:
+      - 'drafts/lmi-musee-complet/**'
+      - 'scripts/validate-lmi-musee.mjs'
+      - 'scripts/audit-lmi-musee-finalisation.mjs'
+      - 'package.json'
+      - '.github/workflows/lmi-musee-finalisation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  musee-finalisation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate LMI Musee legacy gate
+        run: node scripts/validate-lmi-musee.mjs
+      - name: Audit LMI Musee finalisation gate
+        run: node scripts/audit-lmi-musee-finalisation.mjs
