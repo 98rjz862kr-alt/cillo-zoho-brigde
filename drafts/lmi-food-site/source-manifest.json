@@ -3,14 +3,18 @@
   "canonicalSource": "Google Drive",
   "repository": "98rjz862kr-alt/cillo-zoho-brigde",
   "branch": "agent/lmi-food-finalisation-20260906",
-  "head": "441b1fdbb93aae1d01aa39ae1f10a3c83eae8e59",
-  "base": "3ae78728c42dcc627713cb9fd5e9a7e7ac746164",
   "pullRequest": 104,
   "publication": "INTERDITE_SANS_VALIDATION_TRANSVERSE",
+  "candidateTracking": {
+    "contentBaselineCommit": "f916ff536a66a282acab468c736a16a8f340cb10",
+    "technicalHead": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
+    "base": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
+    "reason": "avoid circular self-reference when manifest updates advance branch HEAD"
+  },
   "candidateSnapshot": {
     "name": "SNAPSHOT_LMI_FOOD_CANDIDAT_FINALISATION_2026-09-06.txt",
     "driveId": "1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44",
-    "sha256": "97dad836afc4afdf2872b6bcce088583f08ea0be528eefee5a6c8a3d414524ae",
+    "sha256": "TRACKED_IN_REGISTRE_SHA256_LMI_FOOD_AND_MASTER",
     "status": "ACTIVE"
   },
   "sources": [
