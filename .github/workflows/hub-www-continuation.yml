@@ -1,0 +1,60 @@
+name: Hub WWW continuation validation
+
+on:
+  push:
+    branches:
+      - agent/hub-www-continuation-20260906
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax checks
+        run: |
+          node --check drafts.js
+          node --check hub-visitor-copy.js
+          node --check hub-finalize.js
+          node --check hub-identity.js
+          node --check hub-visuals.js
+          node --check hub-stability.js
+          node --check hub-accessibility.js
+          node --check hub-asset-integrity.js
+      - name: Hub validation
+        run: |
+          node scripts/validate-hub.mjs
+          node scripts/validate-hub-links.mjs
+          node scripts/validate-hub-visuals.mjs
+      - name: SHA-256 manifest
+        run: |
+          sha256sum \
+            drafts/hub-lmi-editions/assets/logo-lmi-hub.webp \
+            drafts/hub-lmi-editions/assets/boa-totem-soya.webp \
+            drafts/hub-lmi-editions/assets/le-fleuve-sans-nom.webp \
+            hub-asset-integrity.js \
+            hub-visitor-copy.js \
+            hub-finalize.js \
+            hub-identity.js \
+            hub-visuals.js \
+            hub-stability.js \
+            hub-accessibility.js \
+            drafts.js \
+            scripts/validate-hub.mjs \
+            scripts/validate-hub-links.mjs \
+            scripts/validate-hub-visuals.mjs > hub-sha256.txt
+          cat hub-sha256.txt
+      - name: Upload SHA-256 manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: hub-www-sha256
+          path: hub-sha256.txt
+          if-no-files-found: error
