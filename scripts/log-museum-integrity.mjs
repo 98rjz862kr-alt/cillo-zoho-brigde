@@ -15,3 +15,13 @@ for (const relative of assets) {
   files[relative] = existsSync(file) ? sha256(file) : null;
 }
 console.log(`LMI_MUSEE_INTEGRITY ${JSON.stringify({ algorithm: 'SHA-256', files })}`);
+
+try {
+  await import('./validate-lmi-musee.mjs');
+  await import('./audit-lmi-musee-finalisation.mjs');
+  console.log('LMI_MUSEE_RUNTIME_AUDIT PASS');
+} catch (error) {
+  console.error(`LMI_MUSEE_RUNTIME_AUDIT FAIL ${error?.stack || error}`);
+  process.exitCode = 1;
+  throw error;
+}
