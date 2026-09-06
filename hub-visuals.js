@@ -1,4 +1,5 @@
 import { getHubAssetSha256 } from './hub-asset-integrity.js';
+import { getHubVisualProvenance } from './hub-provenance.js';
 
 const HUB_DRAFT_PATTERN=/^hub-lmi-editions\/.+\.html$/i;
 const ASSET_ROOT='hub-lmi-editions/assets/';
@@ -18,9 +19,14 @@ const VISUAL_STYLE=`<style id="lmi-hub-visual-style">
 
 const ASSET_SCRIPT=`<script id="lmi-hub-visual-script">(function(){var q=location.search||'';document.querySelectorAll('img[data-lmi-asset]').forEach(function(img){var p='${ASSET_ROOT}'+img.getAttribute('data-lmi-asset');img.src='/atelier/file/'+encodeURIComponent(p)+q;});})();</script>`;
 
+function escapeAttr(value){return String(value||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function provenanceAttrs(asset){
+  const p=getHubVisualProvenance(asset);
+  return `data-lmi-drive-id="${escapeAttr(p.sourceDriveId)}" data-lmi-source-sha256="${escapeAttr(p.sourceSha256)}" data-lmi-source-role="${escapeAttr(p.sourceRole)}"`;
+}
 function img(asset,alt,cls=''){
   const sha256=getHubAssetSha256(asset);
-  return `<img ${cls?`class="${cls}"`:''} data-lmi-asset="${asset}" data-lmi-sha256="${sha256}" alt="${alt}" loading="eager" decoding="async">`;
+  return `<img ${cls?`class="${cls}"`:''} data-lmi-asset="${asset}" data-lmi-sha256="${sha256}" ${provenanceAttrs(asset)} alt="${escapeAttr(alt)}" loading="eager" decoding="async">`;
 }
 function figure(asset,alt,caption=''){return `<figure class="lmi-editorial-visual">${img(asset,alt)}${caption?`<figcaption>${caption}</figcaption>`:''}</figure>`;}
 
