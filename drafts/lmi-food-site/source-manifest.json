@@ -14,7 +14,7 @@
   "candidateSnapshot": {
     "name": "SNAPSHOT_LMI_FOOD_CANDIDAT_FINALISATION_2026-09-06.txt",
     "driveId": "1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44",
-    "sha256": "73fb57d768a10dce475d6c1cde85ddae2e7fa16042ba03259805e58f6da0069b",
+    "sha256Registry": "REGISTRE_SHA256_LMI_FOOD_AND_MASTER",
     "status": "ACTIVE"
   },
   "sources": [
