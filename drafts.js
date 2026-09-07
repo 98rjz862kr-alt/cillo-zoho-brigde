@@ -1,7 +1,9 @@
+import { createHash } from 'crypto';
 import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { decorateHubDraft } from './hub-premium.js';
+import { professionalizeHubVisitorCopy } from './hub-visitor-copy.js';
 import { finalizeHubDraft } from './hub-finalize.js';
 import { enforceOfficialHubIdentity } from './hub-identity.js';
 import { integrateHubVisuals } from './hub-visuals.js';
@@ -67,9 +69,7 @@ function inlinePreviewAssets(relativeHtmlPath, html) {
   });
 }
 
-export function listDraftFiles() {
-  return walk(DRAFT_ROOT).sort((a, b) => a.relativePath.localeCompare(b.relativePath, 'fr'));
-}
+export function listDraftFiles() { return walk(DRAFT_ROOT).sort((a, b) => a.relativePath.localeCompare(b.relativePath, 'fr')); }
 
 export function readDraftHtml(relativePath) {
   const resolved = resolveDraftPath(relativePath, new Set(['.html']));
@@ -78,7 +78,8 @@ export function readDraftHtml(relativePath) {
     const rawHtml = readFileSync(resolved.absolutePath, 'utf8');
     const html = inlinePreviewAssets(resolved.decoded, rawHtml);
     const decorated = decorateHubDraft(resolved.decoded, html);
-    const finalized = finalizeHubDraft(resolved.decoded, decorated);
+    const professionalized = professionalizeHubVisitorCopy(resolved.decoded, decorated);
+    const finalized = finalizeHubDraft(resolved.decoded, professionalized);
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
     const visualized = integrateHubVisuals(resolved.decoded, identified);
     const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
@@ -89,6 +90,8 @@ export function readDraftHtml(relativePath) {
 export function readDraftAsset(relativePath) {
   const resolved = resolveDraftPath(relativePath, new Set(ASSET_MIME_TYPES.keys()));
   if (!resolved) return null;
-  try { return { content: readFileSync(resolved.absolutePath), contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream' }; }
-  catch { return null; }
+  try {
+    const content=readFileSync(resolved.absolutePath);
+    return {content,contentType:ASSET_MIME_TYPES.get(resolved.extension)||'application/octet-stream',sha256:createHash('sha256').update(content).digest('hex'),size:content.length};
+  } catch { return null; }
 }
