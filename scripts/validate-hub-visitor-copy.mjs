@@ -4,7 +4,7 @@ const PRIVATE_SOMMAIRE='hub-lmi-editions/00-sommaire-hub-lmi-editions.html';
 const internalMarkers = [
   /\bbrouillon\b/i,
   /bridge\.lesmotsimages\.com/i,
-  /\bvalidation humaine obligatoire\b/i,
+  /\bvalidation humaine(?: obligatoire)?\b/i,
   /\bpose cms\b/i,
   /\bstatut du lot\b/i,
   /\bpage p\d+\b/i,
@@ -15,7 +15,10 @@ const internalMarkers = [
   /\bplaceholder\b/i,
   /\btemplate\b/i,
   /\bpr\s*#\d+\b/i,
-  /\brc\d+\b/i
+  /\brc\d+\b/i,
+  /\bBAT\b/,
+  /site complet de recette/i,
+  /PRIV[ÉE]/
 ];
 
 function visibleText(html) {
@@ -56,6 +59,13 @@ for (const draft of hubDrafts) {
     if (!text.includes(expected)) throw new Error(`Canonical visitor copy missing from ${draft.relativePath}: ${expected}`);
   }
 }
+
+const expectedPoleLinks={
+  '06-lmi-maison.html':'https://maison.lesmotsimages.com',
+  '07-lmi-food.html':'https://food.lesmotsimages.com',
+  '08-lmi-musee.html':'https://musee.lesmotsimages.com'
+};
+for(const [file,href] of Object.entries(expectedPoleLinks)){const html=readDraftHtml(`hub-lmi-editions/${file}`);if(!html.includes(`href="${href}"`))throw new Error(`Canonical inter-site link missing from ${file}: ${href}`);}
 
 const sommaire=readDraftHtml(PRIVATE_SOMMAIRE);
 if(!sommaire)throw new Error('Private Hub sommaire is missing');

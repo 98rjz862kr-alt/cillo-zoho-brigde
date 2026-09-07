@@ -15,11 +15,14 @@ for(const [name,sha] of Object.entries(expectedAssets)){
   if(!asset||asset.sha256!==sha)throw new Error(`Release-gate SHA-256 mismatch for ${name}`);
 }
 
-const forbidden=/\b(?:brouillon|validation humaine obligatoire|recette priv[ée]e?|pose cms|statut du lot|placeholder|pr\s*#\d+)\b/i;
+const forbidden=/(?:\bbrouillon\b|\bvalidation humaine\b|\brecette priv[ée]e?\b|\bpose cms\b|\bstatut du lot\b|\bplaceholder\b|\bpr\s*#\d+\b|site complet de recette|\bPRIV[ÉE]\b)/i;
+const technicalBat=/\bBAT\b/;
+const productionPhrases=/(?:non active|source publique candidate|recette humaine|test cms|usage prévu|classement|à contrôler|actions visuelles|futur(?:s|e)? (?:formulaire|cta)|avant validation|à confirmer avant publication|publication\s*:\s*aucun calendrier public|page p\d+)/i;
+const unprovenContact=/(?:[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}|\+33\s*[0-9][0-9\s.()/-]{6,}|WhatsApp)/i;
 for(const page of pages){
   const html=readDraftHtml(page.relativePath);
   const visible=String(html||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
-  if(forbidden.test(visible))throw new Error(`Internal wording remains in ${page.relativePath}`);
+  if(forbidden.test(visible)||technicalBat.test(visible)||productionPhrases.test(visible)||unprovenContact.test(visible))throw new Error(`Internal wording remains in ${page.relativePath}`);
 }
 
 const publicRightsBlockers=[
