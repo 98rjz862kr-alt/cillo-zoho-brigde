@@ -24,6 +24,8 @@ assert(existsSync(path.join(root,'styles.css')),'LMI Musée styles.css missing')
 assert(existsSync(path.join(root,'assets/lmi-logo-officiel.svg')),'Official LMI logo wrapper missing');
 assert(existsSync(path.join(root,'assets/lmi-logo-main.webp')),'Official LMI logo image missing');
 assert(existsSync(path.join(root,'source-manifest.json')),'Museum source manifest missing');
+assert(existsSync(path.join(root,'robots.txt')),'Museum robots.txt missing');
+assert(existsSync(path.join(root,'sitemap.xml')),'Museum sitemap.xml missing');
 const css=readFileSync(path.join(root,'styles.css'),'utf8');
 for(const color of requiredColors) assert(css.includes(color),`Missing strict LMI color ${color}`);
 assert(css.includes(':focus-visible'),'Keyboard focus style missing');
@@ -53,7 +55,17 @@ const legal=readFileSync(path.join(root,'mentions-legales-confidentialite.html')
 for(const value of ['LMI Éditions — Les Mots Images','BAABOY CILLO','lesmotsimages@gmail.com']) assert(legal.includes(value),`Legal page missing ${value}`);
 const index=readFileSync(path.join(root,'index.html'),'utf8');
 for(const collection of ['Atlas des humanités disparues','Les routes invisibles','Archives des seuils']) assert(index.includes(collection),`Launch collection missing from home: ${collection}`);
+const robots=readFileSync(path.join(root,'robots.txt'),'utf8');
+assert(robots.includes('Allow: /'),'robots.txt does not allow public crawl');
+assert(robots.includes('Disallow: /notices/'),'robots.txt does not protect hypothesis notices');
+assert(robots.includes('https://musee.lesmotsimages.com/sitemap.xml'),'robots.txt sitemap missing');
+const sitemap=readFileSync(path.join(root,'sitemap.xml'),'utf8');
+for(const page of publicPages){
+  const route=page==='index.html'?'':page.replace(/\.html$/,'');
+  assert(sitemap.includes(`https://musee.lesmotsimages.com/${route}`),`Public page missing from sitemap: ${page}`);
+}
+assert(!sitemap.includes('/notices/'),'Hypothesis notices leaked into sitemap');
 const manifest=JSON.parse(readFileSync(path.join(root,'source-manifest.json'),'utf8'));
 assert(manifest.status==='READY_TO_PUBLISH','Source manifest is not READY_TO_PUBLISH');
 assert(!manifest.documents.some(d=>d.status==='A_REQUALIFIER'),'Blocking A_REQUALIFIER source remains');
-console.log(`Validated LMI Musée publication: ${publicPages.length} public pages ready, ${archivedPages.length} archived routes locked, official identity, strict palette, contact and legal layer present.`);
+console.log(`Validated LMI Musée publication: ${publicPages.length} public pages ready, ${archivedPages.length} archived routes locked, sitemap/robots ready, official identity, strict palette, contact and legal layer present.`);
