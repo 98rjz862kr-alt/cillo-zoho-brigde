@@ -12,6 +12,16 @@ try{
   let ready=false;
   for(let i=0;i<30;i++){try{const r=await request('/health');if(r.ok){ready=true;break;}}catch{}await wait(100);}
   if(!ready)throw new Error(`Bridge runtime failed to start: ${stderr}`);
+  const robots=await request('/robots.txt');
+  const robotsText=await robots.text();
+  if(!robots.ok||robotsText!=='User-agent: *\nDisallow: /\n')throw new Error('Private Bridge robots.txt must disallow all crawling');
+  const deniedSitemap=await request('/sitemap.xml');
+  if(deniedSitemap.status!==401)throw new Error(`Unauthenticated private sitemap expected 401, got ${deniedSitemap.status}`);
+  const sitemap=await request(`/sitemap.xml?password=${encodeURIComponent(password)}`);
+  if(!sitemap.ok)throw new Error(`Authenticated sitemap failed: ${sitemap.status}`);
+  const sitemapXml=await sitemap.text();
+  const locs=[...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match)=>match[1]);
+  if(locs.length!==32||locs[0]!=='https://www.lesmotsimages.com/'||locs.some((url)=>/00-sommaire/i.test(url)))throw new Error(`Private candidate sitemap inventory invalid: ${locs.length}`);
   const denied=await request('/api/hub-integrity');
   if(denied.status!==401)throw new Error(`Unauthenticated integrity endpoint expected 401, got ${denied.status}`);
   const root=await request('/');
@@ -39,7 +49,7 @@ try{
     if(response.headers.get('x-lmi-sha256')!==sha)throw new Error(`Runtime SHA header mismatch for ${asset.assetName}`);
     if(Number(response.headers.get('content-length'))!==bytes.length)throw new Error(`Runtime length mismatch for ${asset.assetName}`);
   }
-  console.log('Validated live private Hub runtime: auth gate, root redirect, canonical visitor home, private noindex sommaire, integrity manifest and exact SHA-256 headers for 3 served WebP assets.');
+  console.log('Validated live private Hub runtime: auth gate, robots lock, authenticated 32-URL sitemap, root redirect, canonical visitor home, private noindex sommaire, integrity manifest and exact SHA-256 headers for 3 served WebP assets.');
 } finally {
   child.kill('SIGTERM');
 }
