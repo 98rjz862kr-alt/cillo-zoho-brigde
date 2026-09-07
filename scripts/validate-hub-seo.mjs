@@ -16,4 +16,4 @@ for (const draft of drafts) {
   if (/brouillon|bridge|recette|bat\b/i.test(`${title} ${description} ${h1s[0]}`)) throw new Error(`Internal wording in visitor SEO fields on ${draft.relativePath}`);
 }
 
-console.log('Validated visitor SEO essentials on Hub pages 01–08: title, description and single visitor-ready H1.');
+console.log('Validated visitor SEO essentials on Hub pages 01–32: title, description and single visitor-ready H1.');

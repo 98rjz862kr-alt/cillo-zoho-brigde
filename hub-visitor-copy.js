@@ -11,6 +11,33 @@ const CANONICAL_COPY={
   '08-lmi-musee.html':{title:'LMI Musée — Les Mots Images',description:'Le Musée LMI documente les œuvres, objets, récits, savoir-faire et archives de l’écosystème.',h1:'LMI Musée — conserver, documenter et transmettre',lead:'Le Musée LMI documente les œuvres, objets, récits, savoir-faire et archives de l’écosystème en préservant leurs contextes, provenances, droits et conditions de transmission.'}
 };
 
+const SEO_METADATA={
+  '09-manuscrits-textes.html':['LMI Éditions — Manuscrits & textes','Découvrir les manuscrits, textes et projets éditoriaux présentés par LMI Éditions.'],
+  '10-ressources-acces-fiches.html':['LMI Éditions — Ressources & accès aux fiches','Accéder aux fiches et ressources qui orientent vers les œuvres et contenus de LMI Éditions.'],
+  '11-catalogue-editorial.html':['LMI Éditions — Catalogue éditorial','Parcourir le catalogue éditorial de LMI Éditions et ses principaux univers de lecture.'],
+  '12-catalogue-bd-adaptations.html':['LMI Éditions — BD & adaptations','Découvrir les bandes dessinées et adaptations visuelles développées à partir des univers éditoriaux LMI.'],
+  '13-univers-illustres-da.html':['LMI Éditions — Univers illustrés & direction artistique','Découvrir les univers illustrés, personnages et partis pris de direction artistique associés aux œuvres LMI.'],
+  '14-audio-transmission.html':['LMI Éditions — Audio & transmission','Explorer les prolongements audio et les formats de transmission associés aux contenus éditoriaux LMI.'],
+  '15-livres-audio.html':['LMI Éditions — Livres & audio','Retrouver les œuvres éditoriales et leurs prolongements audio lorsqu’ils sont disponibles.'],
+  '16-actualites-evenements.html':['LMI Éditions — Actualités & événements','Suivre les actualités, rendez-vous et étapes publiques communiqués par LMI Éditions.'],
+  '17-a-propos-ressources.html':['LMI Éditions — À propos & ressources','Comprendre le rôle de LMI Éditions et accéder aux ressources d’orientation de l’écosystème.'],
+  '18-blog.html':['LMI Éditions — Blog','Lire les articles, regards et coulisses éditoriales publiés autour des œuvres et projets LMI.'],
+  '19-presse-partenaires-droits.html':['LMI Éditions — Presse, partenaires & droits','Point d’entrée pour les informations presse, partenariales et relatives aux droits de LMI Éditions.'],
+  '20-mentions-legales-confidentialite.html':['LMI Éditions — Mentions légales & confidentialité','Consulter les informations légales et de confidentialité publiées par LMI Éditions.'],
+  '21-destination-connue-itineraires-incertains.html':['Destination connue, itinéraires incertains — LMI Éditions','Présentation éditoriale de Destination connue, itinéraires incertains dans le catalogue LMI Éditions.'],
+  '22-lettres-a-ceux-qui-viendront.html':['Lettres à ceux qui viendront — LMI Éditions','Présentation éditoriale de Lettres à ceux qui viendront dans le catalogue LMI Éditions.'],
+  '23-sombres-memoires-verbes-muets.html':['Sombres mémoires, verbes muets — LMI Éditions','Présentation éditoriale de Sombres mémoires, verbes muets dans le catalogue LMI Éditions.'],
+  '24-la-femme-maitresse-du-monde-mais-ostracisee.html':['La femme maîtresse du monde ; mais ostracisée — LMI Éditions','Présentation éditoriale de La femme maîtresse du monde ; mais ostracisée dans le catalogue LMI Éditions.'],
+  '25-le-peuple-sans-messager.html':['Le peuple sans messager — LMI Éditions','Présentation éditoriale de Le peuple sans messager dans le catalogue LMI Éditions.'],
+  '26-feodalisme-religieux.html':['Féodalisme religieux — LMI Éditions','Présentation éditoriale de Féodalisme religieux dans le catalogue LMI Éditions.'],
+  '27-l-utopie-pour-faconner-le-reel.html':['L’utopie pour façonner le réel — LMI Éditions','Présentation éditoriale de L’utopie pour façonner le réel dans le catalogue LMI Éditions.'],
+  '28-l-autocensure.html':['L’autocensure — LMI Éditions','Présentation éditoriale de L’autocensure dans le catalogue LMI Éditions.'],
+  '29-le-racisme-est-universel.html':['Le racisme est universel — LMI Éditions','Présentation éditoriale de Le racisme est universel dans le catalogue LMI Éditions.'],
+  '30-l-otage-de-l-absurde.html':['L’otage de l’absurde — LMI Éditions','Présentation éditoriale de L’otage de l’absurde dans le catalogue LMI Éditions.'],
+  '31-le-boa-totem-de-soya.html':['Le Boa Totem de Soya — LMI Éditions','Présentation éditoriale de Le Boa Totem de Soya dans le catalogue LMI Éditions.'],
+  '32-le-fleuve-sans-nom.html':['Le Fleuve sans nom — LMI Éditions','Présentation éditoriale de Le Fleuve sans nom dans le catalogue LMI Éditions.']
+};
+
 const INTERNAL_BLOCK_MARKERS=/\b(?:statut du lot|brouillon|bridge\.lesmotsimages\.com|pose cms|page p\d+|aucune publication|recette priv[ée]e?|contr[oô]le priv[ée]|version de recette|validation humaine obligatoire|placeholder|template|pr\s*#\d+|rc\d+)\b/i;
 function escapeAttribute(value){return String(value).replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
 function stripTags(value){return String(value||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
@@ -21,4 +48,4 @@ function replaceFirstParagraphAfterH1(html,text){const h1=html.match(/<h1\b[^>]*
 function removeInternalBlockElements(html){let output=String(html||'');output=output.replace(/<(div|aside)\b([^>]*)>[\s\S]*?<\/\1>/gi,(block,tag,attrs)=>{const classes=(String(attrs).match(/class=["']([^"']*)["']/i)?.[1]||'').toLowerCase();const explicitlyInternal=/(?:^|\s)(?:bridge|bridge-status|status-panel|recipe-status|private-status|production-status)(?:\s|$)/.test(classes);return explicitlyInternal&&INTERNAL_BLOCK_MARKERS.test(stripTags(block))?'':block;});output=output.replace(/<(aside|p|span)\b[^>]*>[\s\S]*?<\/\1>/gi,(block)=>INTERNAL_BLOCK_MARKERS.test(stripTags(block))?'':block);return output;}
 function removeInternalChrome(html){return removeInternalBlockElements(html).replace(/<(?:div|aside)\b[^>]*class=["'][^"']*\bbridge(?:-status)?\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|aside)>/gi,'');}
 function removeInternalWording(html){return String(html||'').replace(/\s*[—-]\s*Brouillon Bridge\b/gi,'').replace(/\bBrouillon priv[ée]\b/gi,'').replace(/\bBROUILLON\b/g,'').replace(/\bBAT priv[ée]\b/gi,'').replace(/\bvalidation humaine obligatoire\b/gi,'').replace(/\bversion de recette\b/gi,'').replace(/\baucune publication\b/gi,'').replace(/\brecette priv[ée]e?\b/gi,'').replace(/\bcontr[oô]le priv[ée]\b/gi,'').replace(/\bpose cms\b/gi,'').replace(/\bstatut du lot\b/gi,'').replace(/\bpage p\d+\b/gi,'').replace(/\bplaceholder\b/gi,'').replace(/\btemplate\b/gi,'').replace(/\bpr\s*#\d+\b/gi,'').replace(/\brc\d+\b/gi,'').replace(/bridge\.lesmotsimages\.com/gi,'');}
-export function professionalizeHubVisitorCopy(relativePath,html){const normalized=String(relativePath||'').replace(/^\/+/, '');if(!HUB_PATTERN.test(normalized))return html;const file=normalized.split('/').pop();let output=removeInternalChrome(html);output=removeInternalWording(output);const copy=CANONICAL_COPY[file];if(copy){output=replaceTitle(output,copy.title);output=replaceDescription(output,copy.description);output=replaceFirstH1(output,copy.h1);output=replaceFirstParagraphAfterH1(output,copy.lead);}return output;}
+export function professionalizeHubVisitorCopy(relativePath,html){const normalized=String(relativePath||'').replace(/^\/+/, '');if(!HUB_PATTERN.test(normalized))return html;const file=normalized.split('/').pop();let output=removeInternalChrome(html);output=removeInternalWording(output);const copy=CANONICAL_COPY[file];if(copy){output=replaceTitle(output,copy.title);output=replaceDescription(output,copy.description);output=replaceFirstH1(output,copy.h1);output=replaceFirstParagraphAfterH1(output,copy.lead);}const seo=SEO_METADATA[file];if(seo){output=replaceTitle(output,seo[0]);output=replaceDescription(output,seo[1]);}return output;}
