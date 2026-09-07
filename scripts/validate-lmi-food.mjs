@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('drafts/lmi-food-site');
-const requiredPrefixes = Array.from({ length: 23 }, (_, index) => `${String(index).padStart(2, '0')}-`);
+const requiredPrefixes = Array.from({ length: 28 }, (_, index) => `${String(index).padStart(2, '0')}-`);
 const requiredColors = ['#143B7D', '#CC7722'];
 const forbiddenPublicClaims = [
   /durée de conservation validée/i,
@@ -23,7 +23,7 @@ function assert(condition, message) {
 
 assert(existsSync(root), 'LMI FOOD draft directory missing');
 const files = readdirSync(root).filter((file) => file.endsWith('.html')).sort();
-assert(files.length >= 23, `Expected at least 23 LMI FOOD pages, found ${files.length}`);
+assert(files.length >= 28, `Expected at least 28 LMI FOOD pages, found ${files.length}`);
 
 for (const prefix of requiredPrefixes) {
   assert(files.some((file) => file.startsWith(prefix)), `Missing LMI FOOD page prefix ${prefix}`);
@@ -71,7 +71,7 @@ for (const prefix of requiredPrefixes.filter((prefix) => prefix !== '07-')) {
   assert(linkedFiles.some((file) => file.startsWith(prefix)), `Control index missing linked page prefix ${prefix}`);
 }
 
-const validationPage = linkedFiles.find((file) => file.startsWith('19-'));
+const validationPage = linkedFiles.find((file) => file === '19-validation-humaine-lmi-food.html');
 assert(validationPage, 'Human validation register missing from control index');
 const validationHtml = readFileSync(path.join(root, validationPage), 'utf8');
 for (const decision of ['recettes', 'grammages', 'rendements', 'allergènes', 'conservation', 'conditionnements', 'coûts', 'prix', 'BAT', 'publication']) {
@@ -99,4 +99,19 @@ for (const proof of ['GitHub Actions', 'CDM Machine', 'Bridge', 'mobile', 'noind
   assert(journalHtml.toLowerCase().includes(proof.toLowerCase()), `Technical journal missing proof area: ${proof}`);
 }
 
-console.log(`Validated LMI FOOD: ${files.length} private pages, 23 numbered sections, canonical navigation, LMI palette, robots locks, accessibility basics, inactive commercial actions, standardisation tools and final human acceptance register.`);
+const consolidatedChecks = [
+  ['23-navigation-catalogue-consolides.html', ['PETITS DÉJEUNERS', 'BOISSONS MAISON', 'ÉPICERIE', 'Bibliothèque premium']],
+  ['24-fiches-produits-recettes-master.html', ['Moni / Fondé', 'Fatayas', 'Bissap–ananas–citron vert', 'Sirop de bissap', 'Gate fiche finale']],
+  ['25-bibliotheque-premium-consolidee.html', ['Recettes premium', 'Livres et e-books', 'E-recettes', 'Gate bibliothèque']],
+  ['26-livres-e-recettes-collection.html', ['LIVRE / E-BOOK 01', 'ER-MATIN-001', 'ER-EPIC-003', 'Chaîne éditoriale']],
+  ['27-controle-qualite-readiness.html', ['Readiness des lots prioritaires', 'Gate de recette humaine finale', 'Publication', 'NON AUTORISÉE']]
+];
+for (const [file, markers] of consolidatedChecks) {
+  assert(files.includes(file), `Consolidated LMI FOOD file missing: ${file}`);
+  const html = readFileSync(path.join(root, file), 'utf8');
+  for (const marker of markers) {
+    assert(html.toLowerCase().includes(marker.toLowerCase()), `${file} missing marker: ${marker}`);
+  }
+}
+
+console.log(`Validated LMI FOOD: ${files.length} private pages, 28 numbered sections, consolidated navigation and catalogue, master product/recipe sheets, premium library, editorial collection, canonical links, LMI palette, robots locks, accessibility basics, inactive commercial actions, standardisation tools and final human acceptance gate.`);
