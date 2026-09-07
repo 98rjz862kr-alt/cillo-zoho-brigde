@@ -45,9 +45,12 @@ for(const color of ['#143B7D','#CC7722','#75553F','#D4AF37','#0F2747','#F6F1E8',
 assert(css.includes(':focus-visible'),'Keyboard focus style missing'); assert(/@media\(max-width:900px\)/.test(css),'Responsive breakpoint missing');
 const manifest=JSON.parse(readFileSync(path.join(root,'source-manifest.json'),'utf8'));
 assert(manifest.site==='musee.lesmotsimages.com','Wrong source manifest site');
-assert(manifest.status==='READY_TO_PUBLISH','Manifest status not READY_TO_PUBLISH');
+assert(manifest.status==='CANDIDATE_PRIVATE','Manifest must remain CANDIDATE_PRIVATE before transverse validation');
 assert(Array.isArray(manifest.documents)&&manifest.documents.length>=8,'Insufficient canonical documents in manifest');
 for(const doc of manifest.documents){assert(/^[a-f0-9]{64}$/.test(doc.sha256),`Invalid document SHA256 for ${doc.title}`);assert(doc.driveId,`Drive ID missing for ${doc.title}`);}
-assert(!manifest.documents.some(d=>d.status==='A_REQUALIFIER'),'A_REQUALIFIER remains in source manifest');
+const blockedSources=manifest.documents.filter(d=>d.status==='A_REQUALIFIER');
+assert(blockedSources.some(d=>d.driveId==='1lScGWVLo8cD-Yr_Nnj0lBrWAhkhif5j7_0LfcPjhj1k'),'Atlas A_REQUALIFIER lock missing');
+const atlasArchived=readFileSync(path.join(root,'atlas-humanites.html'),'utf8');
+assert(/noindex,nofollow,noarchive/i.test(atlasArchived),'Atlas route is not locked while source remains A_REQUALIFIER');
 const hashes=Object.fromEntries(allFiles.sort().map(file=>[path.relative(root,file),sha256(file)]));
-console.log(JSON.stringify({site:'musee.lesmotsimages.com',status:'READY_TO_PUBLISH_AUDITED',pages:pages.length,publicPages:publicPages.length,sourceDocuments:manifest.documents.length,files:hashes},null,2));
+console.log(JSON.stringify({site:'musee.lesmotsimages.com',status:'CANDIDATE_AUDITED_PRIVATE_ATLAS_LOCKED',pages:pages.length,publicPages:publicPages.length,sourceDocuments:manifest.documents.length,files:hashes},null,2));

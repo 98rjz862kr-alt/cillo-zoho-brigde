@@ -1,0 +1,86 @@
+name: Hub WWW finalisation validation
+
+on:
+  push:
+    branches:
+      - agent/hub-www-finalisation-20260907
+  pull_request:
+    paths:
+      - 'drafts/hub-lmi-editions/**'
+      - 'drafts.js'
+      - 'hub-*.js'
+      - 'public-entry.js'
+      - 'scripts/validate-hub*.mjs'
+      - 'scripts/validate-public-entry.mjs'
+      - 'package.json'
+      - '.github/workflows/hub-www-finalisation-20260907.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-hub:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Syntax checks
+        run: |
+          node --check drafts.js
+          node --check hub-visitor-copy.js
+          node --check hub-finalize.js
+          node --check hub-identity.js
+          node --check hub-visuals.js
+          node --check hub-provenance.js
+          node --check hub-stability.js
+          node --check hub-accessibility.js
+          node --check hub-asset-integrity.js
+          node --check public-entry.js
+          node --check scripts/validate-hub-visitor-copy.mjs
+          node --check scripts/validate-hub-visuals.mjs
+          node --check scripts/validate-public-entry.mjs
+      - name: Hub validation
+        run: |
+          node scripts/validate-hub.mjs
+          node scripts/validate-hub-links.mjs
+          node scripts/validate-hub-visitor-copy.mjs
+          node scripts/validate-hub-visuals.mjs
+          node scripts/validate-public-entry.mjs
+      - name: Preserve Museum validation
+        run: |
+          node scripts/validate-lmi-musee.mjs
+          node scripts/audit-lmi-musee-finalisation.mjs
+      - name: Candidate SHA-256 manifest
+        run: |
+          sha256sum \
+            drafts/hub-lmi-editions/assets/logo-lmi-hub.webp \
+            drafts/hub-lmi-editions/assets/boa-totem-soya.webp \
+            drafts/hub-lmi-editions/assets/le-fleuve-sans-nom.webp \
+            hub-asset-integrity.js \
+            hub-visitor-copy.js \
+            hub-provenance.js \
+            hub-finalize.js \
+            hub-identity.js \
+            hub-visuals.js \
+            hub-stability.js \
+            hub-accessibility.js \
+            drafts.js \
+            public-entry.js \
+            scripts/validate-hub.mjs \
+            scripts/validate-hub-links.mjs \
+            scripts/validate-hub-visitor-copy.mjs \
+            scripts/validate-hub-visuals.mjs \
+            scripts/validate-public-entry.mjs > hub-sha256.txt
+          cat hub-sha256.txt
+      - name: Upload SHA-256 manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: hub-www-sha256
+          path: hub-sha256.txt
+          if-no-files-found: error

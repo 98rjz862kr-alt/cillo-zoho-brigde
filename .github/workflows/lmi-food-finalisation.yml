@@ -1,0 +1,31 @@
+name: LMI FOOD Finalisation
+
+on:
+  push:
+    branches:
+      - agent/lmi-food-finalisation-20260906
+  pull_request:
+    paths:
+      - 'drafts/lmi-food-site/**'
+      - 'scripts/validate-lmi-food.mjs'
+      - 'scripts/audit-lmi-food-finalisation.mjs'
+      - '.github/workflows/lmi-food-finalisation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  food-finalisation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate LMI FOOD legacy gate
+        run: node scripts/validate-lmi-food.mjs
+      - name: Audit LMI FOOD finalisation gate
+        run: node scripts/audit-lmi-food-finalisation.mjs
