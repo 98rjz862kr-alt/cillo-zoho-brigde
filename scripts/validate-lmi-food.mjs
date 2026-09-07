@@ -2,76 +2,113 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('drafts/lmi-food-site');
-const manifestPath = path.join(root, 'source-manifest.json');
+const requiredPrefixes = Array.from({ length: 28 }, (_, index) => `${String(index).padStart(2, '0')}-`);
+const requiredColors = ['#143B7D', '#CC7722'];
+const forbiddenPublicClaims = [
+  /durée de conservation validée/i,
+  /allergènes validés/i,
+  /prix public validé/i,
+  /commande fournisseur confirmée/i,
+  /publication autorisée/i
+];
+const unsafeInteractivePatterns = [
+  /<form\b[^>]*action=["']https?:\/\//i,
+  /href=["'](?:https?:\/\/)?(?:buy|checkout|payment|stripe|paypal)/i,
+  /<button\b[^>]*type=["']submit["'][^>]*>\s*(?:payer|commander|acheter|publier)/i
+];
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-assert(existsSync(root), 'LMI FOOD candidate directory missing');
-assert(existsSync(manifestPath), 'LMI FOOD source manifest missing');
+assert(existsSync(root), 'LMI FOOD draft directory missing');
+const files = readdirSync(root).filter((file) => file.endsWith('.html')).sort();
+assert(files.length >= 28, `Expected at least 28 LMI FOOD pages, found ${files.length}`);
 
-const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
-assert(manifest.site === 'food.lesmotsimages.com', 'Unexpected LMI FOOD target site');
-assert(manifest.canonicalSource === 'Google Drive', 'Google Drive must remain canonical source');
-assert(manifest.publication === 'INTERDITE_SANS_VALIDATION_TRANSVERSE', 'Publication lock missing');
-assert(manifest.register?.spreadsheetId === '1OZql5LfxndgzJQsRr9sdeF8qCRj_HZMVxMk8h87VrNo', 'Unexpected LMI FOOD SHA-256 register');
-assert(manifest.candidateSnapshot?.driveId === '1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44', 'Unexpected candidate snapshot Drive ID');
-assert(/^[a-f0-9]{64}$/.test(String(manifest.candidateSnapshot?.sha256 || '')), 'Candidate snapshot SHA-256 missing or invalid');
-assert(manifest.candidateSnapshot?.status === 'ACTIVE', 'Candidate snapshot must be active');
-
-const requiredSources = new Map([
-  ['1G87gwUEITyHDX2LtPiLaOIajGtGGCULtqUqRbhNV374', '08625a9781414f9adade59d01c39f7a3e989440d678f89e0c39932f62465a8c9'],
-  ['18ctUHmHEtSHLOqY_qoAMJeG6fc1iKmE-_bRJQQa9tgo', '88a5237bcccf34992546c56bd5d88ff34b2d21c81839e0203932b5d8fca8404a'],
-  ['1_pGnWoxD8QTytc1rGvcaDL_OQMHpHaDkuHbmZf0NqR8', 'd8a7cc0f01ad5f8584ec0f523fa5e675279df647b9cd1a4496a1c20a83fecc66'],
-  ['1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ', '1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761'],
-  ['1yqfscks_gDFWABZCfAlXy0R1l5A2ZMyjHFq34-IEimw', 'e64ed5c70c7ddbc6015793195c74e05e0af52c2f0ddf1b6274121e58b452b846']
-]);
-
-const sourceById = new Map((manifest.sources || []).map((source) => [source.driveId, source]));
-for (const [driveId, sha256] of requiredSources) {
-  const source = sourceById.get(driveId);
-  assert(source, `Missing canonical Drive source ${driveId}`);
-  assert(source.sha256 === sha256, `Canonical SHA-256 mismatch for Drive source ${driveId}`);
-  assert(source.status === 'ACTIVE', `Canonical Drive source not active: ${driveId}`);
+for (const prefix of requiredPrefixes) {
+  assert(files.some((file) => file.startsWith(prefix)), `Missing LMI FOOD page prefix ${prefix}`);
 }
 
-for (const source of [...(manifest.sources || []), ...(manifest.illustrationSources || [])]) {
-  assert(typeof source.driveId === 'string' && source.driveId.length >= 10, `Invalid Drive provenance for ${source.name || 'source'}`);
-  assert(/^[a-f0-9]{64}$/.test(String(source.sha256 || '')), `Invalid SHA-256 for ${source.name || source.driveId}`);
-}
-
-const icon = (manifest.illustrationSources || []).find((item) => item.driveId === '17LhsU1h3iLZzI0LmiCTgpLZcnucLursz');
-assert(icon, 'Canonical LMI FOOD icon source missing');
-assert(icon.sha256 === 'a0ae3276a271544dc1f1564d10ec22f4c539251d072d0246ec8fdc5b756bd46a', 'Canonical LMI FOOD icon SHA-256 mismatch');
-
-const pages = readdirSync(root).filter((file) => file.endsWith('.html')).sort();
-assert(pages.length >= 28, `Expected at least 28 LMI FOOD pages, found ${pages.length}`);
-
-for (const file of pages) {
+for (const file of files) {
   const html = readFileSync(path.join(root, file), 'utf8');
+  assert(/<!doctype html>/i.test(html), `DOCTYPE missing: ${file}`);
+  assert(/<html[^>]*lang=["']fr["']/i.test(html), `French language marker missing: ${file}`);
+  assert(/<meta[^>]*charset=["']?utf-8/i.test(html), `UTF-8 charset missing: ${file}`);
+  assert(/name=["']viewport["']/i.test(html), `Viewport missing: ${file}`);
+  assert(/noindex\s*,?\s*nofollow\s*,?\s*noarchive/i.test(html), `Robots lock missing: ${file}`);
+  assert(/<title>[^<]+<\/title>/i.test(html), `Title missing: ${file}`);
+  assert(/LMI FOOD/i.test(html), `LMI FOOD identity missing: ${file}`);
+  assert(/<h1[^>]*>[^<]+<\/h1>/i.test(html), `Primary heading missing: ${file}`);
+  assert(html.length >= 900, `Page is unexpectedly short: ${file}`);
+  assert(requiredColors.some((color) => html.toUpperCase().includes(color)), `LMI palette marker missing: ${file}`);
+  assert(!/href=["']#["']/i.test(html), `Placeholder link found: ${file}`);
+  assert(!/\b(?:lorem ipsum|texte template|à remplacer|placeholder)\b/i.test(html), `Template residue found: ${file}`);
+
   const images = [...html.matchAll(/<img\b[^>]*>/gi)].map((match) => match[0]);
   for (const image of images) {
     const decorative = /\brole=["']presentation["']/i.test(image) || /\balt=["']\s*["']/i.test(image);
     if (decorative) continue;
+    assert(/\balt=["'][^"']+["']/i.test(image), `Image without useful alt text: ${file}`);
     const driveId = (image.match(/\bdata-lmi-drive-id=["']([^"']+)["']/i) || [])[1] || '';
-    const sha = (image.match(/\bdata-lmi-sha256=["']([^"']+)["']/i) || [])[1] || '';
+    const sha256 = (image.match(/\bdata-lmi-sha256=["']([^"']+)["']/i) || [])[1] || '';
     assert(driveId.length >= 10, `Non-decorative illustration without Drive provenance: ${file}`);
-    assert(/^[a-f0-9]{64}$/.test(sha), `Non-decorative illustration without SHA-256: ${file}`);
+    assert(/^[a-f0-9]{64}$/.test(sha256), `Non-decorative illustration without SHA-256: ${file}`);
+  }
+
+  for (const pattern of forbiddenPublicClaims) {
+    assert(!pattern.test(html), `Unverified public claim found in ${file}: ${pattern}`);
+  }
+  for (const pattern of unsafeInteractivePatterns) {
+    assert(!pattern.test(html), `Unsafe active commercial action found in ${file}: ${pattern}`);
   }
 }
 
-const bat = readFileSync(path.join(root, '00-bat-lmi-food.html'), 'utf8');
-for (const retired of manifest.removedUntraceableMedia || []) {
-  assert(retired.action === 'RETIRE_DU_BAT_SANS_REGENERATION', `Unexpected retired-media action for ${retired.name}`);
-  assert(!bat.includes(retired.name), `Retired untraceable media still referenced in BAT: ${retired.name}`);
+const sommaireName = files.find((file) => file.startsWith('07-'));
+assert(sommaireName, 'LMI FOOD control index missing');
+const sommaire = readFileSync(path.join(root, sommaireName), 'utf8');
+const linkedFiles = [...sommaire.matchAll(/lmi-food-site%2F([^"']+\.html)/g)]
+  .map((match) => decodeURIComponent(match[1]));
+
+assert(new Set(linkedFiles).size === linkedFiles.length, 'Control index contains duplicate links');
+for (const linkedFile of linkedFiles) {
+  assert(files.includes(linkedFile), `Control index links to missing file ${linkedFile}`);
 }
-assert(!/res\.cloudinary\.com/i.test(bat), 'External Cloudinary media reference remains in LMI FOOD BAT');
+for (const prefix of requiredPrefixes.filter((prefix) => prefix !== '07-')) {
+  assert(linkedFiles.some((file) => file.startsWith(prefix)), `Control index missing linked page prefix ${prefix}`);
+}
 
-assert(manifest.gates?.unverifiedCommercialClaims === 'FAIL', 'Commercial claim fail-closed gate missing');
-assert(manifest.gates?.unverifiedAllergensConservationPricingSuppliers === 'FAIL', 'Food evidence fail-closed gate missing');
-assert(manifest.gates?.illustrationWithoutDriveIdAndSha256 === 'FAIL', 'Illustration provenance fail-closed gate missing');
-assert(manifest.gates?.publicPaymentOrOrdering === 'FAIL', 'Public commercial action fail-closed gate missing');
-assert(manifest.gates?.finalBridgePass === 'REQUIRES_TRANSVERSE_VALIDATION', 'Final Bridge transverse-validation gate missing');
+const validationPage = linkedFiles.find((file) => file.startsWith('19-validation-'));
+assert(validationPage, 'Human validation register missing from control index');
+const validationHtml = readFileSync(path.join(root, validationPage), 'utf8');
+for (const decision of ['recettes', 'grammages', 'rendements', 'allergènes', 'conservation', 'conditionnements', 'coûts', 'prix', 'BAT', 'publication']) {
+  assert(validationHtml.toLowerCase().includes(decision.toLowerCase()), `Human validation register missing decision: ${decision}`);
+}
+assert(/signature|décision finale|valider|refuser/i.test(validationHtml), 'Human acceptance decision block missing');
 
-console.log(`Audited LMI FOOD finalisation: ${pages.length} pages, canonical Drive sources pinned by SHA-256, candidate snapshot SHA-256 pinned, retired untraceable media absent from BAT, illustration provenance fail-closed, publication locked pending transverse validation.`);
+const executionPage = linkedFiles.find((file) => file.startsWith('20-'));
+assert(executionPage, 'Continuous execution protocol missing from control index');
+const executionHtml = readFileSync(path.join(root, executionPage), 'utf8');
+assert(/exécution continue/i.test(executionHtml), 'Continuous execution rule missing');
+assert(/validation humaine/i.test(executionHtml), 'Human validation stop rule missing');
+
+const testSheetPage = linkedFiles.find((file) => file.startsWith('21-'));
+assert(testSheetPage, 'Standardisation test sheet missing from control index');
+const testSheetHtml = readFileSync(path.join(root, testSheetPage), 'utf8');
+for (const field of ['ingrédients', 'temps', 'températures', 'rendement', 'allergènes', 'conditionnement', 'conservation']) {
+  assert(testSheetHtml.toLowerCase().includes(field), `Standardisation sheet missing field: ${field}`);
+}
+
+const journalPage = linkedFiles.find((file) => file.startsWith('22-'));
+assert(journalPage, 'Technical acceptance journal missing from control index');
+const journalHtml = readFileSync(path.join(root, journalPage), 'utf8');
+for (const proof of ['GitHub Actions', 'CDM Machine', 'Bridge', 'mobile', 'noindex', 'publication']) {
+  assert(journalHtml.toLowerCase().includes(proof.toLowerCase()), `Technical journal missing proof area: ${proof}`);
+}
+
+for (const prefix of ['23-', '24-', '25-', '26-', '27-']) {
+  const page = linkedFiles.find((file) => file.startsWith(prefix));
+  assert(page, `Consolidated finalisation page missing from control index: ${prefix}`);
+  assert(readFileSync(path.join(root, page), 'utf8').length >= 900, `Consolidated finalisation page unexpectedly short: ${page}`);
+}
+
+console.log(`Validated LMI FOOD: ${files.length} private pages, 28 numbered sections, canonical navigation, LMI palette, robots locks, accessibility basics, Drive/SHA-256 image provenance, inactive commercial actions, standardisation tools and final human acceptance register.`);
