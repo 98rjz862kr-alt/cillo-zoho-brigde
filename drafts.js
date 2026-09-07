@@ -1,7 +1,9 @@
+import { createHash } from 'crypto';
 import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { decorateHubDraft } from './hub-premium.js';
+import { professionalizeHubVisitorCopy } from './hub-visitor-copy.js';
 import { finalizeHubDraft } from './hub-finalize.js';
 import { enforceOfficialHubIdentity } from './hub-identity.js';
 import { integrateHubVisuals } from './hub-visuals.js';
@@ -51,7 +53,7 @@ function inlinePreviewAssets(relativeHtmlPath, html) {
   const htmlDir = path.dirname(path.join(DRAFT_ROOT, relativeHtmlPath));
   return html.replace(/(<img\b[^>]*\bsrc=["'])([^"']+)(["'][^>]*>)/gi, (full, prefix, src, suffix) => {
     if (/^(?:data:|https?:|\/)/i.test(src)) return full;
-    let assetPath = path.resolve(htmlDir, src);
+    const assetPath = path.resolve(htmlDir, src);
     if (!assetPath.startsWith(`${path.resolve(DRAFT_ROOT)}${path.sep}`)) return full;
     try {
       if (path.basename(assetPath) === 'lmi-logo-officiel.svg') {
@@ -78,7 +80,8 @@ export function readDraftHtml(relativePath) {
     const rawHtml = readFileSync(resolved.absolutePath, 'utf8');
     const html = inlinePreviewAssets(resolved.decoded, rawHtml);
     const decorated = decorateHubDraft(resolved.decoded, html);
-    const finalized = finalizeHubDraft(resolved.decoded, decorated);
+    const professionalized = professionalizeHubVisitorCopy(resolved.decoded, decorated);
+    const finalized = finalizeHubDraft(resolved.decoded, professionalized);
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
     const visualized = integrateHubVisuals(resolved.decoded, identified);
     const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
@@ -89,6 +92,13 @@ export function readDraftHtml(relativePath) {
 export function readDraftAsset(relativePath) {
   const resolved = resolveDraftPath(relativePath, new Set(ASSET_MIME_TYPES.keys()));
   if (!resolved) return null;
-  try { return { content: readFileSync(resolved.absolutePath), contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream' }; }
-  catch { return null; }
+  try {
+    const content = readFileSync(resolved.absolutePath);
+    return {
+      content,
+      contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream',
+      sha256: createHash('sha256').update(content).digest('hex'),
+      size: content.length
+    };
+  } catch { return null; }
 }
