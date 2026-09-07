@@ -16,6 +16,16 @@ try{
   if(denied.status!==401)throw new Error(`Unauthenticated integrity endpoint expected 401, got ${denied.status}`);
   const root=await request('/');
   if(root.status!==303||root.headers.get('location')!=='/atelier')throw new Error('Bridge root must redirect to protected atelier');
+  const home=await request(`/atelier/file/${encodeURIComponent('hub-lmi-editions/01-accueil.html')}?password=${encodeURIComponent(password)}`);
+  if(!home.ok)throw new Error(`Authenticated Hub home failed: ${home.status}`);
+  const homeHtml=await home.text();
+  if(!homeHtml.includes('<title>LES MOTS IMAGES — Site maître de l’écosystème LMI</title>'))throw new Error('Visitor home title is not canonical');
+  if(!homeHtml.includes('<h1>Un écosystème structuré autour de LMI Éditions</h1>'))throw new Error('Visitor home H1 is not canonical');
+  if(/Brouillon Bridge|validation humaine obligatoire|bridge\.lesmotsimages\.com/i.test(homeHtml))throw new Error('Internal wording leaked into authenticated visitor home');
+  const privateSommaire=await request(`/atelier/file/${encodeURIComponent('hub-lmi-editions/00-sommaire-hub-lmi-editions.html')}?password=${encodeURIComponent(password)}`);
+  if(!privateSommaire.ok)throw new Error(`Private sommaire failed: ${privateSommaire.status}`);
+  const privateHtml=await privateSommaire.text();
+  if(!/noindex/i.test(privateHtml))throw new Error('Private sommaire lost its noindex lock');
   const integrity=await request(`/api/hub-integrity?password=${encodeURIComponent(password)}`);
   if(!integrity.ok)throw new Error(`Authenticated integrity endpoint failed: ${integrity.status}`);
   const manifest=await integrity.json();
@@ -29,7 +39,7 @@ try{
     if(response.headers.get('x-lmi-sha256')!==sha)throw new Error(`Runtime SHA header mismatch for ${asset.assetName}`);
     if(Number(response.headers.get('content-length'))!==bytes.length)throw new Error(`Runtime length mismatch for ${asset.assetName}`);
   }
-  console.log('Validated live private Hub runtime: auth gate, root redirect, integrity manifest and exact SHA-256 headers for 3 served WebP assets.');
+  console.log('Validated live private Hub runtime: auth gate, root redirect, canonical visitor home, private noindex sommaire, integrity manifest and exact SHA-256 headers for 3 served WebP assets.');
 } finally {
   child.kill('SIGTERM');
 }
