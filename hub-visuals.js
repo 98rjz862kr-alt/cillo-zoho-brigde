@@ -1,3 +1,6 @@
+import { getHubAssetSha256 } from './hub-asset-integrity.js';
+import { getHubVisualProvenance } from './hub-provenance.js';
+
 const HUB_DRAFT_PATTERN=/^hub-lmi-editions\/.+\.html$/i;
 const ASSET_ROOT='hub-lmi-editions/assets/';
 
@@ -11,13 +14,20 @@ const VISUAL_STYLE=`<style id="lmi-hub-visual-style">
 .lmi-visual-band figure{margin:0;min-height:280px}
 .lmi-work-image{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;margin-bottom:18px;box-shadow:0 12px 28px rgba(7,26,53,.16)}
 .lmi-feature-visual{width:min(calc(100% - 36px),980px);margin:28px auto 44px}.lmi-feature-visual figure{margin:0;min-height:340px}
-.lmi-food-photo{background-image:linear-gradient(180deg,rgba(7,26,53,.05),rgba(7,26,53,.42)),url('https://res.cloudinary.com/dzmpy5oij/image/upload/v1775504533/IMG_9559_rsjsim.jpg');background-size:cover;background-position:center;min-height:300px;border-radius:28px;box-shadow:0 20px 48px rgba(7,26,53,.14)}
 @media(max-width:760px){.lmi-hero-visuals,.lmi-visual-band{grid-template-columns:1fr}.lmi-hero-visuals figure:first-child,.lmi-hero-visuals figure:last-child{transform:none}.lmi-hero-visuals figure,.lmi-visual-band figure,.lmi-feature-visual figure{min-height:240px}.lmi-feature-visual{margin-top:20px}}
 </style>`;
 
 const ASSET_SCRIPT=`<script id="lmi-hub-visual-script">(function(){var q=location.search||'';document.querySelectorAll('img[data-lmi-asset]').forEach(function(img){var p='${ASSET_ROOT}'+img.getAttribute('data-lmi-asset');img.src='/atelier/file/'+encodeURIComponent(p)+q;});})();</script>`;
 
-function img(asset,alt,cls=''){return `<img ${cls?`class="${cls}"`:''} data-lmi-asset="${asset}" alt="${alt}" loading="eager" decoding="async">`;}
+function escapeAttr(value){return String(value||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function provenanceAttrs(asset){
+  const p=getHubVisualProvenance(asset);
+  return `data-lmi-drive-id="${escapeAttr(p.sourceDriveId)}" data-lmi-source-sha256="${escapeAttr(p.sourceSha256)}" data-lmi-source-role="${escapeAttr(p.sourceRole)}"`;
+}
+function img(asset,alt,cls=''){
+  const sha256=getHubAssetSha256(asset);
+  return `<img ${cls?`class="${cls}"`:''} data-lmi-asset="${asset}" data-lmi-sha256="${sha256}" ${provenanceAttrs(asset)} alt="${escapeAttr(alt)}" loading="eager" decoding="async">`;
+}
 function figure(asset,alt,caption=''){return `<figure class="lmi-editorial-visual">${img(asset,alt)}${caption?`<figcaption>${caption}</figcaption>`:''}</figure>`;}
 
 function addHomeVisuals(html){
@@ -40,11 +50,6 @@ function addWorkVisual(html,asset,alt){
   return replaced===html?html.replace(/(<main\b[^>]*>)/i,`$1${visual}`):replaced;
 }
 
-function addFoodVisual(html){
-  const block='<div class="lmi-feature-visual"><div class="lmi-food-photo" role="img" aria-label="Création culinaire LMI Food — photographie de production"></div></div>';
-  return html.replace(/(<h1\b[^>]*>[\s\S]*?<\/h1>)/i,`$1${block}`);
-}
-
 export function integrateHubVisuals(relativePath,html){
   const normalized=String(relativePath||'').replace(/^\/+/, '');
   if(!HUB_DRAFT_PATTERN.test(normalized))return html;
@@ -54,7 +59,6 @@ export function integrateHubVisuals(relativePath,html){
   if(['11-catalogue-editorial.html','12-catalogue-bd-adaptations.html','13-univers-illustres-da.html'].includes(file))out=addCatalogueVisuals(out);
   if(file==='31-le-boa-totem-de-soya.html')out=addWorkVisual(out,'boa-totem-soya.webp','Couverture du Boa Totem de Soya');
   if(file==='32-le-fleuve-sans-nom.html')out=addWorkVisual(out,'le-fleuve-sans-nom.webp','Couverture du Fleuve sans nom');
-  if(file==='07-lmi-food.html')out=addFoodVisual(out);
   if(!out.includes('id="lmi-hub-visual-style"'))out=out.replace(/<\/head>/i,`${VISUAL_STYLE}</head>`);
   if(!out.includes('id="lmi-hub-visual-script"'))out=out.replace(/<\/body>/i,`${ASSET_SCRIPT}</body>`);
   return out;
