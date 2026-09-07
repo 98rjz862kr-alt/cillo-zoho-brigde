@@ -29,7 +29,7 @@ try{
   const integrity=await request(`/api/hub-integrity?password=${encodeURIComponent(password)}`);
   if(!integrity.ok)throw new Error(`Authenticated integrity endpoint failed: ${integrity.status}`);
   const manifest=await integrity.json();
-  if(manifest.site!=='www.lesmotsimages.com'||manifest.ready!==true||manifest.assets?.length!==3)throw new Error('Hub integrity manifest is incomplete');
+  if(manifest.site!=='www.lesmotsimages.com'||manifest.ready!==true||manifest.assets?.length!==1)throw new Error('Hub integrity manifest is incomplete');
   for(const asset of manifest.assets){
     const response=await request(`/atelier/file/${encodeURIComponent(`hub-lmi-editions/assets/${asset.assetName}`)}?password=${encodeURIComponent(password)}`);
     if(!response.ok)throw new Error(`Hub asset failed: ${asset.assetName}`);
@@ -39,7 +39,7 @@ try{
     if(response.headers.get('x-lmi-sha256')!==sha)throw new Error(`Runtime SHA header mismatch for ${asset.assetName}`);
     if(Number(response.headers.get('content-length'))!==bytes.length)throw new Error(`Runtime length mismatch for ${asset.assetName}`);
   }
-  console.log('Validated live private Hub runtime: auth gate, root redirect, canonical visitor home, private noindex sommaire, integrity manifest and exact SHA-256 headers for 3 served WebP assets.');
+  console.log('Validated live private Hub runtime: auth gate, root redirect, canonical visitor home, private noindex sommaire, integrity manifest and exact SHA-256 headers for the single authorized served WebP asset.');
 } finally {
   child.kill('SIGTERM');
 }
