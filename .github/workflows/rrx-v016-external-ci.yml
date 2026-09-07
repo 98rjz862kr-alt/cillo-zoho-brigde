@@ -1,0 +1,25 @@
+name: RRX v0.16 Runner Diagnostic
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  runner-proof:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prove runner starts
+        shell: bash
+        run: |
+          echo "RRX_BUILD_ID=RRX-V0.16-20260904T080143Z-109a493df0b1"
+          echo "RRX_SOURCE_REPO=98rjz862kr-alt/lmi-application-privee-integration-contenus"
+          echo "RRX_SOURCE_COMMIT=9005d597c82e0a69f8b7d0bc06f6059fb411d6cd"
+          echo "CI_REPOSITORY=$GITHUB_REPOSITORY"
+          echo "CI_SHA=$GITHUB_SHA"
+          uname -a
+          python3 --version
