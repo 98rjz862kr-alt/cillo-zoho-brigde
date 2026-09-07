@@ -51,10 +51,10 @@ const CANONICAL_COPY={
   }
 };
 
-const INTERNAL_BLOCK_MARKERS=/\b(?:statut du lot|brouillon|bridge\.lesmotsimages\.com|pose cms|page p\d+|aucune publication|recette priv[ée]e?|contr[oô]le priv[ée]|version de recette|validation humaine obligatoire)\b/i;
+const INTERNAL_BLOCK_MARKERS=/\b(?:statut du lot|brouillon|bridge\.lesmotsimages\.com|pose cms|page p\d+|aucune publication|recette priv[ée]e?|contr[oô]le priv[ée]|version de recette|validation humaine obligatoire|placeholder|template|pr\s*#\d+|rc\d+)\b/i;
 
 function escapeAttribute(value){return String(value).replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
-function stripTags(value){return String(value||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
+function stripTags(value){return String(value||'').replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();}
 
 function replaceTitle(html,title){
   if(/<title\b[^>]*>[\s\S]*?<\/title>/i.test(html))return html.replace(/<title\b[^>]*>[\s\S]*?<\/title>/i,`<title>${title}</title>`);
@@ -81,11 +81,20 @@ function replaceFirstParagraphAfterH1(html,text){
   return head+updated;
 }
 
-function removeInternalChrome(html){
+function removeInternalBlockElements(html){
   let output=String(html||'');
+  output=output.replace(/<(div|aside)\b([^>]*)>[\s\S]*?<\/\1>/gi,(block,tag,attrs)=>{
+    const classes=(String(attrs).match(/class=["']([^"']*)["']/i)?.[1]||'').toLowerCase();
+    const explicitlyInternal=/(?:^|\s)(?:bridge|bridge-status|status-panel|recipe-status|private-status|production-status)(?:\s|$)/.test(classes);
+    return explicitlyInternal&&INTERNAL_BLOCK_MARKERS.test(stripTags(block))?'':block;
+  });
+  output=output.replace(/<(aside|p|span)\b[^>]*>[\s\S]*?<\/\1>/gi,(block)=>INTERNAL_BLOCK_MARKERS.test(stripTags(block))?'':block);
+  return output;
+}
+
+function removeInternalChrome(html){
+  let output=removeInternalBlockElements(html);
   output=output.replace(/<(?:div|aside)\b[^>]*class=["'][^"']*\bbridge(?:-status)?\b[^"']*["'][^>]*>[\s\S]*?<\/(?:div|aside)>/gi,'');
-  output=output.replace(/<span\b[^>]*>[\s\S]*?(?:Bridge priv[ée]|version de recette|aucune publication)[\s\S]*?<\/span>/gi,'');
-  output=output.replace(/<section\b[^>]*>[\s\S]*?<\/section>/gi,(section)=>INTERNAL_BLOCK_MARKERS.test(stripTags(section))?'':section);
   return output;
 }
 
@@ -97,7 +106,17 @@ function removeInternalWording(html){
     .replace(/\bBAT priv[ée]\b/gi,'')
     .replace(/\bvalidation humaine obligatoire\b/gi,'')
     .replace(/\bversion de recette\b/gi,'')
-    .replace(/\baucune publication\b/gi,'');
+    .replace(/\baucune publication\b/gi,'')
+    .replace(/\brecette priv[ée]e?\b/gi,'')
+    .replace(/\bcontr[oô]le priv[ée]\b/gi,'')
+    .replace(/\bpose cms\b/gi,'')
+    .replace(/\bstatut du lot\b/gi,'')
+    .replace(/\bpage p\d+\b/gi,'')
+    .replace(/\bplaceholder\b/gi,'')
+    .replace(/\btemplate\b/gi,'')
+    .replace(/\bpr\s*#\d+\b/gi,'')
+    .replace(/\brc\d+\b/gi,'')
+    .replace(/bridge\.lesmotsimages\.com/gi,'');
 }
 
 export function professionalizeHubVisitorCopy(relativePath,html){
