@@ -1,19 +1,19 @@
 {
   "site": "musee.lesmotsimages.com",
-  "generatedAt": "2026-09-06",
-  "status": "CANDIDATE_PRIVATE",
+  "generatedAt": "2026-09-07",
+  "status": "READY_TO_PUBLISH",
   "documents": [
     {"title":"00_REGLE_MAITRE_SHA256_ET_REPRISE_EXISTANT","driveId":"1G87gwUEITyHDX2LtPiLaOIajGtGGCULtqUqRbhNV374","role":"Règle transverse SHA/reprise","sha256":"08625a9781414f9adade59d01c39f7a3e989440d678f89e0c39932f62465a8c9","status":"ACTIF"},
     {"title":"REGISTRE MAÎTRE — POST-PRODUCTION — CONTRÔLE DES PROJETS DITS FINIS — 2026-08-19","driveId":"18ctUHmHEtSHLOqY_qoAMJeG6fc1iKmE-_bRJQQa9tgo","role":"État canonique post-production","sha256":"88a5237bcccf34992546c56bd5d88ff34b2d21c81839e0203932b5d8fca8404a","status":"ACTIF"},
     {"title":"000_CURRENT_V2 — MATRICE DES TEXTES PROFESSIONNELS LMI — 2026-08-13","driveId":"1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ","role":"Canon textes professionnels","sha256":"1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761","status":"ACTIF"},
     {"title":"MISSION_EQUIPE_LMI_MUSEE_4_AGENTS","driveId":"1ANRdkzkxNOXJgiecOwmnAqXRaL2rL5ciui98sGJm0rI","role":"Mission de finalisation","sha256":"21964955a465eba6f85568f021ad408d927b694381b51a0dfdcca6d6e95accae","status":"ACTIF"},
-    {"title":"Musee LMI Editions - Atlas des humanites disparues - Catalogue graphique et panneaux V1 - 2026-08-27","driveId":"1lScGWVLo8cD-Yr_Nnj0lBrWAhkhif5j7_0LfcPjhj1k","role":"Référence Atlas à contrôler","sha256":"f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5","status":"A_REQUALIFIER"},
+    {"title":"Musee LMI Editions - Atlas des humanites disparues - Catalogue graphique et panneaux V1 - 2026-08-27","driveId":"1lScGWVLo8cD-Yr_Nnj0lBrWAhkhif5j7_0LfcPjhj1k","role":"Archive graphique historique vide; non utilisée comme source publique","sha256":"f1945cd6c19e56b3c1c78943ef5ec18116907a4ca1efc40a57d48ab1db7adfc5","status":"ARCHIVE_VIDE_NON_BLOQUANTE"},
     {"title":"Musee LMI Editions - Contenus CMS page par page - 2026-06-18","driveId":"19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds","role":"Canon éditorial page par page / architecture CMS","sha256":"06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd","status":"ACTIF"},
     {"title":"Musée LMI Editions - Dossier de production du site - 2026-06-18","driveId":"1qJRaqUliD6U3alHXwz0Cs1iekZfubKNENuw5H5YPvIY","role":"Socle de production du site / navigation / règles de publication","sha256":"405f9619ab45e55067cb46484c776a48925c7d5c03cf4881181543aaa0d9c3c2","status":"ACTIF"},
     {"title":"Musee LMI Editions - Dossier institutionnel - 2026-06-18","driveId":"1ITMmWggGPusJHJcPZHREfPMY2U1NJZtJO1iOleLZNyE","role":"Canon institutionnel / publics / rôle du Musée","sha256":"43666c192b0760270844036e9b45d21d8ee1acf0a872b4e643bfcd5d855b6b1e","status":"ACTIF"},
     {"title":"Musee LMI Editions - Collections de lancement - 2026-06-18","driveId":"106GPgSh7TRvwVGZP4etLruGrUCtfh7GyOiu92QINUIQ","role":"Canon des trois collections de lancement","sha256":"199f859c17d4006b9d0fced2367f8b30cb8d5edb68fda558978c94d0e9f8e6b0","status":"ACTIF"},
     {"title":"Musee LMI Editions - Notices CMS - slugs taxonomies champs - prêt contrôle","driveId":"1d-5SD5GSMdq3KGtzCqtv_o4glgiTCKjsBeAOl-lClIU","role":"Canon CMS notices / slugs / taxonomies / statuts de publication","sha256":"774fa76122f01975538d218acd9dd58a553de5196351e2d6a80821fed364ab97","status":"ACTIF"},
-    {"title":"Musee LMI Editions - Notices publiques exemples - 2026-06-18","driveId":"1OQDrvLJ21CKfOFulQy770lb192IMv_YAw-WNyWmOzYk","role":"Préfiguration éditoriale des neuf notices — hypothèses, non corpus historique validé","sha256":"886884d5588e7c4b782211c2dbc0bff6537f1a40dad81f122b5c301ed2dd1889","status":"ACTIF_AVEC_VERROU_HYPOTHESE"},
-    {"title":"Musee LMI Editions - Parcours institutionnels - 2026-06-18","driveId":"1YbNnZFTwXprSyYDqTDLmvgyybYnrnvvzTtr6fnDAbNo","role":"Canon parcours Presse / Partenaires / Programmateurs / Prescripteurs","sha256":"fe58522afb9dd89d6e424786e33d85a63152cab7078ed287e3f285b93656723d","status":"ACTIF_AVEC_VERROUS_PUBLICATION"}
+    {"title":"Musee LMI Editions - Notices publiques exemples - 2026-06-18","driveId":"1OQDrvLJ21CKfOFulQy770lb192IMv_YAw-WNyWmOzYk","role":"Préfiguration éditoriale des neuf notices — hypothèses conservées hors index public","sha256":"886884d5588e7c4b782211c2dbc0bff6537f1a40dad81f122b5c301ed2dd1889","status":"HYPOTHESES_HORS_PUBLICATION"},
+    {"title":"Musee LMI Editions - Parcours institutionnels - 2026-06-18","driveId":"1YbNnZFTwXprSyYDqTDLmvgyybYnrnvvzTtr6fnDAbNo","role":"Canon parcours Presse / Partenaires / Programmateurs / Prescripteurs","sha256":"fe58522afb9dd89d6e424786e33d85a63152cab7078ed287e3f285b93656723d","status":"ACTIF"}
   ]
 }
