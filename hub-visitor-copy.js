@@ -70,7 +70,7 @@ function removeUnprovenContactDetails(html){
     .replace(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi,'')
     .replace(/WhatsApp\s*\+33\s*[0-9][0-9\s.()/-]{6,}/gi,'')
     .replace(/\+33\s*[0-9][0-9\s.()/-]{6,}/g,'')
-    .replace(/<p\b([^>]*)>\s*<strong>Contact\s*:\s*<\/strong>\s*[·\s]*<\/p>/gi,'');
+    .replace(/<p\b([^>]*)>\s*<strong>Contact\s*:\s*<\/strong>\s*[·\s]*<\/p>/gi,'').replace(/<br\s*\/?>(?:\s*)Contact\s*:\s*(?=<\/p>)/gi,'').replace(/Contact\s*:\s*(?=<\/p>)/gi,'');
 }
 function replaceBoaVisitorContent(html,file){
   if(file!=='31-le-boa-totem-de-soya.html')return html;
