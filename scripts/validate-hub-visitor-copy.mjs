@@ -1,5 +1,6 @@
 import { listDraftFiles, readDraftHtml } from '../drafts.js';
 
+const PRIVATE_SOMMAIRE='hub-lmi-editions/00-sommaire-hub-lmi-editions.html';
 const internalMarkers = [
   /\bbrouillon\b/i,
   /bridge\.lesmotsimages\.com/i,
@@ -43,7 +44,7 @@ const canonical = {
   '08-lmi-musee.html': ['LMI Musée — conserver, documenter et transmettre']
 };
 
-const hubDrafts = listDraftFiles().filter((draft) => draft.relativePath.startsWith('hub-lmi-editions/'));
+const hubDrafts = listDraftFiles().filter((draft) => draft.relativePath.startsWith('hub-lmi-editions/') && draft.relativePath!==PRIVATE_SOMMAIRE);
 for (const draft of hubDrafts) {
   const html = readDraftHtml(draft.relativePath);
   const text = visibleText(html);
@@ -56,4 +57,8 @@ for (const draft of hubDrafts) {
   }
 }
 
-console.log(`Validated visitor-ready copy on ${hubDrafts.length} Hub pages: no internal production wording leaked.`);
+const sommaire=readDraftHtml(PRIVATE_SOMMAIRE);
+if(!sommaire)throw new Error('Private Hub sommaire is missing');
+if(!/noindex/i.test(sommaire))throw new Error('Private Hub sommaire must remain non-indexable');
+
+console.log(`Validated visitor-ready copy on ${hubDrafts.length} public-candidate Hub pages; private sommaire remains isolated and noindex.`);
