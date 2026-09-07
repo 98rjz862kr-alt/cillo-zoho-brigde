@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /notices/
+
+Sitemap: https://musee.lesmotsimages.com/sitemap.xml
