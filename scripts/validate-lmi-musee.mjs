@@ -66,6 +66,10 @@ for(const page of publicPages){
 }
 assert(!sitemap.includes('/notices/'),'Hypothesis notices leaked into sitemap');
 const manifest=JSON.parse(readFileSync(path.join(root,'source-manifest.json'),'utf8'));
-assert(manifest.status==='READY_TO_PUBLISH','Source manifest is not READY_TO_PUBLISH');
-assert(!manifest.documents.some(d=>d.status==='A_REQUALIFIER'),'Blocking A_REQUALIFIER source remains');
-console.log(`Validated LMI Musée publication: ${publicPages.length} public pages ready, ${archivedPages.length} archived routes locked, sitemap/robots ready, official identity, strict palette, contact and legal layer present.`);
+assert(manifest.status==='CANDIDATE_PRIVATE','Source manifest must remain CANDIDATE_PRIVATE before transverse validation');
+const blockedSources=manifest.documents.filter(d=>d.status==='A_REQUALIFIER');
+assert(blockedSources.some(d=>d.driveId==='1lScGWVLo8cD-Yr_Nnj0lBrWAhkhif5j7_0LfcPjhj1k'),'Atlas A_REQUALIFIER lock missing');
+const atlasArchived=readFileSync(path.join(root,'atlas-humanites.html'),'utf8');
+assert(/noindex,nofollow,noarchive/i.test(atlasArchived),'Atlas route must remain locked while its source is A_REQUALIFIER');
+assert(!sitemap.includes('/atlas-humanites'),'Locked Atlas route leaked into sitemap');
+console.log(`Validated LMI Musée private candidate: ${publicPages.length} publication-formatted pages, ${archivedPages.length} archived routes locked, Atlas A_REQUALIFIER preserved, sitemap/robots coherent, official identity, strict palette, contact and legal layer present.`);
