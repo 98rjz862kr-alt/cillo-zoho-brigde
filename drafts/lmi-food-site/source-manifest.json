@@ -6,7 +6,7 @@
   "pullRequest": 104,
   "publication": "INTERDITE_SANS_VALIDATION_TRANSVERSE",
   "candidateTracking": {
-    "contentBaselineCommit": "f916ff536a66a282acab468c736a16a8f340cb10",
+    "contentBaselineCommit": "924709135584dcb9f4fb76febbf1fb575c2c30c8",
     "technicalHead": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
     "base": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
     "reason": "avoid circular self-reference when manifest updates advance branch HEAD"
@@ -14,7 +14,7 @@
   "candidateSnapshot": {
     "name": "SNAPSHOT_LMI_FOOD_CANDIDAT_FINALISATION_2026-09-06.txt",
     "driveId": "1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44",
-    "sha256": "TRACKED_IN_REGISTRE_SHA256_LMI_FOOD_AND_MASTER",
+    "sha256": "73fb57d768a10dce475d6c1cde85ddae2e7fa16042ba03259805e58f6da0069b",
     "status": "ACTIVE"
   },
   "sources": [
