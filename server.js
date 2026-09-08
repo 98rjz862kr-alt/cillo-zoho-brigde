@@ -124,7 +124,7 @@ async function handleRequest(req, res) {
     return sendJson(res, {
       ok: true,
       service: 'cillo-zoho-bridge',
-      publicAtelier: true,
+      publicAtelier: false,
       drafts: listDraftFiles().length,
       adminPasswordConfigured: Boolean(process.env.ADMIN_PASSWORD && process.env.ADMIN_PASSWORD !== 'change-me'),
       openaiConfigured: Boolean(process.env.OPENAI_API_KEY)
@@ -134,9 +134,13 @@ async function handleRequest(req, res) {
     return sendText(res, renderOpenApi(), 200, { 'content-type': 'application/yaml; charset=utf-8' });
   }
 
-  if (req.method === 'GET' && url.pathname === '/atelier') return sendHtml(res, atelierPage(listDraftFiles()));
+  if (req.method === 'GET' && url.pathname === '/atelier') {
+    if (!isAuthorized({ headers: req.headers, query })) return sendHtml(res, adminLoginPage('Accès privé requis.'), 401);
+    return sendHtml(res, atelierPage(listDraftFiles()));
+  }
 
   if (req.method === 'GET' && segments[0] === 'atelier' && segments[1] === 'file' && segments[2]) {
+    if (!isAuthorized({ headers: req.headers, query })) return sendJson(res, { error: 'Unauthorized' }, 401);
     let relativePath = '';
     try { relativePath = decodeURIComponent(segments.slice(2).join('/')); } catch { return sendText(res, 'Chemin invalide', 400); }
     const html = readDraftHtml(relativePath);
@@ -254,4 +258,5 @@ const server = createServer(async (req, res) => {
   }
 });
 
-server.listen(port, '0.0.0.0', () => console.log(`Cillo Zoho Bridge running on ${publicBaseUrl}`));
+const bindHost = process.env.INTERNAL_CORE === '1' ? '127.0.0.1' : '0.0.0.0';
+server.listen(port, bindHost, () => console.log(`Cillo Zoho Bridge running on ${publicBaseUrl} (${bindHost})`));

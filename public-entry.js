@@ -12,7 +12,7 @@ const port=Number(process.env.PORT||3000);
 const internalPort=port+1;
 
 const core=spawn(process.execPath,[path.join(rootDir,'server.js')],{
-  env:{...process.env,PORT:String(internalPort)},
+  env:{...process.env,PORT:String(internalPort),INTERNAL_CORE:'1'},
   stdio:['ignore','inherit','inherit']
 });
 
