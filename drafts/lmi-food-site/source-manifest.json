@@ -1,0 +1,93 @@
+{
+  "site": "food.lesmotsimages.com",
+  "canonicalSource": "Google Drive",
+  "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+  "branch": "agent/lmi-food-finalisation-20260906",
+  "pullRequest": 104,
+  "publication": "INTERDITE_SANS_VALIDATION_TRANSVERSE",
+  "candidateTracking": {
+    "contentBaselineCommit": "924709135584dcb9f4fb76febbf1fb575c2c30c8",
+    "technicalHead": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
+    "base": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
+    "reason": "avoid circular self-reference when manifest updates advance branch HEAD"
+  },
+  "candidateSnapshot": {
+    "name": "SNAPSHOT_LMI_FOOD_CANDIDAT_FINALISATION_2026-09-06.txt",
+    "driveId": "1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44",
+    "sha256": "73fb57d768a10dce475d6c1cde85ddae2e7fa16042ba03259805e58f6da0069b",
+    "sha256Registry": "REGISTRE_SHA256_LMI_FOOD_AND_MASTER",
+    "status": "ACTIVE"
+  },
+  "sources": [
+    {
+      "name": "00_REGLE_MAITRE_SHA256_ET_REPRISE_EXISTANT",
+      "driveId": "1G87gwUEITyHDX2LtPiLaOIajGtGGCULtqUqRbhNV374",
+      "sha256": "08625a9781414f9adade59d01c39f7a3e989440d678f89e0c39932f62465a8c9",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "MASTER_POST_PRODUCTION_SITES_LMI_2026-08-19",
+      "driveId": "18ctUHmHEtSHLOqY_qoAMJeG6fc1iKmE-_bRJQQa9tgo",
+      "sha256": "88a5237bcccf34992546c56bd5d88ff34b2d21c81839e0203932b5d8fca8404a",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "RECETTE_HUMAINE_FINALE_LMI_FOOD_2026-08-18",
+      "driveId": "1_pGnWoxD8QTytc1rGvcaDL_OQMHpHaDkuHbmZf0NqR8",
+      "sha256": "d8a7cc0f01ad5f8584ec0f523fa5e675279df647b9cd1a4496a1c20a83fecc66",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "PROFESSIONAL_CURRENT_SITES_LMI_2026-08-13",
+      "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+      "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "MISSION_EQUIPE_LMI_FOOD_4_AGENTS",
+      "driveId": "1yqfscks_gDFWABZCfAlXy0R1l5A2ZMyjHFq34-IEimw",
+      "sha256": "e64ed5c70c7ddbc6015793195c74e05e0af52c2f0ddf1b6274121e58b452b846",
+      "status": "ACTIVE"
+    }
+  ],
+  "illustrationSources": [
+    {
+      "name": "LMI-FOD-CORE-ICO-MASTER-V1.png",
+      "driveId": "17LhsU1h3iLZzI0LmiCTgpLZcnucLursz",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "sha256": "a0ae3276a271544dc1f1564d10ec22f4c539251d072d0246ec8fdc5b756bd46a",
+      "status": "SOURCE_RETROUVEE_USAGE_A_CONTROLER"
+    }
+  ],
+  "removedUntraceableMedia": [
+    {
+      "name": "IMG_9559_rsjsim.jpg",
+      "formerHost": "Cloudinary",
+      "reason": "SOURCE_DRIVE_ET_SHA256_NON_ETABLIS",
+      "action": "RETIRE_DU_BAT_SANS_REGENERATION"
+    },
+    {
+      "name": "IMG_9564_h0tqkl.jpg",
+      "formerHost": "Cloudinary",
+      "reason": "SOURCE_DRIVE_ET_SHA256_NON_ETABLIS",
+      "action": "RETIRE_DU_BAT_SANS_REGENERATION"
+    }
+  ],
+  "register": {
+    "name": "REGISTRE_SHA256_LMI_FOOD",
+    "spreadsheetId": "1OZql5LfxndgzJQsRr9sdeF8qCRj_HZMVxMk8h87VrNo"
+  },
+  "masterRegister": {
+    "name": "REGISTRE_MASTER_SHA256_LMI",
+    "spreadsheetId": "1pD7lpLPvc_MtQeB9Uz1XMdqzoDjt_a_O0E12rR9YOH4"
+  },
+  "gates": {
+    "unverifiedCommercialClaims": "FAIL",
+    "unverifiedAllergensConservationPricingSuppliers": "FAIL",
+    "illustrationWithoutDriveIdAndSha256": "FAIL",
+    "publicPaymentOrOrdering": "FAIL",
+    "finalBridgePass": "REQUIRES_TRANSVERSE_VALIDATION"
+  }
+}

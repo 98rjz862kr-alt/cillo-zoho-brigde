@@ -1,0 +1,29 @@
+POSTE 5/14 — LMI FOOD — PREUVE DIAGNOSTIC GITHUB ACTIONS
+Date: 2026-09-08
+Branche: agent/lmi-food-finalisation-20260906
+HEAD applicatif testé avant preuve: d808acb593f485ed883ef487e934686359832231
+
+RUN EXACT-HEAD
+Run: 34279574318
+Job: 102240799322
+Workflow: LMI FOOD Finalisation
+Conclusion GitHub: failure
+Steps: []
+Logs job: indisponibles (404 BlobNotFound)
+
+ANNOTATION GITHUB ACTIONS
+Chemin: .github
+Niveau: failure
+Message exact GitHub:
+The job was not started because your account is locked due to a billing issue.
+
+CONCLUSION TECHNIQUE
+Le runner GitHub n'a exécuté aucune étape.
+Aucun checkout, setup Node ou validateur LMI FOOD n'a démarré.
+Le défaut est donc externe au code du lot LMI FOOD et antérieur à l'exécution du workflow.
+Aucune modification de code ne peut lever un verrou de compte/facturation GitHub.
+Aucune dépense ni modification de facturation n'a été effectuée depuis ce poste.
+
+RÈGLE AUCUN FAUX PASS
+GitHub-hosted CI reste NOT QUALIFIED tant que le compte GitHub empêche le démarrage des runners.
+Les tests locaux exact-head restent distincts de cette qualification hébergée.

@@ -1,0 +1,45 @@
+APPLICATION PRIVEE LMI - POSTE 5/14 - LMI FOOD - TRANSMISSION CONSOLIDATEUR
+Date: 2026-09-08
+Repository: 98rjz862kr-alt/cillo-zoho-brigde
+Branch: agent/lmi-food-finalisation-20260906
+Pre-handoff tested content HEAD: c3cdc23f9067dfec96fec1fffa97d9c7dc814a75
+Merge-base with main: cbfa8a860e44fb7ca805159e14d7cc9279d1562b
+Main inspected: 9b67a1efbb1067ba03227da8d8418612ecb5d386
+Public publication: FORBIDDEN
+ATLAS NOVA: NOT ACTIVATED
+
+Scope closure status:
+- Existing compliant assets reused; no regeneration performed.
+- Untraceable Cloudinary media remain removed without replacement/regeneration.
+- Food safety/commercial claims without verified evidence remain fail-closed.
+- Non-decorative illustrations require Drive ID + SHA-256 provenance.
+- Public ordering/payment remains blocked.
+- Current main changes after merge-base do not touch LMI FOOD scope.
+
+Tests executed on pre-handoff content HEAD:
+- node scripts/audit-lmi-food-finalisation.mjs : PASS
+- node scripts/validate-lmi-food.mjs : PASS
+- npm test : PASS
+
+Known external CI state before this handoff:
+- GitHub Actions run 34153135229 on c3cdc23f9067dfec96fec1fffa97d9c7dc814a75: FAILURE BEFORE ANY STEP (steps=[]; runner_id=0).
+- This is not recorded as a CI PASS.
+
+Files modified vs merge-base and SHA-256 of actual current bytes:
+d27079f13520de24337d9cbf62d1e78420e28b9cae229fb0951fc6e644828960  .github/workflows/lmi-food-finalisation.yml
+b10b15e20c58dce7576bb6ad26883a8e20f80bc6a52d0fdd04c2b9200a72d552  drafts/lmi-food-site/00-bat-lmi-food.html
+75499499a1080a3b9c7431ef2a6fd563e9fa13fc9b8b522aeee5708e022f8f0a  drafts/lmi-food-site/02-petits-dejeuners-collations.html
+8664b686c91488f3dffc3d921b8d4aaa941db1bcf837c5b0b96dad4b05192f16  drafts/lmi-food-site/06-fiches-produits-petits-dejeuners.html
+049816ec77fe2a43ca54fd1970658e5d2bd59fdb330d752361e0038351acbe6f  drafts/lmi-food-site/07-sommaire-controle-lmi-food.html
+78f3f6323d918e60f9c6a7ff9450f863ab740c0595e10255a71992b074bd1801  drafts/lmi-food-site/13-matrice-qa-recettes.html
+21eada162bb9b6b2e57b2aaf712b46b2f2f65d4e05c05012fe19711a80c91db5  drafts/lmi-food-site/22-journal-recette-technique.html
+faca56ef0993db6a50b466ae4d7ea09d82346b3187355b2c97ad78bd6318da7b  drafts/lmi-food-site/23-navigation-catalogue-consolides.html
+186ffa6e68c2b11851c851213329528c6db6bf8bb0858013ec65fd8a34db2ffa  drafts/lmi-food-site/24-fiches-produits-recettes-master.html
+207bd02981ef41a951b1a4c6c89280fb4b7200c5ac6261342fb3061d449c8669  drafts/lmi-food-site/25-bibliotheque-premium-consolidee.html
+fb689046631ba320f6af102e28ea6922d307eb5c9d28cc9cdf27c8296370eced  drafts/lmi-food-site/26-livres-e-recettes-collection.html
+bdac68452d57563f61ba82ba72dd9f48e1821aec8750d0601c857cd8662cf04e  drafts/lmi-food-site/27-controle-qualite-readiness.html
+d35ccaf898ae52957d97e1f632f656415f3c2fd6e8027ad12ee7f79af5b51a10  drafts/lmi-food-site/source-manifest.json
+40d14fe5e206e5f1bda2e2b80b658321ac1f46d65f117749f0f61c548de8caf0  scripts/audit-lmi-food-finalisation.mjs
+a26b39ace8a162239a3f5a1691dce26ac2a42bdedf0c39fa3ae9c36d33257ca2  scripts/validate-lmi-food.mjs
+
+Final exact HEAD is bound in PR #104 metadata after this handoff file is committed and retested.

@@ -1,0 +1,50 @@
+POSTE 5/14 — LMI FOOD — PREUVE RELANCE CI EXACT-HEAD
+Date: 2026-09-08
+Repository: 98rjz862kr-alt/cillo-zoho-brigde
+Branch: agent/lmi-food-finalisation-20260906
+HEAD exact: 6234166758bb527c80ea45487fb1ed44b7d49fa0
+
+GitHub Actions initial run: 34275451346
+Initial job: 102227225155
+Initial conclusion: failure
+Initial execution evidence: steps=[] ; runner_id=0 ; runner_name=""
+
+Action corrective attempted within scope:
+- rerun exact failed workflow job requested through GitHub Actions API
+- rerun accepted successfully by GitHub
+
+Rerun job: 102231352653
+Rerun conclusion: failure
+Rerun execution evidence: steps=[]
+
+Conclusion factuelle:
+- the workflow does not reach checkout, Node setup, validators or audit steps
+- local exact-HEAD validation remains PASS
+- failure reproduces before any executable workflow step
+- no CI PASS is claimed
+- no control was removed or weakened
+- no paid infrastructure was created
+- no publication, merge to main or ATLAS NOVA activation occurred
+
+This evidence supersedes the prior assumption that the first pre-step CI failure might have been transient.
+The repeated pre-step failure is transmitted as an external execution/runner-side residual, not as a qualified PASS.
+
+Evidence policy:
+PRESENT != BUILT != CONFIGURED != CONNECTED != TESTED != QUALIFIED.
+Exact-head local tests prove only local executable validation of this commit.
+GitHub-hosted CI qualification remains NOT QUALIFIED because the runner never started a workflow step.
+
+Rerun was requested against the exact same workflow run and exact same candidate commit.
+No source code delta was introduced to manufacture a green result.
+This file is part of the handoff evidence set and must be SHA-256 hashed after final write.
+
+SHA-256 calculation and repository commit follow this finalized content.
+End of exact-head CI rerun evidence.
+
+
+
+
+
+
+
+
