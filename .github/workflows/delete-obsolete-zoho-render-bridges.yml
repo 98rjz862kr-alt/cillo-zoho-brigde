@@ -1,0 +1,36 @@
+name: Delete obsolete Zoho Render bridges
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/delete-obsolete-zoho-render-bridges.yml
+  workflow_dispatch:
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+    steps:
+      - name: Delete obsolete Zoho bridges
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${RENDER_API_KEY:-}"
+          for id in \
+            srv-d8vfel7lk1mc738t7qr0 \
+            srv-d8vgstok1i2s73en7r0g \
+            srv-d8vp91sm0tmc73d3f3sg \
+            srv-d9osqbmgekts73eoqis0 \
+            srv-d9osr8vavr4c73a5kr50
+          do
+            code=$(curl -sS -o /tmp/render-delete.json -w '%{http_code}' -X DELETE \
+              "https://api.render.com/v1/services/${id}" \
+              -H "Authorization: Bearer ${RENDER_API_KEY}" \
+              -H 'Accept: application/json')
+            case "$code" in
+              200|202|204|404) echo "$id: $code" ;;
+              *) cat /tmp/render-delete.json; exit 1 ;;
+            esac
+          done
