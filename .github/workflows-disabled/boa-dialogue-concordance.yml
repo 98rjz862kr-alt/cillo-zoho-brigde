@@ -1,0 +1,27 @@
+name: Boa Totem - dialogue concordance
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/boa-totem-soya/01-bd-18-planches.html"
+      - "drafts/boa-totem-soya/06-script-bd-dialogues.html"
+      - "drafts/boa-totem-soya/09-da-sous-titres-fr.srt"
+      - "drafts/boa-totem-soya/14-guide-lettrage-bd.html"
+      - "drafts/boa-totem-soya/15-plan-voix-et-direction-acteurs.html"
+      - "drafts/boa-totem-soya/18-dialogues-verrouilles-reference.html"
+      - "scripts/validate-boa-dialogue-concordance.mjs"
+      - ".github/workflows/boa-dialogue-concordance.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node scripts/validate-boa-dialogue-concordance.mjs

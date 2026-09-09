@@ -1,0 +1,17 @@
+{
+  "date": "2026-08-18",
+  "status": "PASS",
+  "method": "direct HTTPS /health check against https://bridge.lesmotsimages.com/health",
+  "verified": {
+    "ok": true,
+    "service": "cillo-zoho-bridge",
+    "boaRecipeReady": false,
+    "boaRecipeStatus": "SUSPENDED",
+    "boaGraphicsFinal": false,
+    "boaVisualAuditRequired": true,
+    "boaManifestStatus": "PREPRODUCTION_GRAPHIC_REVIEW_REQUIRED",
+    "boaProductionOverallStatus": "IN_PRODUCTION",
+    "boaPublicationStatus": "FORBIDDEN"
+  },
+  "meaning": "Render/Bridge sert désormais l’état correctif attendu. Cette certification porte sur le statut et le runtime, pas sur une production graphique finale."
+}

@@ -1,0 +1,21 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "updatedAt": "2026-08-18",
+  "activeNarrativeNames": ["SOYA", "CILLO", "SIDAAT", "MAAM JALLEL", "VENDEUR"],
+  "canonicalRelationships": {
+    "MAAM JALLEL": "grand-mère de SOYA et personne de transmission"
+  },
+  "obsoleteWorkingNames": {
+    "NÉNÉ ADAMA": {
+      "status": "OBSOLETE_SUPERSEDED",
+      "supersededBy": "MAAM JALLEL",
+      "rule": "Autorisé uniquement dans les archives historiques de provenance. Interdit dans tout livrable actif, script, storyboard, album, DA, lettrage, voix, asset ou produit dérivé."
+    },
+    "NENE ADAMA": {
+      "status": "OBSOLETE_SUPERSEDED",
+      "supersededBy": "MAAM JALLEL",
+      "rule": "Autorisé uniquement dans les archives historiques de provenance."
+    }
+  },
+  "currentRule": "MAAM JALLEL est l'unique nom actif de la grand-mère de SOYA et de la personne de transmission. Elle transmet sans retirer à SOYA son rôle central ni sa décision de réparation."
+}

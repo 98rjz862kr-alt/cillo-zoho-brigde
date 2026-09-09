@@ -1,0 +1,99 @@
+name: Hub LMI - Bridge Render certification
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/hub-lmi-editions/**"
+      - "drafts.js"
+      - "hub-*.js"
+      - "scripts/validate-hub*.mjs"
+      - "package.json"
+      - "render.yaml"
+      - ".github/workflows/hub-bridge-render-certification.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate-deploy-certify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+      BRIDGE_CUSTOM_URL: https://bridge.lesmotsimages.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Recette complete du Bridge
+        run: npm test
+      - name: Declencher Render si la cle est configuree
+        shell: bash
+        run: |
+          set -euo pipefail
+          : > /tmp/hub-service-url
+          if [ -z "${RENDER_API_KEY:-}" ]; then exit 0; fi
+          python - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          key=os.environ['RENDER_API_KEY']
+          req=urllib.request.Request('https://api.render.com/v1/services?'+urllib.parse.urlencode({'name':'cillo-zoho-bridge','limit':100}),headers={'Accept':'application/json','Authorization':'Bearer '+key})
+          with urllib.request.urlopen(req,timeout=30) as r: payload=json.load(r)
+          items=payload if isinstance(payload,list) else payload.get('services',[])
+          service=None
+          for item in items:
+              candidate=item.get('service',item) if isinstance(item,dict) else {}
+              if candidate.get('name')=='cillo-zoho-bridge' and candidate.get('id'): service=candidate; break
+          if not service: raise SystemExit('Service Render cillo-zoho-bridge introuvable')
+          open('/tmp/hub-service-id','w').write(service['id'])
+          details=service.get('serviceDetails') or {}
+          open('/tmp/hub-service-url','w').write(details.get('url') or '')
+          PY
+          service_id="$(cat /tmp/hub-service-id)"
+          curl --fail --silent --show-error --request POST --url "https://api.render.com/v1/services/${service_id}/deploys" --header "Accept: application/json" --header "Authorization: Bearer ${RENDER_API_KEY}" --header "Content-Type: application/json" --data "{\"commitId\":\"${GITHUB_SHA}\",\"clearCache\":\"do_not_clear\"}" > /tmp/hub-deploy.json
+      - name: Certifier le runtime et le SHA servi
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import datetime, json, os, time, urllib.request
+          urls=[]
+          try:
+              service_url=open('/tmp/hub-service-url').read().strip()
+              if service_url: urls.append(service_url.rstrip('/'))
+          except FileNotFoundError: pass
+          custom=os.environ.get('BRIDGE_CUSTOM_URL','').rstrip('/')
+          if custom and custom not in urls: urls.append(custom)
+          if not urls: raise SystemExit('Aucune URL Bridge disponible')
+          expected=os.environ['GITHUB_SHA']
+          last=[]
+          for attempt in range(1,91):
+              last=[]
+              for base in urls:
+                  try:
+                      req=urllib.request.Request(base+'/health',headers={'User-Agent':'LMI-Hub-Render-Certification/1.0'})
+                      with urllib.request.urlopen(req,timeout=20) as r: state=json.load(r)
+                      if state.get('ok') is True and state.get('service')=='cillo-zoho-bridge' and state.get('publicAtelier') is False and state.get('revision')==expected:
+                          payload={'status':'CERTIFIED','verifiedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'checkedForCommit':expected,'url':base,'recipeUrl':base+'/atelier','state':state}
+                          open('/tmp/hub-render-status.json','w').write(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
+                          print(json.dumps(payload,ensure_ascii=False)); raise SystemExit(0)
+                      last.append({'url':base,'state':state})
+                  except Exception as exc: last.append({'url':base,'error':repr(exc)})
+              if attempt % 10 == 0: print('Attente Render',attempt,last)
+              time.sleep(10)
+          raise RuntimeError('Bridge Render non certifie pour le SHA attendu: '+json.dumps(last,ensure_ascii=False))
+          PY
+      - name: Enregistrer la preuve de certification
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ops
+          cp /tmp/hub-render-status.json ops/hub-render-status.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C agent/hub-render-status
+          git add ops/hub-render-status.json
+          git commit -m "Hub LMI: certifier le runtime Render servi"
+          git push --force origin agent/hub-render-status

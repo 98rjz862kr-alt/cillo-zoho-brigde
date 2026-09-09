@@ -1,0 +1,17 @@
+{
+  "project": "LE BOA TOTEM DE SOYA",
+  "updatedAt": "2026-08-18",
+  "renderBridge": {
+    "status": "LIVE_CERTIFIED_PASS",
+    "url": "https://bridge.lesmotsimages.com/health",
+    "expectedStateConfirmed": true,
+    "recipeReady": false,
+    "recipeStatus": "SUSPENDED",
+    "graphicsFinal": false,
+    "visualAuditRequired": true,
+    "productionOverallStatus": "IN_PRODUCTION",
+    "publicationStatus": "FORBIDDEN"
+  },
+  "precedence": "This file and render-live-validation-20260818.json supersede any older PENDING_RUNTIME_CERTIFICATION note in a prior status snapshot.",
+  "scope": "runtime/status certification only; never artwork certification"
+}

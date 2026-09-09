@@ -1,0 +1,53 @@
+name: Boa Totem - final package v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/boa-totem-soya/visual-qa-final.json"
+      - "drafts/boa-totem-soya/final-assets/**"
+      - "scripts/validate-boa-visual-final.mjs"
+      - "scripts/package-boa-final.mjs"
+      - ".github/workflows/boa-final-package-v2.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Vérifier si la QA finale existe
+        id: gate
+        shell: bash
+        run: |
+          if [ ! -f drafts/boa-totem-soya/visual-qa-final.json ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "QA visuelle finale absente: aucun package final généré."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Construire le package final
+        if: steps.gate.outputs.ready == 'true'
+        run: node scripts/package-boa-final.mjs
+      - name: Archiver
+        if: steps.gate.outputs.ready == 'true'
+        shell: bash
+        run: |
+          cd dist
+          zip -qr ../LE-BOA-TOTEM-DE-SOYA-FINAL.zip LE-BOA-TOTEM-DE-SOYA-FINAL
+          cd ..
+          sha256sum LE-BOA-TOTEM-DE-SOYA-FINAL.zip > LE-BOA-TOTEM-DE-SOYA-FINAL.sha256
+      - uses: actions/upload-artifact@v4
+        if: steps.gate.outputs.ready == 'true'
+        with:
+          name: le-boa-totem-de-soya-final
+          path: |
+            LE-BOA-TOTEM-DE-SOYA-FINAL.zip
+            LE-BOA-TOTEM-DE-SOYA-FINAL.sha256
+          retention-days: 30

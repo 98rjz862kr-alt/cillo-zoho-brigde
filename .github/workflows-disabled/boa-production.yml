@@ -1,0 +1,42 @@
+name: Boa Totem - preproduction guard
+
+on:
+  push:
+    branches:
+      - agent/boa-totem-soya-finalisation-20260816
+    paths:
+      - scripts/generate-boa-finalisation.mjs
+      - scripts/validate-boa-finalisation.mjs
+      - scripts/validate-boa-bridge-runtime.mjs
+      - scripts/normalize-boa-dialogues.mjs
+      - drafts/boa-totem-soya/**
+      - drafts.js
+      - public-entry.js
+      - .github/workflows/boa-production.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Interdire toute regeneration automatique de visuels declares finaux
+        run: |
+          echo "Le generateur procedural Boa Totem est classe PREPRODUCTION uniquement."
+          echo "Aucune generation ni ecriture automatique de roughs/model sheets/album/DA ne sera executee par ce workflow."
+      - name: Controler uniquement la structure courante
+        run: |
+          node --check drafts.js
+          node --check public-entry.js
+          if [ "${GITHUB_REF_NAME}" = "main" ]; then
+            node scripts/validate-boa-finalisation.mjs
+            node scripts/validate-boa-bridge-runtime.mjs
+          fi

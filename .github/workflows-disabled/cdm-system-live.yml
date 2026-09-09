@@ -1,0 +1,47 @@
+name: CDM System Live
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cdm-v3/**"
+      - ".github/workflows/cdm-system-live.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Verify deployed modular system
+        env:
+          BASE_URL: https://cdm-collectes-validation-sju9.onrender.com
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import time
+          import urllib.request
+
+          base = os.environ["BASE_URL"]
+          last_error = None
+          for _ in range(30):
+              try:
+                  with urllib.request.urlopen(base + "/api/system/state", timeout=20) as response:
+                      state = json.load(response)
+                  if state.get("version") == "0.1.0" and state.get("principle") == "AUTONOME SEUL — PLUS PERFORMANT ENSEMBLE.":
+                      with urllib.request.urlopen(base + "/systeme", timeout=20) as response:
+                          page = response.read().decode("utf-8")
+                      assert "Quatre modules" in page
+                      assert "/system-api.js" in page
+                      print("CDM system live validation passed")
+                      break
+              except Exception as exc:
+                  last_error = exc
+              time.sleep(10)
+          else:
+              raise RuntimeError(f"Deployed system not ready: {last_error}")
+          PY

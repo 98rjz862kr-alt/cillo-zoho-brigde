@@ -1,0 +1,57 @@
+name: Boa Totem - preproduction CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "drafts/boa-totem-soya/**"
+      - "public-entry.js"
+      - "drafts.js"
+      - "scripts/validate-boa-finalisation.mjs"
+      - "scripts/validate-boa-bridge-runtime.mjs"
+      - "scripts/validate-boa-da-timing.mjs"
+      - ".github/workflows/boa-preproduction-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Valider la préproduction sans la déclarer finale
+        run: |
+          node --check public-entry.js
+          node --check drafts.js
+          node scripts/validate-boa-finalisation.mjs
+          node scripts/validate-boa-bridge-runtime.mjs
+          node scripts/validate-boa-da-timing.mjs
+      - name: Écrire la trace CI sur branche dédiée
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p ops
+          python - <<'PY'
+          import datetime, json, os
+          payload={
+            'status':'PASS',
+            'scope':'PREPRODUCTION_STRUCTURE_ONLY',
+            'validatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            'commit':os.environ['GITHUB_SHA'],
+            'humanRecipe':'SUSPENDED',
+            'graphicsFinal':False,
+            'checks':['validate-boa-finalisation','validate-boa-bridge-runtime','validate-boa-da-timing']
+          }
+          open('ops/boa-preproduction-ci.json','w').write(json.dumps(payload,ensure_ascii=False,indent=2)+'\n')
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C agent/boa-ci-status
+          git add ops/boa-preproduction-ci.json
+          git commit -m "Boa Totem: certifier la préproduction structurelle"
+          git push --force origin agent/boa-ci-status
