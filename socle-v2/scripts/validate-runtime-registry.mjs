@@ -30,7 +30,7 @@ try{
   if(manifest.sites.food.exactCandidateContent!==true)throw new Error('Food candidate content is not exact in integration branch');
   if(manifest.sites.maison.exactCandidateContent!==true)throw new Error('Maison candidate content is not exact in integration branch');
   if(manifest.sites.musee.exactCandidateContent!==false)throw new Error('Museum worktree must not impersonate frozen recipe snapshot');
-  if(manifest.sites.editions.exactCandidateContent!==false)throw new Error('Editions worktree must remain marked divergent until candidate convergence');
+  if(manifest.sites.editions.exactCandidateContent!==true)throw new Error('Editions candidate content is not exact in integration branch');
   console.log('SOCLE_V2_RUNTIME_PASS');
 } finally {
   child.kill('SIGTERM');

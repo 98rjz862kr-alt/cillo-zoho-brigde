@@ -36,12 +36,12 @@
       "nextGate": "deploy-integration-after-museum-recipe-then-runtime-package-proof-and-recipe"
     },
     "editions": {
-      "classification": "CANONICAL_CANDIDATE_BUILT",
+      "classification": "CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",
       "candidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
       "candidatePackageSha256": "1ffcbbc1b4d377073d4652aa57742f7567edc71ba50a3b11ff5367832a962110",
-      "workBranchExactCandidateContent": false,
+      "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "converge-candidate-with-hardened-bridge-runtime-without-regressing-authentication"
+      "nextGate": "validate-rendered-runtime-contract-with-hardened-bridge-then-deploy-after-museum-recipe"
     }
   }
 }
