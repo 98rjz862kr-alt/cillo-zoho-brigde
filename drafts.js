@@ -7,6 +7,7 @@ import { enforceOfficialHubIdentity } from './hub-identity.js';
 import { integrateHubVisuals } from './hub-visuals.js';
 import { stabilizeHubRuntime } from './hub-stability.js';
 import { enhanceHubAccessibility } from './hub-accessibility.js';
+import { rewritePreviewHtml, rewritePreviewCss } from './socle-v2/preview-paths.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +19,7 @@ const ASSET_MIME_TYPES = new Map([
   ['.jpeg', 'image/jpeg'],
   ['.webp', 'image/webp'],
   ['.gif', 'image/gif'],
+  ['.css', 'text/css; charset=utf-8'],
 ]);
 
 function walk(directory, prefix = '') {
@@ -36,7 +38,8 @@ function walk(directory, prefix = '') {
 }
 
 function resolveDraftPath(relativePath, allowedExtensions) {
-  const decoded = decodeURIComponent(String(relativePath || '')).replace(/^\/+/, '');
+  let decoded;
+  try { decoded = decodeURIComponent(String(relativePath || '')).replace(/^\/+/, ''); } catch { return null; }
   if (!decoded) return null;
   const extension = path.extname(decoded).toLowerCase();
   if (!allowedExtensions.has(extension)) return null;
@@ -82,13 +85,13 @@ export function readDraftHtml(relativePath) {
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
     const visualized = integrateHubVisuals(resolved.decoded, identified);
     const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
-    return enhanceHubAccessibility(resolved.decoded, stabilized);
+    return rewritePreviewHtml(resolved.decoded, enhanceHubAccessibility(resolved.decoded, stabilized));
   } catch { return null; }
 }
 
 export function readDraftAsset(relativePath) {
   const resolved = resolveDraftPath(relativePath, new Set(ASSET_MIME_TYPES.keys()));
   if (!resolved) return null;
-  try { return { content: readFileSync(resolved.absolutePath), contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream' }; }
+  try { const raw=readFileSync(resolved.absolutePath); const content=resolved.extension === '.css' ? Buffer.from(rewritePreviewCss(resolved.decoded, raw.toString('utf8'))) : raw; return { content, contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream' }; }
   catch { return null; }
 }
