@@ -11,8 +11,8 @@
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "90feb347652b025ebb657e76d41f691a11956ef6",
-      "candidatePackageSha256": "2c5ba46b149a50fbc9b227d18105d503ba9d52b4af7d67460b7719064fd025f8",
+      "candidateSourceSha": "0d52471927eec325863662c505fa5d2fc0ca6fd4",
+      "candidatePackageSha256": "a8d14d20bcc801852cbbf2625c0318c255dbeef875d100c447c5aba0995308f1",
       "state": "CONVERGENCE_REQUIRED",
       "mayRedeployBeforeRecipe": true
     },
