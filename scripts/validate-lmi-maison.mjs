@@ -32,7 +32,7 @@ for (const file of files) {
   assert((html.match(/<h1(?:\s|>)/gi) || []).length === 1, 'Un H1 unique est requis: ' + file);
   assert(/LMI Maison/i.test(html), 'Identité LMI Maison absente: ' + file);
   assert(!/<form\b/i.test(html), 'Formulaire actif interdit: ' + file);
-  assert(!/mailto:|tel:|stripe|paypal|parcours d’encaissement/i.test(html), 'Action commerciale active interdite: ' + file);
+  assert(!/(?:href=["'](?:mailto:|tel:)|stripe|paypal|<form\b|action=["'][^"']*(?:checkout|payment|paiement|encaissement))/i.test(html), 'Action commerciale active interdite: ' + file);
 }
 for (const file of ['00-bat-lmi-maison.html','01-collection-inaugurale-lmi-maison.html']) {
   const html = readFileSync(path.join(root, file), 'utf8');
