@@ -1,0 +1,44 @@
+{
+  "site": {
+    "id": "musee",
+    "name": "LMI Musée",
+    "publicHost": "musee.lesmotsimages.com",
+    "bridgeScope": "https://bridge.lesmotsimages.com"
+  },
+  "source": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "sha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "build": {
+    "id": "git-archive-f8d046bd-20260915",
+    "sha256": "ec80043ecc9cc70d69bb5037b48c2dc85457d54d32fd177af81c62224fc9aabb"
+  },
+  "runtime": {
+    "bridgeUrl": "https://bridge.lesmotsimages.com",
+    "observedAt": "2026-09-07T12:53:46Z",
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "renderServiceId": "srv-d9osqbmgekts73eoqis0",
+    "renderDeployId": "dep-dafb7867bikc73fsrg1g",
+    "renderStatus": "live",
+    "sourceManifestStatus": "READY_TO_PUBLISH"
+  },
+  "mediaManifest": {
+    "sha256": "962786007c591915cf8df6a6be6774a4f3e25447a483a9810559b5505b910a32",
+    "items": [
+      {
+        "path": "drafts/lmi-musee-complet/assets/lmi-logo-officiel.svg",
+        "sha256": "13837d0e1c89548277f40c8c8289afd5c0f27e8d8437c0a4422a91512a7d5952",
+        "provenance": "repository-at-source-sha; Drive canonical source previously inventoried",
+        "rightsStatus": "unknown",
+        "referenceCount": 41
+      }
+    ]
+  },
+  "recipeGate": {
+    "status": "NOT_RUN",
+    "checkedAt": "2026-09-15T12:57:07Z",
+    "p0": 0,
+    "p1": 0,
+    "decision": "FREEZE_FOR_HUMAN_RECIPE"
+  }
+}

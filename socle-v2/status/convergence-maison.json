@@ -1,8 +1,8 @@
 {
   "site": "maison",
   "candidate": {
-    "sourceSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
-    "source": "PR #108",
+    "sourceSha": "90feb347652b025ebb657e76d41f691a11956ef6",
+    "source": "PR #119 (minimal validator correction over PR #108 candidate)",
     "localQualification": "candidate controls documented"
   },
   "bridge": {

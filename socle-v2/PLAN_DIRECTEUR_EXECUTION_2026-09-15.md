@@ -33,7 +33,7 @@ Décision : FREEZE_FOR_HUMAN_RECIPE.
 
 ## 4. Flux B — Maison
 
-Candidat exact : 42a1b7dee6b23b7a9dfaf2129813f14fb35ab159, PR #108.
+Candidat de convergence reproductible : 90feb347652b025ebb657e76d41f691a11956ef6, PR #119, dérivé du candidat 42a1b7dee6b23b7a9dfaf2129813f14fb35ab159 (PR #108) par correction minimale du validateur.
 
 Le candidat dispose d'un manifeste de sources Drive/SHA, des actifs Maison retrouvés et de contrôles fail-closed documentés. Il n'est pas le SHA actuellement servi par Bridge.
 

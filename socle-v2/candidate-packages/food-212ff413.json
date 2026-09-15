@@ -1,0 +1,10 @@
+{
+  "site":"food",
+  "sourceSha":"212ff413e60df9195052deb61c9da75a03e31ebe",
+  "sourcePr":104,
+  "validation":{"validateLmiFood":"PASS","validatePublicEntry":"PASS","npmTest":"PASS","gitDiffCheck":"PASS"},
+  "build":{"format":"git-archive-tar","sha256":"bdd8a8b00b14cac73d0fdf6b04f3c3c44d38b987925e050ca92f93ceffd10279"},
+  "mediaReferenceScan":{"referenceCount":0,"sha256":"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945","interpretation":"No img/source/video-poster/CSS-url media references are present in the exact candidate HTML set."},
+  "runtimeBridge":{"exactCandidateServed":false,"observedBridgeSha":"f8d046bdfea2c0854364579cca59cbd2fd85a8b9"},
+  "releaseStatus":"WAITING_FOR_BRIDGE_CONVERGENCE_AND_RECIPE"
+}
