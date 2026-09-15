@@ -15,7 +15,7 @@ Le runtime doit prouver le SHA d'intégration réellement déployé et, pour cha
 
 ## 2. État de vérité observé
 
-Le service Bridge Musée observé sur Render est LIVE sur le déploiement dep-dafb7867bikc73fsrg1g, service srv-d9osqbmgekts73eoqis0, au SHA f8d046bdfea2c0854364579cca59cbd2fd85a8b9.
+Le service Bridge Musée observé sur Render est LIVE sur le déploiement dep-dafb7867bikc73fsrg1g, service srv-d9osqbmgekts73eoqis0, au SHA f8d046bdfea2c0854364579cca59cbd2fd85a8b9. Render est configuré sur la branche `main` avec auto-déploiement à chaque commit. Tant que la recette humaine Musée n’est pas clôturée, tout merge vers `main` ou déploiement manuel de remplacement reste interdit, car il écraserait l’autorité de recette gelée.
 
 Le manifeste Musée à ce SHA porte READY_TO_PUBLISH. Le main actuel du dépôt cillo-zoho-brigde est 8517bbac8eddc3f60ba35a20d54dbabc787e7947 et son manifeste Musée porte CANDIDATE_PRIVATE avec Atlas A_REQUALIFIER. Par conséquent, le main actuel ne doit pas remplacer le snapshot Bridge qualifié avant la recette humaine Musée.
 

@@ -67,7 +67,7 @@ function validateStructure() {
   const required = [
     'tokens.json','site-manifest.schema.json','styles/lmi-tokens.css','styles/lmi-base.css',
     'components/site-shell.js','components/footer.js','contracts/seo.schema.json',
-    'contracts/security.json','contracts/qa-gate.json','recipe/musee-human-recipe-2026-09-15.json'
+    'contracts/security.json','contracts/qa-gate.json','recipe/musee-human-recipe-2026-09-15.json','deploy-guard.json'
   ];
   for (const rel of required) if (!existsSync(path.join(ROOT, rel))) fail(`fichier requis absent: ${rel}`);
 }
@@ -90,6 +90,16 @@ function validateBrandInSocle() {
   for (const root of roots) walk(path.join(ROOT,root));
 }
 
+function validateDeployGuard() {
+  const file=path.join(ROOT,'deploy-guard.json');
+  const data=parseJson(file);
+  if (!data) return;
+  if (data.branch!=='main'||data.autoDeploy!==true) fail('deploy guard: configuration Render inattendue');
+  if (data.liveSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('deploy guard: snapshot Musée LIVE inattendu');
+  if (data.museumRecipePending!==true) fail('deploy guard: recette Musée doit rester en attente');
+  if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==false) fail('deploy guard: publication prématurée autorisée');
+}
+
 function validateMuseumRecipe() {
   const file=path.join(ROOT,'recipe/musee-human-recipe-2026-09-15.json');
   const data=parseJson(file);
@@ -104,6 +114,7 @@ validateStructure();
 validateTokens();
 validateBrandInSocle();
 validateMuseumRecipe();
+validateDeployGuard();
 const manifestDir = path.join(ROOT, 'site-manifests');
 if (existsSync(manifestDir)) {
   for (const name of readdirSync(manifestDir).filter((name) => name.endsWith('.json')).sort()) {

@@ -1,0 +1,16 @@
+{
+  "serviceId": "srv-d9osqbmgekts73eoqis0",
+  "workspaceId": "tea-d8verk6q1p3s73b3i200",
+  "serviceName": "cillo-zoho-bridge",
+  "branch": "main",
+  "autoDeploy": true,
+  "autoDeployTrigger": "commit",
+  "liveDeployId": "dep-dafb7867bikc73fsrg1g",
+  "liveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+  "liveStatus": "live",
+  "museumRecipePending": true,
+  "mergeMainAllowed": false,
+  "manualDeployAllowed": false,
+  "reason": "Render auto-deploys main. Any merge to main would replace the frozen Museum recipe snapshot before human validation.",
+  "unlockCondition": "Museum human recipe completed and an explicitly approved integration candidate is ready for Bridge convergence."
+}
