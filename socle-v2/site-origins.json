@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0-alpha.1",
+  "algorithm": "sha256(path + NUL + size + NUL + fileSha256 + LF), paths sorted",
+  "sites": {
+    "musee": {
+      "root": "drafts/lmi-musee-complet",
+      "candidateSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+      "candidatePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+      "state": "FROZEN_FOR_HUMAN_RECIPE",
+      "mayRedeployBeforeRecipe": false
+    },
+    "maison": {
+      "root": "drafts/lmi-maison-site",
+      "candidateSourceSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
+      "candidatePackageSha256": "7e77117cd7aaf30ca8d3aff08905abbce805c6d4200a2c67920902cd2303bf91",
+      "state": "CONVERGENCE_REQUIRED",
+      "mayRedeployBeforeRecipe": true
+    },
+    "food": {
+      "root": "drafts/lmi-food-site",
+      "candidateSourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
+      "candidatePackageSha256": "569592662ece8b8ea5131f282d4c4150bbeec34d8413d31adc82ccfae011d0dc",
+      "state": "CONVERGENCE_REQUIRED",
+      "mayRedeployBeforeRecipe": true
+    },
+    "editions": {
+      "root": "drafts/hub-lmi-editions",
+      "candidateSourceSha": null,
+      "candidatePackageSha256": null,
+      "workingPackageSha256": "a39320aee8c24c464cb4b33b426e81bfa38df54f7df91f29af3899bdcc8d3f09",
+      "state": "CANONICAL_CANDIDATE_REQUIRED",
+      "mayRedeployBeforeRecipe": false
+    }
+  }
+}
