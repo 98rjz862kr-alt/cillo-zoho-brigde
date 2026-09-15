@@ -1,0 +1,22 @@
+{
+  "site": "maison",
+  "baseCandidateSha": "90feb347652b025ebb657e76d41f691a11956ef6",
+  "sourceSha": "0d52471927eec325863662c505fa5d2fc0ca6fd4",
+  "sourceBranch": "work/maison-brand-correction-20260915",
+  "corrections": [
+    "Canonical brand identity corrected to LES MOTS IMAGÉS.",
+    "Technical journal wording aligned with the inactive-commerce validator semantics."
+  ],
+  "candidatePackageSha256": "a8d14d20bcc801852cbbf2625c0318c255dbeef875d100c447c5aba0995308f1",
+  "validation": {
+    "validateLmiMaison": "PASS",
+    "auditLmiMaisonFinalisation": "PASS",
+    "gitDiffCheck": "PASS",
+    "nonCanonicalBrandOccurrences": 0
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "WAITING_FOR_CONTROLLED_BRIDGE_CONVERGENCE_AND_RECIPE"
+}
