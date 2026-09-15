@@ -7,11 +7,11 @@ Bridge : brouillon privé de prépublication
 
 ## 1. Règle transverse de sortie
 
-Aucun site ne peut être déclaré PASS à partir d'un commit, d'un document de preuve ou d'un build pris isolément. La sortie exige un quintuplet cohérent sur une même version :
+Aucun site ne peut être déclaré PASS à partir d'un commit, d'un document de preuve ou d'un build pris isolément. Le Bridge commun doit distinguer le commit d'intégration du candidat métier. La sortie exige une chaîne de preuve cohérente :
 
-SOURCE SHA -> BUILD -> RUNTIME BRIDGE -> MANIFESTE MÉDIAS -> GATE DE RECETTE
+CANDIDATE SOURCE SHA -> CANDIDATE PACKAGE SHA-256 -> INTEGRATION SHA -> RUNTIME PACKAGE SHA-256 -> MANIFESTE MÉDIAS -> GATE DE RECETTE
 
-Le runtime doit prouver le même SHA que la source. Le build et le manifeste médias doivent être hashés. Tous les médias réellement référencés doivent avoir une provenance et un statut de droits. Un PASS exige P0=0 et P1=0.
+Le runtime doit prouver le SHA d'intégration réellement déployé et, pour chaque site, un paquet servi strictement identique au paquet candidat par SHA-256. Cette séparation permet à un seul runtime Bridge de servir plusieurs candidats issus de commits différents sans falsifier leur provenance. Tous les médias réellement référencés doivent avoir une provenance et un statut de droits. Un PASS exige P0=0 et P1=0.
 
 ## 2. État de vérité observé
 
@@ -125,6 +125,6 @@ Les nouvelles surfaces du Socle V2 ne doivent plus propager la variante LES MOTS
 
 ## 10. Règle de fermeture
 
-Un site quitte les ateliers uniquement lorsque les cinq maillons du quintuplet sont présents, concordants et conservés comme preuves. Toute divergence ramène le site au statut candidat, sans effacer les travaux déjà qualifiés.
+Un site quitte les ateliers uniquement lorsque toute la chaîne candidat → paquet → intégration → runtime → médias → recette est présente, concordante et conservée comme preuve. Toute divergence ramène le site au statut candidat, sans effacer les travaux déjà qualifiés.
 
 SHA-256 du fichier source Markdown : cf48b30f91824e0cc17512cc50395f7e98baa27449a5291970f75a85e5a5c040

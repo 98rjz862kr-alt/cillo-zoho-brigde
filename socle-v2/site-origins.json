@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "algorithm": "sha256(path + NUL + size + NUL + fileSha256 + LF), paths sorted",
   "sites": {
     "musee": {
@@ -11,8 +11,8 @@
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
-      "candidatePackageSha256": "7e77117cd7aaf30ca8d3aff08905abbce805c6d4200a2c67920902cd2303bf91",
+      "candidateSourceSha": "90feb347652b025ebb657e76d41f691a11956ef6",
+      "candidatePackageSha256": "2c5ba46b149a50fbc9b227d18105d503ba9d52b4af7d67460b7719064fd025f8",
       "state": "CONVERGENCE_REQUIRED",
       "mayRedeployBeforeRecipe": true
     },
@@ -25,10 +25,9 @@
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": null,
-      "candidatePackageSha256": null,
-      "workingPackageSha256": "a39320aee8c24c464cb4b33b426e81bfa38df54f7df91f29af3899bdcc8d3f09",
-      "state": "CANONICAL_CANDIDATE_REQUIRED",
+      "candidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
+      "candidatePackageSha256": "1ffcbbc1b4d377073d4652aa57742f7567edc71ba50a3b11ff5367832a962110",
+      "state": "CONVERGENCE_REQUIRED",
       "mayRedeployBeforeRecipe": false
     }
   }

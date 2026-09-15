@@ -3,7 +3,7 @@
   "$id": "https://lesmotsimages.com/schema/site-manifest-v2.json",
   "title": "LMI Site Manifest V2",
   "type": "object",
-  "required": ["site","source","build","runtime","mediaManifest","recipeGate"],
+  "required": ["site","candidate","integration","build","runtime","mediaManifest","recipeGate"],
   "properties": {
     "site": {
       "type": "object",
@@ -16,14 +16,25 @@
       },
       "additionalProperties": false
     },
-    "source": {
+    "candidate": {
       "type": "object",
-      "required": ["repository","sha"],
+      "required": ["repository","sourceSha","packageSha256"],
       "properties": {
         "repository": {"type": "string","pattern": "^[^/]+/[^/]+$"},
-        "sha": {"type": "string","pattern": "^[0-9a-f]{40}$"}
+        "sourceSha": {"type": "string","pattern": "^[0-9a-f]{40}$"},
+        "packageSha256": {"type": "string","pattern": "^[0-9a-f]{64}$"},
+        "sourcePr": {"type": ["integer","null"],"minimum": 1}
       },
-      "additionalProperties": false
+      "additionalProperties": true
+    },
+    "integration": {
+      "type": "object",
+      "required": ["repository","sourceSha"],
+      "properties": {
+        "repository": {"type": "string","pattern": "^[^/]+/[^/]+$"},
+        "sourceSha": {"type": "string","pattern": "^[0-9a-f]{40}$"}
+      },
+      "additionalProperties": true
     },
     "build": {
       "type": "object",
@@ -36,11 +47,12 @@
     },
     "runtime": {
       "type": "object",
-      "required": ["bridgeUrl","observedAt","sourceSha"],
+      "required": ["bridgeUrl","observedAt","integrationSha","packageSha256"],
       "properties": {
         "bridgeUrl": {"type": "string","format": "uri"},
         "observedAt": {"type": "string","format": "date-time"},
-        "sourceSha": {"type": "string","pattern": "^[0-9a-f]{40}$"}
+        "integrationSha": {"type": "string","pattern": "^[0-9a-f]{40}$"},
+        "packageSha256": {"type": "string","pattern": "^[0-9a-f]{64}$"}
       },
       "additionalProperties": true
     },
@@ -84,10 +96,7 @@
       "then": {
         "properties": {
           "recipeGate": {
-            "properties": {
-              "p0": {"const": 0},
-              "p1": {"const": 0}
-            },
+            "properties": {"p0": {"const": 0},"p1": {"const": 0}},
             "required": ["p0","p1"]
           }
         }

@@ -25,15 +25,17 @@ Les variantes `LES MOTS IMAGES` et `Les Mots Images` sont non canoniques pour le
 
 Aucun site ne peut être déclaré PASS sur la seule présence d'un commit ou d'un document de preuve. Les cinq maillons doivent désigner la même version :
 
-`SOURCE SHA -> BUILD -> RUNTIME BRIDGE -> MANIFESTE MEDIAS -> GATE DE RECETTE`
+`CANDIDATE SOURCE SHA -> CANDIDATE PACKAGE SHA-256 -> INTEGRATION SHA -> RUNTIME PACKAGE SHA-256 -> MANIFESTE MEDIAS -> GATE DE RECETTE`
 
 Le contrat machine correspondant est `site-manifest.schema.json`.
 
 ### Règles
 
-1. `source.sha` est un SHA Git de 40 caractères.
-2. `runtime.sourceSha` doit être identique à `source.sha`.
-3. Le build est identifié et hashé en SHA-256.
+1. `candidate.sourceSha` est le SHA Git du candidat métier qualifié.
+2. `candidate.packageSha256` fige le contenu utile du site.
+3. `integration.sourceSha` et `runtime.integrationSha` doivent être identiques.
+4. `runtime.packageSha256` doit être identique à `candidate.packageSha256`.
+5. Le build est identifié et hashé en SHA-256.
 4. Tous les médias réellement référencés sont manifestés avec SHA-256, provenance et statut de droits.
 5. Un PASS exige `p0=0` et `p1=0`.
 6. Bridge est le brouillon de prépublication. Il ne constitue pas une publication publique.

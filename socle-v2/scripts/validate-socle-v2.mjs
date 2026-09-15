@@ -40,10 +40,14 @@ function validateManifest(file) {
   const rel = path.relative(process.cwd(), file);
   const site = data?.site?.id;
   if (!ALLOWED_SITES.has(site)) fail(`${rel}: site.id invalide`);
-  if (!HEX40.test(data?.source?.sha || '')) fail(`${rel}: source.sha invalide`);
+  if (!HEX40.test(data?.candidate?.sourceSha || '')) fail(`${rel}: candidate.sourceSha invalide`);
+  if (!HEX64.test(data?.candidate?.packageSha256 || '')) fail(`${rel}: candidate.packageSha256 invalide`);
+  if (!HEX40.test(data?.integration?.sourceSha || '')) fail(`${rel}: integration.sourceSha invalide`);
   if (!HEX64.test(data?.build?.sha256 || '')) fail(`${rel}: build.sha256 invalide`);
-  if (!HEX40.test(data?.runtime?.sourceSha || '')) fail(`${rel}: runtime.sourceSha invalide`);
-  if (data?.runtime?.sourceSha !== data?.source?.sha) fail(`${rel}: divergence source.sha/runtime.sourceSha`);
+  if (!HEX40.test(data?.runtime?.integrationSha || '')) fail(`${rel}: runtime.integrationSha invalide`);
+  if (data?.runtime?.integrationSha !== data?.integration?.sourceSha) fail(`${rel}: divergence integration.sourceSha/runtime.integrationSha`);
+  if (!HEX64.test(data?.runtime?.packageSha256 || '')) fail(`${rel}: runtime.packageSha256 invalide`);
+  if (data?.runtime?.packageSha256 !== data?.candidate?.packageSha256) fail(`${rel}: contenu runtime différent du paquet candidat`);
   if (!HEX64.test(data?.mediaManifest?.sha256 || '')) fail(`${rel}: mediaManifest.sha256 invalide`);
   if (!Array.isArray(data?.mediaManifest?.items)) fail(`${rel}: mediaManifest.items absent`);
   for (const item of data?.mediaManifest?.items || []) {
@@ -58,7 +62,6 @@ function validateManifest(file) {
     if ((data?.mediaManifest?.items || []).some((item) => item.rightsStatus === 'unknown')) fail(`${rel}: PASS interdit avec droits média inconnus`);
   }
 }
-
 
 function validateStructure() {
   const required = [

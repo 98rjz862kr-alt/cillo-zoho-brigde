@@ -5,9 +5,16 @@
     "publicHost": "musee.lesmotsimages.com",
     "bridgeScope": "https://bridge.lesmotsimages.com"
   },
-  "source": {
+  "candidate": {
     "repository": "98rjz862kr-alt/cillo-zoho-brigde",
-    "sha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "packageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+    "sourcePr": 116
+  },
+  "integration": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "mode": "direct-candidate-runtime"
   },
   "build": {
     "id": "git-archive-f8d046bd-20260915",
@@ -16,11 +23,12 @@
   "runtime": {
     "bridgeUrl": "https://bridge.lesmotsimages.com",
     "observedAt": "2026-09-07T12:53:46Z",
-    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
     "renderServiceId": "srv-d9osqbmgekts73eoqis0",
     "renderDeployId": "dep-dafb7867bikc73fsrg1g",
     "renderStatus": "live",
-    "sourceManifestStatus": "READY_TO_PUBLISH"
+    "sourceManifestStatus": "READY_TO_PUBLISH",
+    "integrationSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "packageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd"
   },
   "mediaManifest": {
     "sha256": "962786007c591915cf8df6a6be6774a4f3e25447a483a9810559b5505b910a32",

@@ -6,6 +6,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { listDraftFiles, readDraftHtml, readDraftAsset } from './drafts.js';
 import { isAuthorized } from './security.js';
+import { buildRuntimeRegistry } from './socle-v2/runtime-registry.mjs';
 
 const __filename=fileURLToPath(import.meta.url);
 const rootDir=path.dirname(__filename);
@@ -20,6 +21,7 @@ const core=spawn(process.execPath,[path.join(rootDir,'server.js')],{
 function escapeHtml(value){return String(value||'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;');}
 function sendHtml(res,html,status=200){res.writeHead(status,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: https:; frame-ancestors 'self'"});res.end(html);}
 function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox"});res.end(asset.content);}
+function sendJson(res,payload,status=200){const body=JSON.stringify(payload);res.writeHead(status,{'content-type':'application/json; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-length':Buffer.byteLength(body)});res.end(body);}
 
 function readBoaJson(fileName){
   const filePath=path.join(rootDir,'drafts','boa-totem-soya',fileName);
@@ -94,6 +96,11 @@ const server=createServer(async(req,res)=>{
     const body=await parseForm(req);
     if(!passwordMatches(body.password))return sendHtml(res,loginPage('Mot de passe incorrect.'),401);
     createSession(res);res.writeHead(303,{location:'/atelier','cache-control':'no-store'});return res.end();
+  }
+  if(req.method==='GET'&&url.pathname==='/api/socle-v2/runtime'){
+    if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendJson(res,{error:'Unauthorized'},401);
+    const integrationSha=process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||null;
+    return sendJson(res,buildRuntimeRegistry({integrationSha}));
   }
   if(req.method==='GET'&&url.pathname.startsWith('/atelier/file/')){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendHtml(res,loginPage('Accès refusé.'),401);
