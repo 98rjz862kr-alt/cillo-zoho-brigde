@@ -65,9 +65,9 @@ Interdiction : inventer prix, allergènes, disponibilité, fournisseur, conserva
 
 ## 6. Flux C — Éditions
 
-Éditions dispose d'un Hub privé riche et de la PR #99, mais aucun candidat unique n'est retenu ici comme autorité de sortie courante.
+Éditions dispose désormais d’un candidat canonique unique : `7de14ba0381f4f83907900c95a83f5dc15377f81`, PR #120. Il dérive du Hub qualifié `15dcdc84b8e43cc2b5e260eb1edacd32c62fe7e9` et applique la marque canonique LES MOTS IMAGÉS sur les surfaces actives. Les validateurs Hub, liens, copie visiteur, SEO, visuels, entrée protégée et le test global passent sur ce SHA. Le build figé porte le SHA-256 `e7f479babc7a4822bc8ab9d39b0ccbd6ba1990db4d263a06e60e9505b851967e`.
 
-Le candidat canonique à construire doit réunir sur un même SHA :
+Le candidat canonique réunit désormais sur un même SHA :
 - catalogue canonique ;
 - couvertures et provenance des médias ;
 - pages ouvrage et navigation ;
