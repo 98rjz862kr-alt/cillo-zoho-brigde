@@ -52,7 +52,7 @@ for(const page of publicPages){
 const contact=readFileSync(path.join(root,'contact.html'),'utf8');
 assert(contact.includes('mailto:lesmotsimages@gmail.com'),'Museum public contact email missing');
 const legal=readFileSync(path.join(root,'mentions-legales-confidentialite.html'),'utf8');
-for(const value of ['LMI Éditions — Les Mots Images','BAABOY CILLO','lesmotsimages@gmail.com']) assert(legal.includes(value),`Legal page missing ${value}`);
+for(const value of ['LMI Éditions — Les Mots Imagés','BAABOY CILLO','lesmotsimages@gmail.com']) assert(legal.includes(value),`Legal page missing ${value}`);
 const index=readFileSync(path.join(root,'index.html'),'utf8');
 for(const collection of ['Atlas des humanités disparues','Les routes invisibles','Archives des seuils']) assert(index.includes(collection),`Launch collection missing from home: ${collection}`);
 const robots=readFileSync(path.join(root,'robots.txt'),'utf8');
