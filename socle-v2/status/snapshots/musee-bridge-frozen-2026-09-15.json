@@ -1,0 +1,18 @@
+{
+  "site": "musee",
+  "decision": "FREEZE_FOR_HUMAN_RECIPE",
+  "bridge": {
+    "serviceId": "srv-d9osqbmgekts73eoqis0",
+    "deployId": "dep-dafb7867bikc73fsrg1g",
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "renderStatus": "live",
+    "manifestStatusAtSource": "READY_TO_PUBLISH",
+    "sourceManifestSha256": "28366086cae08071725873e8cb674d34104a821cfd4398762e4dffd78e8dab64"
+  },
+  "currentMain": {
+    "sourceSha": "8517bbac8eddc3f60ba35a20d54dbabc787e7947",
+    "manifestStatus": "CANDIDATE_PRIVATE",
+    "note": "Current main is not the authority for the human recipe of the frozen Bridge snapshot."
+  },
+  "rule": "Do not rebuild or redeploy this snapshot before human recipe unless a blocking defect is proven."
+}

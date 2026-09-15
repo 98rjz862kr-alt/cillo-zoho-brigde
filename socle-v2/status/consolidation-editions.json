@@ -1,0 +1,17 @@
+{
+  "site": "editions",
+  "state": "CANONICAL_CANDIDATE_REQUIRED",
+  "knownPrivateWork": "PR #99 and Hub draft set exist, but no single current exact-SHA candidate is accepted here as release authority",
+  "requiredCandidateScope": [
+    "canonical catalogue",
+    "canonical covers and media provenance",
+    "book pages and navigation",
+    "integral reading state explicitly distinguished from opening extracts",
+    "audio capability explicitly distinguished from produced audiobooks",
+    "responsive and accessibility controls",
+    "Bridge noindex prepublication",
+    "complete media manifest",
+    "recipe gate"
+  ],
+  "releaseRule": "No PASS until one source SHA satisfies the full five-link gate."
+}

@@ -1,0 +1,43 @@
+{
+  "asOf": "2026-09-15T14:45:00+02:00",
+  "brand": "LES MOTS IMAGÉS",
+  "bridgeRole": "private-prepublication-draft",
+  "rule": "SOURCE_SHA -> BUILD -> RUNTIME_BRIDGE -> MEDIA_MANIFEST -> RECIPE_GATE",
+  "bridgeObserved": {
+    "serviceId": "srv-d9osqbmgekts73eoqis0",
+    "deployId": "dep-dafb7867bikc73fsrg1g",
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "status": "live",
+    "observedFrom": "Render deploy record"
+  },
+  "sites": {
+    "musee": {
+      "classification": "closest-to-exit",
+      "candidateSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+      "bridgeExactSha": true,
+      "nextGate": "human-recipe-on-frozen-snapshot",
+      "blockSocleV2": false
+    },
+    "maison": {
+      "classification": "candidate-ready-for-bridge-convergence",
+      "candidateSourceSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
+      "bridgeExactSha": false,
+      "nextGate": "deploy-exact-candidate-to-private-bridge-and-run-recipe",
+      "blockSocleV2": false
+    },
+    "food": {
+      "classification": "candidate-ready-for-bridge-convergence",
+      "candidateSourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
+      "bridgeExactSha": false,
+      "nextGate": "deploy-exact-candidate-to-private-bridge-and-run-recipe",
+      "blockSocleV2": false
+    },
+    "editions": {
+      "classification": "canonical-consolidation-required",
+      "candidateSourceSha": null,
+      "bridgeExactSha": false,
+      "nextGate": "produce-one-canonical-candidate-with-catalogue-covers-reading-audio-and-media-provenance",
+      "blockSocleV2": false
+    }
+  }
+}
