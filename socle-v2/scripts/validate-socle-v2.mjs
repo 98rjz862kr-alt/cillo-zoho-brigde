@@ -104,10 +104,14 @@ function validateMuseumRecipe() {
   const file=path.join(ROOT,'recipe/musee-human-recipe-2026-09-15.json');
   const data=parseJson(file);
   if (!data) return;
-  if (data.frozenSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('recette Musée: SHA source gelé incorrect');
-  if (data.frozenPackageSha256!=='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd') fail('recette Musée: SHA-256 paquet gelé incorrect');
+  if (data.historicalFrozenSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('recette Musée: SHA historique gelé incorrect');
+  if (data.historicalFrozenPackageSha256!=='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd') fail('recette Musée: paquet historique gelé incorrect');
+  if (data.historicalBlocker!=='BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES') fail('recette Musée: blocage de marque historique absent');
+  if (data.targetSourceSha!=='a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c') fail('recette Musée: SHA candidat corrigé incorrect');
+  if (data.targetPackageSha256!=='2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea') fail('recette Musée: paquet candidat corrigé incorrect');
   if (!Array.isArray(data.checks)||data.checks.length<12) fail('recette Musée: contrôles humains incomplets');
-  if ((data.checks||[]).some((c)=>c.result!=='PENDING')) fail('recette Musée: résultat humain prérempli interdit');
+  if (data.decision==='WAITING_FOR_CORRECTED_BRIDGE_CANDIDATE' && (data.checks||[]).some((c)=>c.result!=='BLOCKED_PENDING_CORRECTED_RUNTIME')) fail('recette Musée: contrôles doivent rester bloqués avant convergence runtime');
+  if (data.decision==='HUMAN_RECIPE_REQUIRED' && (data.checks||[]).some((c)=>c.result!=='PENDING')) fail('recette Musée: résultat humain prérempli interdit');
 }
 
 validateStructure();

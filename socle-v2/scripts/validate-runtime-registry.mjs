@@ -29,7 +29,7 @@ try{
   for(const site of ['musee','maison','food','editions'])if(!manifest.sites?.[site])throw new Error(`Site missing from runtime registry: ${site}`);
   if(manifest.sites.food.exactCandidateContent!==true)throw new Error('Food candidate content is not exact in integration branch');
   if(manifest.sites.maison.exactCandidateContent!==true)throw new Error('Maison candidate content is not exact in integration branch');
-  if(manifest.sites.musee.exactCandidateContent!==false)throw new Error('Museum worktree must not impersonate frozen recipe snapshot');
+  if(manifest.sites.musee.exactCandidateContent!==true)throw new Error('Corrected Museum candidate content is not exact in integration branch');
   if(manifest.sites.editions.exactCandidateContent!==true)throw new Error('Editions candidate content is not exact in integration branch');
   console.log('SOCLE_V2_RUNTIME_PASS');
 } finally {

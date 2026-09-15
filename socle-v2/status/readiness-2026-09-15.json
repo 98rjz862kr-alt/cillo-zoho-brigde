@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-15T15:35:00+02:00",
+  "asOf": "2026-09-15T20:35:00+02:00",
   "brand": "LES MOTS IMAGÉS",
   "bridgeRole": "private-prepublication-draft",
   "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
@@ -8,16 +8,21 @@
     "deployId": "dep-dafb7867bikc73fsrg1g",
     "integrationSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
     "status": "live",
-    "authority": "frozen-museum-human-recipe"
+    "authority": "historical-qualified-snapshot-blocked-by-brand-identity"
   },
   "sites": {
     "musee": {
-      "classification": "READY_FOR_HUMAN_RECIPE",
-      "candidateSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
-      "candidatePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
-      "bridgeExactCandidate": true,
-      "nextGate": "human-recipe-on-frozen-snapshot",
-      "redeployBeforeRecipe": false
+      "classification": "CORRECTED_CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",
+      "historicalLiveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+      "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+      "historicalLiveRecipeEligible": false,
+      "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
+      "candidateSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
+      "candidatePackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": false,
+      "nextGate": "controlled-bridge-convergence-to-corrected-candidate-then-human-recipe",
+      "publicPublishAllowed": false
     },
     "maison": {
       "classification": "CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",

@@ -43,10 +43,13 @@
     ]
   },
   "recipeGate": {
-    "status": "NOT_RUN",
-    "checkedAt": "2026-09-15T12:57:07Z",
+    "status": "NO_GO",
+    "checkedAt": "2026-09-15T20:35:00+02:00",
     "p0": 0,
-    "p1": 0,
-    "decision": "FREEZE_FOR_HUMAN_RECIPE"
+    "p1": 1,
+    "decision": "SUPERSEDED_FOR_RECIPE_BY_BRAND_CORRECTION",
+    "blockers": [
+      "Brand identity rendered as LES MOTS IMAGES / Les Mots Images instead of canonical LES MOTS IMAGÉS"
+    ]
   }
 }

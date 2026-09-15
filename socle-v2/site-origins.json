@@ -4,10 +4,10 @@
   "sites": {
     "musee": {
       "root": "drafts/lmi-musee-complet",
-      "candidateSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
-      "candidatePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
-      "state": "FROZEN_FOR_HUMAN_RECIPE",
-      "mayRedeployBeforeRecipe": false
+      "candidateSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
+      "candidatePackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea",
+      "state": "CONVERGENCE_REQUIRED",
+      "mayRedeployBeforeRecipe": true
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
