@@ -19,7 +19,7 @@ try{
   const home=await request(`/atelier/file/${encodeURIComponent('hub-lmi-editions/01-accueil.html')}?password=${encodeURIComponent(password)}`);
   if(!home.ok)throw new Error(`Authenticated Hub home failed: ${home.status}`);
   const homeHtml=await home.text();
-  if(!homeHtml.includes('<title>LES MOTS IMAGES — Site maître de l’écosystème LMI</title>'))throw new Error('Visitor home title is not canonical');
+  if(!homeHtml.includes('<title>LES MOTS IMAGÉS — Site maître de l’écosystème LMI</title>'))throw new Error('Visitor home title is not canonical');
   if(!homeHtml.includes('<h1>Un écosystème structuré autour de LMI Éditions</h1>'))throw new Error('Visitor home H1 is not canonical');
   if(/Brouillon Bridge|validation humaine obligatoire|bridge\.lesmotsimages\.com/i.test(homeHtml))throw new Error('Internal wording leaked into authenticated visitor home');
   const privateSommaire=await request(`/atelier/file/${encodeURIComponent('hub-lmi-editions/00-sommaire-hub-lmi-editions.html')}?password=${encodeURIComponent(password)}`);

@@ -38,7 +38,7 @@ const canonical = {
   '02-comprendre-lmi.html': ['LMI Éditions, pôle source de l’écosystème LMI'],
   '03-choisir-son-pole.html': ['Choisir son pôle dans l’écosystème LMI'],
   '04-poles-associes.html': ['Les pôles associés à LMI Éditions'],
-  '05-contact.html': ['Les Mots Images — informations et contacts officiels'],
+  '05-contact.html': ['Les Mots Imagés — informations et contacts officiels'],
   '06-lmi-maison.html': ['LMI Maison — le prolongement domestique, textile et décoratif'],
   '07-lmi-food.html': ['LMI Food — un univers culinaire premium, universel et transmissible'],
   '08-lmi-musee.html': ['LMI Musée — conserver, documenter et transmettre']
