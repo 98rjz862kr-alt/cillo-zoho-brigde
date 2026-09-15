@@ -58,8 +58,8 @@ function inlinePreviewAssets(relativeHtmlPath, html) {
     if (!assetPath.startsWith(`${path.resolve(DRAFT_ROOT)}${path.sep}`)) return full;
     try {
       if (path.basename(assetPath) === 'lmi-logo-officiel.svg') {
-        const webpPath = path.join(path.dirname(assetPath), 'lmi-logo-main.webp');
-        if (statSync(webpPath).isFile()) return `${prefix}data:image/webp;base64,${readFileSync(webpPath).toString('base64')}${suffix}`;
+        const logoPath = path.join(path.dirname(assetPath), 'lmi-logo-main.png');
+        if (statSync(logoPath).isFile()) return `${prefix}/atelier/file/${encodeURIComponent(path.relative(DRAFT_ROOT, logoPath).split(path.sep).join('/'))}${suffix}`;
       }
       const ext = path.extname(assetPath).toLowerCase();
       const mime = ASSET_MIME_TYPES.get(ext);

@@ -22,7 +22,7 @@ const assert = (condition, message) => { if (!condition) throw new Error(message
 
 assert(existsSync(path.join(root,'styles.css')),'LMI Musée styles.css missing');
 assert(existsSync(path.join(root,'assets/lmi-logo-officiel.svg')),'Official LMI logo wrapper missing');
-assert(existsSync(path.join(root,'assets/lmi-logo-main.webp')),'Official LMI logo image missing');
+assert(existsSync(path.join(root,'assets/lmi-logo-main.png')),'Official LMI logo image missing');
 assert(existsSync(path.join(root,'source-manifest.json')),'Museum source manifest missing');
 assert(existsSync(path.join(root,'robots.txt')),'Museum robots.txt missing');
 assert(existsSync(path.join(root,'sitemap.xml')),'Museum sitemap.xml missing');
@@ -66,6 +66,6 @@ for(const page of publicPages){
 }
 assert(!sitemap.includes('/notices/'),'Hypothesis notices leaked into sitemap');
 const manifest=JSON.parse(readFileSync(path.join(root,'source-manifest.json'),'utf8'));
-assert(manifest.status==='READY_TO_PUBLISH','Source manifest is not READY_TO_PUBLISH');
+assert(manifest.status==='CANDIDATE_RECIPE_REQUIRED','Source manifest is not CANDIDATE_RECIPE_REQUIRED');
 assert(!manifest.documents.some(d=>d.status==='A_REQUALIFIER'),'Blocking A_REQUALIFIER source remains');
-console.log(`Validated LMI Musée publication: ${publicPages.length} public pages ready, ${archivedPages.length} archived routes locked, sitemap/robots ready, official identity, strict palette, contact and legal layer present.`);
+console.log(`Validated LMI Musée publication: ${publicPages.length} public-target pages structurally checked; human recipe pending, ${archivedPages.length} archived routes locked, sitemap/robots ready, official identity, strict palette, contact and legal layer present.`);

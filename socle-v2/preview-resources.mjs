@@ -11,6 +11,13 @@ export function collectPreviewResources() {
     const html=readDraftHtml(file.relativePath);
     if(!html)throw new Error('Draft not rendered: '+file.relativePath);
     resources.set(file.relativePath,{site:roots.get(file.relativePath.split('/')[0]),type:'html',body:Buffer.from(html)});
+    for(const match of html.matchAll(/<img\b[^>]*\bdata-lmi-asset=["']([^"']+)["'][^>]*>/gi)){
+      const relative='hub-lmi-editions/assets/'+match[1];
+      const asset=readDraftAsset(relative);
+      if(!asset)throw new Error('Missing dynamically loaded preview asset: '+relative);
+      resources.set(relative,{site:'editions',type:asset.contentType,body:Buffer.from(asset.content)});
+      links.push({from:file.relativePath,to:relative,dynamic:true});
+    }
     for(const tag of html.matchAll(/<(?:a|link|img|script|source|video|audio)\b[^>]*>/gi)){
       for(const match of tag[0].matchAll(/\s(href|src|poster)\s*=\s*(["'])([^"']*)\2/gi)){
         const value=match[3];

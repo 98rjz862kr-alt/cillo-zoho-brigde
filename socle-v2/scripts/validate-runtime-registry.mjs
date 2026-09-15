@@ -5,7 +5,7 @@ const password='socle-v2-runtime-test';
 const integrationSha='0000000000000000000000000000000000000000';
 const child=spawn(process.execPath,['public-entry.js'],{
   cwd:process.cwd(),
-  env:{...process.env,PORT:String(port),ADMIN_PASSWORD:password,GIT_COMMIT:integrationSha},
+  env:{...process.env,PORT:String(port),ADMIN_PASSWORD:password,GIT_COMMIT:integrationSha,RENDER_GIT_COMMIT:integrationSha},
   stdio:['ignore','pipe','pipe']
 });
 let stderr='';
