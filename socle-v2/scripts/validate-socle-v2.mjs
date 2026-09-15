@@ -67,7 +67,7 @@ function validateStructure() {
   const required = [
     'tokens.json','site-manifest.schema.json','styles/lmi-tokens.css','styles/lmi-base.css',
     'components/site-shell.js','components/footer.js','contracts/seo.schema.json',
-    'contracts/security.json','contracts/qa-gate.json'
+    'contracts/security.json','contracts/qa-gate.json','recipe/musee-human-recipe-2026-09-15.json'
   ];
   for (const rel of required) if (!existsSync(path.join(ROOT, rel))) fail(`fichier requis absent: ${rel}`);
 }
@@ -90,9 +90,20 @@ function validateBrandInSocle() {
   for (const root of roots) walk(path.join(ROOT,root));
 }
 
+function validateMuseumRecipe() {
+  const file=path.join(ROOT,'recipe/musee-human-recipe-2026-09-15.json');
+  const data=parseJson(file);
+  if (!data) return;
+  if (data.frozenSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('recette Musée: SHA source gelé incorrect');
+  if (data.frozenPackageSha256!=='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd') fail('recette Musée: SHA-256 paquet gelé incorrect');
+  if (!Array.isArray(data.checks)||data.checks.length<12) fail('recette Musée: contrôles humains incomplets');
+  if ((data.checks||[]).some((c)=>c.result!=='PENDING')) fail('recette Musée: résultat humain prérempli interdit');
+}
+
 validateStructure();
 validateTokens();
 validateBrandInSocle();
+validateMuseumRecipe();
 const manifestDir = path.join(ROOT, 'site-manifests');
 if (existsSync(manifestDir)) {
   for (const name of readdirSync(manifestDir).filter((name) => name.endsWith('.json')).sort()) {

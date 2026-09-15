@@ -41,7 +41,7 @@ Actions :
 1. Préserver le candidat exact.
 2. Construire ce SHA sans modification silencieuse.
 3. Déployer sur la prépublication privée Bridge.
-4. Vérifier que le runtime annonce exactement le même SHA.
+4. Vérifier que le runtime annonce le SHA d’intégration déployé et que le SHA-256 du paquet Maison servi est identique au paquet candidat.
 5. Générer le manifeste complet des médias réellement référencés avec SHA-256, provenance et droits.
 6. Exécuter le gate de recette.
 
@@ -57,7 +57,7 @@ Actions :
 1. Préserver le candidat exact.
 2. Construire ce SHA sans modification silencieuse.
 3. Déployer sur la prépublication privée Bridge.
-4. Vérifier le SHA runtime.
+4. Vérifier le SHA d’intégration runtime et l’identité SHA-256 du paquet Food servi.
 5. Manifester les médias, droits et provenance.
 6. Rejouer le gate Food, en maintenant inertes toutes données commerciales non prouvées.
 
@@ -78,7 +78,7 @@ Le candidat canonique réunit désormais sur un même SHA :
 - manifeste médias complet ;
 - gate de recette.
 
-Aucun PASS ne sera accepté tant que ce candidat unique n'existe pas.
+Le candidat unique existe désormais. Aucun PASS ne sera accepté tant que son paquet exact n’est pas convergé dans le runtime Bridge, observé et soumis à recette.
 
 ## 7. Flux D — Socle commun V2
 

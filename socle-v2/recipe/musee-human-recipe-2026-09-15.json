@@ -1,0 +1,31 @@
+{
+  "site": "musee",
+  "decision": "HUMAN_RECIPE_REQUIRED",
+  "frozenSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+  "frozenPackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+  "bridge": {
+    "serviceId": "srv-d9osqbmgekts73eoqis0",
+    "deployId": "dep-dafb7867bikc73fsrg1g",
+    "status": "live"
+  },
+  "rules": [
+    "do-not-redeploy-before-recipe",
+    "do-not-substitute-current-main",
+    "record-each-reserve-against-frozen-source-sha",
+    "no-publication-or-dns-change-from-this-recipe"
+  ],
+  "checks": [
+    {"id":"MUS-01","label":"Accueil et navigation principale","result":"PENDING"},
+    {"id":"MUS-02","label":"17 pages publiques qualifiées accessibles sans erreur","result":"PENDING"},
+    {"id":"MUS-03","label":"Parcours collections et archives cohérents","result":"PENDING"},
+    {"id":"MUS-04","label":"Parcours Presse, Partenaires, Programmateurs et Prescripteurs","result":"PENDING"},
+    {"id":"MUS-05","label":"Contact et mentions légales affichés correctement","result":"PENDING"},
+    {"id":"MUS-06","label":"Desktop 1440 px sans rupture visuelle","result":"PENDING"},
+    {"id":"MUS-07","label":"Mobile 390 px et 320 px sans débordement","result":"PENDING"},
+    {"id":"MUS-08","label":"Navigation clavier et focus visible","result":"PENDING"},
+    {"id":"MUS-09","label":"Liens, médias, crédits et provenance visibles conformes","result":"PENDING"},
+    {"id":"MUS-10","label":"Aucune notice hypothétique exposée comme corpus validé","result":"PENDING"},
+    {"id":"MUS-11","label":"Robots, sitemap et canonical cohérents avec le paquet qualifié","result":"PENDING"},
+    {"id":"MUS-12","label":"Décision humaine finale GO / NO_GO consignée","result":"PENDING"}
+  ]
+}
