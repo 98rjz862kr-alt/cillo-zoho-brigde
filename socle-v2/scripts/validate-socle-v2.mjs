@@ -59,7 +59,37 @@ function validateManifest(file) {
   }
 }
 
+
+function validateStructure() {
+  const required = [
+    'tokens.json','site-manifest.schema.json','styles/lmi-tokens.css','styles/lmi-base.css',
+    'components/site-shell.js','components/footer.js','contracts/seo.schema.json',
+    'contracts/security.json','contracts/qa-gate.json'
+  ];
+  for (const rel of required) if (!existsSync(path.join(ROOT, rel))) fail(`fichier requis absent: ${rel}`);
+}
+
+function validateBrandInSocle() {
+  const roots = ['components','styles','contracts','examples'];
+  const textExtensions = new Set(['.md','.json','.js','.mjs','.css','.html']);
+  function walk(dir) {
+    if (!existsSync(dir)) return;
+    for (const ent of readdirSync(dir,{withFileTypes:true})) {
+      const full=path.join(dir,ent.name);
+      if (ent.isDirectory()) walk(full);
+      else if (textExtensions.has(path.extname(ent.name))) {
+        const rel=path.relative(ROOT,full);
+        const text=readFileSync(full,'utf8');
+        if (/LES MOTS IMAGES|Les Mots Images/.test(text)) fail(`${rel}: variante de marque non canonique`);
+      }
+    }
+  }
+  for (const root of roots) walk(path.join(ROOT,root));
+}
+
+validateStructure();
 validateTokens();
+validateBrandInSocle();
 const manifestDir = path.join(ROOT, 'site-manifests');
 if (existsSync(manifestDir)) {
   for (const name of readdirSync(manifestDir).filter((name) => name.endsWith('.json')).sort()) {

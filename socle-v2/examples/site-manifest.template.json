@@ -1,0 +1,8 @@
+{
+  "site":{"id":"editions","name":"LMI Éditions","publicHost":"editions.lesmotsimages.com","bridgeScope":"/atelier/file/hub-lmi-editions%2F00-sommaire-hub-lmi-editions.html"},
+  "source":{"repository":"98rjz862kr-alt/cillo-zoho-brigde","sha":"0000000000000000000000000000000000000000"},
+  "build":{"id":"TO_FILL","sha256":"0000000000000000000000000000000000000000000000000000000000000000"},
+  "runtime":{"bridgeUrl":"https://bridge.lesmotsimages.com/","observedAt":"2026-09-15T00:00:00Z","sourceSha":"0000000000000000000000000000000000000000"},
+  "mediaManifest":{"sha256":"0000000000000000000000000000000000000000000000000000000000000000","items":[]},
+  "recipeGate":{"status":"NOT_RUN","checkedAt":"2026-09-15T00:00:00Z","p0":0,"p1":0}
+}
