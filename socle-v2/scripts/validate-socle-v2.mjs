@@ -96,6 +96,9 @@ function validateDeployGuard() {
   if (!data) return;
   if (data.branch!=='main'||data.autoDeploy!==true) fail('deploy guard: configuration Render inattendue');
   if (data.liveSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('deploy guard: snapshot Musée LIVE inattendu');
+  if (data.liveRecipeEligible!==false||data.liveBlocker!=='BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES') fail('deploy guard: blocage de marque LIVE non verrouillé');
+  if (data.targetCandidateSourceSha!=='a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c') fail('deploy guard: candidat Musée corrigé inattendu');
+  if (data.targetCandidatePackageSha256!=='2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea') fail('deploy guard: paquet Musée corrigé inattendu');
   if (data.museumRecipePending!==true) fail('deploy guard: recette Musée doit rester en attente');
   if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==false) fail('deploy guard: publication prématurée autorisée');
 }
