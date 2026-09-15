@@ -1,0 +1,70 @@
+{
+  "site": "maison.lesmotsimages.com",
+  "canonicalSource": "Google Drive",
+  "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+  "branch": "agent/lmi-maison-finalisation-20260906",
+  "publication": "INTERDITE_SANS_VALIDATION_TRANSVERSE",
+  "sources": [
+    {
+      "name": "00_REGLE_MAITRE_SHA256_ET_REPRISE_EXISTANT",
+      "driveId": "1G87gwUEITyHDX2LtPiLaOIajGtGGCULtqUqRbhNV374",
+      "sha256": "08625a9781414f9adade59d01c39f7a3e989440d678f89e0c39932f62465a8c9",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "MASTER_POST_PRODUCTION_SITES_LMI_2026-08-19",
+      "driveId": "18ctUHmHEtSHLOqY_qoAMJeG6fc1iKmE-_bRJQQa9tgo",
+      "sha256": "88a5237bcccf34992546c56bd5d88ff34b2d21c81839e0203932b5d8fca8404a",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "PROTOCOLE_TACHE_CONTINUE_LMI_MAISON_2026-08-04",
+      "driveId": "1I-4fhA9piRe8fbFBgQsjts68zrmREOsgECmModsA2VI",
+      "sha256": "b3d2b84233993a13e9d8f3c7ed231e5234192075dddee3c0934cb6cb842556d5",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "PROFESSIONAL_CURRENT_SITES_LMI_2026-08-13",
+      "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+      "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+      "status": "ACTIVE"
+    },
+    {
+      "name": "MISSION_EQUIPE_LMI_MAISON_4_AGENTS",
+      "driveId": "1VF6s75ar6AO-wRT0Lg9mn8c8DYzjOYTcc-vokGflpSM",
+      "sha256": "a3361533914a74cc8564211c2386f04ae1c8b52e85cd6e73a89f288212e98681",
+      "status": "ACTIVE"
+    }
+  ],
+  "illustrationSources": [
+    {
+      "name": "LMI-MAI-CORE-ICO-MASTER-V1.png",
+      "driveId": "1HFUwmzMAp--cAfbiNReaQwkmHsswJ9Go",
+      "format": "PNG",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "95a70767cbe2235c252f7d26b2ca01a5b7eb3e104e335d36baeac7ec4a789d3d",
+      "status": "SOURCE_RETROUVEE_MASTER_CANONIQUE"
+    },
+    {
+      "name": "LMI-MAI-CORE-ICO-WEB-V1.webp",
+      "driveId": "1OZbK4RHt5Apdt7aK9H294klKlV-BtOUi",
+      "format": "WEBP",
+      "width": 768,
+      "height": 768,
+      "sha256": "36437fa44d87a5da983890886f22f050cc260797484e9a8a0d92e4579f2f1ba6",
+      "status": "SOURCE_RETROUVEE_CANDIDAT_WEB"
+    }
+  ],
+  "register": {
+    "name": "REGISTRE_SHA256_LMI_MAISON",
+    "spreadsheetId": "18a1Wdg94UbqEkind0Igh9NmtnqPDJOOOxemhOlFLKls"
+  },
+  "gates": {
+    "oneSignOneRoom": "REQUIRED",
+    "separateSignFamilies": "REQUIRED",
+    "unverifiedPricePerformanceAvailabilitySupplier": "FAIL",
+    "illustrationWithoutDriveIdAndSha256": "FAIL",
+    "finalBridgePass": "REQUIRES_TRANSVERSE_VALIDATION"
+  }
+}
