@@ -1,0 +1,70 @@
+import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
+
+const ROOT = path.resolve(process.cwd(), 'socle-v2');
+const HEX40 = /^[0-9a-f]{40}$/;
+const HEX64 = /^[0-9a-f]{64}$/;
+const ALLOWED_SITES = new Set(['editions', 'food', 'maison', 'musee']);
+const ALLOWED_RIGHTS = new Set(['cleared', 'restricted', 'unknown']);
+const ALLOWED_STATUS = new Set(['PASS', 'NO_GO', 'NOT_RUN']);
+
+function fail(message) {
+  console.error(`SOCLE_V2_FAIL: ${message}`);
+  process.exitCode = 1;
+}
+
+function parseJson(file) {
+  try { return JSON.parse(readFileSync(file, 'utf8')); }
+  catch (error) { fail(`${path.relative(process.cwd(), file)}: JSON invalide (${error.message})`); return null; }
+}
+
+function validateTokens() {
+  const file = path.join(ROOT, 'tokens.json');
+  const data = parseJson(file);
+  if (!data) return;
+  if (data?.brand?.canonicalName !== 'LES MOTS IMAGÉS') fail('tokens.json: nom canonique incorrect');
+  if (data?.brand?.tagline !== 'LE VERBE PAR L’IMAGE') fail('tokens.json: signature incorrecte');
+  const expected = {
+    blue:'#143B7D', ochre:'#CC7722', sand:'#75553F', gold:'#D4AF37',
+    night:'#0F2747', ivory:'#F6F1E8', matteGold:'#C8A96B', stone:'#C9C3BA'
+  };
+  for (const [key, value] of Object.entries(expected)) {
+    if (data?.color?.[key] !== value) fail(`tokens.json: couleur ${key} attendue ${value}`);
+  }
+}
+
+function validateManifest(file) {
+  const data = parseJson(file);
+  if (!data) return;
+  const rel = path.relative(process.cwd(), file);
+  const site = data?.site?.id;
+  if (!ALLOWED_SITES.has(site)) fail(`${rel}: site.id invalide`);
+  if (!HEX40.test(data?.source?.sha || '')) fail(`${rel}: source.sha invalide`);
+  if (!HEX64.test(data?.build?.sha256 || '')) fail(`${rel}: build.sha256 invalide`);
+  if (!HEX40.test(data?.runtime?.sourceSha || '')) fail(`${rel}: runtime.sourceSha invalide`);
+  if (data?.runtime?.sourceSha !== data?.source?.sha) fail(`${rel}: divergence source.sha/runtime.sourceSha`);
+  if (!HEX64.test(data?.mediaManifest?.sha256 || '')) fail(`${rel}: mediaManifest.sha256 invalide`);
+  if (!Array.isArray(data?.mediaManifest?.items)) fail(`${rel}: mediaManifest.items absent`);
+  for (const item of data?.mediaManifest?.items || []) {
+    if (!item?.path) fail(`${rel}: média sans path`);
+    if (!HEX64.test(item?.sha256 || '')) fail(`${rel}: média ${item?.path || '?'} sans SHA-256 valide`);
+    if (!item?.provenance) fail(`${rel}: média ${item?.path || '?'} sans provenance`);
+    if (!ALLOWED_RIGHTS.has(item?.rightsStatus)) fail(`${rel}: média ${item?.path || '?'} rightsStatus invalide`);
+  }
+  if (!ALLOWED_STATUS.has(data?.recipeGate?.status)) fail(`${rel}: recipeGate.status invalide`);
+  if (data?.recipeGate?.status === 'PASS') {
+    if (data?.recipeGate?.p0 !== 0 || data?.recipeGate?.p1 !== 0) fail(`${rel}: PASS interdit si p0/p1 ne sont pas à 0`);
+    if ((data?.mediaManifest?.items || []).some((item) => item.rightsStatus === 'unknown')) fail(`${rel}: PASS interdit avec droits média inconnus`);
+  }
+}
+
+validateTokens();
+const manifestDir = path.join(ROOT, 'site-manifests');
+if (existsSync(manifestDir)) {
+  for (const name of readdirSync(manifestDir).filter((name) => name.endsWith('.json')).sort()) {
+    validateManifest(path.join(manifestDir, name));
+  }
+}
+
+if (!process.exitCode) console.log('SOCLE_V2_PASS');
