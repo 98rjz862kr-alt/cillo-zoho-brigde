@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 const contract=JSON.parse(readFileSync(new URL('../contracts/private-app-integration.json',import.meta.url),'utf8'));
 const fail=(m)=>{throw new Error(`PRIVATE_APP_INTEGRATION_INVALID: ${m}`)};
 if(contract.brand!=='LES MOTS IMAGÉS')fail('canonical brand');
+if(contract.protocolId!=='lmi-sites-publication-protocol@1.0.0')fail('protocol id');
 if(contract.principle!=='PRIVATE_APP_CONTROL_PLANE_PUBLIC_SITES_PRESENTATION_PLANE')fail('architecture principle');
 const expected=['editions','maison','food','musee'];
 for(const id of expected){

@@ -83,5 +83,6 @@
     "RUNTIME_BRIDGE",
     "MEDIA_MANIFEST",
     "HUMAN_RECIPE"
-  ]
+  ],
+  "protocolId": "lmi-sites-publication-protocol@1.0.0"
 }
