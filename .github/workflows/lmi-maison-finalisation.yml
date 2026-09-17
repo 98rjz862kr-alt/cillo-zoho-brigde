@@ -1,0 +1,31 @@
+name: LMI Maison Finalisation
+
+on:
+  push:
+    branches:
+      - agent/lmi-maison-finalisation-20260906
+  pull_request:
+    paths:
+      - 'drafts/lmi-maison-site/**'
+      - 'scripts/validate-lmi-maison.mjs'
+      - 'scripts/audit-lmi-maison-finalisation.mjs'
+      - '.github/workflows/lmi-maison-finalisation.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  maison-finalisation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Validate LMI Maison legacy gate
+        run: node scripts/validate-lmi-maison.mjs
+      - name: Audit LMI Maison finalisation gate
+        run: node scripts/audit-lmi-maison-finalisation.mjs
