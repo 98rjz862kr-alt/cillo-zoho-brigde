@@ -66,6 +66,7 @@ for(const page of publicPages){
 }
 assert(!sitemap.includes('/notices/'),'Hypothesis notices leaked into sitemap');
 const manifest=JSON.parse(readFileSync(path.join(root,'source-manifest.json'),'utf8'));
-assert(manifest.status==='READY_TO_PUBLISH','Source manifest is not READY_TO_PUBLISH');
-assert(!manifest.documents.some(d=>d.status==='A_REQUALIFIER'),'Blocking A_REQUALIFIER source remains');
-console.log(`Validated LMI Musée publication: ${publicPages.length} public pages ready, ${archivedPages.length} archived routes locked, sitemap/robots ready, official identity, strict palette, contact and legal layer present.`);
+assert(manifest.status==='CANDIDATE_PRIVATE','Source manifest must remain CANDIDATE_PRIVATE while Atlas is unresolved');
+const atlasBlocker=manifest.documents.find(d=>d.status==='A_REQUALIFIER');
+assert(atlasBlocker?.driveId==='1lScGWVLo8cD-Yr_Nnj0lBrWAhkhif5j7_0LfcPjhj1k','Expected Atlas A_REQUALIFIER blocker is missing or changed');
+console.log(`Validated LMI Musée private candidate: ${publicPages.length} technically prepared public pages, ${archivedPages.length} archived routes locked, sitemap/robots present, publication blocked by Atlas requalification.`);
