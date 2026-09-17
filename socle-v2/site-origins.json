@@ -4,9 +4,9 @@
   "sites": {
     "musee": {
       "root": "drafts/lmi-musee-complet",
-      "candidateSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
-      "candidatePackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea",
-      "state": "CONVERGENCE_REQUIRED",
+      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "candidatePackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
+      "state": "READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
       "mayRedeployBeforeRecipe": true
     },
     "maison": {
@@ -25,10 +25,10 @@
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
-      "candidatePackageSha256": "1ffcbbc1b4d377073d4652aa57742f7567edc71ba50a3b11ff5367832a962110",
-      "state": "CONVERGENCE_REQUIRED",
-      "mayRedeployBeforeRecipe": false
+      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "candidatePackageSha256": "6e259224a5ffa6aa72c8ac5d5c4d914ba6472aef34797979da4164265245c48f",
+      "state": "READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
+      "mayRedeployBeforeRecipe": true
     }
   }
 }

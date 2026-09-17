@@ -78,6 +78,6 @@
   "historicalFrozenSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
   "historicalFrozenPackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
   "historicalBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
-  "targetSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
-  "targetPackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea"
+  "targetSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+  "targetPackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47"
 }

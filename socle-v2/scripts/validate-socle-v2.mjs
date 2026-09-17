@@ -94,13 +94,13 @@ function validateDeployGuard() {
   const file=path.join(ROOT,'deploy-guard.json');
   const data=parseJson(file);
   if (!data) return;
-  if (data.branch!=='main'||data.autoDeploy!==true) fail('deploy guard: configuration Render inattendue');
+  if (data.branch!=='work/socle-commun-v2-20260915'||data.autoDeploy!==false) fail('deploy guard: configuration Render inattendue');
   if (data.liveSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('deploy guard: snapshot Musée LIVE inattendu');
   if (data.liveRecipeEligible!==false||data.liveBlocker!=='BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES') fail('deploy guard: blocage de marque LIVE non verrouillé');
-  if (data.targetCandidateSourceSha!=='a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c') fail('deploy guard: candidat Musée corrigé inattendu');
-  if (data.targetCandidatePackageSha256!=='2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea') fail('deploy guard: paquet Musée corrigé inattendu');
+  if (data.targetCandidateSourceSha!=='751a00b91760dbff36691a0ac460c0da7bf524f7') fail('deploy guard: candidat Musée corrigé inattendu');
+  if (data.targetCandidatePackageSha256!=='a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47') fail('deploy guard: paquet Musée corrigé inattendu');
   if (data.museumRecipePending!==true) fail('deploy guard: recette Musée doit rester en attente');
-  if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==false) fail('deploy guard: publication prématurée autorisée');
+  if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==true) fail('deploy guard: garde de déploiement privé inattendue');
 }
 
 function validateMuseumRecipe() {
@@ -110,8 +110,8 @@ function validateMuseumRecipe() {
   if (data.historicalFrozenSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('recette Musée: SHA historique gelé incorrect');
   if (data.historicalFrozenPackageSha256!=='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd') fail('recette Musée: paquet historique gelé incorrect');
   if (data.historicalBlocker!=='BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES') fail('recette Musée: blocage de marque historique absent');
-  if (data.targetSourceSha!=='a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c') fail('recette Musée: SHA candidat corrigé incorrect');
-  if (data.targetPackageSha256!=='2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea') fail('recette Musée: paquet candidat corrigé incorrect');
+  if (data.targetSourceSha!=='751a00b91760dbff36691a0ac460c0da7bf524f7') fail('recette Musée: SHA candidat corrigé incorrect');
+  if (data.targetPackageSha256!=='a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47') fail('recette Musée: paquet candidat corrigé incorrect');
   if (!Array.isArray(data.checks)||data.checks.length<12) fail('recette Musée: contrôles humains incomplets');
   if (data.decision==='WAITING_FOR_CORRECTED_BRIDGE_CANDIDATE' && (data.checks||[]).some((c)=>c.result!=='BLOCKED_PENDING_CORRECTED_RUNTIME')) fail('recette Musée: contrôles doivent rester bloqués avant convergence runtime');
   if (data.decision==='HUMAN_RECIPE_REQUIRED' && (data.checks||[]).some((c)=>c.result!=='PENDING')) fail('recette Musée: résultat humain prérempli interdit');

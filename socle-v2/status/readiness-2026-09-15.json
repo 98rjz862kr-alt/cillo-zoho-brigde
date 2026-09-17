@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-15T20:35:00+02:00",
+  "asOf": "2026-09-17T23:05:00+02:00",
   "brand": "LES MOTS IMAGÉS",
   "bridgeRole": "private-prepublication-draft",
   "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
@@ -12,16 +12,16 @@
   },
   "sites": {
     "musee": {
-      "classification": "CORRECTED_CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",
+      "classification": "MEDIA_CORRECTED_CANDIDATE_READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
       "historicalLiveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
       "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
       "historicalLiveRecipeEligible": false,
       "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
-      "candidateSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
-      "candidatePackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea",
+      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "candidatePackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "controlled-bridge-convergence-to-corrected-candidate-then-human-recipe",
+      "nextGate": "private-bridge-convergence-then-runtime-proof-and-human-recipe",
       "publicPublishAllowed": false
     },
     "maison": {
@@ -42,12 +42,12 @@
       "nextGate": "deploy-integration-after-museum-recipe-then-runtime-package-proof-and-recipe"
     },
     "editions": {
-      "classification": "CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",
-      "candidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
-      "candidatePackageSha256": "1ffcbbc1b4d377073d4652aa57742f7567edc71ba50a3b11ff5367832a962110",
+      "classification": "MEDIA_CORRECTED_CANONICAL_CANDIDATE_READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
+      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "candidatePackageSha256": "6e259224a5ffa6aa72c8ac5d5c4d914ba6472aef34797979da4164265245c48f",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "validate-rendered-runtime-contract-with-hardened-bridge-then-deploy-after-museum-recipe"
+      "nextGate": "private-bridge-convergence-then-runtime-proof-and-recipe"
     }
   }
 }
