@@ -73,6 +73,13 @@ function hasSession(req){const token=parseCookies(req.headers.cookie||'').lmi_se
 function createSession(res){const token=randomBytes(32).toString('hex');sessions.add(token);res.setHeader('set-cookie',`lmi_session=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800`);return token;}
 async function parseForm(req){let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>4096)throw new Error('Request too large');}return Object.fromEntries(new URLSearchParams(raw).entries());}
 function passwordMatches(value=''){const expected=process.env.ADMIN_PASSWORD||'';if(!expected||expected==='change-me')return false;const a=Buffer.from(String(value));const b=Buffer.from(expected);return a.length===b.length&&timingSafeEqual(a,b);}
+function exchangeTokenMatches(req){
+  const expected=process.env.LMI_EXCHANGE_TOKEN||'';
+  const provided=String(req.headers['x-lmi-exchange-token']||'');
+  if(!expected||!provided)return false;
+  const a=Buffer.from(provided);const b=Buffer.from(expected);
+  return a.length===b.length&&timingSafeEqual(a,b);
+}
 
 function loginPage(message=''){
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Accès protégé</title><style>:root{--b:#143B7D;--n:#0F2747;--g:#D4AF37;--i:#F6F1E8;--s:#75553F}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,var(--n),var(--b));font-family:Arial,sans-serif}.card{width:min(520px,100%);background:var(--i);border-radius:24px;padding:34px;box-shadow:0 30px 80px #0005;border-top:5px solid var(--g)}h1{margin:0 0 10px;color:var(--b);font:700 2.4rem Georgia,serif}p{color:var(--s);line-height:1.6}input,button{width:100%;font:inherit;padding:14px 16px;border-radius:10px}input{border:1px solid #143b7d44;background:#fff}button{margin-top:12px;border:0;background:var(--b);color:#fff;font-weight:900;cursor:pointer}.error{color:#8b1e2d;font-weight:800}</style></head><body><main class="card"><h1>Bridge LMI</h1><p>Bibliothèque privée de brouillons, préproductions et BAT.</p>${message?`<p class="error">${escapeHtml(message)}</p>`:''}<form method="post" action="/atelier"><input type="password" name="password" autocomplete="current-password" placeholder="Mot de passe" required><button type="submit">Ouvrir l’atelier</button></form></main></body></html>`;
@@ -106,7 +113,7 @@ const server=createServer(async(req,res)=>{
     createSession(res);res.writeHead(303,{location:'/atelier','cache-control':'no-store'});return res.end();
   }
   if(req.method==='GET'&&url.pathname==='/api/socle-v2/private-app-exchange'){
-    if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendJson(res,{error:'Unauthorized'},401);
+    if(!(hasSession(req)||isAuthorized({headers:req.headers})||exchangeTokenMatches(req)))return sendJson(res,{error:'Unauthorized'},401);
     const proof=readJsonFile('socle-v2/status/private-app-sites-exchange-2026-09-17.json');
     if(!proof)return sendJson(res,{error:'Exchange proof unavailable'},503);
     return sendJson(res,proof);
