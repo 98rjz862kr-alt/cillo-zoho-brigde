@@ -1,0 +1,18 @@
+{
+  "status": "CROSS_REPO_SIGNED_EXCHANGE_PASS",
+  "observedAt": "2026-09-17T21:42:52.332Z",
+  "protocolId": "lmi-sites-publication-protocol@1.0.0",
+  "privateAppSourceSha": "46f9afcf337904527c17497e8374de2a218d3ede",
+  "bridgeSourceSha": "4e2a3c10a34420340663358e75e5b95a40644dbb",
+  "manifestSha256": "a682e54db163d8fcd288b74ecbce3fba9e4f6fd62b617723e0d8442ec5b5cff6",
+  "signatureAlgorithm": "HMAC-SHA256",
+  "signatureVerified": true,
+  "universes": [
+    "editions",
+    "maison",
+    "food",
+    "musee"
+  ],
+  "secretPersisted": false,
+  "publicPublication": false
+}
