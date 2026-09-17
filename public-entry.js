@@ -23,6 +23,14 @@ function sendHtml(res,html,status=200){res.writeHead(status,{'content-type':'tex
 function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox"});res.end(asset.content);}
 function sendJson(res,payload,status=200){const body=JSON.stringify(payload);res.writeHead(status,{'content-type':'application/json; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-length':Buffer.byteLength(body)});res.end(body);}
 
+function readJsonFile(relativePath){
+  const filePath=path.join(rootDir,relativePath);
+  try{
+    if(!existsSync(filePath)) return null;
+    return JSON.parse(readFileSync(filePath,'utf8'));
+  }catch{return null;}
+}
+
 function readBoaJson(fileName){
   const filePath=path.join(rootDir,'drafts','boa-totem-soya',fileName);
   try{
@@ -96,6 +104,12 @@ const server=createServer(async(req,res)=>{
     const body=await parseForm(req);
     if(!passwordMatches(body.password))return sendHtml(res,loginPage('Mot de passe incorrect.'),401);
     createSession(res);res.writeHead(303,{location:'/atelier','cache-control':'no-store'});return res.end();
+  }
+  if(req.method==='GET'&&url.pathname==='/api/socle-v2/private-app-exchange'){
+    if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendJson(res,{error:'Unauthorized'},401);
+    const proof=readJsonFile('socle-v2/status/private-app-sites-exchange-2026-09-17.json');
+    if(!proof)return sendJson(res,{error:'Exchange proof unavailable'},503);
+    return sendJson(res,proof);
   }
   if(req.method==='GET'&&url.pathname==='/api/socle-v2/runtime'){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendJson(res,{error:'Unauthorized'},401);
