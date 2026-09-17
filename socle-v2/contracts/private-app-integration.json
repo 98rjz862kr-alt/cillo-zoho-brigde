@@ -84,5 +84,9 @@
     "MEDIA_MANIFEST",
     "HUMAN_RECIPE"
   ],
-  "protocolId": "lmi-sites-publication-protocol@1.0.0"
+  "protocolId": "lmi-sites-publication-protocol@1.0.0",
+  "brandContract": {
+    "id": "lmi-brand-roles@1.0.0",
+    "sha256": "96fa0b11f0e5a2c288637bbb782aca54e77dc2ea4f8e7460c5193987b63e7b7a"
+  }
 }

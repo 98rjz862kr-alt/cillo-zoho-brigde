@@ -12,6 +12,8 @@ for(const id of expected){
 if(contract.privateApp.publicExposure!==false)fail('private app must remain private');
 if(contract.security.sitesMayCallPrivateAppDirectlyFromBrowser!==false)fail('browser direct call forbidden');
 if(contract.security.serverToServerAuthRequired!==true)fail('server-to-server auth required');
+if(contract.brandContract?.id!=='lmi-brand-roles@1.0.0')fail('brand contract id');
+if(contract.brandContract?.sha256!=='96fa0b11f0e5a2c288637bbb782aca54e77dc2ea4f8e7460c5193987b63e7b7a')fail('brand contract sha256');
 if(contract.exchange.failClosed!==true)fail('fail-closed required');
 for(const field of ['lmiId','universe','version','status','updatedAt','provenance','sha256']){
   if(!contract.exchange.requiredFields.includes(field))fail(`missing field ${field}`);
