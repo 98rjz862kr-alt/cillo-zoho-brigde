@@ -1,0 +1,31 @@
+POSTE 5/14 — LMI FOOD — PREUVE DURCISSEMENT AUTHENTIFICATION
+Date: 2026-09-08
+Branche: agent/lmi-food-finalisation-20260906
+
+CORRECTION APPLIQUÉE
+- authentification atelier migrée de GET vers POST ;
+- suppression du mot de passe dans les URL de navigation ;
+- session éphémère côté serveur avec cookie HttpOnly + SameSite=Strict ;
+- authentification par query string supprimée de security.js ;
+- accès direct core interne reste protégé ;
+- validate-public-entry.mjs bloque toute régression ?password= / query.password / formulaire GET.
+
+TEST RUNTIME LOCAL
+Port public test: 4337
+Port core interne: 4338 loopback
+- atelier sans session: page login uniquement ;
+- POST login valide: HTTP 303 + cookie de session ;
+- atelier avec session: HTTP 200 ;
+- fichier atelier avec session: HTTP 200 ;
+- tentative ?password=...: aucune autorisation ; page login uniquement ;
+- liens atelier générés contenant ?password=: 0 ;
+- core interne sans authentification: HTTP 401.
+
+TESTS SOURCE
+validate-public-entry: PASS
+audit-lmi-food-finalisation: PASS
+validate-lmi-food: PASS
+npm test: PASS RC=0
+git diff --check: PASS
+
+Aucun secret réel n'a été écrit dans le dépôt. Le mot de passe de test était éphémère et local.

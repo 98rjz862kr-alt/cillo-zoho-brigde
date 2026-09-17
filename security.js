@@ -37,8 +37,8 @@ export function getAdminPassword() {
   return value;
 }
 
-export function isAuthorized({ headers = {}, query = {}, body = {} }) {
-  const provided = headers['x-admin-password'] || query.password || body.password;
+export function isAuthorized({ headers = {}, body = {} }) {
+  const provided = headers['x-admin-password'] || body.password;
   const expected = getAdminPassword();
   return Boolean(expected) && provided === expected;
 }

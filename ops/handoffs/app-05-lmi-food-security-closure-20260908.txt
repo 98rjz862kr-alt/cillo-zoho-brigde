@@ -1,0 +1,43 @@
+APP 5/14 — LMI FOOD — SECURITY CLOSURE EVIDENCE
+Date: 2026-09-08
+Repository: 98rjz862kr-alt/cillo-zoho-brigde
+Branch: agent/lmi-food-finalisation-20260906
+Exact tested HEAD: d394de683ca5cc4a06a5cb308bdeb8a52dc389ec
+
+ANOMALY CLOSED
+The internal Bridge core server could serve /atelier and /atelier/file/* directly without authorization if its internal port was reachable. This contradicted the private-candidate requirement even though public-entry.js itself enforced access.
+
+CORRECTION
+- spawned core receives INTERNAL_CORE=1;
+- internal core binds 127.0.0.1 when INTERNAL_CORE=1;
+- server.js now requires authorization on /atelier;
+- server.js now requires authorization on /atelier/file/*;
+- server.js health reports publicAtelier=false;
+- validate-public-entry.mjs now asserts those protections and rejects regression to public access.
+
+RUNTIME TEST
+Public protected entry, port 4327:
+- unauthenticated /atelier/file/lmi-food-site%2F00-bat-lmi-food.html -> HTTP 401
+- authenticated /atelier?password=<test> -> HTTP 200
+- authenticated /atelier/file/lmi-food-site%2F00-bat-lmi-food.html?password=<test> -> HTTP 200
+Internal core, port 4328 bound to 127.0.0.1:
+- unauthenticated /atelier -> HTTP 401
+- unauthenticated /atelier/file/lmi-food-site%2F00-bat-lmi-food.html -> HTTP 401
+- /health -> publicAtelier=false
+
+EXACT-HEAD TESTS
+- node scripts/validate-public-entry.mjs -> PASS
+- node scripts/audit-lmi-food-finalisation.mjs -> PASS
+- node scripts/validate-lmi-food.mjs -> PASS
+- npm test -> PASS, RC=0
+
+GITHUB-HOSTED CI
+Run 34279474672, job 102240482646: FAILURE BEFORE ANY STEP, steps=null. No hosted validator executed. CI remains NOT QUALIFIED; no false PASS.
+
+SHA-256 ACTUAL BYTES
+public-entry.js = 635534d6812aeb8dcc06f8683b9f4365a6c138fb4183439d6136a36051a5f384
+server.js = bac9f22db9748ffffa3b86c7fde8ebab29c37b69710122d84937a7b1c0ef813a
+scripts/validate-public-entry.mjs = 19e7114dd892bee5ed0985bccd151e320441658e4ae25ef8639fb82b0ecfb1a0
+
+No merge to main. No external publication. No GO FINAL. No ATLAS NOVA. No new paid infrastructure.
+Destination: CONSOLIDATEUR ONLY.
