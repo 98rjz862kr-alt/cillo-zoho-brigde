@@ -103,15 +103,12 @@ Le test global du main actuel échoue au validateur Musée parce que le manifest
 
 Nom canonique : LES MOTS IMAGÉS.
 
-Palette canonique :
-- Bleu LMI #143B7D
-- Ocre #CC7722
-- Sable #75553F
-- Or #D4AF37
-- Bleu nuit #0F2747
-- Ivoire #F6F1E8
-- Or mat #C8A96B
-- Gris pierre #C9C3BA
+Gouvernance couleur par rôle :
+- Identité logo : Bleu LMI #143B7D + Or LMI #C9A13B
+- Nuancier : Ocre #CC7722, Sable #75553F, Or #D4AF37
+- Premium : Bleu nuit #0F2747, Ivoire #F6F1E8, Or mat #C8A96B, Gris pierre #C9C3BA
+
+Ces trois ors ont des rôles distincts et ne doivent pas être fusionnés en une couleur or unique.
 
 Les nouvelles surfaces du Socle V2 ne doivent plus propager la variante LES MOTS IMAGES. Les occurrences historiques ne sont pas réécrites en masse sans qualification de leur rôle.
 

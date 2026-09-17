@@ -26,6 +26,7 @@ function validateTokens() {
   if (data?.brand?.canonicalName !== 'LES MOTS IMAGÉS') fail('tokens.json: nom canonique incorrect');
   if (data?.brand?.tagline !== 'LE VERBE PAR L’IMAGE') fail('tokens.json: signature incorrecte');
   const expected = {
+  identityGold: '#C9A13B',
     blue:'#143B7D', ochre:'#CC7722', sand:'#75553F', gold:'#D4AF37',
     night:'#0F2747', ivory:'#F6F1E8', matteGold:'#C8A96B', stone:'#C9C3BA'
   };

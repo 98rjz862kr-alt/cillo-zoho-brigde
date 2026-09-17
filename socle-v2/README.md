@@ -10,14 +10,11 @@ Le Socle commun V2 transforme le référentiel de gouvernance existant en contra
 
 - Nom: **LES MOTS IMAGÉS**
 - Signature: **LE VERBE PAR L’IMAGE**
-- Bleu LMI: `#143B7D`
-- Ocre: `#CC7722`
-- Sable: `#75553F`
-- Or: `#D4AF37`
-- Bleu nuit: `#0F2747`
-- Ivoire: `#F6F1E8`
-- Or mat: `#C8A96B`
-- Gris pierre: `#C9C3BA`
+- Identité logo: Bleu LMI `#143B7D` + Or LMI `#C9A13B`
+- Nuancier: Ocre `#CC7722`, Sable `#75553F`, Or `#D4AF37`
+- Premium: Bleu nuit `#0F2747`, Ivoire `#F6F1E8`, Or mat `#C8A96B`, Gris pierre `#C9C3BA`
+
+Les trois valeurs dorées ont des rôles distincts; aucune n’est un « or universel » par défaut.
 
 Les variantes `LES MOTS IMAGES` et `Les Mots Images` sont non canoniques pour les nouvelles surfaces. Leur présence dans l'historique n'autorise pas leur propagation.
 
