@@ -96,7 +96,7 @@ function validateDeployGuard() {
   const data=parseJson(file);
   if (!data) return;
   if (data.branch!=='work/socle-commun-v2-20260915'||data.autoDeploy!==false) fail('deploy guard: configuration Render inattendue');
-  if (data.liveSourceSha!=='ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e') fail('deploy guard: runtime privé LIVE inattendu');
+  if (data.liveSourceSha!=='3710a04529f77b411810354826352d1f2b52c534') fail('deploy guard: runtime privé LIVE inattendu');
   if (data.liveRecipeEligible!==true||data.liveBlocker!==null) fail('deploy guard: runtime privé non éligible à la recette');
   if (data.targetCandidateSourceSha!=='751a00b91760dbff36691a0ac460c0da7bf524f7') fail('deploy guard: candidat Musée corrigé inattendu');
   if (data.targetCandidatePackageSha256!=='a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47') fail('deploy guard: paquet Musée corrigé inattendu');

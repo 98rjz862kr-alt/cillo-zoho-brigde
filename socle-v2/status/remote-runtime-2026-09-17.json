@@ -1,16 +1,16 @@
 {
-  "asOf": "2026-09-17T23:03:45+02:00",
+  "asOf": "2026-09-18T00:21:58+02:00",
   "serviceId": "srv-d9osqbmgekts73eoqis0",
   "serviceName": "cillo-zoho-bridge",
-  "deployId": "dep-dam5b2gae00c73d57d8g",
+  "deployId": "dep-dam6fnou01pc73eh87kg",
   "deployStatus": "live",
   "branch": "work/socle-commun-v2-20260915",
-  "integrationSha": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+  "integrationSha": "3710a04529f77b411810354826352d1f2b52c534",
   "build": "PASS",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "health": {
     "ok": true,
-    "revision": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "revision": "3710a04529f77b411810354826352d1f2b52c534",
     "publicAtelier": false,
     "adminPasswordConfigured": true
   },

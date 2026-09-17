@@ -1,12 +1,12 @@
 {
-  "asOf": "2026-09-17T23:03:45+02:00",
+  "asOf": "2026-09-18T00:21:58+02:00",
   "brand": "LES MOTS IMAGÉS",
   "bridgeRole": "private-prepublication-draft",
   "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
   "bridgeObserved": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-dam5b2gae00c73d57d8g",
-    "integrationSha": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "deployId": "dep-dam6fnou01pc73eh87kg",
+    "integrationSha": "3710a04529f77b411810354826352d1f2b52c534",
     "status": "live",
     "authority": "socle-v2-private-candidate-runtime"
   },

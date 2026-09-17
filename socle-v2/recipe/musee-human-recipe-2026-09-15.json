@@ -3,9 +3,9 @@
   "decision": "HUMAN_RECIPE_REQUIRED",
   "bridge": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-dam5b2gae00c73d57d8g",
+    "deployId": "dep-dam6fnou01pc73eh87kg",
     "status": "live",
-    "integrationSha": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "integrationSha": "3710a04529f77b411810354826352d1f2b52c534",
     "url": "https://cillo-zoho-bridge.onrender.com"
   },
   "rules": [
@@ -85,7 +85,7 @@
   "runtimeQualification": {
     "build": "PASS",
     "integrationTests": "PASS",
-    "healthRevision": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "healthRevision": "3710a04529f77b411810354826352d1f2b52c534",
     "publicRuntimeManifestStatus": 401,
     "previewNavigation": {
       "pages": 115,
