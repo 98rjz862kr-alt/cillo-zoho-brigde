@@ -1,14 +1,14 @@
 {
-  "asOf": "2026-09-17T23:05:00+02:00",
+  "asOf": "2026-09-17T23:03:45+02:00",
   "brand": "LES MOTS IMAGÉS",
   "bridgeRole": "private-prepublication-draft",
   "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
   "bridgeObserved": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-dafb7867bikc73fsrg1g",
-    "integrationSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "deployId": "dep-dam5b2gae00c73d57d8g",
+    "integrationSha": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
     "status": "live",
-    "authority": "historical-qualified-snapshot-blocked-by-brand-identity"
+    "authority": "socle-v2-private-candidate-runtime"
   },
   "sites": {
     "musee": {
@@ -20,8 +20,8 @@
       "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
       "candidatePackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
       "workBranchExactCandidateContent": true,
-      "bridgeExactCandidate": false,
-      "nextGate": "private-bridge-convergence-then-runtime-proof-and-human-recipe",
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-on-private-bridge",
       "publicPublishAllowed": false
     },
     "maison": {
@@ -29,8 +29,8 @@
       "candidateSourceSha": "0d52471927eec325863662c505fa5d2fc0ca6fd4",
       "candidatePackageSha256": "a8d14d20bcc801852cbbf2625c0318c255dbeef875d100c447c5aba0995308f1",
       "workBranchExactCandidateContent": true,
-      "bridgeExactCandidate": false,
-      "nextGate": "controlled-bridge-convergence-then-runtime-package-proof-and-recipe",
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-after-museum-or-in-sequenced-recipe-window",
       "brandCanonical": true
     },
     "food": {
@@ -38,16 +38,16 @@
       "candidateSourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
       "candidatePackageSha256": "569592662ece8b8ea5131f282d4c4150bbeec34d8413d31adc82ccfae011d0dc",
       "workBranchExactCandidateContent": true,
-      "bridgeExactCandidate": false,
-      "nextGate": "deploy-integration-after-museum-recipe-then-runtime-package-proof-and-recipe"
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-after-museum-and-maison"
     },
     "editions": {
       "classification": "MEDIA_CORRECTED_CANONICAL_CANDIDATE_READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
       "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
       "candidatePackageSha256": "6e259224a5ffa6aa72c8ac5d5c4d914ba6472aef34797979da4164265245c48f",
       "workBranchExactCandidateContent": true,
-      "bridgeExactCandidate": false,
-      "nextGate": "private-bridge-convergence-then-runtime-proof-and-recipe"
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-after-museum-maison-food"
     }
   }
 }

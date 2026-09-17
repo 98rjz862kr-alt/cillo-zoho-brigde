@@ -1,0 +1,32 @@
+{
+  "asOf": "2026-09-17T23:03:45+02:00",
+  "serviceId": "srv-d9osqbmgekts73eoqis0",
+  "serviceName": "cillo-zoho-bridge",
+  "deployId": "dep-dam5b2gae00c73d57d8g",
+  "deployStatus": "live",
+  "branch": "work/socle-commun-v2-20260915",
+  "integrationSha": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+  "build": "PASS",
+  "canonicalBrand": "LES MOTS IMAGÉS",
+  "health": {
+    "ok": true,
+    "revision": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "publicAtelier": false,
+    "adminPasswordConfigured": true
+  },
+  "publicRuntimeManifestHttpStatus": 401,
+  "integrationGate": {
+    "status": "PASS",
+    "pages": 115,
+    "resources": 120,
+    "links": 656,
+    "unauthorizedDenied": 120,
+    "sessionAuthentication": true
+  },
+  "museumRuntimeAudit": "PASS",
+  "humanRecipe": "REQUIRED_NOT_RUN",
+  "publicPublication": false,
+  "dnsChanged": false,
+  "mainMerge": false,
+  "note": "Authenticated remote byte-for-byte verification requires the existing private Bridge credential; no credential was read or exposed during this run."
+}

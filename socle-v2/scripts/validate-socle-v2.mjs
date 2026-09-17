@@ -95,12 +95,12 @@ function validateDeployGuard() {
   const data=parseJson(file);
   if (!data) return;
   if (data.branch!=='work/socle-commun-v2-20260915'||data.autoDeploy!==false) fail('deploy guard: configuration Render inattendue');
-  if (data.liveSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('deploy guard: snapshot Musée LIVE inattendu');
-  if (data.liveRecipeEligible!==false||data.liveBlocker!=='BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES') fail('deploy guard: blocage de marque LIVE non verrouillé');
+  if (data.liveSourceSha!=='ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e') fail('deploy guard: runtime privé LIVE inattendu');
+  if (data.liveRecipeEligible!==true||data.liveBlocker!==null) fail('deploy guard: runtime privé non éligible à la recette');
   if (data.targetCandidateSourceSha!=='751a00b91760dbff36691a0ac460c0da7bf524f7') fail('deploy guard: candidat Musée corrigé inattendu');
   if (data.targetCandidatePackageSha256!=='a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47') fail('deploy guard: paquet Musée corrigé inattendu');
   if (data.museumRecipePending!==true) fail('deploy guard: recette Musée doit rester en attente');
-  if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==true) fail('deploy guard: garde de déploiement privé inattendue');
+  if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==false) fail('deploy guard: déploiement doit être reverrouillé pendant la recette');
 }
 
 function validateMuseumRecipe() {

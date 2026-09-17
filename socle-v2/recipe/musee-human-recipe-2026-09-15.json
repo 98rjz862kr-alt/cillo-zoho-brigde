@@ -1,10 +1,12 @@
 {
   "site": "musee",
-  "decision": "WAITING_FOR_CORRECTED_BRIDGE_CANDIDATE",
+  "decision": "HUMAN_RECIPE_REQUIRED",
   "bridge": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-dafb7867bikc73fsrg1g",
-    "status": "live"
+    "deployId": "dep-dam5b2gae00c73d57d8g",
+    "status": "live",
+    "integrationSha": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "url": "https://cillo-zoho-bridge.onrender.com"
   },
   "rules": [
     "do-not-recipe-historical-live-snapshot-with-known-brand-error",
@@ -17,67 +19,81 @@
     {
       "id": "MUS-01",
       "label": "Accueil et navigation principale",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-02",
       "label": "17 pages publiques qualifiées accessibles sans erreur",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-03",
       "label": "Parcours collections et archives cohérents",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-04",
       "label": "Parcours Presse, Partenaires, Programmateurs et Prescripteurs",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-05",
       "label": "Contact et mentions légales affichés correctement",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-06",
       "label": "Desktop 1440 px sans rupture visuelle",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-07",
       "label": "Mobile 390 px et 320 px sans débordement",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-08",
       "label": "Navigation clavier et focus visible",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-09",
       "label": "Liens, médias, crédits et provenance visibles conformes",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-10",
       "label": "Aucune notice hypothétique exposée comme corpus validé",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-11",
       "label": "Robots, sitemap et canonical cohérents avec le paquet qualifié",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     },
     {
       "id": "MUS-12",
       "label": "Décision humaine finale GO / NO_GO consignée",
-      "result": "BLOCKED_PENDING_CORRECTED_RUNTIME"
+      "result": "PENDING"
     }
   ],
   "historicalFrozenSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
   "historicalFrozenPackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
   "historicalBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
   "targetSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
-  "targetPackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47"
+  "targetPackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
+  "runtimeQualification": {
+    "build": "PASS",
+    "integrationTests": "PASS",
+    "healthRevision": "ad71dabdb3cd13e0ba79e5b5ad3e0f64b9c6da7e",
+    "publicRuntimeManifestStatus": 401,
+    "previewNavigation": {
+      "pages": 115,
+      "resources": 120,
+      "links": 656,
+      "unauthorizedDenied": 120,
+      "sessionAuthentication": true
+    },
+    "museumRuntimeAudit": "PASS"
+  }
 }
