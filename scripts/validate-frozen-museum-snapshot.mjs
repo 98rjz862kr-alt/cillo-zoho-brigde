@@ -7,7 +7,11 @@ import { hashPackage } from '../socle-v2/scripts/package-hash.mjs';
 const sha='f8d046bdfea2c0854364579cca59cbd2fd85a8b9';
 const root='drafts/lmi-musee-complet';
 const expectedPackage='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd';
-const manifest=JSON.parse(execFileSync('git',['show',`${sha}:${root}/source-manifest.json`],{encoding:'utf8'}));
+const frozenObject=`${sha}:${root}/source-manifest.json`;
+try { execFileSync('git',['cat-file','-e',frozenObject],{stdio:'ignore'}); }
+catch { execFileSync('git',['fetch','--no-tags','origin',sha],{stdio:'inherit'}); }
+execFileSync('git',['cat-file','-e',frozenObject],{stdio:'ignore'});
+const manifest=JSON.parse(execFileSync('git',['show',frozenObject],{encoding:'utf8'}));
 if(manifest.status!=='READY_TO_PUBLISH')throw new Error(`Frozen Museum manifest expected READY_TO_PUBLISH, got ${manifest.status}`);
 if(manifest.documents?.some((d)=>d.status==='A_REQUALIFIER'))throw new Error('Frozen Museum snapshot contains blocking A_REQUALIFIER source');
 const temp=mkdtempSync(path.join(tmpdir(),'lmi-musee-frozen-'));
