@@ -14,5 +14,14 @@
     "musee"
   ],
   "secretPersisted": false,
-  "publicPublication": false
+  "publicPublication": false,
+  "bridgeRuntimeSha": "96ba119ddd72e66cb67a2218b76dd7085b3f6cf3",
+  "renderDeployId": "dep-dam66rtbedkc73a7anqg",
+  "renderStatus": "live",
+  "healthRevisionVerified": true,
+  "protectedExchangeEndpoint": "/api/socle-v2/private-app-exchange",
+  "unauthenticatedExchangeDenied": true,
+  "dedicatedServerAuth": "LMI_EXCHANGE_TOKEN",
+  "authenticatedRemoteExchangeVerified": false,
+  "authenticatedRemoteExchangeNote": "Dedicated token installed in Render; remote authenticated read not persisted in proof because secret is not exposed back to the workspace."
 }
