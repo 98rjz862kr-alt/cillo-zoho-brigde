@@ -1,38 +1,41 @@
 {
   "protocol_version": "1.0.0",
   "mode": "continuous_silent_production",
-  "active_project": "LE BOA TOTEM DE SOYA",
-  "active_scope": "Final transmedia recipe package: BD, album graphique, dessin anime, continuity assets and QA",
-  "last_verified_merge": "af485cabaee590a621eb61701547455842ab0d19",
+  "active_project": "LMI MAISON",
+  "active_scope": "Finalisation du site et de la recette humaine privée LMI Maison",
+  "last_verified_merge": "c17458a1345789ff286784feae2ba7e8a730d47a",
   "last_verified_ci": {
-    "workflow": "Boa Totem - package final recette",
-    "status": "success",
-    "run_id": 31948724768
+    "workflow": "LMI Maison validation",
+    "status": "candidate_branch_pending",
+    "run_id": null
   },
-  "current_workstream": "Final human recipe after completion of the internal production package",
+  "current_workstream": "Contrôle final de la branche candidate avant prévisualisation Bridge",
   "completed_work": [
-    "18 BD roughs and dialogue continuity package",
-    "12 album spreads and 32-page working pagination",
-    "50-shot animated-film exposure and internal animatic package",
-    "SOYA CILLO SIDAAT continuity model sheets",
-    "locked dialogue reconciliation across BD album DA SRT lettering and pagination",
-    "final transmedia QA and human-recipe page",
-    "archivable ZIP package deposited in Google Drive"
+    "page maître LMI Maison réécrite en expérience visiteur premium",
+    "positionnement domestique, textile et décoratif clarifié",
+    "collection inaugurale séparée des données produit divergentes",
+    "prix, densités, quantités et performances non prouvés retirés",
+    "matrice culturelle convertie en page HTML servable",
+    "dossier technique restructuré autour des preuves réelles",
+    "parcours commercial maintenu inerte",
+    "route de recette privée attendue par le HUB créée",
+    "contrat QA LMI Maison renforcé"
   ],
   "infrastructure_state": {
-    "github_main": "final production merged",
-    "drive_package": "ready",
-    "bridge_render_custom_domain": "service reachable but deployment revision not synchronized with final GitHub production",
-    "render_credentials_in_github": "not configured",
-    "private_recipe_preview": "prepared independently for final human recipe"
+    "github_main": "inchangé",
+    "candidate_branch": "agent/lmi-maison-finalisation-20260819",
+    "bridge_render_custom_domain": "aucune publication déclenchée",
+    "private_recipe_entry": "drafts/lmi-maison-site/07-sommaire-controle-lmi-maison.html"
   },
   "next_work": [
-    "collect final human recipe decision",
-    "apply only corrections raised by the human recipe",
-    "prepare external fabrication or finished media production only after human approval"
+    "exécuter les validations de la branche candidate",
+    "ouvrir une pull request de recette",
+    "contrôler Bridge et Render uniquement après déploiement approuvé",
+    "appliquer les corrections de recette humaine",
+    "publier seulement après GO humain explicite"
   ],
   "human_validation_required": [
-    "final transmedia human recipe"
+    "recette humaine finale LMI Maison"
   ],
   "public_release": {
     "status": "blocked",
@@ -43,5 +46,5 @@
     "intermediate_completion_messages": false,
     "human_validation_messages_only": true
   },
-  "updated_at": "2026-08-16T15:10:00+02:00"
+  "updated_at": "2026-08-19T00:00:00Z"
 }
