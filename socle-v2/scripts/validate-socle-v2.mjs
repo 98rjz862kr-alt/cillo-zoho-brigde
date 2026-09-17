@@ -130,4 +130,12 @@ if (existsSync(manifestDir)) {
   }
 }
 
+const brandRoles = JSON.parse(readFileSync(new URL('../contracts/lmi-brand-roles.v1.json', import.meta.url), 'utf8'));
+if (brandRoles.brand !== 'LES MOTS IMAGÉS') fail('brand roles: nom incorrect');
+if (brandRoles.colors?.identity?.gold !== '#C9A13B') fail('brand roles: identity gold incorrect');
+if (brandRoles.colors?.palette?.gold !== '#D4AF37') fail('brand roles: palette gold incorrect');
+if (brandRoles.colors?.premium?.matteGold !== '#C8A96B') fail('brand roles: matte gold incorrect');
+if (brandRoles.rules?.goldRolesDistinct !== true || brandRoles.rules?.universalGoldForbidden !== true) fail('brand roles: governance incorrect');
+if (new Set([brandRoles.colors.identity.gold, brandRoles.colors.palette.gold, brandRoles.colors.premium.matteGold]).size !== 3) fail('brand roles: golds must remain distinct');
+
 if (!process.exitCode) console.log('SOCLE_V2_PASS');
