@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-18T20:25:00+02:00",
+  "asOf": "2026-09-18T20:45:00+02:00",
   "status": "PRODUCTION_REOPENED_FOR_CLIENT_READINESS",
   "supersedes": "socle-v2/status/production-closure-2026-09-18.json",
   "reason": "machine gates were necessary but did not qualify the complete client-facing product",
@@ -65,12 +65,21 @@
     "publicPublication": false
   },
   "progress": {
+    "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
+    "visitorRouteSeparation": "IMPLEMENTED",
+    "clientReadinessStructuralGate": "PASS_4_SITES_30_VISITOR_ROUTES",
     "canonicalHeroesIntegrated": [
       "maison",
       "food",
       "musee"
     ],
-    "sourceCommit": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+    "editionsApprovedCoverRuntime": "PRESENT",
     "humanRecipeOpen": false
+  },
+  "currentPackageSha256": {
+    "maison": "736867671c6f0d42e49875f7dc6f6b74b824430080bf494bca40a628188f0767",
+    "food": "a3636e1c7f5025f9e2f3e266772e5c1224ef8360650237b1af67f6888a4b1a24",
+    "editions": "546af9f8a2958f691862553716578535408cb6042aa28cd2e580378b992be246",
+    "musee": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd"
   }
 }

@@ -15,7 +15,8 @@
     "test:preview-navigation": "node socle-v2/scripts/validate-preview-navigation.mjs",
     "build:bridge": "node socle-v2/scripts/prepare-build-history.mjs && npm run test:integration",
     "test:private-app-integration": "node socle-v2/scripts/validate-private-app-integration.mjs",
-    "test:private-app-ingestion": "node socle-v2/scripts/test-private-app-ingestion.mjs"
+    "test:private-app-ingestion": "node socle-v2/scripts/test-private-app-ingestion.mjs",
+    "test:client-readiness": "node socle-v2/scripts/validate-client-readiness.mjs"
   },
   "dependencies": {},
   "engines": {

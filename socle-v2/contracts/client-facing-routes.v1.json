@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "1.0.0",
+  "brand": "LES MOTS IMAGÉS",
+  "purpose": "visitor-facing-production-qualification-before-human-recipe",
+  "rules": {
+    "prepublicationBannerAllowed": true,
+    "internalControlCopyForbiddenInVisitorContent": true,
+    "homepageApprovedVisualRequired": true,
+    "homepageActionRequired": true,
+    "unverifiedCommerceForbidden": true,
+    "humanAestheticJudgement": "PENDING_UNTIL_RECIPE"
+  },
+  "sites": {
+    "maison": {
+      "home": "lmi-maison-site/00-bat-lmi-maison.html",
+      "visitorRoutes": [
+        "lmi-maison-site/00-bat-lmi-maison.html",
+        "lmi-maison-site/01-collection-inaugurale-lmi-maison.html"
+      ],
+      "internalRoutesExcluded": [
+        "lmi-maison-site/00-index-controle-lmi-maison.html",
+        "lmi-maison-site/01-protocole-tache-continue-lmi-maison.html",
+        "lmi-maison-site/02-certificat-authentification-lmi-maison.html",
+        "lmi-maison-site/03-matrice-controle-culturel-lmi-maison.html",
+        "lmi-maison-site/05-dossier-technique-textile-lmi-maison.html",
+        "lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html",
+        "lmi-maison-site/07-journal-recette-technique-lmi-maison.html",
+        "lmi-maison-site/07-sommaire-controle-lmi-maison.html",
+        "lmi-maison-site/08-registre-recette-finale-lmi-maison.html",
+        "lmi-maison-site/09-protocole-production-continue-lmi-maison.html"
+      ]
+    },
+    "food": {
+      "home": "lmi-food-site/00-bat-lmi-food.html",
+      "visitorRoutes": [
+        "lmi-food-site/00-bat-lmi-food.html",
+        "lmi-food-site/02-petits-dejeuners-collations.html",
+        "lmi-food-site/04-epicerie-condiments.html",
+        "lmi-food-site/08-collection-editoriale-recettes.html"
+      ],
+      "internalRoutesExcluded": [
+        "lmi-food-site/01-plan-publication-lmi-food.html",
+        "lmi-food-site/05-catalogue-prioritaire-lmi-food.html",
+        "lmi-food-site/06-fiches-produits-petits-dejeuners.html",
+        "lmi-food-site/07-sommaire-controle-lmi-food.html",
+        "lmi-food-site/10-controle-bibliotheque-premium.html",
+        "lmi-food-site/13-matrice-qa-recettes.html",
+        "lmi-food-site/16-cahier-charges-conditionnements.html",
+        "lmi-food-site/17-matrice-consultation-fournisseurs.html",
+        "lmi-food-site/18-plan-finalisation-lmi-food.html",
+        "lmi-food-site/19-continuite-projet-lmi-food.html",
+        "lmi-food-site/19-validation-humaine-lmi-food.html",
+        "lmi-food-site/20-protocole-execution-production.html",
+        "lmi-food-site/21-fiche-essai-standardisation.html",
+        "lmi-food-site/22-journal-recette-technique.html",
+        "lmi-food-site/27-controle-qualite-readiness.html"
+      ]
+    },
+    "editions": {
+      "home": "hub-lmi-editions/01-accueil.html",
+      "visitorRoutes": [
+        "hub-lmi-editions/01-accueil.html",
+        "hub-lmi-editions/11-catalogue-editorial.html",
+        "hub-lmi-editions/12-catalogue-bd-adaptations.html",
+        "hub-lmi-editions/13-univers-illustres-da.html",
+        "hub-lmi-editions/19-presse-partenaires-droits.html",
+        "hub-lmi-editions/31-le-boa-totem-de-soya.html",
+        "hub-lmi-editions/32-le-fleuve-sans-nom.html"
+      ]
+    },
+    "musee": {
+      "home": "lmi-musee-complet/index.html",
+      "visitorRoutes": [
+        "lmi-musee-complet/index.html",
+        "lmi-musee-complet/comprendre-le-monde-par-ses-peripheries.html",
+        "lmi-musee-complet/archives-fonds-traces.html",
+        "lmi-musee-complet/collections-editoriales.html",
+        "lmi-musee-complet/principes-curatoriaux.html",
+        "lmi-musee-complet/references-et-filiations.html",
+        "lmi-musee-complet/education-mediation.html",
+        "lmi-musee-complet/expositions-permanentes.html",
+        "lmi-musee-complet/expositions-temporaires.html",
+        "lmi-musee-complet/recherche-transmission.html",
+        "lmi-musee-complet/visiter.html",
+        "lmi-musee-complet/presse-droits.html",
+        "lmi-musee-complet/partenaires.html",
+        "lmi-musee-complet/soutenir.html",
+        "lmi-musee-complet/contact.html",
+        "lmi-musee-complet/mentions-legales-confidentialite.html",
+        "lmi-musee-complet/collections.html"
+      ]
+    }
+  }
+}

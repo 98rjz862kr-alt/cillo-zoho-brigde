@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-18T00:21:58+02:00",
+  "asOf": "2026-09-18T20:45:00+02:00",
   "brand": "LES MOTS IMAGÉS",
   "bridgeRole": "private-prepublication-draft",
   "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
@@ -12,42 +12,45 @@
   },
   "sites": {
     "musee": {
-      "classification": "CLIENT_FACING_REQUALIFICATION_IN_PROGRESS",
+      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
       "historicalLiveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
       "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
       "historicalLiveRecipeEligible": false,
       "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
-      "candidateSourceSha": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
       "candidatePackageSha256": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "client-facing-production-requalification-before-human-recipe",
+      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
       "publicPublishAllowed": false
     },
     "maison": {
-      "classification": "CLIENT_FACING_REQUALIFICATION_IN_PROGRESS",
-      "candidateSourceSha": "705ed48fb9a8a259b160e62319fe3328514c79f8",
-      "candidatePackageSha256": "81cdafff356090421232e7fe1f585146f1dca5ecb299ac0ceb90827a71660641",
+      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
+      "candidatePackageSha256": "736867671c6f0d42e49875f7dc6f6b74b824430080bf494bca40a628188f0767",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "client-facing-production-requalification-before-human-recipe",
-      "brandCanonical": true
+      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "brandCanonical": true,
+      "publicPublishAllowed": false
     },
     "food": {
-      "classification": "CLIENT_FACING_REQUALIFICATION_IN_PROGRESS",
-      "candidateSourceSha": "705ed48fb9a8a259b160e62319fe3328514c79f8",
-      "candidatePackageSha256": "9adeb39fdb305bc285e1355f94ea9cc1edfda9541ee85cd29f33cda09927832c",
+      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
+      "candidatePackageSha256": "a3636e1c7f5025f9e2f3e266772e5c1224ef8360650237b1af67f6888a4b1a24",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "client-facing-production-requalification-before-human-recipe"
+      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "publicPublishAllowed": false
     },
     "editions": {
-      "classification": "MEDIA_CORRECTED_CANONICAL_CANDIDATE_READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
-      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
-      "candidatePackageSha256": "6e259224a5ffa6aa72c8ac5d5c4d914ba6472aef34797979da4164265245c48f",
+      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
+      "candidatePackageSha256": "546af9f8a2958f691862553716578535408cb6042aa28cd2e580378b992be246",
       "workBranchExactCandidateContent": true,
-      "bridgeExactCandidate": true,
-      "nextGate": "human-recipe-after-museum-maison-food"
+      "bridgeExactCandidate": false,
+      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "publicPublishAllowed": false
     }
   }
 }

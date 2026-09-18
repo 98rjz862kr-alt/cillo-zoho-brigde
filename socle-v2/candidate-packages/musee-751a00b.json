@@ -1,7 +1,7 @@
 {
   "site": "musee",
   "baseCandidateSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
-  "sourceSha": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+  "sourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "correction": "Restored canonical Museum media after brand correction; human recipe remains pending.",
   "candidatePackageSha256": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd",
@@ -13,12 +13,19 @@
   "runtimeBridge": {
     "exactCandidateServed": false
   },
-  "releaseStatus": "CLIENT_FACING_REQUALIFICATION_IN_PROGRESS_HUMAN_RECIPE_NOT_OPEN",
+  "releaseStatus": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS_HUMAN_RECIPE_NOT_OPEN",
   "clientFacingUpgrade": {
     "date": "2026-09-18",
     "canonicalHeroIntegrated": true,
     "sourceCommit": "705ed48fb9a8a259b160e62319fe3328514c79f8",
     "packageSha256": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd",
     "humanRecipe": "PENDING"
+  },
+  "clientFacingRequalification": {
+    "sourceCommit": "1f95a5db4625e01fc879e242dcb147d5d2add387",
+    "packageSha256": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd",
+    "structuralGate": "PASS",
+    "humanAestheticCommercialJudgement": "PENDING",
+    "bridgeDeployment": "PENDING"
   }
 }
