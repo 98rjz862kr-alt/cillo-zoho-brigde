@@ -53,5 +53,13 @@ for(const [site,definition] of Object.entries(contract.sites)){
   if(usefulImages(home).length<1)throw new Error(`${site}: homepage needs at least one approved non-logo visual`);
   if(actions(home).length<1)throw new Error(`${site}: homepage needs at least one visitor action`);
 }
+for(const site of Object.keys(contract.sites)){
+  const recipePath=`socle-v2/recipe/${site}-human-recipe-2026-09-18.json`;
+  if(!existsSync(recipePath))throw new Error(`${site}: human client recipe matrix missing`);
+  const recipe=JSON.parse(readFileSync(recipePath,'utf8'));
+  if(!Array.isArray(recipe.checks)||recipe.checks.length<12)throw new Error(`${site}: client recipe matrix incomplete`);
+  if(recipe.checks.some(check=>check.result!=='PENDING'))throw new Error(`${site}: human recipe result recorded before human execution`);
+  if(recipe.finalDecision!=='PENDING')throw new Error(`${site}: final human decision recorded prematurely`);
+}
 console.log(`CLIENT_READINESS_STRUCTURAL_PASS ${homes} sites / ${pages} visitor routes`);
 console.log('HUMAN_AESTHETIC_COMMERCIAL_JUDGEMENT_PENDING');
