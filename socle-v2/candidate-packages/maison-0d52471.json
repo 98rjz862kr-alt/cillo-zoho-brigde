@@ -7,7 +7,7 @@
     "Canonical brand identity corrected to LES MOTS IMAGÉS.",
     "Technical journal wording aligned with the inactive-commerce validator semantics."
   ],
-  "candidatePackageSha256": "30f7c0ca2ac56c74e5bb900e21d66616c4bff51cd9d1b28ed1f4711b7745da79",
+  "candidatePackageSha256": "c5955e271c66194dd24aa37b5e4e580957d536152bdf009898a9f1ff8ff507dd",
   "validation": {
     "validateLmiMaison": "PASS",
     "auditLmiMaisonFinalisation": "PASS",
@@ -28,7 +28,7 @@
   },
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "30f7c0ca2ac56c74e5bb900e21d66616c4bff51cd9d1b28ed1f4711b7745da79",
+    "packageSha256": "c5955e271c66194dd24aa37b5e4e580957d536152bdf009898a9f1ff8ff507dd",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",
