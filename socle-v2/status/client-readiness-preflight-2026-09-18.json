@@ -8,18 +8,18 @@
     "musee": {
       "htmlPages": 41,
       "pagesWithMedia": 41,
-      "uniqueNonLogoMedia": 0,
-      "finding": "all observed image references are the LMI logo only"
+      "uniqueNonLogoMedia": 1,
+      "finding": "canonical museum hero integrated on home; broader collection/exhibition imagery still to qualify"
     },
     "maison": {
       "htmlPages": 12,
-      "pagesWithMedia": 0,
-      "finding": "no img/video media integrated in candidate pages"
+      "pagesWithMedia": 1,
+      "finding": "canonical Maison web hero integrated on home; collection/product merchandising still to qualify"
     },
     "food": {
       "htmlPages": 29,
-      "pagesWithMedia": 0,
-      "finding": "no img/video media integrated in candidate pages"
+      "pagesWithMedia": 1,
+      "finding": "canonical Food web hero integrated on home; recipe/product imagery and commercial merchandising still to qualify"
     },
     "editions": {
       "htmlPages": 33,
@@ -63,5 +63,14 @@
     "mergeMain": false,
     "dnsChange": false,
     "publicPublication": false
+  },
+  "progress": {
+    "canonicalHeroesIntegrated": [
+      "maison",
+      "food",
+      "musee"
+    ],
+    "sourceCommit": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+    "humanRecipeOpen": false
   }
 }

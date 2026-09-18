@@ -1,10 +1,32 @@
 {
-  "site":"food",
-  "sourceSha":"212ff413e60df9195052deb61c9da75a03e31ebe",
-  "sourcePr":104,
-  "validation":{"validateLmiFood":"PASS","validatePublicEntry":"PASS","npmTest":"PASS","gitDiffCheck":"PASS"},
-  "build":{"format":"git-archive-tar","sha256":"bdd8a8b00b14cac73d0fdf6b04f3c3c44d38b987925e050ca92f93ceffd10279"},
-  "mediaReferenceScan":{"referenceCount":0,"sha256":"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945","interpretation":"No img/source/video-poster/CSS-url media references are present in the exact candidate HTML set."},
-  "runtimeBridge":{"exactCandidateServed":false,"observedBridgeSha":"f8d046bdfea2c0854364579cca59cbd2fd85a8b9"},
-  "releaseStatus":"WAITING_FOR_BRIDGE_CONVERGENCE_AND_RECIPE"
+  "site": "food",
+  "sourceSha": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+  "sourcePr": 104,
+  "validation": {
+    "validateLmiFood": "PASS",
+    "validatePublicEntry": "PASS",
+    "npmTest": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "build": {
+    "format": "git-archive-tar",
+    "sha256": "bdd8a8b00b14cac73d0fdf6b04f3c3c44d38b987925e050ca92f93ceffd10279"
+  },
+  "mediaReferenceScan": {
+    "referenceCount": 1,
+    "interpretation": "Canonical Drive-provenanced LMI Food web hero integrated; further recipe/product imagery remains a production workstream."
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_REQUALIFICATION_IN_PROGRESS_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "9adeb39fdb305bc285e1355f94ea9cc1edfda9541ee85cd29f33cda09927832c",
+  "clientFacingUpgrade": {
+    "date": "2026-09-18",
+    "canonicalHeroIntegrated": true,
+    "sourceCommit": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+    "packageSha256": "9adeb39fdb305bc285e1355f94ea9cc1edfda9541ee85cd29f33cda09927832c",
+    "humanRecipe": "PENDING"
+  }
 }
