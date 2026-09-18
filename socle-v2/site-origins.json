@@ -5,7 +5,7 @@
     "musee": {
       "root": "drafts/lmi-musee-complet",
       "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
-      "candidatePackageSha256": "dff6ab561ca68456cc8b66f57299075dc67932d4cbc61094f8d369508b8564ae",
+      "candidatePackageSha256": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a",
       "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },

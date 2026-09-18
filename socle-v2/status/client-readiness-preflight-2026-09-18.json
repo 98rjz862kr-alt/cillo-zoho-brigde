@@ -9,7 +9,7 @@
       "htmlPages": 41,
       "pagesWithMedia": 41,
       "uniqueNonLogoMedia": 1,
-      "finding": "canonical museum hero integrated on home; broader collection/exhibition imagery still to qualify"
+      "finding": "canonical museum hero integrated; visitor copy simplified to remove workshop/governance rhetoric; broader collection/exhibition imagery remains evidence-dependent"
     },
     "maison": {
       "htmlPages": 12,
@@ -86,6 +86,6 @@
     "maison": "c5955e271c66194dd24aa37b5e4e580957d536152bdf009898a9f1ff8ff507dd",
     "food": "f7878af6f900092d5c3ba71a1b2a8be078608a8630cf296c7979410539ab5c1b",
     "editions": "996fcdd9fcd82180399824396cfbdd664dea2466bdb4492e9964508f73d2aada",
-    "musee": "dff6ab561ca68456cc8b66f57299075dc67932d4cbc61094f8d369508b8564ae"
+    "musee": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a"
   }
 }
