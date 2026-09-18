@@ -1,0 +1,89 @@
+{
+  "asOf": "2026-09-18T15:47:00+02:00",
+  "scope": "machine-evidence-index-only-no-human-recipe-no-publication",
+  "brand": "LES MOTS IMAGÉS",
+  "bridge": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "workBranch": "work/socle-commun-v2-20260915",
+    "metadataHead": "e8603b1f2158a12245a9bf7e3611dfa8c92d5829",
+    "liveRuntimeSourceSha": "3710a04529f77b411810354826352d1f2b52c534",
+    "liveDeployId": "dep-dam6fnou01pc73eh87kg",
+    "liveStatus": "live"
+  },
+  "privateApp": {
+    "repository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
+    "workBranch": "work/sites-control-plane-20260917",
+    "sourceSha": "f814088abd437c4c5f80f85794e93016cf8ef7df"
+  },
+  "contracts": {
+    "brandRolesId": "lmi-brand-roles@1.0.0",
+    "brandRolesSha256": "96fa0b11f0e5a2c288637bbb782aca54e77dc2ea4f8e7460c5193987b63e7b7a",
+    "bridgeIntegrationContractSha256": "366d43757ab6c716809ede16da148f1bb85befed823770f2ad3c8908f4c9eeed",
+    "historicalSignedExchangeProofSha256": "a78941ab4f3e6675450ba77ce19f123a33377847f96c803da9854ba34be94df1"
+  },
+  "sites": {
+    "musee": {
+      "classification": "MEDIA_CORRECTED_CANDIDATE_READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
+      "historicalLiveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+      "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+      "historicalLiveRecipeEligible": false,
+      "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
+      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "candidatePackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-on-private-bridge",
+      "publicPublishAllowed": false
+    },
+    "maison": {
+      "classification": "CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",
+      "candidateSourceSha": "0d52471927eec325863662c505fa5d2fc0ca6fd4",
+      "candidatePackageSha256": "a8d14d20bcc801852cbbf2625c0318c255dbeef875d100c447c5aba0995308f1",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-after-museum-or-in-sequenced-recipe-window",
+      "brandCanonical": true
+    },
+    "food": {
+      "classification": "CANDIDATE_CONTENT_CONVERGED_IN_WORK_BRANCH",
+      "candidateSourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
+      "candidatePackageSha256": "569592662ece8b8ea5131f282d4c4150bbeec34d8413d31adc82ccfae011d0dc",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-after-museum-and-maison"
+    },
+    "editions": {
+      "classification": "MEDIA_CORRECTED_CANONICAL_CANDIDATE_READY_FOR_PRIVATE_BRIDGE_CONVERGENCE",
+      "candidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "candidatePackageSha256": "6e259224a5ffa6aa72c8ac5d5c4d914ba6472aef34797979da4164265245c48f",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": true,
+      "nextGate": "human-recipe-after-museum-maison-food"
+    }
+  },
+  "machineGates": {
+    "socleV2": "PASS",
+    "editionsRenderedContractPages": 33,
+    "runtimeRegistry": "PASS",
+    "privateAppIntegrationContractUniverses": 4,
+    "privateAppIngestionUniverses": 4,
+    "previewNavigation": {
+      "pages": 115,
+      "resources": 120,
+      "links": 656,
+      "unauthorizedDenied": 120,
+      "sessionAuthentication": true
+    }
+  },
+  "humanRecipe": {
+    "musee": "PENDING",
+    "maison": "PENDING",
+    "food": "PENDING",
+    "editions": "PENDING"
+  },
+  "publication": {
+    "mainMerge": false,
+    "dnsChanged": false,
+    "publicPublication": false
+  }
+}
