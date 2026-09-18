@@ -24,7 +24,7 @@
     "editions": {
       "htmlPages": 33,
       "pagesWithMedia": 4,
-      "finding": "canonical Editions web hero, Boa Totem visual and Fleuve cover integrated in visitor-facing routes; broader catalog cover integration remains evidence-dependent"
+      "finding": "canonical hero plus verified Boa Totem and Fleuve visuals integrated into visitor catalogue/adaptation routes; remaining works stay text-led until verified covers are available"
     }
   },
   "driveEvidence": {
@@ -85,7 +85,7 @@
   "currentPackageSha256": {
     "maison": "7daf570744d2a211466e313cde8765f36be2266da46de1b51e37738986b5f18e",
     "food": "cee9d9a05a6aff7cfb8e44a6aa9b0f99968b9595ad622494f6ff51e744f7620c",
-    "editions": "fa7a00cc701b71268d4c48d5e043ea0941f9aefa908c7de2b52998372a29fb02",
+    "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
     "musee": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a"
   }
 }

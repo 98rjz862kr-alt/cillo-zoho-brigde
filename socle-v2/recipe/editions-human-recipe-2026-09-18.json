@@ -5,7 +5,7 @@
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
     "candidateSourceSha": "PENDING_COMMIT",
-    "candidatePackageSha256": "fa7a00cc701b71268d4c48d5e043ea0941f9aefa908c7de2b52998372a29fb02",
+    "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
     "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
   },
   "devices": [

@@ -26,7 +26,7 @@
     "editions": {
       "root": "drafts/hub-lmi-editions",
       "candidateSourceSha": "4719687cb969c9fc331afc301f1fbdbb8a452e62",
-      "candidatePackageSha256": "fa7a00cc701b71268d4c48d5e043ea0941f9aefa908c7de2b52998372a29fb02",
+      "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
       "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
