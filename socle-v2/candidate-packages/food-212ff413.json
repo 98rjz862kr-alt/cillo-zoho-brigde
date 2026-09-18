@@ -20,8 +20,8 @@
     "exactCandidateServed": false,
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
-  "releaseStatus": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "e1e8100cfb13f47abe99d4fff145c0dc4147fc54e6a54bc143e4fef3a5365e49",
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "dd16b13b79ab5ad3b87bbf598539803d2b8ba2bbb22d81e5c1ed1b6cfbda677c",
   "clientFacingUpgrade": {
     "date": "2026-09-18",
     "canonicalHeroIntegrated": true,
@@ -31,7 +31,7 @@
   },
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "e1e8100cfb13f47abe99d4fff145c0dc4147fc54e6a54bc143e4fef3a5365e49",
+    "packageSha256": "dd16b13b79ab5ad3b87bbf598539803d2b8ba2bbb22d81e5c1ed1b6cfbda677c",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",

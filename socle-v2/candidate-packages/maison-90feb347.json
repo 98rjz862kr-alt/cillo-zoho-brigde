@@ -23,10 +23,10 @@
     "exactCandidateServed": false,
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
-  "releaseStatus": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "30f7c0ca2ac56c74e5bb900e21d66616c4bff51cd9d1b28ed1f4711b7745da79",
   "clientFacingRequalification": {
-    "packageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
+    "packageSha256": "30f7c0ca2ac56c74e5bb900e21d66616c4bff51cd9d1b28ed1f4711b7745da79",
     "bridgeDeployment": "PENDING",
     "humanAestheticCommercialJudgement": "PENDING"
   }

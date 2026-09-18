@@ -5,29 +5,29 @@
     "musee": {
       "root": "drafts/lmi-musee-complet",
       "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-      "candidatePackageSha256": "35d7056e3db1bc09b58f622680d37f1f746fdd90dd82155c45b243d63b25f8f5",
-      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidatePackageSha256": "dff6ab561ca68456cc8b66f57299075dc67932d4cbc61094f8d369508b8564ae",
+      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
       "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-      "candidatePackageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
-      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidatePackageSha256": "30f7c0ca2ac56c74e5bb900e21d66616c4bff51cd9d1b28ed1f4711b7745da79",
+      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "food": {
       "root": "drafts/lmi-food-site",
       "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-      "candidatePackageSha256": "e1e8100cfb13f47abe99d4fff145c0dc4147fc54e6a54bc143e4fef3a5365e49",
-      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidatePackageSha256": "dd16b13b79ab5ad3b87bbf598539803d2b8ba2bbb22d81e5c1ed1b6cfbda677c",
+      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
       "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-      "candidatePackageSha256": "7cffb35936c2efbab062c0addbd7fb16d09db3d1255dec3865763c2ee64d3f87",
-      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidatePackageSha256": "fe7b46060af387ce01255fe6f5d31353180f4af12d68c170c4c6c4ec95853999",
+      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
   }
