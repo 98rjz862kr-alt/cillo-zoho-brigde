@@ -5,6 +5,8 @@ import path from 'node:path';
 const root=path.resolve('drafts/lmi-musee-complet');
 const publicPages=[
  'index.html','pourquoi-un-musee-lmi-editions.html','comprendre-le-monde-par-ses-peripheries.html','archives-fonds-traces.html','collections-editoriales.html',
+ 'collections.html','education-mediation.html','expositions-permanentes.html','expositions-temporaires.html','recherche-transmission.html',
+ 'visiter.html','presse-droits.html','partenaires.html','soutenir.html',
  'collections-editoriales/atlas-des-humanites-disparues.html','collections-editoriales/les-routes-invisibles.html','collections-editoriales/archives-des-seuils.html',
  'principes-curatoriaux.html','references-et-filiations.html','journal-de-construction.html','contact.html','mentions-legales-confidentialite.html',
  'parcours/presse.html','parcours/partenaires.html','parcours/programmateurs.html','parcours/prescripteurs.html'

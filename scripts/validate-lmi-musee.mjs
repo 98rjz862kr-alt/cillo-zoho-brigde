@@ -3,9 +3,7 @@ import path from 'path';
 
 const root = path.resolve('drafts/lmi-musee-complet');
 const archivedPages = [
-  'sommaire.html','expositions-permanentes.html','expositions-temporaires.html','archives.html','collections.html',
-  'dossiers-documentaires.html','recherche-transmission.html','atlas-humanites.html','education-mediation.html',
-  'vision-mission.html','visiter.html','soutenir.html','partenaires.html','presse-droits.html'
+  'sommaire.html','archives.html','dossiers-documentaires.html','atlas-humanites.html','vision-mission.html'
 ];
 const publicPages = [
   'index.html','pourquoi-un-musee-lmi-editions.html','comprendre-le-monde-par-ses-peripheries.html',

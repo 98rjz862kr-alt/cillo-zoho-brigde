@@ -32,7 +32,8 @@ for (const file of files) {
   assert((html.match(/<h1(?:\s|>)/gi) || []).length === 1, 'Un H1 unique est requis: ' + file);
   assert(/LMI Maison/i.test(html), 'Identité LMI Maison absente: ' + file);
   assert(!/<form\b/i.test(html), 'Formulaire actif interdit: ' + file);
-  assert(!/mailto:|tel:|stripe|paypal|parcours d’encaissement/i.test(html), 'Action commerciale active interdite: ' + file);
+  assert(!/stripe|paypal|parcours d’encaissement/i.test(html), 'Action commerciale active interdite: ' + file);
+  if (/mailto:|tel:/i.test(html)) assert(file === 'contact.html', 'Lien de contact direct réservé à la page contact: ' + file);
 }
 for (const file of ['00-bat-lmi-maison.html','01-collection-inaugurale-lmi-maison.html']) {
   const html = readFileSync(path.join(root, file), 'utf8');
@@ -52,4 +53,4 @@ for (const [file, html] of Object.entries(allHtml)) {
     assert(files.includes(path.basename(href)), 'Lien relatif cassé dans ' + file + ': ' + href);
   }
 }
-console.log('Validated LMI Maison: ' + files.length + ' pages privées, navigation, contenus publics, verrous culturels, techniques et commerciaux.');
+console.log('Validated LMI Maison: ' + files.length + ' pages privées, parcours visiteur, contact direct limité à la page contact, verrous culturels, techniques et commerciaux.');
