@@ -4,7 +4,7 @@
   "sourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "correction": "Restored canonical Editions media while preserving protected Bridge routing.",
-  "candidatePackageSha256": "996fcdd9fcd82180399824396cfbdd664dea2466bdb4492e9964508f73d2aada",
+  "candidatePackageSha256": "fdc49aac3bea4fb603aedc8742ebd2d9ef498e7e3bbc900a0c515f495e58b9e4",
   "validation": {
     "canonicalBrand": "PASS",
     "canonicalMedia": "PASS",
@@ -16,7 +16,7 @@
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "996fcdd9fcd82180399824396cfbdd664dea2466bdb4492e9964508f73d2aada",
+    "packageSha256": "fdc49aac3bea4fb603aedc8742ebd2d9ef498e7e3bbc900a0c515f495e58b9e4",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",

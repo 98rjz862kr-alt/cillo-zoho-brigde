@@ -37,7 +37,7 @@
     "food": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
-      "candidatePackageSha256": "f7878af6f900092d5c3ba71a1b2a8be078608a8630cf296c7979410539ab5c1b",
+      "candidatePackageSha256": "3ac04d848dc7145e812d1c3f6f3542ee6f33bd4cdd848743defbb658ebe25951",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
       "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
@@ -46,7 +46,7 @@
     "editions": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
-      "candidatePackageSha256": "996fcdd9fcd82180399824396cfbdd664dea2466bdb4492e9964508f73d2aada",
+      "candidatePackageSha256": "fdc49aac3bea4fb603aedc8742ebd2d9ef498e7e3bbc900a0c515f495e58b9e4",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
       "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",

@@ -21,7 +21,7 @@
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "f7878af6f900092d5c3ba71a1b2a8be078608a8630cf296c7979410539ab5c1b",
+  "candidatePackageSha256": "3ac04d848dc7145e812d1c3f6f3542ee6f33bd4cdd848743defbb658ebe25951",
   "clientFacingUpgrade": {
     "date": "2026-09-18",
     "canonicalHeroIntegrated": true,
@@ -31,7 +31,7 @@
   },
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "f7878af6f900092d5c3ba71a1b2a8be078608a8630cf296c7979410539ab5c1b",
+    "packageSha256": "3ac04d848dc7145e812d1c3f6f3542ee6f33bd4cdd848743defbb658ebe25951",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",
