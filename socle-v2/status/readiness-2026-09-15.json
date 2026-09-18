@@ -17,7 +17,7 @@
       "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
       "historicalLiveRecipeEligible": false,
       "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
-      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
       "candidatePackageSha256": "dff6ab561ca68456cc8b66f57299075dc67932d4cbc61094f8d369508b8564ae",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
@@ -26,7 +26,7 @@
     },
     "maison": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
-      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
       "candidatePackageSha256": "30f7c0ca2ac56c74e5bb900e21d66616c4bff51cd9d1b28ed1f4711b7745da79",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
@@ -36,7 +36,7 @@
     },
     "food": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
-      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
       "candidatePackageSha256": "dd16b13b79ab5ad3b87bbf598539803d2b8ba2bbb22d81e5c1ed1b6cfbda677c",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
@@ -45,7 +45,7 @@
     },
     "editions": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
-      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
       "candidatePackageSha256": "fe7b46060af387ce01255fe6f5d31353180f4af12d68c170c4c6c4ec95853999",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
