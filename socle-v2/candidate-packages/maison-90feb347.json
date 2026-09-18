@@ -1,7 +1,7 @@
 {
   "site": "maison",
   "baseCandidateSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
-  "sourceSha": "4719687cb969c9fc331afc301f1fbdbb8a452e62",
+  "sourceSha": "2b01989d301da4c3907a60933e6052f93edaa8ee",
   "sourcePr": 119,
   "correction": "Validator false-positive fixed without activating commerce.",
   "validation": {
