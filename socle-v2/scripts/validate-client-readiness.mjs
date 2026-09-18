@@ -1,4 +1,5 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
+import path from 'node:path';
 import { readDraftHtml } from '../../drafts.js';
 
 const contract=JSON.parse(readFileSync('socle-v2/contracts/client-facing-routes.v1.json','utf8'));
@@ -32,6 +33,15 @@ for(const [site,definition] of Object.entries(contract.sites)){
     const visibleText=content.replace(/<[^>]+>/g,' ').replace(/&[a-z0-9#]+;/gi,' ').replace(/\s+/g,' ');
     if(forbidden.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);
     if(oldBrand.test(visibleText))throw new Error(`${site}: non-canonical brand leaked: ${route}`);
+    for(const match of html.matchAll(/href=["']([^"']+)["']/gi)){
+      const href=match[1];
+      if(!href || href.startsWith('#') || /^(?:https?:|mailto:|tel:|javascript:|\/atelier\/|\/api\/)/i.test(href))continue;
+      const raw=href.split(/[?#]/)[0];
+      if(!raw.endsWith('.html'))continue;
+      const target=path.posix.normalize(path.posix.join(path.posix.dirname(route),raw));
+      if((definition.internalRoutesExcluded||[]).includes(target))throw new Error(`${site}: visitor route links to internal control route: ${route} -> ${target}`);
+      if(!existsSync(path.join('drafts',target)))throw new Error(`${site}: visitor route has missing local target: ${route} -> ${target}`);
+    }
   }
   if(!definition.contactRoute || !definition.visitorRoutes.includes(definition.contactRoute))throw new Error(`${site}: contact route must be in visitor scope`);
   const contact=readDraftHtml(definition.contactRoute);
