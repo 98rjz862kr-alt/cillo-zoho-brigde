@@ -13,6 +13,17 @@
       "decodeQA": "PIL_FULL_DECODE_PASS_AND_VISUALLY_REVIEWED_2026_09_15",
       "usage": "PREPUBLICATION_REFERENCE",
       "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-MUS-WEB-HERO-V001.webp",
+      "sourceDriveId": "1vLvQK5Sdz3sKiQ9CwQGqD_ZR03-PBnuy",
+      "sourceName": "LMI-MUS-WEB-HERO-V001.webp",
+      "sha256": "072c0004eb9a0d7abe8f37231b284da9fdeacdbb462999dd3ca3aaf08cd80cec",
+      "bytes": 175312,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "SOURCE_DRIVE_WEB_CANONIQUE_INTEGREE_2026_09_18",
+      "usage": "PREPUBLICATION_HERO",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
     }
   ],
   "publicRelease": "NOT_APPROVED"

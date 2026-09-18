@@ -54,6 +54,13 @@
       "height": 768,
       "sha256": "36437fa44d87a5da983890886f22f050cc260797484e9a8a0d92e4579f2f1ba6",
       "status": "SOURCE_RETROUVEE_CANDIDAT_WEB"
+    },
+    {
+      "name": "LMI-MAI-WEB-HERO-V001.webp",
+      "driveId": "1pTIF2aNOnT0dHr4wvRvEHUeNIwPFuLaA",
+      "format": "WEBP",
+      "sha256": "7ed83abd2cae7939f49489d33b70cba4c8688a77d9ee8d67def02c3b8b7e2817",
+      "status": "SOURCE_DRIVE_WEB_CANONIQUE_INTEGREE_2026_09_18"
     }
   ],
   "register": {

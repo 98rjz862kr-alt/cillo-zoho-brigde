@@ -59,6 +59,13 @@
       "format": "PNG",
       "sha256": "a0ae3276a271544dc1f1564d10ec22f4c539251d072d0246ec8fdc5b756bd46a",
       "status": "SOURCE_RETROUVEE_USAGE_A_CONTROLER"
+    },
+    {
+      "name": "LMI-FOOD-WEB-HERO-V001.webp",
+      "driveId": "1kqshcU76_U02zSs6R4CYTn71VwPhCZ9R",
+      "format": "WEBP",
+      "sha256": "3b63fdd1920d8dd710953ddc285cf145190cf61609b673481fe77277b0d23a42",
+      "status": "SOURCE_DRIVE_WEB_CANONIQUE_INTEGREE_2026_09_18"
     }
   ],
   "removedUntraceableMedia": [
