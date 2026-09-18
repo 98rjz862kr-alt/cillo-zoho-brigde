@@ -18,7 +18,7 @@
       "historicalLiveRecipeEligible": false,
       "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
       "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
-      "candidatePackageSha256": "2ef6c066d59acad6293598d6b57d20d10d1fc022aa5116e3de85da9fcb13e324",
+      "candidatePackageSha256": "1cddf843110358e4269a5e48c71c9476f08f58c9b9c46eff48bdd7822994a87a",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
       "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",

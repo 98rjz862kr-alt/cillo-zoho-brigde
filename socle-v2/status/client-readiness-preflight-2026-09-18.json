@@ -9,7 +9,7 @@
       "htmlPages": 41,
       "pagesWithMedia": 41,
       "uniqueNonLogoMedia": 1,
-      "finding": "canonical museum hero integrated; home, visit and support copy refocused on visitor discovery and cultural transmission rather than internal qualification vocabulary; broader collection/exhibition imagery still to qualify"
+      "finding": "canonical museum hero integrated; all visitor routes now carry public canonical robots metadata for the museum domain while human recipe remains pending"
     },
     "maison": {
       "htmlPages": 12,
@@ -86,6 +86,6 @@
     "maison": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
     "food": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
     "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
-    "musee": "2ef6c066d59acad6293598d6b57d20d10d1fc022aa5116e3de85da9fcb13e324"
+    "musee": "1cddf843110358e4269a5e48c71c9476f08f58c9b9c46eff48bdd7822994a87a"
   }
 }
