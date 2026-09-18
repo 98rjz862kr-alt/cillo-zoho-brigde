@@ -19,7 +19,7 @@
     "food": {
       "root": "drafts/lmi-food-site",
       "candidateSourceSha": "2b01989d301da4c3907a60933e6052f93edaa8ee",
-      "candidatePackageSha256": "cee9d9a05a6aff7cfb8e44a6aa9b0f99968b9595ad622494f6ff51e744f7620c",
+      "candidatePackageSha256": "53035b79249a13f994e30bc6b89fc61af67631a90a89c49eefe0ee7e2bafd70d",
       "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },

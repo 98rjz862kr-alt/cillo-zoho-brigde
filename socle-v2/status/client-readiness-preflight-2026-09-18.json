@@ -19,7 +19,7 @@
     "food": {
       "htmlPages": 29,
       "pagesWithMedia": 1,
-      "finding": "canonical Food web hero integrated on home; recipe/product imagery and commercial merchandising still to qualify"
+      "finding": "canonical hero integrated; visitor-facing commercial journey rewritten around choice, useful product information and confirmation rather than internal gate language; broader verified recipe/product imagery still to qualify"
     },
     "editions": {
       "htmlPages": 33,
@@ -84,7 +84,7 @@
   },
   "currentPackageSha256": {
     "maison": "7daf570744d2a211466e313cde8765f36be2266da46de1b51e37738986b5f18e",
-    "food": "cee9d9a05a6aff7cfb8e44a6aa9b0f99968b9595ad622494f6ff51e744f7620c",
+    "food": "53035b79249a13f994e30bc6b89fc61af67631a90a89c49eefe0ee7e2bafd70d",
     "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
     "musee": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a"
   }
