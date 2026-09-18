@@ -37,7 +37,7 @@
     "food": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "candidateSourceSha": "e3f3c4d472b245f6c074c70d5b33a7f3750ffb22",
-      "candidatePackageSha256": "dd16b13b79ab5ad3b87bbf598539803d2b8ba2bbb22d81e5c1ed1b6cfbda677c",
+      "candidatePackageSha256": "f7878af6f900092d5c3ba71a1b2a8be078608a8630cf296c7979410539ab5c1b",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
       "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
