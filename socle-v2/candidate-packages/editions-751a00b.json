@@ -1,7 +1,7 @@
 {
   "site": "editions",
   "baseCandidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
-  "sourceSha": "2b01989d301da4c3907a60933e6052f93edaa8ee",
+  "sourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "correction": "Restored canonical Editions media while preserving protected Bridge routing.",
   "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",

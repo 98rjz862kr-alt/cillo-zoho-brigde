@@ -1,7 +1,7 @@
 {
   "site": "musee",
   "baseCandidateSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
-  "sourceSha": "2b01989d301da4c3907a60933e6052f93edaa8ee",
+  "sourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "correction": "Restored canonical Museum media after brand correction; human recipe remains pending.",
   "candidatePackageSha256": "2ef6c066d59acad6293598d6b57d20d10d1fc022aa5116e3de85da9fcb13e324",
