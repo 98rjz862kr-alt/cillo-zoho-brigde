@@ -1,28 +1,55 @@
 {
-  "site":"editions",
-  "baseHubSha":"15dcdc84b8e43cc2b5e260eb1edacd32c62fe7e9",
-  "sourceSha":"7de14ba0381f4f83907900c95a83f5dc15377f81",
-  "sourcePr":120,
-  "canonicalBrand":"LES MOTS IMAGÉS",
-  "validation":{
-    "validateHub":"PASS",
-    "validateHubLinks":"PASS",
-    "validateHubVisitorCopy":"PASS",
-    "validateHubSeo":"PASS",
-    "validateHubVisuals":"PASS",
-    "validatePublicEntry":"PASS",
-    "npmTest":"PASS",
-    "gitDiffCheck":"PASS"
+  "site": "editions",
+  "baseHubSha": "15dcdc84b8e43cc2b5e260eb1edacd32c62fe7e9",
+  "sourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
+  "sourcePr": 120,
+  "canonicalBrand": "LES MOTS IMAGÉS",
+  "validation": {
+    "validateHub": "PASS",
+    "validateHubLinks": "PASS",
+    "validateHubVisitorCopy": "PASS",
+    "validateHubSeo": "PASS",
+    "validateHubVisuals": "PASS",
+    "validatePublicEntry": "PASS",
+    "npmTest": "PASS",
+    "gitDiffCheck": "PASS"
   },
-  "build":{"format":"git-archive-tar","sha256":"e7f479babc7a4822bc8ab9d39b0ccbd6ba1990db4d263a06e60e9505b851967e"},
-  "mediaManifest":{
-    "sha256":"2adce7b013f9dcc7b4246a2719abd7d39e553d974e47b0d3a8a08357f6505ee0",
-    "assets":[
-      {"name":"logo-lmi-hub.webp","servedSha256":"c5838131add35915029d0fc47cc9db70a0d67980132c08716f744836b2898f95","sourceDriveId":"1tRvVtzTrDsaYg59cxmtdu5ITLv02Vrgy","sourceSha256":"f20a38b1106c04f1265831474b60d7f607776fda3e98ad0e2db00c02622566b3"},
-      {"name":"boa-totem-soya.webp","servedSha256":"23ba93c03ddbe499fc684489f1c88c7794f974c2129e428f117a5fa372278df4","sourceDriveId":"1qKmgxf40Dl4rS16ZA1PRodF29NmUowDA","sourceSha256":"13ac00be26e61f6537cbeb1fb32977689a558437e94ceb0aed86c8d7495f6f5e"},
-      {"name":"le-fleuve-sans-nom.webp","servedSha256":"ffa3031e950147fed808f6d5bcdd677c9244930540c67efeb5446515b7c632af","sourceDriveId":"105ruK0gmwVqt9tcNL6vSf5w8P1BMgYij","sourceSha256":"3803846c2c5651c5d7f6c1fd775806d0ac3eac57367ab0f58911c381dc4e88aa"}
+  "build": {
+    "format": "git-archive-tar",
+    "sha256": "e7f479babc7a4822bc8ab9d39b0ccbd6ba1990db4d263a06e60e9505b851967e"
+  },
+  "mediaManifest": {
+    "sha256": "2adce7b013f9dcc7b4246a2719abd7d39e553d974e47b0d3a8a08357f6505ee0",
+    "assets": [
+      {
+        "name": "logo-lmi-hub.webp",
+        "servedSha256": "c5838131add35915029d0fc47cc9db70a0d67980132c08716f744836b2898f95",
+        "sourceDriveId": "1tRvVtzTrDsaYg59cxmtdu5ITLv02Vrgy",
+        "sourceSha256": "f20a38b1106c04f1265831474b60d7f607776fda3e98ad0e2db00c02622566b3"
+      },
+      {
+        "name": "boa-totem-soya.webp",
+        "servedSha256": "23ba93c03ddbe499fc684489f1c88c7794f974c2129e428f117a5fa372278df4",
+        "sourceDriveId": "1qKmgxf40Dl4rS16ZA1PRodF29NmUowDA",
+        "sourceSha256": "13ac00be26e61f6537cbeb1fb32977689a558437e94ceb0aed86c8d7495f6f5e"
+      },
+      {
+        "name": "le-fleuve-sans-nom.webp",
+        "servedSha256": "ffa3031e950147fed808f6d5bcdd677c9244930540c67efeb5446515b7c632af",
+        "sourceDriveId": "105ruK0gmwVqt9tcNL6vSf5w8P1BMgYij",
+        "sourceSha256": "3803846c2c5651c5d7f6c1fd775806d0ac3eac57367ab0f58911c381dc4e88aa"
+      }
     ]
   },
-  "runtimeBridge":{"exactCandidateServed":false,"observedBridgeSha":"f8d046bdfea2c0854364579cca59cbd2fd85a8b9"},
-  "releaseStatus":"CANONICAL_CANDIDATE_BUILT_WAITING_FOR_BRIDGE_CONVERGENCE_AND_RECIPE"
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "edb3e8483a84d2f81d69ab27a35f17756cb83cd42b61069623a7b94c3a577967",
+  "clientFacingRequalification": {
+    "packageSha256": "edb3e8483a84d2f81d69ab27a35f17756cb83cd42b61069623a7b94c3a577967",
+    "bridgeDeployment": "PENDING",
+    "humanAestheticCommercialJudgement": "PENDING"
+  }
 }

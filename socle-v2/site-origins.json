@@ -4,30 +4,30 @@
   "sites": {
     "musee": {
       "root": "drafts/lmi-musee-complet",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd",
-      "state": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "35d7056e3db1bc09b58f622680d37f1f746fdd90dd82155c45b243d63b25f8f5",
+      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "736867671c6f0d42e49875f7dc6f6b74b824430080bf494bca40a628188f0767",
-      "state": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
+      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "food": {
       "root": "drafts/lmi-food-site",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "a3636e1c7f5025f9e2f3e266772e5c1224ef8360650237b1af67f6888a4b1a24",
-      "state": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "ebc8c60396f771f9888b4c44595f6947e523931191dd152202816b148f68d15e",
+      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "546af9f8a2958f691862553716578535408cb6042aa28cd2e580378b992be246",
-      "state": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "edb3e8483a84d2f81d69ab27a35f17756cb83cd42b61069623a7b94c3a577967",
+      "state": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
   }

@@ -1,12 +1,33 @@
 {
-  "site":"maison",
-  "baseCandidateSha":"42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
-  "sourceSha":"90feb347652b025ebb657e76d41f691a11956ef6",
-  "sourcePr":119,
-  "correction":"Validator false-positive fixed without activating commerce.",
-  "validation":{"validateLmiMaison":"PASS","validatePublicEntry":"PASS","npmTest":"PASS","gitDiffCheck":"PASS"},
-  "build":{"format":"git-archive-tar","sha256":"b4fcd515a705426a9f4ef071f01900babf2817e614e38cffec9f7c4a7a41d51d"},
-  "mediaReferenceScan":{"referenceCount":0,"sha256":"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945","interpretation":"No img/source/video-poster/CSS-url media references are present in the exact candidate HTML set."},
-  "runtimeBridge":{"exactCandidateServed":false,"observedBridgeSha":"f8d046bdfea2c0854364579cca59cbd2fd85a8b9"},
-  "releaseStatus":"WAITING_FOR_BRIDGE_CONVERGENCE_AND_RECIPE"
+  "site": "maison",
+  "baseCandidateSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
+  "sourceSha": "90feb347652b025ebb657e76d41f691a11956ef6",
+  "sourcePr": 119,
+  "correction": "Validator false-positive fixed without activating commerce.",
+  "validation": {
+    "validateLmiMaison": "PASS",
+    "validatePublicEntry": "PASS",
+    "npmTest": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "build": {
+    "format": "git-archive-tar",
+    "sha256": "b4fcd515a705426a9f4ef071f01900babf2817e614e38cffec9f7c4a7a41d51d"
+  },
+  "mediaReferenceScan": {
+    "referenceCount": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "interpretation": "No img/source/video-poster/CSS-url media references are present in the exact candidate HTML set."
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
+  "clientFacingRequalification": {
+    "packageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
+    "bridgeDeployment": "PENDING",
+    "humanAestheticCommercialJudgement": "PENDING"
+  }
 }

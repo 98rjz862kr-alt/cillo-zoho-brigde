@@ -4,7 +4,7 @@
   "sourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
   "sourcePr": 121,
   "correction": "Canonical brand identity corrected from LES MOTS IMAGES / Les Mots Images to LES MOTS IMAGÉS only.",
-  "candidatePackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea",
+  "candidatePackageSha256": "35d7056e3db1bc09b58f622680d37f1f746fdd90dd82155c45b243d63b25f8f5",
   "validation": {
     "validateLmiMusee": "PASS",
     "auditLmiMuseeFinalisation": "PASS",
@@ -15,5 +15,10 @@
     "exactCandidateServed": false,
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
-  "releaseStatus": "WAITING_FOR_CONTROLLED_BRIDGE_CONVERGENCE_AND_HUMAN_RECIPE"
+  "releaseStatus": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "clientFacingRequalification": {
+    "packageSha256": "35d7056e3db1bc09b58f622680d37f1f746fdd90dd82155c45b243d63b25f8f5",
+    "bridgeDeployment": "PENDING",
+    "humanAestheticCommercialJudgement": "PENDING"
+  }
 }

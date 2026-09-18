@@ -29,7 +29,8 @@
         "lmi-maison-site/07-sommaire-controle-lmi-maison.html",
         "lmi-maison-site/08-registre-recette-finale-lmi-maison.html",
         "lmi-maison-site/09-protocole-production-continue-lmi-maison.html"
-      ]
+      ],
+      "contactRoute": "lmi-maison-site/contact.html"
     },
     "food": {
       "home": "lmi-food-site/00-bat-lmi-food.html",
@@ -56,7 +57,8 @@
         "lmi-food-site/21-fiche-essai-standardisation.html",
         "lmi-food-site/22-journal-recette-technique.html",
         "lmi-food-site/27-controle-qualite-readiness.html"
-      ]
+      ],
+      "contactRoute": "lmi-food-site/contact.html"
     },
     "editions": {
       "home": "hub-lmi-editions/01-accueil.html",
@@ -67,8 +69,10 @@
         "hub-lmi-editions/13-univers-illustres-da.html",
         "hub-lmi-editions/19-presse-partenaires-droits.html",
         "hub-lmi-editions/31-le-boa-totem-de-soya.html",
-        "hub-lmi-editions/32-le-fleuve-sans-nom.html"
-      ]
+        "hub-lmi-editions/32-le-fleuve-sans-nom.html",
+        "hub-lmi-editions/05-contact.html"
+      ],
+      "contactRoute": "hub-lmi-editions/05-contact.html"
     },
     "musee": {
       "home": "lmi-musee-complet/index.html",
@@ -90,7 +94,8 @@
         "lmi-musee-complet/contact.html",
         "lmi-musee-complet/mentions-legales-confidentialite.html",
         "lmi-musee-complet/collections.html"
-      ]
+      ],
+      "contactRoute": "lmi-musee-complet/contact.html"
     }
   }
 }

@@ -1,13 +1,13 @@
 {
   "site": "maison",
   "baseCandidateSha": "90feb347652b025ebb657e76d41f691a11956ef6",
-  "sourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
+  "sourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
   "sourceBranch": "work/maison-brand-correction-20260915",
   "corrections": [
     "Canonical brand identity corrected to LES MOTS IMAGÉS.",
     "Technical journal wording aligned with the inactive-commerce validator semantics."
   ],
-  "candidatePackageSha256": "736867671c6f0d42e49875f7dc6f6b74b824430080bf494bca40a628188f0767",
+  "candidatePackageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
   "validation": {
     "validateLmiMaison": "PASS",
     "auditLmiMaisonFinalisation": "PASS",
@@ -18,7 +18,7 @@
     "exactCandidateServed": false,
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
-  "releaseStatus": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS_HUMAN_RECIPE_NOT_OPEN",
+  "releaseStatus": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
   "clientFacingUpgrade": {
     "date": "2026-09-18",
     "canonicalHeroIntegrated": true,
@@ -27,9 +27,10 @@
     "humanRecipe": "PENDING"
   },
   "clientFacingRequalification": {
-    "sourceCommit": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-    "packageSha256": "736867671c6f0d42e49875f7dc6f6b74b824430080bf494bca40a628188f0767",
+    "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+    "packageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
     "structuralGate": "PASS",
+    "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",
     "bridgeDeployment": "PENDING"
   }

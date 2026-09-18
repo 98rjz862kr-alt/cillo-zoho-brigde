@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-09-18T20:45:00+02:00",
+  "asOf": "2026-09-18T20:55:00+02:00",
   "brand": "LES MOTS IMAGÉS",
   "bridgeRole": "private-prepublication-draft",
   "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
@@ -12,44 +12,44 @@
   },
   "sites": {
     "musee": {
-      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
+      "classification": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
       "historicalLiveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
       "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
       "historicalLiveRecipeEligible": false,
       "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "9db577730548ea26d8761c5d67d0a276beaa057b660881a8793d6283189d8dcd",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "35d7056e3db1bc09b58f622680d37f1f746fdd90dd82155c45b243d63b25f8f5",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
       "publicPublishAllowed": false
     },
     "maison": {
-      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "736867671c6f0d42e49875f7dc6f6b74b824430080bf494bca40a628188f0767",
+      "classification": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "f5cd5344489b9c29681fbf123830c8ffb2c59dabdb0932368780d1f18d08d87c",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
       "brandCanonical": true,
       "publicPublishAllowed": false
     },
     "food": {
-      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "a3636e1c7f5025f9e2f3e266772e5c1224ef8360650237b1af67f6888a4b1a24",
+      "classification": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "ebc8c60396f771f9888b4c44595f6947e523931191dd152202816b148f68d15e",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
       "publicPublishAllowed": false
     },
     "editions": {
-      "classification": "CLIENT_FACING_PRODUCTION_REQUALIFICATION_IN_PROGRESS",
-      "candidateSourceSha": "1f95a5db4625e01fc879e242dcb147d5d2add387",
-      "candidatePackageSha256": "546af9f8a2958f691862553716578535408cb6042aa28cd2e580378b992be246",
+      "classification": "CLIENT_FACING_CANDIDATE_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+      "candidatePackageSha256": "edb3e8483a84d2f81d69ab27a35f17756cb83cd42b61069623a7b94c3a577967",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
-      "nextGate": "visual-editorial-commercial-production-review-before-private-bridge",
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
       "publicPublishAllowed": false
     }
   }

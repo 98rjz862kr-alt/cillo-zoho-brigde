@@ -33,6 +33,10 @@ for(const [site,definition] of Object.entries(contract.sites)){
     if(forbidden.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);
     if(oldBrand.test(visibleText))throw new Error(`${site}: non-canonical brand leaked: ${route}`);
   }
+  if(!definition.contactRoute || !definition.visitorRoutes.includes(definition.contactRoute))throw new Error(`${site}: contact route must be in visitor scope`);
+  const contact=readDraftHtml(definition.contactRoute);
+  const contactText=stripEnvironment(contact||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
+  if(!/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(contactText) && !/WhatsApp|t[ée]l[ée]phone/i.test(contactText))throw new Error(`${site}: usable contact method missing`);
   const home=readDraftHtml(definition.home);
   if(!home)throw new Error(`${site}: home missing`);
   homes++;
