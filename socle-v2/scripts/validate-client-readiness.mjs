@@ -26,6 +26,8 @@ for(const [site,definition] of Object.entries(contract.sites)){
     if(!/<meta[^>]+name=["']viewport["']/i.test(html))throw new Error(`${site}: viewport missing: ${route}`);
     if((html.match(/<h1\b/gi)||[]).length!==1)throw new Error(`${site}: exactly one h1 required: ${route}`);
     if(!/<title[^>]*>[^<]+<\/title>/i.test(html))throw new Error(`${site}: title missing: ${route}`);
+    const description=html.match(/<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i)?.[1] || html.match(/<meta\s+content=["']([^"']+)["']\s+name=["']description["']/i)?.[1] || '';
+    if(description.trim().length<40)throw new Error(`${site}: useful meta description missing: ${route}`);
     const content=stripEnvironment(html);
     const visibleText=content.replace(/<[^>]+>/g,' ').replace(/&[a-z0-9#]+;/gi,' ').replace(/\s+/g,' ');
     if(forbidden.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);

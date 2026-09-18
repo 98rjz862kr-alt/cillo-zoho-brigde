@@ -6,7 +6,7 @@ const VISUAL_STYLE=`<style id="lmi-hub-visual-style">
 .lmi-editorial-visual img{display:block;width:100%;height:100%;object-fit:cover}
 .lmi-editorial-visual figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 20px 16px;background:linear-gradient(transparent,rgba(7,26,53,.92));color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.04em}
 .lmi-hero-visuals{display:grid;grid-template-columns:.78fr 1.22fr;gap:14px;margin:0 0 28px;align-items:end}
-.lmi-hero-visuals figure{margin:0;min-height:250px}.lmi-hero-visuals figure:first-child{transform:translateY(18px) rotate(-2deg)}.lmi-hero-visuals figure:last-child{transform:rotate(1.4deg)}
+.lmi-hero-visuals figure{margin:0;min-height:250px}.lmi-hero-visuals figure:first-child{transform:translateY(18px) rotate(-2deg)}.lmi-hero-visuals figure:last-child{transform:rotate(1.4deg)}.lmi-editions-hero-stack{display:block}.lmi-editions-hero-stack figure{min-height:320px;transform:none!important}.lmi-editions-hero-stack img{aspect-ratio:16/10}
 .lmi-visual-band{width:min(calc(100% - 36px),1240px);margin:34px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .lmi-visual-band figure{margin:0;min-height:280px}
 .lmi-work-image{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;margin-bottom:18px;box-shadow:0 12px 28px rgba(7,26,53,.16)}
@@ -21,10 +21,10 @@ function figure(asset,alt,caption=''){return `<figure class="lmi-editorial-visua
 
 function addHomeVisuals(html){
   let out=html;
-  const stack=`<div class="lmi-hero-visuals" aria-label="Œuvres LMI en images">${figure('boa-totem-soya.jpg','Couverture du Boa Totem de Soya','Le Boa Totem de Soya')}${figure('le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom','Le Fleuve sans nom')}</div>`;
+  const stack=`<div class="lmi-hero-visuals lmi-editions-hero-stack" aria-label="Univers LMI Éditions en image">${figure('LMI-EDT-WEB-HERO-V001.webp','Univers visuel LMI Éditions — mots, images et transmission','LMI Éditions · Le verbe par l’image')}</div>`;
   out=out.replace(/(<aside\b[^>]*class=["'][^"']*editorial-card[^"']*["'][^>]*>)/i,`$1${stack}`);
-  out=out.replace(/(<a\b[^>]*href=["']31-le-boa-totem-de-soya\.html["'][^>]*class=["'][^"']*work[^"']*["'][^>]*>)/i,`$1${img('boa-totem-soya.jpg','Couverture du Boa Totem de Soya','lmi-work-image')}`);
-  out=out.replace(/(<a\b[^>]*href=["']32-le-fleuve-sans-nom\.html["'][^>]*class=["'][^"']*work[^"']*["'][^>]*>)/i,`$1${img('le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom','lmi-work-image')}`);
+  out=out.replace(/(<a\b(?=[^>]*\bhref=["']31-le-boa-totem-de-soya\.html["'])(?=[^>]*\bclass=["'][^"']*work[^"']*["'])[^>]*>)/i,`$1${img('boa-totem-soya.jpg','Couverture du Boa Totem de Soya','lmi-work-image')}`);
+  out=out.replace(/(<a\b(?=[^>]*\bhref=["']32-le-fleuve-sans-nom\.html["'])(?=[^>]*\bclass=["'][^"']*work[^"']*["'])[^>]*>)/i,`$1${img('le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom','lmi-work-image')}`);
   return out;
 }
 
