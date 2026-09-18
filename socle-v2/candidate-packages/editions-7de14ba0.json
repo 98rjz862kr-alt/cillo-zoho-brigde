@@ -46,9 +46,9 @@
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "fe7b46060af387ce01255fe6f5d31353180f4af12d68c170c4c6c4ec95853999",
+  "candidatePackageSha256": "996fcdd9fcd82180399824396cfbdd664dea2466bdb4492e9964508f73d2aada",
   "clientFacingRequalification": {
-    "packageSha256": "fe7b46060af387ce01255fe6f5d31353180f4af12d68c170c4c6c4ec95853999",
+    "packageSha256": "996fcdd9fcd82180399824396cfbdd664dea2466bdb4492e9964508f73d2aada",
     "bridgeDeployment": "PENDING",
     "humanAestheticCommercialJudgement": "PENDING"
   }
