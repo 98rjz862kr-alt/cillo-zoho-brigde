@@ -4,7 +4,7 @@
   "sourceSha": "2b01989d301da4c3907a60933e6052f93edaa8ee",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "correction": "Restored canonical Museum media after brand correction; human recipe remains pending.",
-  "candidatePackageSha256": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a",
+  "candidatePackageSha256": "2ef6c066d59acad6293598d6b57d20d10d1fc022aa5116e3de85da9fcb13e324",
   "validation": {
     "canonicalBrand": "PASS",
     "canonicalMedia": "PASS",
@@ -23,7 +23,7 @@
   },
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a",
+    "packageSha256": "2ef6c066d59acad6293598d6b57d20d10d1fc022aa5116e3de85da9fcb13e324",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",

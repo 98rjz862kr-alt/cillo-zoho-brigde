@@ -9,7 +9,7 @@
       "htmlPages": 41,
       "pagesWithMedia": 41,
       "uniqueNonLogoMedia": 1,
-      "finding": "canonical museum hero integrated; visitor copy simplified to remove workshop/governance rhetoric; broader collection/exhibition imagery remains evidence-dependent"
+      "finding": "canonical museum hero integrated; home, visit and support copy refocused on visitor discovery and cultural transmission rather than internal qualification vocabulary; broader collection/exhibition imagery still to qualify"
     },
     "maison": {
       "htmlPages": 12,
@@ -86,6 +86,6 @@
     "maison": "9679ce129cab3057f4077bd84bb72a9b2848b0215d5449324afd870abbec6f12",
     "food": "53035b79249a13f994e30bc6b89fc61af67631a90a89c49eefe0ee7e2bafd70d",
     "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
-    "musee": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a"
+    "musee": "2ef6c066d59acad6293598d6b57d20d10d1fc022aa5116e3de85da9fcb13e324"
   }
 }
