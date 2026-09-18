@@ -14,7 +14,7 @@
     "maison": {
       "htmlPages": 12,
       "pagesWithMedia": 1,
-      "finding": "canonical Maison web hero integrated on home; collection/product merchandising still to qualify"
+      "finding": "canonical hero integrated; project journey rewritten from internal verification language into a visitor path from inspiration to project; broader verified collection/product imagery still to qualify"
     },
     "food": {
       "htmlPages": 29,
@@ -83,7 +83,7 @@
     "humanRecipeOpen": false
   },
   "currentPackageSha256": {
-    "maison": "7daf570744d2a211466e313cde8765f36be2266da46de1b51e37738986b5f18e",
+    "maison": "9679ce129cab3057f4077bd84bb72a9b2848b0215d5449324afd870abbec6f12",
     "food": "53035b79249a13f994e30bc6b89fc61af67631a90a89c49eefe0ee7e2bafd70d",
     "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
     "musee": "6dbd4defee0853557f8c88bc5d9d207bf2b2eeb627982e9c817179c6d6606e9a"
