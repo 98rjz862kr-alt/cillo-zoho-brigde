@@ -36,8 +36,8 @@
     },
     "food": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
-      "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
-      "candidatePackageSha256": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
+      "candidateSourceSha": "28ed8c12b9b60459d2b997996a8cf76151112068",
+      "candidatePackageSha256": "56c732776df2625f83810a693bbbb90ba57159747941b389839f30ea2bf611a0",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
       "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
