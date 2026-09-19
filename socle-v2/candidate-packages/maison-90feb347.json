@@ -1,7 +1,7 @@
 {
   "site": "maison",
   "baseCandidateSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
-  "sourceSha": "cbb7f2935263d7c34c619adfde381f065a66bb8e",
+  "sourceSha": "2c5c422587d0ab4fd04d88eea81020e300065b39",
   "sourcePr": 119,
   "correction": "Validator false-positive fixed without activating commerce.",
   "validation": {
@@ -24,10 +24,11 @@
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "d76f9fab77e92680d5e363bcea99e40b3054f53e0e766da2b4c2b93e43b5abf4",
+  "candidatePackageSha256": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c",
   "clientFacingRequalification": {
-    "packageSha256": "d76f9fab77e92680d5e363bcea99e40b3054f53e0e766da2b4c2b93e43b5abf4",
+    "packageSha256": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c",
     "bridgeDeployment": "PENDING",
-    "humanAestheticCommercialJudgement": "PENDING"
+    "humanAestheticCommercialJudgement": "PENDING",
+    "sourceSha": "2c5c422587d0ab4fd04d88eea81020e300065b39"
   }
 }
