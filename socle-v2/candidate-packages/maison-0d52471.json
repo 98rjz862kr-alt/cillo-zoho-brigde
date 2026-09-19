@@ -1,13 +1,13 @@
 {
   "site": "maison",
   "baseCandidateSha": "90feb347652b025ebb657e76d41f691a11956ef6",
-  "sourceSha": "2c5c422587d0ab4fd04d88eea81020e300065b39",
+  "sourceSha": "9152c2d8723e0286a725354fe6db317e7c6ff78c",
   "sourceBranch": "work/maison-brand-correction-20260915",
   "corrections": [
     "Canonical brand identity corrected to LES MOTS IMAGÉS.",
     "Technical journal wording aligned with the inactive-commerce validator semantics."
   ],
-  "candidatePackageSha256": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c",
+  "candidatePackageSha256": "a24e792bdc2b4cf79695772efbc676a95f74f7b449be0297dcc68f6689767bba",
   "validation": {
     "validateLmiMaison": "PASS",
     "auditLmiMaisonFinalisation": "PASS",
@@ -28,11 +28,11 @@
   },
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c",
+    "packageSha256": "a24e792bdc2b4cf79695772efbc676a95f74f7b449be0297dcc68f6689767bba",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",
     "bridgeDeployment": "PENDING",
-    "sourceSha": "2c5c422587d0ab4fd04d88eea81020e300065b39"
+    "sourceSha": "9152c2d8723e0286a725354fe6db317e7c6ff78c"
   }
 }
