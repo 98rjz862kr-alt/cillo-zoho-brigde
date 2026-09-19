@@ -19,7 +19,7 @@
     "food": {
       "htmlPages": 29,
       "pagesWithMedia": 1,
-      "finding": "canonical hero integrated; visitor-facing commercial journey rewritten around choice and useful product information; direct contact action present; broader verified recipe/product imagery still to qualify"
+      "finding": "canonical hero integrated; breakfast and grocery visitor routes now expose direct information/contact actions; editorial recipe route uses qualified theme/carnet language rather than implying unavailable book products; broader verified culinary imagery remains evidence-dependent"
     },
     "editions": {
       "htmlPages": 33,
@@ -80,7 +80,7 @@
   },
   "currentPackageSha256": {
     "maison": "d76f9fab77e92680d5e363bcea99e40b3054f53e0e766da2b4c2b93e43b5abf4",
-    "food": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
+    "food": "56c732776df2625f83810a693bbbb90ba57159747941b389839f30ea2bf611a0",
     "editions": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
     "musee": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062"
   }
