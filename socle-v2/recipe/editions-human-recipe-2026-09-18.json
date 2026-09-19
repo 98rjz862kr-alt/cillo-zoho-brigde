@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "2.0.0",
+  "site": "editions",
+  "decision": "HUMAN_RECIPE_NOT_OPEN_UNTIL_CLIENT_FACING_CANDIDATE_DEPLOYED",
+  "purpose": "neutral-client-facing-acceptance-without-coaching",
+  "target": {
+    "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+    "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+    "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
+  },
+  "devices": [
+    {
+      "name": "iPhone-reference",
+      "viewport": "390px",
+      "result": "PENDING"
+    },
+    {
+      "name": "small-mobile",
+      "viewport": "320px",
+      "result": "PENDING"
+    },
+    {
+      "name": "desktop",
+      "viewport": "1440px",
+      "result": "PENDING"
+    }
+  ],
+  "rules": [
+    "tester-observes-before-explanation",
+    "record-spontaneous-understanding-before-guidance",
+    "no-result-may-be-marked-pass-by-machine",
+    "failed-or-reserved-criterion-returns-to-production",
+    "no-publication-or-dns-change-from-recipe"
+  ],
+  "checks": [
+    {
+      "id": "EDI-01",
+      "label": "Accueil compris spontanément et proposition éditoriale identifiable",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-02",
+      "label": "Désir de découvrir les œuvres et force de première impression",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-03",
+      "label": "Qualité éditoriale des présentations et extraits",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-04",
+      "label": "Couvertures et visuels des œuvres correctement mis en valeur",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-05",
+      "label": "Hiérarchie catalogue, œuvres, BD et univers illustrés",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-06",
+      "label": "Navigation et architecture de l’information sans confusion",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-07",
+      "label": "Ergonomie et fluidité perçues sur iPhone 390 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-08",
+      "label": "Ergonomie et fluidité perçues sur mobile 320 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-09",
+      "label": "Ergonomie et fluidité perçues sur desktop 1440 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-10",
+      "label": "Parcours découvrir, lire, droits, presse et contact naturels",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-11",
+      "label": "Clarté commerciale sans achat, prix ou disponibilité non prouvés",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-12",
+      "label": "Crédibilité éditoriale, différenciation et confiance",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-13",
+      "label": "Contact, presse, partenaires et droits faciles à trouver",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-14",
+      "label": "Clavier, focus et accessibilité d’usage",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-15",
+      "label": "Cohérence de marque LMI et rôles distincts des ors",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "EDI-16",
+      "label": "Décision humaine et réserves consignées",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    }
+  ],
+  "finalDecision": "PENDING"
+}

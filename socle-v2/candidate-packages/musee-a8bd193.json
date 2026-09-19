@@ -1,0 +1,24 @@
+{
+  "site": "musee",
+  "baseQualifiedSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+  "sourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+  "sourcePr": 121,
+  "correction": "Canonical brand identity corrected from LES MOTS IMAGES / Les Mots Images to LES MOTS IMAGÉS only.",
+  "candidatePackageSha256": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062",
+  "validation": {
+    "validateLmiMusee": "PASS",
+    "auditLmiMuseeFinalisation": "PASS",
+    "gitDiffCheck": "PASS",
+    "nonCanonicalBrandOccurrences": 0
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "clientFacingRequalification": {
+    "packageSha256": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062",
+    "bridgeDeployment": "PENDING",
+    "humanAestheticCommercialJudgement": "PENDING"
+  }
+}

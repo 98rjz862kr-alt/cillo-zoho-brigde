@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0.0",
+  "brand": "LES MOTS IMAGÉS",
+  "tagline": "LE VERBE PAR L’IMAGE",
+  "colors": {
+    "identity": {
+      "blue": "#143B7D",
+      "gold": "#C9A13B"
+    },
+    "palette": {
+      "ochre": "#CC7722",
+      "sand": "#75553F",
+      "gold": "#D4AF37"
+    },
+    "premium": {
+      "night": "#0F2747",
+      "ivory": "#F6F1E8",
+      "matteGold": "#C8A96B",
+      "stone": "#C9C3BA"
+    }
+  },
+  "rules": {
+    "goldRolesDistinct": true,
+    "universalGoldForbidden": true
+  }
+}

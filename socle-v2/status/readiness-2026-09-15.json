@@ -1,0 +1,56 @@
+{
+  "asOf": "2026-09-18T20:55:00+02:00",
+  "brand": "LES MOTS IMAGÉS",
+  "bridgeRole": "private-prepublication-draft",
+  "releaseRule": "CANDIDATE_SOURCE_SHA -> CANDIDATE_PACKAGE_SHA256 -> INTEGRATION_SHA -> RUNTIME_PACKAGE_SHA256 -> MEDIA_MANIFEST -> RECIPE_GATE",
+  "bridgeObserved": {
+    "serviceId": "srv-d9osqbmgekts73eoqis0",
+    "deployId": "dep-dam6fnou01pc73eh87kg",
+    "integrationSha": "3710a04529f77b411810354826352d1f2b52c534",
+    "status": "live",
+    "authority": "socle-v2-private-candidate-runtime"
+  },
+  "sites": {
+    "musee": {
+      "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "historicalLiveSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+      "historicalLivePackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+      "historicalLiveRecipeEligible": false,
+      "historicalLiveBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
+      "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+      "candidatePackageSha256": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": false,
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
+      "publicPublishAllowed": false
+    },
+    "maison": {
+      "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+      "candidatePackageSha256": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": false,
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
+      "brandCanonical": true,
+      "publicPublishAllowed": false
+    },
+    "food": {
+      "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+      "candidatePackageSha256": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": false,
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
+      "publicPublishAllowed": false
+    },
+    "editions": {
+      "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+      "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+      "workBranchExactCandidateContent": true,
+      "bridgeExactCandidate": false,
+      "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
+      "publicPublishAllowed": false
+    }
+  }
+}

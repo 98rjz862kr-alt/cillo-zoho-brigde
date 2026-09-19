@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "2.0.0",
+  "site": "musee",
+  "decision": "HUMAN_RECIPE_NOT_OPEN_UNTIL_CLIENT_FACING_CANDIDATE_DEPLOYED",
+  "purpose": "neutral-client-facing-acceptance-without-coaching",
+  "target": {
+    "candidateSourceSha": "PENDING_COMMIT",
+    "candidatePackageSha256": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062",
+    "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
+  },
+  "devices": [
+    {
+      "name": "iPhone-reference",
+      "viewport": "390px",
+      "result": "PENDING"
+    },
+    {
+      "name": "small-mobile",
+      "viewport": "320px",
+      "result": "PENDING"
+    },
+    {
+      "name": "desktop",
+      "viewport": "1440px",
+      "result": "PENDING"
+    }
+  ],
+  "rules": [
+    "tester-observes-before-explanation",
+    "record-spontaneous-understanding-before-guidance",
+    "no-result-may-be-marked-pass-by-machine",
+    "failed-or-reserved-criterion-returns-to-production",
+    "no-publication-or-dns-change-from-recipe"
+  ],
+  "checks": [
+    {
+      "id": "MUS-01",
+      "label": "Accueil compris spontanément et proposition du Musée identifiable",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-02",
+      "label": "Intérêt à poursuivre la visite et hiérarchie visuelle",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-03",
+      "label": "Qualité éditoriale, ton, lisibilité et cohérence des textes",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-04",
+      "label": "Illustrations, médias, crédits et provenance perçus comme cohérents",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-05",
+      "label": "Navigation et architecture de l’information sans confusion",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-06",
+      "label": "Ergonomie et fluidité perçues sur iPhone 390 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-07",
+      "label": "Ergonomie et fluidité perçues sur mobile 320 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-08",
+      "label": "Ergonomie et fluidité perçues sur desktop 1440 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-09",
+      "label": "Parcours collections, archives et expositions compréhensibles",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-10",
+      "label": "Parcours presse, partenaires, programmateurs et prescripteurs convaincants",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-11",
+      "label": "Crédibilité institutionnelle, différenciation et confiance",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-12",
+      "label": "Contact, soutien et mentions légales faciles à trouver",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-13",
+      "label": "Clavier, focus et accessibilité d’usage",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-14",
+      "label": "Absence de contenu provisoire ou de notice hypothétique présentée comme validée",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-15",
+      "label": "Cohérence de marque LMI et rôles distincts des ors",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-16",
+      "label": "Décision humaine et réserves consignées",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    }
+  ],
+  "finalDecision": "PENDING"
+}

@@ -1,0 +1,20 @@
+{
+  "serviceId": "srv-d9osqbmgekts73eoqis0",
+  "workspaceId": "tea-d8verk6q1p3s73b3i200",
+  "serviceName": "cillo-zoho-bridge",
+  "branch": "work/socle-commun-v2-20260915",
+  "autoDeploy": false,
+  "autoDeployTrigger": "off",
+  "liveDeployId": "dep-dam6fnou01pc73eh87kg",
+  "liveSourceSha": "3710a04529f77b411810354826352d1f2b52c534",
+  "liveStatus": "live",
+  "museumRecipePending": true,
+  "mergeMainAllowed": false,
+  "manualDeployAllowed": false,
+  "reason": "Private Socle V2 candidate is now live on the protected work branch. Further deployment is locked while human recipe is pending; main, DNS and public publication remain forbidden.",
+  "unlockCondition": "Human recipe decision recorded; any correction creates a new exact candidate and repeats the runtime gate.",
+  "liveRecipeEligible": true,
+  "liveBlocker": null,
+  "targetCandidateSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+  "targetCandidatePackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47"
+}

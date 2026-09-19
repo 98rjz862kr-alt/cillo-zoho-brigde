@@ -1,0 +1,33 @@
+{
+  "site": "maison",
+  "baseCandidateSha": "42a1b7dee6b23b7a9dfaf2129813f14fb35ab159",
+  "sourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+  "sourcePr": 119,
+  "correction": "Validator false-positive fixed without activating commerce.",
+  "validation": {
+    "validateLmiMaison": "PASS",
+    "validatePublicEntry": "PASS",
+    "npmTest": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "build": {
+    "format": "git-archive-tar",
+    "sha256": "b4fcd515a705426a9f4ef071f01900babf2817e614e38cffec9f7c4a7a41d51d"
+  },
+  "mediaReferenceScan": {
+    "referenceCount": 0,
+    "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "interpretation": "No img/source/video-poster/CSS-url media references are present in the exact candidate HTML set."
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
+  "clientFacingRequalification": {
+    "packageSha256": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
+    "bridgeDeployment": "PENDING",
+    "humanAestheticCommercialJudgement": "PENDING"
+  }
+}

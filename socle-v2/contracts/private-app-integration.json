@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "brand": "LES MOTS IMAGÉS",
+  "principle": "PRIVATE_APP_CONTROL_PLANE_PUBLIC_SITES_PRESENTATION_PLANE",
+  "privateApp": {
+    "role": "canonical-internal-control-plane",
+    "publicExposure": false,
+    "universes": [
+      "editions",
+      "maison",
+      "food",
+      "musee"
+    ],
+    "requiredCapabilities": [
+      "cms",
+      "media",
+      "workflow",
+      "search",
+      "shield"
+    ],
+    "sourceRepository": "98rjz862kr-alt/lmi-application-privee-integration-contenus"
+  },
+  "sites": {
+    "editions": {
+      "appRoute": "/editions",
+      "publicRole": "editorial-catalog-and-reading",
+      "writeBack": "approval-only"
+    },
+    "maison": {
+      "appRoute": "/maison",
+      "publicRole": "catalog-and-collections",
+      "writeBack": "approval-only"
+    },
+    "food": {
+      "appRoute": "/food",
+      "publicRole": "recipes-products-terroirs",
+      "writeBack": "approval-only"
+    },
+    "musee": {
+      "appRoute": "/musee",
+      "publicRole": "works-collections-exhibitions-mediation",
+      "writeBack": "approval-only"
+    }
+  },
+  "exchange": {
+    "direction": "private-app-to-sites-by-default",
+    "transport": "versioned-signed-manifest-or-authenticated-api",
+    "requiredFields": [
+      "lmiId",
+      "universe",
+      "version",
+      "status",
+      "updatedAt",
+      "provenance",
+      "sha256"
+    ],
+    "publishableStatuses": [
+      "APPROVED_FOR_BRIDGE",
+      "APPROVED_FOR_PUBLICATION"
+    ],
+    "forbiddenFromPublic": [
+      "DRAFT",
+      "IN_REVIEW",
+      "REJECTED",
+      "QUARANTINED",
+      "PRIVATE_ONLY"
+    ],
+    "mediaPolicy": "sha256-provenance-rights-required",
+    "failClosed": true
+  },
+  "security": {
+    "sitesMayCallPrivateAppDirectlyFromBrowser": false,
+    "publicTokensAllowed": false,
+    "serverToServerAuthRequired": true,
+    "leastPrivilege": true,
+    "auditRequired": true
+  },
+  "releaseGate": [
+    "PRIVATE_APP_SOURCE_VERSION",
+    "CONTENT_EXPORT_OR_API_SNAPSHOT",
+    "SITE_CANDIDATE_SOURCE_SHA",
+    "SITE_BUILD",
+    "RUNTIME_BRIDGE",
+    "MEDIA_MANIFEST",
+    "HUMAN_RECIPE"
+  ],
+  "protocolId": "lmi-sites-publication-protocol@1.0.0",
+  "brandContract": {
+    "id": "lmi-brand-roles@1.0.0",
+    "sha256": "96fa0b11f0e5a2c288637bbb782aca54e77dc2ea4f8e7460c5193987b63e7b7a"
+  }
+}

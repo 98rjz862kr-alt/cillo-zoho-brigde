@@ -1,0 +1,91 @@
+{
+  "asOf": "2026-09-18T20:55:00+02:00",
+  "status": "PRODUCTION_REOPENED_FOR_CLIENT_READINESS",
+  "supersedes": "socle-v2/status/production-closure-2026-09-18.json",
+  "reason": "machine gates were necessary but did not qualify the complete client-facing product",
+  "clientReadinessRule": "technical + editorial + graphic + media + UX + commercial must be production-qualified before human recipe",
+  "observations": {
+    "musee": {
+      "htmlPages": 41,
+      "pagesWithMedia": 41,
+      "uniqueNonLogoMedia": 1,
+      "finding": "canonical museum hero integrated; all visitor routes now carry public canonical robots metadata for the museum domain while human recipe remains pending"
+    },
+    "maison": {
+      "htmlPages": 12,
+      "pagesWithMedia": 1,
+      "finding": "canonical hero integrated; project journey rewritten from internal verification language into a visitor path from inspiration to project; broader verified collection/product imagery still to qualify"
+    },
+    "food": {
+      "htmlPages": 29,
+      "pagesWithMedia": 1,
+      "finding": "canonical hero integrated; visitor-facing commercial journey rewritten around choice, useful product information and confirmation rather than internal gate language; broader verified recipe/product imagery still to qualify"
+    },
+    "editions": {
+      "htmlPages": 33,
+      "pagesWithMedia": 4,
+      "finding": "canonical hero plus verified Boa Totem and Fleuve visuals integrated into visitor catalogue/adaptation routes; remaining works stay text-led until verified covers are available"
+    }
+  },
+  "driveEvidence": {
+    "maisonHero": "LMI-MAI-WEB-HERO-V001.webp",
+    "foodHero": "LMI-FOOD-WEB-HERO-V001.webp",
+    "museeHero": "LMI-MUS-WEB-HERO-V001.webp",
+    "note": "web-ready visual assets exist in Drive but are not integrated in the current candidate roots"
+  },
+  "productionWorkstreams": {
+    "musee": [
+      "visitor visual storytelling",
+      "collection/exhibition imagery",
+      "institutional conversion paths"
+    ],
+    "maison": [
+      "integrate canonical web hero/assets",
+      "product/collection visual merchandising",
+      "commercial journey and CTAs",
+      "responsive visual QA"
+    ],
+    "food": [
+      "integrate canonical web hero/assets",
+      "food/product/recipe photography or canonical imagery",
+      "offer hierarchy and conversion journey",
+      "responsive visual QA"
+    ],
+    "editions": [
+      "integrate canonical covers across catalog",
+      "strengthen work-detail visual merchandising",
+      "reader/buyer journey and CTAs",
+      "remove residual placeholder/provisional copy"
+    ]
+  },
+  "humanRecipeOpen": false,
+  "publicationLocks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false
+  },
+  "progress": {
+    "candidateSourceSha": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+    "visitorRouteSeparation": "IMPLEMENTED",
+    "clientReadinessStructuralGate": "PASS_4_SITES_33_VISITOR_ROUTES_CONTACT_AND_CTA_REQUALIFICATION_ACTIVE",
+    "visitorContactJourneys": [
+      "maison",
+      "food",
+      "editions",
+      "musee"
+    ],
+    "canonicalHeroesIntegrated": [
+      "maison",
+      "food",
+      "musee"
+    ],
+    "editionsApprovedCoverRuntime": "PRESENT",
+    "humanRecipeOpen": false
+  },
+  "currentPackageSha256": {
+    "maison": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
+    "food": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
+    "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+    "musee": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062"
+  }
+}

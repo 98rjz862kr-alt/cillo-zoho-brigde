@@ -1,0 +1,278 @@
+{
+  "schemaVersion": "2.0.0",
+  "site": "maison",
+  "decision": "HUMAN_RECIPE_NOT_OPEN_UNTIL_CLIENT_FACING_CANDIDATE_DEPLOYED",
+  "purpose": "neutral-client-facing-acceptance-without-coaching",
+  "target": {
+    "candidateSourceSha": "PENDING_COMMIT",
+    "candidatePackageSha256": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
+    "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
+  },
+  "devices": [
+    {
+      "name": "iPhone-reference",
+      "viewport": "390px",
+      "result": "PENDING"
+    },
+    {
+      "name": "small-mobile",
+      "viewport": "320px",
+      "result": "PENDING"
+    },
+    {
+      "name": "desktop",
+      "viewport": "1440px",
+      "result": "PENDING"
+    }
+  ],
+  "rules": [
+    "tester-observes-before-explanation",
+    "record-spontaneous-understanding-before-guidance",
+    "no-result-may-be-marked-pass-by-machine",
+    "failed-or-reserved-criterion-returns-to-production",
+    "no-publication-or-dns-change-from-recipe"
+  ],
+  "checks": [
+    {
+      "id": "MAI-01",
+      "label": "Accueil compris spontanément et univers Maison identifiable",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-02",
+      "label": "Désir de découvrir les collections et force de première impression",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-03",
+      "label": "Qualité éditoriale et clarté de la proposition",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-04",
+      "label": "Qualité des visuels, matières, signes et mise en scène",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-05",
+      "label": "Hiérarchie visuelle et lisibilité des collections",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-06",
+      "label": "Navigation et architecture de l’information sans confusion",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-07",
+      "label": "Ergonomie et fluidité perçues sur iPhone 390 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-08",
+      "label": "Ergonomie et fluidité perçues sur mobile 320 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-09",
+      "label": "Ergonomie et fluidité perçues sur desktop 1440 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-10",
+      "label": "Parcours collection vers prise de contact naturel",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-11",
+      "label": "Clarté commerciale sans prix, disponibilité, fournisseur ou performance non prouvés",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-12",
+      "label": "Crédibilité, différenciation et confiance",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-13",
+      "label": "Contact et informations de confiance faciles à trouver",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-14",
+      "label": "Clavier, focus et accessibilité d’usage",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-15",
+      "label": "Cohérence de marque LMI et rôles distincts des ors",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MAI-16",
+      "label": "Décision humaine et réserves consignées",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    }
+  ],
+  "finalDecision": "PENDING"
+}

@@ -1,0 +1,25 @@
+{
+  "site": "editions",
+  "baseCandidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
+  "sourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+  "canonicalBrand": "LES MOTS IMAGÉS",
+  "correction": "Restored canonical Editions media while preserving protected Bridge routing.",
+  "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+  "validation": {
+    "canonicalBrand": "PASS",
+    "canonicalMedia": "PASS",
+    "integrationGate": "PENDING_FINAL_RERUN"
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false
+  },
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "clientFacingRequalification": {
+    "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+    "packageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+    "structuralGate": "PASS",
+    "visitorContactJourney": "PASS",
+    "humanAestheticCommercialJudgement": "PENDING",
+    "bridgeDeployment": "PENDING"
+  }
+}

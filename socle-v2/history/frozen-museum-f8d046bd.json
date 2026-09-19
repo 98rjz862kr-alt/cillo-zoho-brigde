@@ -1,0 +1,12 @@
+{
+  "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+  "commitTreeSha1": "319098e08a6032f1a01152b5e5263bad08955135",
+  "museumTreeSha1": "fd0a04f419ded6f379db37f9cff4dc74db4d3b7b",
+  "sourceManifestBlobSha1": "eaf3eb139a1360e426c3f74750c33a04df8fe85c",
+  "sourceManifestSha256": "28366086cae08071725873e8cb674d34104a821cfd4398762e4dffd78e8dab64",
+  "sourceManifestStatus": "READY_TO_PUBLISH",
+  "containsBlockingARequalifier": false,
+  "packageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+  "files": 47,
+  "evidence": "Historical snapshot independently verified from local Git object before this portable proof was committed."
+}

@@ -1,0 +1,38 @@
+{
+  "asOf": "2026-09-15T21:24:36+02:00",
+  "brand": "LES MOTS IMAGÉS",
+  "integrationSha": "18137a9d9b5f829e8f88a5b7e634b22d63994e53",
+  "mode": "protected-local-runtime-qualification",
+  "authentication": {
+    "runtimeWithoutCredential": 401,
+    "draftWithoutCredential": 401,
+    "adminPasswordConfigured": true
+  },
+  "representativeRoutes": {
+    "editions": 200,
+    "food": 200,
+    "maison": 200,
+    "musee": 200
+  },
+  "privateIndexingGuard": "x-robots-tag:noindex,nofollow,noarchive",
+  "runtimeRegistry": {
+    "status": 200,
+    "canonicalBrand": true,
+    "exactCandidateSites": 4
+  },
+  "gates": {
+    "canonicalBrandAllSites": "PASS",
+    "integrationRuntime": "PASS_4_OF_4",
+    "socleV2": "PASS",
+    "editionsRenderedContract": "PASS_33",
+    "socleRuntime": "PASS"
+  },  "render": {
+    "liveBridgeServiceId": "srv-d9osqbmgekts73eoqis0",
+    "liveBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "liveBridgeUnchanged": true,
+    "qualificationServiceCreation": "BLOCKED_BY_25_SERVICE_LIMIT",
+    "mainMergePerformed": false,
+    "publicDnsChanged": false
+  },
+  "decision": "REMOTE_BRIDGE_CONVERGENCE_PENDING_SERVICE_SLOT_OR_REPOINTABLE_QUALIFICATION_SERVICE"
+}
