@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-19",
+  "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
+  "visitorScope": {
+    "sites": 4,
+    "routes": 40,
+    "humanRecipe": "PENDING"
+  },
+  "packages": {
+    "musee": {
+      "sourceSha": "df99c5bb0ad75b04b74a34a9cc7f46d406dc95cc",
+      "packageSha256": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9"
+    },
+    "maison": {
+      "sourceSha": "2c5c422587d0ab4fd04d88eea81020e300065b39",
+      "packageSha256": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c"
+    },
+    "food": {
+      "sourceSha": "15a923578a961cac5b441a755dad7a7a0ebc75ec",
+      "packageSha256": "0abb2a15c24a19ae0747af7944b7c01ec97933a6563f994d6d23f7f2992f1276"
+    },
+    "editions": {
+      "sourceSha": "22ddec190229856b008c2357c6adc1785358d7ae",
+      "packageSha256": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2"
+    }
+  },
+  "checks": {
+    "viewportTitleH1InternalVocabularyBrand": "STATIC_GITHUB_BYTE_AUDIT_PASS",
+    "keyboardFocus": "ENFORCED_BY_VALIDATOR_AND_SITE_STYLES",
+    "visitorToInternalLinks": "FAIL_CLOSED_VALIDATOR_PRESENT",
+    "contactDirectAction": "FAIL_CLOSED_VALIDATOR_PRESENT",
+    "packageBinding": "UPDATED",
+    "localClientReadinessTest": "PENDING_REMOTE_EXECUTION",
+    "fullIntegrationTest": "PENDING_REMOTE_EXECUTION"
+  },
+  "validator": {
+    "path": "socle-v2/scripts/validate-client-readiness.mjs",
+    "focusVisibleGateAddedAtCommit": "8e4614e35e6470bdfebb7cd155386000c908be02"
+  },
+  "remoteExecution": {
+    "device": "MinideABDOULAYE.lan",
+    "deviceId": "388fc09c-3a21-489d-8209-5769aae0e664",
+    "accountQuotaRemainingPercentObserved": 83,
+    "commandChannel": "NO_LIVE_CONNECTION_AT_LAST_ATTEMPT",
+    "consequence": "runtime tests deferred; no PASS inferred"
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "renderDeploy": false,
+    "humanRecipe": false
+  }
+}
