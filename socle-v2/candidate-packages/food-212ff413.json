@@ -1,6 +1,6 @@
 {
   "site": "food",
-  "sourceSha": "15a923578a961cac5b441a755dad7a7a0ebc75ec",
+  "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
   "sourcePr": 104,
   "validation": {
     "validateLmiFood": "PASS",
@@ -21,7 +21,7 @@
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "0abb2a15c24a19ae0747af7944b7c01ec97933a6563f994d6d23f7f2992f1276",
+  "candidatePackageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
   "clientFacingUpgrade": {
     "date": "2026-09-18",
     "canonicalHeroIntegrated": true,
@@ -31,11 +31,11 @@
   },
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "0abb2a15c24a19ae0747af7944b7c01ec97933a6563f994d6d23f7f2992f1276",
+    "packageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",
     "bridgeDeployment": "PENDING",
-    "sourceSha": "15a923578a961cac5b441a755dad7a7a0ebc75ec"
+    "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab"
   }
 }
