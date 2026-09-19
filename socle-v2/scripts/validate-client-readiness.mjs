@@ -3,7 +3,7 @@ import path from 'node:path';
 import { readDraftHtml } from '../../drafts.js';
 
 const contract=JSON.parse(readFileSync('socle-v2/contracts/client-facing-routes.v1.json','utf8'));
-const forbidden=/\b(?:BAT|gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256)\b/i;
+const forbidden=/\b(?:BAT|gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256|prépublication|accès privé|brouillon|atelier)\b/i;
 const oldBrand=/LES MOTS IMAGES(?![A-ZÉ])/i;
 function stripEnvironment(html){
   return html
@@ -18,6 +18,9 @@ function usefulImages(html){
   });
 }
 function actions(html){return [...html.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)].filter(m=>/class=["'][^"']*(?:btn|button|action|work|textlink)/i.test(m[0]));}
+function hasDirectContactAction(html){
+  return /href=["'](?:mailto:|tel:|https:\/\/(?:www\.)?wa\.me\/)/i.test(html);
+}
 let pages=0, homes=0;
 for(const [site,definition] of Object.entries(contract.sites)){
   for(const route of definition.visitorRoutes){
@@ -47,6 +50,7 @@ for(const [site,definition] of Object.entries(contract.sites)){
   const contact=readDraftHtml(definition.contactRoute);
   const contactText=stripEnvironment(contact||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
   if(!/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(contactText) && !/WhatsApp|t[ée]l[ée]phone/i.test(contactText))throw new Error(`${site}: usable contact method missing`);
+  if(!hasDirectContactAction(contact||''))throw new Error(`${site}: direct contact action missing on contact route`);
   const home=readDraftHtml(definition.home);
   if(!home)throw new Error(`${site}: home missing`);
   homes++;
