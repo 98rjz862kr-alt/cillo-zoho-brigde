@@ -14,12 +14,12 @@
     "maison": {
       "htmlPages": 12,
       "pagesWithMedia": 1,
-      "finding": "canonical hero, seven documented sign systems and visitor project journey retained; visible keyboard focus added to all qualified visitor routes; broader verified product imagery remains evidence-dependent"
+      "finding": "canonical Maison visual now appears on both homepage and inaugural collection; seven documented sign systems, visitor project journey and keyboard focus remain qualified; no unverified product imagery introduced"
     },
     "food": {
       "htmlPages": 29,
       "pagesWithMedia": 1,
-      "finding": "consistent visitor navigation/contact and publication-accuracy wording retained; visible keyboard focus added to all qualified visitor routes; canonical hero remains the only verified Food visual"
+      "finding": "canonical Food visual now appears on homepage plus breakfast, grocery and transmission routes; navigation/contact, publication-accuracy wording and keyboard focus remain qualified; no unverified culinary imagery introduced"
     },
     "editions": {
       "htmlPages": 33,
@@ -79,8 +79,8 @@
     "githubActionsMuseumGate": "RUNNER_STARTUP_FAILURE_ISOLATED_MANUAL_DISPATCH_ONLY"
   },
   "currentPackageSha256": {
-    "maison": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c",
-    "food": "0abb2a15c24a19ae0747af7944b7c01ec97933a6563f994d6d23f7f2992f1276",
+    "maison": "a24e792bdc2b4cf79695772efbc676a95f74f7b449be0297dcc68f6689767bba",
+    "food": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
     "editions": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2",
     "musee": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9"
   }
