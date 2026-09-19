@@ -4,8 +4,8 @@
   "decision": "HUMAN_RECIPE_NOT_OPEN_UNTIL_CLIENT_FACING_CANDIDATE_DEPLOYED",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
-    "candidateSourceSha": "a8b0b38e7b732b26fc77cd9220cb2d353981c9db",
-    "candidatePackageSha256": "dbc3801ec6001429620ffb8dcb0d79fdfb280fbf0d78b6976088ff9145b9ac04",
+    "candidateSourceSha": "4874df709eafe2881bdaa0c636287f697a3ccef5",
+    "candidatePackageSha256": "22d76c5b656f0fb971596e55d616f883bb9ad60fe0a6bbeed1b7fca653e970cb",
     "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
   },
   "devices": [
