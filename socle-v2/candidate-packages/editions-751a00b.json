@@ -1,10 +1,10 @@
 {
   "site": "editions",
   "baseCandidateSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
-  "sourceSha": "6543287afa322eb7a34e65ec998b59e19db2d58d",
+  "sourceSha": "22ddec190229856b008c2357c6adc1785358d7ae",
   "canonicalBrand": "LES MOTS IMAGÉS",
   "correction": "Restored canonical Editions media while preserving protected Bridge routing.",
-  "candidatePackageSha256": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
+  "candidatePackageSha256": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2",
   "validation": {
     "canonicalBrand": "PASS",
     "canonicalMedia": "PASS",
@@ -16,10 +16,11 @@
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
   "clientFacingRequalification": {
     "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
-    "packageSha256": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
+    "packageSha256": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2",
     "structuralGate": "PASS",
     "visitorContactJourney": "PASS",
     "humanAestheticCommercialJudgement": "PENDING",
-    "bridgeDeployment": "PENDING"
+    "bridgeDeployment": "PENDING",
+    "sourceSha": "22ddec190229856b008c2357c6adc1785358d7ae"
   }
 }
