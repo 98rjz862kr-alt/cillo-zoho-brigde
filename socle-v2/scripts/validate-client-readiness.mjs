@@ -21,6 +21,20 @@ function actions(html){return [...html.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/gi)].
 function hasDirectContactAction(html){
   return /href=["'](?:mailto:|tel:|https:\/\/(?:www\.)?wa\.me\/)/i.test(html);
 }
+function hasKeyboardFocusSupport(html,route){
+  if(/:focus-visible\b/i.test(html))return true;
+  for(const match of html.matchAll(/<link\b[^>]*>/gi)){
+    const tag=match[0];
+    if(!/\brel=["'][^"']*stylesheet[^"']*["']/i.test(tag))continue;
+    const href=tag.match(/\bhref=["']([^"']+)["']/i)?.[1]||'';
+    if(!href || /^(?:https?:|\/\/|data:)/i.test(href))continue;
+    const raw=href.split(/[?#]/)[0];
+    const target=path.posix.normalize(path.posix.join(path.posix.dirname(route),raw));
+    const disk=path.join('drafts',target);
+    if(existsSync(disk) && /:focus-visible\b/i.test(readFileSync(disk,'utf8')))return true;
+  }
+  return false;
+}
 let pages=0, homes=0;
 for(const [site,definition] of Object.entries(contract.sites)){
   for(const route of definition.visitorRoutes){
@@ -36,6 +50,7 @@ for(const [site,definition] of Object.entries(contract.sites)){
     const visibleText=content.replace(/<[^>]+>/g,' ').replace(/&[a-z0-9#]+;/gi,' ').replace(/\s+/g,' ');
     if(forbidden.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);
     if(oldBrand.test(visibleText))throw new Error(`${site}: non-canonical brand leaked: ${route}`);
+    if(!hasKeyboardFocusSupport(html,route))throw new Error(`${site}: visible keyboard focus support missing: ${route}`);
     for(const match of html.matchAll(/href=["']([^"']+)["']/gi)){
       const href=match[1];
       if(!href || href.startsWith('#') || /^(?:https?:|mailto:|tel:|javascript:|\/atelier\/|\/api\/)/i.test(href))continue;
