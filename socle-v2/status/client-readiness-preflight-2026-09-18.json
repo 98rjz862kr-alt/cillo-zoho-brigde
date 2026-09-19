@@ -24,7 +24,7 @@
     "editions": {
       "htmlPages": 33,
       "pagesWithMedia": 4,
-      "finding": "canonical hero plus verified Boa Totem and Fleuve visuals integrated into visitor catalogue/adaptation routes; direct contact action present; remaining works stay text-led until verified covers are available"
+      "finding": "canonical hero plus verified Boa Totem and Fleuve visuals integrated into catalogue, adaptation and illustrated-universe visitor routes; remaining works stay text-led until verified covers are available"
     }
   },
   "driveEvidence": {
@@ -81,7 +81,7 @@
   "currentPackageSha256": {
     "maison": "dc88c26bb59fbf18f20c89bfd019d8cd0e4a0a3a9b81395d200e6cf41e05ffa0",
     "food": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
-    "editions": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+    "editions": "dbc3801ec6001429620ffb8dcb0d79fdfb280fbf0d78b6976088ff9145b9ac04",
     "musee": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062"
   }
 }
