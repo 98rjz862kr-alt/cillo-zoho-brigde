@@ -19,7 +19,7 @@
     "food": {
       "htmlPages": 29,
       "pagesWithMedia": 1,
-      "finding": "visitor breakfast and grocery routes now expose direct contact actions; editorial recipe route distinguishes themes/transmission from actually available publications; canonical hero remains the only verified Food visual, so no unsupported food imagery was introduced"
+      "finding": "visitor breakfast, grocery and editorial-transmission routes now share consistent navigation and direct contact access; publication wording distinguishes themes from actually available formats; canonical hero remains the only verified Food visual"
     },
     "editions": {
       "htmlPages": 33,
@@ -80,7 +80,7 @@
   },
   "currentPackageSha256": {
     "maison": "d76f9fab77e92680d5e363bcea99e40b3054f53e0e766da2b4c2b93e43b5abf4",
-    "food": "b345d80d04ce5b87012a39ac6b9e0f638067fb4ff3eac47b11dcb9d2e87e245f",
+    "food": "68770bf30857a1c295e1d4333ec3d0853081c76dddaf654617093e736382e693",
     "editions": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
     "musee": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062"
   }
