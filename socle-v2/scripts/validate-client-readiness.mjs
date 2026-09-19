@@ -44,6 +44,7 @@ for(const [site,definition] of Object.entries(contract.sites)){
       const target=path.posix.normalize(path.posix.join(path.posix.dirname(route),raw));
       if((definition.internalRoutesExcluded||[]).includes(target))throw new Error(`${site}: visitor route links to internal control route: ${route} -> ${target}`);
       if(!existsSync(path.join('drafts',target)))throw new Error(`${site}: visitor route has missing local target: ${route} -> ${target}`);
+      if(!definition.visitorRoutes.includes(target))throw new Error(`${site}: visitor route links outside qualified visitor scope: ${route} -> ${target}`);
     }
   }
   if(!definition.contactRoute || !definition.visitorRoutes.includes(definition.contactRoute))throw new Error(`${site}: contact route must be in visitor scope`);
