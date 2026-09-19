@@ -45,8 +45,8 @@
     },
     "editions": {
       "classification": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
-      "candidateSourceSha": "4874df709eafe2881bdaa0c636287f697a3ccef5",
-      "candidatePackageSha256": "22d76c5b656f0fb971596e55d616f883bb9ad60fe0a6bbeed1b7fca653e970cb",
+      "candidateSourceSha": "6543287afa322eb7a34e65ec998b59e19db2d58d",
+      "candidatePackageSha256": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
       "workBranchExactCandidateContent": true,
       "bridgeExactCandidate": false,
       "nextGate": "complete-rendered-client-experience-qa-before-private-bridge",
