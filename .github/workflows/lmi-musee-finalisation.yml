@@ -4,6 +4,13 @@ on:
   push:
     branches:
       - agent/lmi-musee-finalisation-20260906
+      - work/socle-commun-v2-20260915
+    paths:
+      - 'drafts/lmi-musee-complet/**'
+      - 'scripts/validate-lmi-musee.mjs'
+      - 'scripts/audit-lmi-musee-finalisation.mjs'
+      - 'package.json'
+      - '.github/workflows/lmi-musee-finalisation.yml'
   pull_request:
     paths:
       - 'drafts/lmi-musee-complet/**'
@@ -11,6 +18,7 @@ on:
       - 'scripts/audit-lmi-musee-finalisation.mjs'
       - 'package.json'
       - '.github/workflows/lmi-musee-finalisation.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
