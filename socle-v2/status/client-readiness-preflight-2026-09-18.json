@@ -9,22 +9,22 @@
       "htmlPages": 41,
       "pagesWithMedia": 41,
       "uniqueNonLogoMedia": 1,
-      "finding": "canonical museum hero integrated; visitor routes carry public canonical metadata where intended while human recipe remains pending"
+      "finding": "visitor collection, exhibition, mediation, press, support and contact baseline retained; visible keyboard focus added across all qualified visitor routes; human aesthetic/commercial judgement remains pending"
     },
     "maison": {
       "htmlPages": 12,
       "pagesWithMedia": 1,
-      "finding": "canonical hero integrated; homepage and collection expose the seven documented foundational sign systems with Tifinagh/Amazigh distinction and one-sign-one-piece rule; visitor project journey active; broader verified product imagery remains evidence-dependent"
+      "finding": "canonical hero, seven documented sign systems and visitor project journey retained; visible keyboard focus added to all qualified visitor routes; broader verified product imagery remains evidence-dependent"
     },
     "food": {
       "htmlPages": 29,
       "pagesWithMedia": 1,
-      "finding": "visitor breakfast, grocery and editorial-transmission routes now share consistent navigation and direct contact access; publication wording distinguishes themes from actually available formats; canonical hero remains the only verified Food visual"
+      "finding": "consistent visitor navigation/contact and publication-accuracy wording retained; visible keyboard focus added to all qualified visitor routes; canonical hero remains the only verified Food visual"
     },
     "editions": {
       "htmlPages": 33,
       "pagesWithMedia": 4,
-      "finding": "verified Boa Totem and Fleuve artwork surfaced on homepage, adaptation catalogue and illustrated-universe routes; source-work catalogue no longer reuses adaptation artwork; work pages connect to rights/contact"
+      "finding": "verified Boa Totem and Fleuve artwork retained across visitor journeys with source/adaptation distinction; visible keyboard focus added to all qualified visitor routes"
     }
   },
   "driveEvidence": {
@@ -79,9 +79,9 @@
     "githubActionsMuseumGate": "RUNNER_STARTUP_FAILURE_ISOLATED_MANUAL_DISPATCH_ONLY"
   },
   "currentPackageSha256": {
-    "maison": "d76f9fab77e92680d5e363bcea99e40b3054f53e0e766da2b4c2b93e43b5abf4",
-    "food": "68770bf30857a1c295e1d4333ec3d0853081c76dddaf654617093e736382e693",
-    "editions": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
-    "musee": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062"
+    "maison": "911d9ee9314fbaf61c012701d0315dcf510962433ed80fbb929bcc30cda3a52c",
+    "food": "0abb2a15c24a19ae0747af7944b7c01ec97933a6563f994d6d23f7f2992f1276",
+    "editions": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2",
+    "musee": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9"
   }
 }
