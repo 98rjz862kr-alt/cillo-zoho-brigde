@@ -18,8 +18,8 @@
     },
     "food": {
       "root": "drafts/lmi-food-site",
-      "candidateSourceSha": "28ed8c12b9b60459d2b997996a8cf76151112068",
-      "candidatePackageSha256": "56c732776df2625f83810a693bbbb90ba57159747941b389839f30ea2bf611a0",
+      "candidateSourceSha": "d74b5cce2c74912baadf701d7afdc11f990ca04e",
+      "candidatePackageSha256": "b345d80d04ce5b87012a39ac6b9e0f638067fb4ff3eac47b11dcb9d2e87e245f",
       "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
