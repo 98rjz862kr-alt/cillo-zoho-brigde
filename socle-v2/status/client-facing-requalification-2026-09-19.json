@@ -13,8 +13,8 @@
       "packageSha256": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9"
     },
     "maison": {
-      "sourceSha": "9152c2d8723e0286a725354fe6db317e7c6ff78c",
-      "packageSha256": "a24e792bdc2b4cf79695772efbc676a95f74f7b449be0297dcc68f6689767bba"
+      "sourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0",
+      "packageSha256": "df6e0e5308f147c282bd54366205e1ea5a02ff33d7c0faf55f65fd2e3c1e5051"
     },
     "food": {
       "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
@@ -33,7 +33,8 @@
     "packageBinding": "UPDATED",
     "localClientReadinessTest": "PENDING_REMOTE_EXECUTION",
     "fullIntegrationTest": "PENDING_REMOTE_EXECUTION",
-    "visualCoverage": "MAISON_HOME_COLLECTION_AND_FOOD_HOME_BREAKFAST_GROCERY_TRANSMISSION_USE_CANONICAL_VERIFIED_VISUALS"
+    "visualCoverage": "MAISON_HOME_COLLECTION_AND_FOOD_HOME_BREAKFAST_GROCERY_TRANSMISSION_USE_CANONICAL_VERIFIED_VISUALS",
+    "maisonResponsiveHero": "TABLET_BREAKPOINT_CORRECTED"
   },
   "validator": {
     "path": "socle-v2/scripts/validate-client-readiness.mjs",
