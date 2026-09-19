@@ -14,7 +14,7 @@
     "maison": {
       "htmlPages": 12,
       "pagesWithMedia": 1,
-      "finding": "canonical hero integrated; visitor project journey active; collection now exposes the seven documented foundational sign systems with Tifinagh/Amazigh distinction, one-sign-one-piece rule and LMI context panel; broader verified product imagery remains evidence-dependent"
+      "finding": "canonical hero integrated; homepage and collection expose the seven documented foundational sign systems with Tifinagh/Amazigh distinction and one-sign-one-piece rule; visitor project journey active; broader verified product imagery remains evidence-dependent"
     },
     "food": {
       "htmlPages": 29,
@@ -79,7 +79,7 @@
     "githubActionsMuseumGate": "RUNNER_STARTUP_FAILURE_ISOLATED_MANUAL_DISPATCH_ONLY"
   },
   "currentPackageSha256": {
-    "maison": "9b18f8231af07d1e09c0bbf334426e3b5f5e1af380252b850666bcae3afb04e5",
+    "maison": "d76f9fab77e92680d5e363bcea99e40b3054f53e0e766da2b4c2b93e43b5abf4",
     "food": "47756c1ea39d987f1300019c10e95afdd4a69ee78c52e02aed27080c8ccae747",
     "editions": "a147210ac233500ce131d302d5d89ab4c423f90724692f048723da6d9e6be758",
     "musee": "f896c22e42b3595914bd7e878f2ec3c3671e4d5acdbb74b8ae24336ee879e062"
