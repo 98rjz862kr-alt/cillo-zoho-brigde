@@ -93,7 +93,13 @@
         "lmi-musee-complet/soutenir.html",
         "lmi-musee-complet/contact.html",
         "lmi-musee-complet/mentions-legales-confidentialite.html",
-        "lmi-musee-complet/collections.html"
+        "lmi-musee-complet/collections.html",
+        "lmi-musee-complet/collections-editoriales/atlas-des-humanites-disparues.html",
+        "lmi-musee-complet/collections-editoriales/les-routes-invisibles.html",
+        "lmi-musee-complet/collections-editoriales/archives-des-seuils.html",
+        "lmi-musee-complet/parcours/presse.html",
+        "lmi-musee-complet/parcours/programmateurs.html",
+        "lmi-musee-complet/parcours/prescripteurs.html"
       ],
       "contactRoute": "lmi-musee-complet/contact.html"
     }
