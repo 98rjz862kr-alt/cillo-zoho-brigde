@@ -14,7 +14,7 @@
     "maison": {
       "htmlPages": 12,
       "pagesWithMedia": 1,
-      "finding": "canonical Maison visual now appears on both homepage and inaugural collection; seven documented sign systems, visitor project journey and keyboard focus remain qualified; no unverified product imagery introduced"
+      "finding": "canonical Maison visual appears on homepage and inaugural collection; seven documented sign systems, visitor project journey, responsive collection hero and keyboard focus remain qualified; no unverified product imagery introduced"
     },
     "food": {
       "htmlPages": 29,
@@ -79,7 +79,7 @@
     "githubActionsMuseumGate": "RUNNER_STARTUP_FAILURE_ISOLATED_MANUAL_DISPATCH_ONLY"
   },
   "currentPackageSha256": {
-    "maison": "a24e792bdc2b4cf79695772efbc676a95f74f7b449be0297dcc68f6689767bba",
+    "maison": "df6e0e5308f147c282bd54366205e1ea5a02ff33d7c0faf55f65fd2e3c1e5051",
     "food": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
     "editions": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2",
     "musee": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9"
