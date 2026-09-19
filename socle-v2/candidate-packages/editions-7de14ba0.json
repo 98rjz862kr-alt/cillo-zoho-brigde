@@ -1,7 +1,7 @@
 {
   "site": "editions",
   "baseHubSha": "15dcdc84b8e43cc2b5e260eb1edacd32c62fe7e9",
-  "sourceSha": "9ae1f1ef808d3bc4d450548d2bb4cdf0eda7fa75",
+  "sourceSha": "a8b0b38e7b732b26fc77cd9220cb2d353981c9db",
   "sourcePr": 120,
   "canonicalBrand": "LES MOTS IMAGÉS",
   "validation": {
@@ -46,9 +46,9 @@
     "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
   },
   "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
-  "candidatePackageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+  "candidatePackageSha256": "dbc3801ec6001429620ffb8dcb0d79fdfb280fbf0d78b6976088ff9145b9ac04",
   "clientFacingRequalification": {
-    "packageSha256": "c78746629ebfba254fac32278d69ac8d1eb518d45d4fdf961d166803fe664936",
+    "packageSha256": "dbc3801ec6001429620ffb8dcb0d79fdfb280fbf0d78b6976088ff9145b9ac04",
     "bridgeDeployment": "PENDING",
     "humanAestheticCommercialJudgement": "PENDING"
   }
