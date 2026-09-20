@@ -67,6 +67,16 @@ for(const [site,definition] of Object.entries(contract.sites)){
     }
   }
   if(!definition.contactRoute || !definition.visitorRoutes.includes(definition.contactRoute))throw new Error(`${site}: contact route must be in visitor scope`);
+  if(!definition.legalRoute || !definition.visitorRoutes.includes(definition.legalRoute))throw new Error(`${site}: legal/privacy route must be in visitor scope`);
+  const legal=readDraftHtml(definition.legalRoute);
+  if(!legal)throw new Error(`${site}: legal/privacy route missing`);
+  const legalText=stripEnvironment(legal).replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
+  for(const required of [/Éditeur du site/i,/Propriété intellectuelle/i,/(?:Données|confidentialité)/i,/Responsable de publication/i,/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i]){
+    if(!required.test(legalText))throw new Error(`${site}: administrative/legal content incomplete: ${definition.legalRoute}`);
+  }
+  const contactRaw=readFileSync(path.join(root,'drafts',definition.contactRoute),'utf8');
+  const legalBasename=path.posix.basename(definition.legalRoute);
+  if(!contactRaw.includes(legalBasename))throw new Error(`${site}: legal/privacy route not discoverable from contact page`);
   const contact=readDraftHtml(definition.contactRoute);
   const contactText=stripEnvironment(contact||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
   if(!/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(contactText) && !/WhatsApp|t[ée]l[ée]phone/i.test(contactText))throw new Error(`${site}: usable contact method missing`);
