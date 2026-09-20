@@ -150,7 +150,7 @@ function humanRecipePage(){
     },
     {
       name:'Éditions',
-      package:'bd187418ecca0f1d438e8ffdd43978293a3b5803deb0b9ed9dd8bc8e546f0189',
+      package:'243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59',
       home:'hub-lmi-editions/01-accueil.html',
       routes:[
         ['Accueil','hub-lmi-editions/01-accueil.html'],
