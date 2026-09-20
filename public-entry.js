@@ -7,6 +7,8 @@ import { fileURLToPath } from 'url';
 import { listDraftFiles, readDraftHtml, readDraftAsset } from './drafts.js';
 import { isAuthorized } from './security.js';
 import { buildRuntimeRegistry } from './socle-v2/runtime-registry.mjs';
+import { getHubAssetIntegrity } from './hub-asset-integrity.js';
+import { listHubVisualProvenance } from './hub-provenance.js';
 
 const __filename=fileURLToPath(import.meta.url);
 const rootDir=path.dirname(__filename);
@@ -29,6 +31,19 @@ function readJsonFile(relativePath){
     if(!existsSync(filePath)) return null;
     return JSON.parse(readFileSync(filePath,'utf8'));
   }catch{return null;}
+}
+
+function hubIntegrityManifest(){
+  const assets=listHubVisualProvenance().map((p)=>{
+    const integrity=getHubAssetIntegrity(p.assetName);
+    return {...p,servedSha256:integrity.sha256,servedBytes:integrity.size,exactSourceBytes:integrity.sha256===p.sourceSha256};
+  });
+  return {
+    site:'editions.lesmotsimages.com',
+    brand:'LES MOTS IMAGÉS',
+    ready:assets.length>0&&assets.every((a)=>a.exactSourceBytes===true),
+    assets
+  };
 }
 
 function readBoaJson(fileName){
@@ -176,6 +191,10 @@ const server=createServer(async(req,res)=>{
     if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendHtml(res,loginPage('Accès refusé.'),401);
     return sendHtml(res,humanRecipePage());
   }
+  if(req.method==='GET'&&url.pathname==='/api/hub-integrity'){
+    if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendJson(res,{error:'Unauthorized'},401);
+    return sendJson(res,hubIntegrityManifest());
+  }
   if(req.method==='GET'&&url.pathname==='/api/socle-v2/private-app-exchange'){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})||exchangeTokenMatches(req)))return sendJson(res,{error:'Unauthorized'},401);
     const proof=readJsonFile('socle-v2/status/private-app-sites-exchange-2026-09-17.json');
@@ -195,7 +214,17 @@ const server=createServer(async(req,res)=>{
     const html=readDraftHtml(relativePath);
     if(html)return sendHtml(res,html);
     const asset=readDraftAsset(relativePath);
-    if(asset)return sendAsset(res,asset);
+    if(asset){
+      if(/^hub-lmi-editions\/assets\/[^/]+$/i.test(relativePath)){
+        const name=relativePath.split('/').pop();
+        try{
+          const integrity=getHubAssetIntegrity(name);
+          res.setHeader('x-lmi-sha256',integrity.sha256);
+          res.setHeader('x-lmi-asset-bytes',String(integrity.size));
+        }catch{}
+      }
+      return sendAsset(res,asset);
+    }
     return sendHtml(res,'<h1>Élément ou asset introuvable</h1>',404);
   }
   if(req.method==='GET'&&(url.pathname==='/health'||url.pathname==='/api/health')){
