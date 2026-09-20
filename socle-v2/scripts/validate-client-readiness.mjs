@@ -6,7 +6,7 @@ import { readDraftHtml } from '../../drafts.js';
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'../..');
 const contract=JSON.parse(readFileSync(path.join(root,'socle-v2/contracts/client-facing-routes.v1.json'),'utf8'));
-const forbidden=/\b(?:BAT|gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256|prépublication|accès privé|brouillon|atelier)\b/i;
+const forbidden=/(?:^|[^\p{L}\p{N}_])(?:gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256|prépublication|accès privé|brouillon|atelier)(?=$|[^\p{L}\p{N}_])/iu;\nconst forbiddenBat=/(?:^|[^\p{L}\p{N}_])BAT(?=$|[^\p{L}\p{N}_])/u;
 const oldBrand=/LES MOTS IMAGES(?![A-ZÉ])/i;
 function stripEnvironment(html){
   return html
@@ -51,7 +51,7 @@ for(const [site,definition] of Object.entries(contract.sites)){
     if(description.trim().length<40)throw new Error(`${site}: useful meta description missing: ${route}`);
     const content=stripEnvironment(html);
     const visibleText=content.replace(/<[^>]+>/g,' ').replace(/&[a-z0-9#]+;/gi,' ').replace(/\s+/g,' ');
-    if(forbidden.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);
+    if(forbidden.test(visibleText)||forbiddenBat.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);
     if(oldBrand.test(visibleText))throw new Error(`${site}: non-canonical brand leaked: ${route}`);
     const rawHtml=readFileSync(path.join(root,'drafts',route),'utf8');
     if(!hasKeyboardFocusSupport(rawHtml,route))throw new Error(`${site}: visible keyboard focus support missing: ${route}`);
