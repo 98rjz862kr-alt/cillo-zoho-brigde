@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-20T12:46:27Z",
+  "generatedAt": "2026-09-20T13:00:19Z",
   "brand": "LES MOTS IMAGÉS",
   "integrationBranch": "work/socle-commun-v2-20260915",
-  "liveIntegrationSha": "f0ce61e2ee28fb6767f5b1598efb4fb574af82c0",
+  "liveIntegrationSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
   "render": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-dantauuk1f9s739ssae0",
+    "deployId": "dep-danthfg473hc73am3as0",
     "status": "live",
     "url": "https://cillo-zoho-bridge.onrender.com",
     "build": "PASS",
@@ -42,14 +42,14 @@
       "humanRecipe": "PENDING"
     },
     "maison": {
-      "candidateSourceSha": "103ddd5740427734503801964ebce20ff60e1ca0",
-      "candidatePackageSha256": "44e3da1a8f9b2fb60a14e754da9101eb769b47574af78bcf1e12ec4d3cce5600",
+      "candidateSourceSha": "4536db7fc06ce1337a156e7ad22c51d405c93817",
+      "candidatePackageSha256": "a378a3bf039e737623aa13d32d6d6da9d4ffb7695782cb9700fb7171c5bf16cc",
       "runtimeExactPackage": true,
       "humanRecipe": "PENDING"
     },
     "food": {
-      "candidateSourceSha": "3a4ba25a1b47da47b5a607a35d7bd418c84f3b99",
-      "candidatePackageSha256": "13ecc9c248455d51c24680a1c1507ffab0d1b8ed7f5485aa3b497d7ba9325d8f",
+      "candidateSourceSha": "3e44e8d5f71c753c7868522a62d9dfdcd51ff3b9",
+      "candidatePackageSha256": "c0e5f37d543569aa359ff5a99033c855771ba83511c101d7c93cd0db04ddca82",
       "runtimeExactPackage": true,
       "humanRecipe": "PENDING"
     },
@@ -68,5 +68,11 @@
   "historicalMuseumProof": {
     "sha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
     "role": "historical-integrity-proof-only-not-current-recipe-target"
+  },
+  "mediaManifestCompletion": {
+    "musee": "BOUND",
+    "maison": "BOUND_WITH_OFFICIAL_LOGO_DRIVE_SHA",
+    "food": "BOUND_WITH_OFFICIAL_LOGO_DRIVE_SHA",
+    "editions": "BOUND"
   }
 }
