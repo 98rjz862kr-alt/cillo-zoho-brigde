@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-20T13:00:19Z",
+  "generatedAt": "2026-09-20T16:45:09Z",
   "brand": "LES MOTS IMAGÉS",
   "integrationBranch": "work/socle-commun-v2-20260915",
-  "liveIntegrationSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
+  "liveIntegrationSha": "7fb0d5f4af486d93b0e04bafddda296addce5342",
   "render": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-danthfg473hc73am3as0",
+    "deployId": "dep-dao0qt2jnfac73a641lg",
     "status": "live",
     "url": "https://cillo-zoho-bridge.onrender.com",
     "build": "PASS",
@@ -23,14 +23,14 @@
       "status": "PASS",
       "pages": 119,
       "resources": 125,
-      "links": 737,
+      "links": 720,
       "unauthorizedDenied": 125,
       "sessionAuthentication": true
     },
     "clientReadinessStructural": {
       "status": "PASS",
       "sites": 4,
-      "visitorRoutes": 43
+      "visitorRoutes": 67
     },
     "humanAestheticCommercialJudgement": "PENDING"
   },
@@ -42,20 +42,20 @@
       "humanRecipe": "PENDING"
     },
     "maison": {
-      "candidateSourceSha": "4536db7fc06ce1337a156e7ad22c51d405c93817",
-      "candidatePackageSha256": "a378a3bf039e737623aa13d32d6d6da9d4ffb7695782cb9700fb7171c5bf16cc",
+      "candidateSourceSha": "ba1d42c2943a0c831a96d323583faf070a532418",
+      "candidatePackageSha256": "e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d",
       "runtimeExactPackage": true,
       "humanRecipe": "PENDING"
     },
     "food": {
-      "candidateSourceSha": "3e44e8d5f71c753c7868522a62d9dfdcd51ff3b9",
-      "candidatePackageSha256": "c0e5f37d543569aa359ff5a99033c855771ba83511c101d7c93cd0db04ddca82",
+      "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
+      "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
       "runtimeExactPackage": true,
       "humanRecipe": "PENDING"
     },
     "editions": {
-      "candidateSourceSha": "daea7d9aea6cd7437bcd83e43908056ff085e3e2",
-      "candidatePackageSha256": "c77f6ad97b2f2ccf315e9d7be88dfc9140786f92d985a2847d06395176be8370",
+      "candidateSourceSha": "82696b0c66eac76bdd728819259582b759e607d8",
+      "candidatePackageSha256": "bd187418ecca0f1d438e8ffdd43978293a3b5803deb0b9ed9dd8bc8e546f0189",
       "runtimeExactPackage": true,
       "humanRecipe": "PENDING"
     }
