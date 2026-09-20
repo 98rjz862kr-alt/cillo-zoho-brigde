@@ -5,14 +5,14 @@
     "musee": {
       "root": "drafts/lmi-musee-complet",
       "candidateSourceSha": "df99c5bb0ad75b04b74a34a9cc7f46d406dc95cc",
-      "candidatePackageSha256": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9",
+      "candidatePackageSha256": "49f9f03ff47f8240927f6266fd5db22cb67fa77a6a3edfbde011b1f72d49e97c",
       "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
       "candidateSourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0",
-      "candidatePackageSha256": "df6e0e5308f147c282bd54366205e1ea5a02ff33d7c0faf55f65fd2e3c1e5051",
+      "candidatePackageSha256": "cdcb7b5ff1ab5dd9b3e95177c02c89d2d3dd7142d17bc0cc043de0c7fc9e680f",
       "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
