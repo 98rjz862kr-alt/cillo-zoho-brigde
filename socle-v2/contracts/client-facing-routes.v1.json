@@ -129,7 +129,8 @@
         "lmi-musee-complet/collections-editoriales/archives-des-seuils.html",
         "lmi-musee-complet/parcours/presse.html",
         "lmi-musee-complet/parcours/programmateurs.html",
-        "lmi-musee-complet/parcours/prescripteurs.html"
+        "lmi-musee-complet/parcours/prescripteurs.html",
+        "lmi-musee-complet/parcours/partenaires.html"
       ],
       "contactRoute": "lmi-musee-complet/contact.html",
       "legalRoute": "lmi-musee-complet/mentions-legales-confidentialite.html"
