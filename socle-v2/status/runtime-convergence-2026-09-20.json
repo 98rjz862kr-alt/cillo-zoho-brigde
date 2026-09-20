@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-20T11:43:55Z",
+  "state": "BRIDGE_RUNTIME_CONVERGED_HUMAN_RECIPE_PENDING",
+  "integration": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "branch": "work/socle-commun-v2-20260915",
+    "integrationSha": "c96814a097d34cc29f673479bde0d398e372a7d5",
+    "renderServiceId": "srv-d9osqbmgekts73eoqis0",
+    "renderDeployId": "dep-dansdmbtqb8s73d08km0",
+    "renderStatus": "live",
+    "url": "https://cillo-zoho-bridge.onrender.com"
+  },
+  "packages": {
+    "musee": {
+      "sourceSha": "df99c5bb0ad75b04b74a34a9cc7f46d406dc95cc",
+      "runtimePackageSha256": "49f9f03ff47f8240927f6266fd5db22cb67fa77a6a3edfbde011b1f72d49e97c",
+      "files": 49,
+      "exactCandidateContent": true
+    },
+    "maison": {
+      "sourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0",
+      "runtimePackageSha256": "cdcb7b5ff1ab5dd9b3e95177c02c89d2d3dd7142d17bc0cc043de0c7fc9e680f",
+      "files": 17,
+      "exactCandidateContent": true
+    },
+    "food": {
+      "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
+      "runtimePackageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
+      "files": 32,
+      "exactCandidateContent": true
+    },
+    "editions": {
+      "sourceSha": "b8856a8320defe24a8b2898851f2f67420ee3b43",
+      "runtimePackageSha256": "b5c6ad12ef0fe35d37b5d0e866607983c443eef538cca8d15a3e737b67bdf006",
+      "files": 38,
+      "exactCandidateContent": true
+    }
+  },
+  "buildEvidence": {
+    "canonicalBrandAllSites": "PASS_4",
+    "integrationRuntime": "PASS_4",
+    "socleV2": "PASS",
+    "editionsRenderedContract": "PASS_33",
+    "socleV2Runtime": "PASS",
+    "privateAppIntegrationContract": "PASS_4",
+    "privateAppIngestion": "PASS_4",
+    "previewNavigation": {
+      "status": "PASS",
+      "pages": 117,
+      "resources": 123,
+      "links": 722,
+      "unauthorizedDenied": 123,
+      "sessionAuthentication": true
+    }
+  },
+  "releaseGate": {
+    "sourceSha": "SATISFIED",
+    "build": "SATISFIED",
+    "runtimeBridge": "SATISFIED",
+    "mediaManifest": "TECHNICALLY_BOUND_PER_SITE",
+    "humanRecipe": "PENDING"
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "humanRecipePassInferred": false
+  }
+}
