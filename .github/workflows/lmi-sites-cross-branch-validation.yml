@@ -1,0 +1,79 @@
+name: LMI four-sites cross-branch validation
+
+on:
+  push:
+    branches:
+      - work/socle-commun-v2-20260915
+    paths:
+      - 'drafts/hub-lmi-editions/**'
+      - 'drafts/lmi-food-site/**'
+      - 'drafts/lmi-maison-site/**'
+      - 'drafts/lmi-musee-complet/**'
+      - 'hub-*.js'
+      - 'drafts.js'
+      - 'public-entry.js'
+      - 'socle-v2/**'
+      - 'scripts/validate-hub*.mjs'
+      - 'scripts/validate-lmi-*.mjs'
+      - 'scripts/audit-lmi-*.mjs'
+      - 'scripts/validate-public-entry.mjs'
+      - 'package.json'
+      - '.github/workflows/lmi-sites-cross-branch-validation.yml'
+  pull_request:
+    paths:
+      - 'drafts/hub-lmi-editions/**'
+      - 'drafts/lmi-food-site/**'
+      - 'drafts/lmi-maison-site/**'
+      - 'drafts/lmi-musee-complet/**'
+      - 'hub-*.js'
+      - 'drafts.js'
+      - 'public-entry.js'
+      - 'socle-v2/**'
+      - 'scripts/**'
+      - 'package.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  four-sites:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout exact candidate
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+      - name: Syntax controls
+        run: |
+          node --check drafts.js
+          node --check public-entry.js
+          node --check hub-asset-integrity.js
+          node --check hub-provenance.js
+          node --check hub-visitor-copy.js
+          node --check hub-finalize.js
+          node --check hub-identity.js
+          node --check hub-visuals.js
+          node --check hub-stability.js
+          node --check hub-accessibility.js
+          node --check scripts/validate-hub-seo.mjs
+          node --check scripts/validate-hub-asset-integrity.mjs
+          node --check scripts/validate-hub-visitor-copy.mjs
+          node --check scripts/validate-hub-runtime.mjs
+      - name: Full integration gate
+        run: npm run test:integration
+      - name: Cross-branch recovered gates
+        run: npm run test:cross-branch-integrity
+      - name: SHA-256 evidence manifest
+        run: |
+          sha256sum             drafts/hub-lmi-editions/assets/logo-lmi-hub.png             drafts/hub-lmi-editions/assets/boa-totem-soya.jpg             drafts/hub-lmi-editions/assets/le-fleuve-sans-nom.jpg             drafts/hub-lmi-editions/assets/LMI-EDT-WEB-HERO-V001.webp             hub-asset-integrity.js             hub-provenance.js             hub-visitor-copy.js             public-entry.js             socle-v2/site-origins.json > four-sites-cross-branch-sha256.txt
+          cat four-sites-cross-branch-sha256.txt
+      - name: Upload evidence manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: lmi-four-sites-cross-branch-sha256
+          path: four-sites-cross-branch-sha256.txt
+          if-no-files-found: error
