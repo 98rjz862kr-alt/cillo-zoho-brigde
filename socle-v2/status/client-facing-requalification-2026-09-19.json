@@ -34,7 +34,9 @@
     "localClientReadinessTest": "PENDING_REMOTE_EXECUTION",
     "fullIntegrationTest": "PENDING_REMOTE_EXECUTION",
     "visualCoverage": "MAISON_HOME_COLLECTION_AND_FOOD_HOME_BREAKFAST_GROCERY_TRANSMISSION_USE_CANONICAL_VERIFIED_VISUALS",
-    "maisonResponsiveHero": "TABLET_BREAKPOINT_CORRECTED"
+    "maisonResponsiveHero": "TABLET_BREAKPOINT_CORRECTED",
+    "museeKeyboardFocusDefect": "CORRECTED_AT_3d642986beeb65955222a763357fe3ec7656e97f",
+    "museeHomepageStructuralAudit": "PASS_VIEWPORT_SINGLE_H1_TITLE_STYLESHEET"
   },
   "validator": {
     "path": "socle-v2/scripts/validate-client-readiness.mjs",
@@ -44,7 +46,7 @@
     "device": "MinideABDOULAYE.lan",
     "deviceId": "388fc09c-3a21-489d-8209-5769aae0e664",
     "accountQuotaRemainingPercentObserved": 83,
-    "commandChannel": "RECONNECTED_FOR_SHORT_COMMANDS; FULL_TEST_SYNC_RETRY_PENDING",
+    "commandChannel": "UNAVAILABLE_2026-09-20; full local test replay remains pending and no PASS is inferred",
     "consequence": "runtime tests deferred; no PASS inferred"
   },
   "locks": {
