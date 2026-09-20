@@ -1,9 +1,9 @@
 {
   "schemaVersion": "1.0.0",
-  "targetIntegrationSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
-  "renderDeployId": "dep-danthfg473hc73am3as0",
+  "targetIntegrationSha": "7fb0d5f4af486d93b0e04bafddda296addce5342",
+  "renderDeployId": "dep-dao0qt2jnfac73a641lg",
   "baseUrl": "https://cillo-zoho-bridge.onrender.com",
-  "authentication": "Use the existing private Bridge session. Do not place credentials in this file.",
+  "authentication": "Use the existing private Bridge session. Credentials are never stored in this file.",
   "routes": {
     "musee": [
       "/atelier/file/lmi-musee-complet%2Findex.html",
@@ -36,5 +36,6 @@
       "/atelier/file/hub-lmi-editions%2F20-mentions-legales-confidentialite.html"
     ]
   },
-  "decisionRule": "Record PASS/ADJUST/BLOCK only after visual human inspection on the exact target integration SHA."
+  "decisionRule": "Record PASS/ADJUST/BLOCK only after visual human inspection on the exact target integration SHA.",
+  "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette"
 }
