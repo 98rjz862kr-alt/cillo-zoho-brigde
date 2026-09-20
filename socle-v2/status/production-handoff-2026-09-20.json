@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-20T12:00:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "state": "TECHNICAL_PRODUCTION_COMPLETE_HUMAN_RECIPE_PENDING",
+  "authority": {
+    "integrationSha": "c96814a097d34cc29f673479bde0d398e372a7d5",
+    "renderDeployId": "dep-dansdmbtqb8s73d08km0",
+    "bridge": "https://cillo-zoho-bridge.onrender.com"
+  },
+  "gates": {
+    "sourceSha": "SATISFIED",
+    "build": "SATISFIED",
+    "runtimeBridge": "SATISFIED",
+    "mediaManifest": "TECHNICALLY_BOUND_PER_SITE",
+    "humanRecipe": "PENDING"
+  },
+  "packages": {
+    "musee": "49f9f03ff47f8240927f6266fd5db22cb67fa77a6a3edfbde011b1f72d49e97c",
+    "maison": "cdcb7b5ff1ab5dd9b3e95177c02c89d2d3dd7142d17bc0cc043de0c7fc9e680f",
+    "food": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
+    "editions": "b5c6ad12ef0fe35d37b5d0e866607983c443eef538cca8d15a3e737b67bdf006"
+  },
+  "recipeOrder": [
+    "musee",
+    "maison",
+    "food",
+    "editions"
+  ],
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "inferHumanPass": false
+  },
+  "nextAllowedAction": "HUMAN_RECIPE_ON_EXACT_QUALIFIED_RUNTIME"
+}
