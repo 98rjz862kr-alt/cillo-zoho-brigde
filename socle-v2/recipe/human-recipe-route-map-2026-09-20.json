@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "targetIntegrationSha": "c96814a097d34cc29f673479bde0d398e372a7d5",
+  "renderDeployId": "dep-dansdmbtqb8s73d08km0",
+  "baseUrl": "https://cillo-zoho-bridge.onrender.com",
+  "authentication": "Use the existing private Bridge session. Do not place credentials in this file.",
+  "routes": {
+    "musee": [
+      "/atelier/file/lmi-musee-complet%2Findex.html",
+      "/atelier/file/lmi-musee-complet%2Fcollections.html",
+      "/atelier/file/lmi-musee-complet%2Fexpositions-permanentes.html",
+      "/atelier/file/lmi-musee-complet%2Feducation-mediation.html",
+      "/atelier/file/lmi-musee-complet%2Fcontact.html"
+    ],
+    "maison": [
+      "/atelier/file/lmi-maison-site%2F00-bat-lmi-maison.html",
+      "/atelier/file/lmi-maison-site%2F01-collection-inaugurale-lmi-maison.html"
+    ],
+    "food": [
+      "/atelier/file/lmi-food-site%2F00-bat-lmi-food.html",
+      "/atelier/file/lmi-food-site%2F02-petits-dejeuners-collations.html",
+      "/atelier/file/lmi-food-site%2F04-epicerie-condiments.html",
+      "/atelier/file/lmi-food-site%2F07-sommaire-controle-lmi-food.html"
+    ],
+    "editions": [
+      "/atelier/file/hub-lmi-editions%2F01-accueil.html",
+      "/atelier/file/hub-lmi-editions%2F11-catalogue-editorial.html",
+      "/atelier/file/hub-lmi-editions%2F19-presse-partenaires-droits.html",
+      "/atelier/file/hub-lmi-editions%2F05-contact.html"
+    ]
+  },
+  "decisionRule": "Record PASS/ADJUST/BLOCK only after visual human inspection on the exact target integration SHA."
+}
