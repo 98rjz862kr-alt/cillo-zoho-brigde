@@ -1,9 +1,9 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-20T16:45:09Z",
+  "recordedAt": "2026-09-20T18:05:00Z",
   "recipeTarget": {
-    "integrationSha": "7fb0d5f4af486d93b0e04bafddda296addce5342",
-    "renderDeployId": "dep-dao0qt2jnfac73a641lg",
+    "integrationSha": null,
+    "renderDeployId": null,
     "privateBridgeUrl": "https://cillo-zoho-bridge.onrender.com",
     "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette"
   },
@@ -17,7 +17,7 @@
   "sites": {
     "musee": {
       "packageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
-      "decision": "PENDING",
+      "decision": "SUSPENDED",
       "checks": [
         "identity",
         "homepage",
@@ -31,7 +31,7 @@
     },
     "maison": {
       "packageSha256": "e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d",
-      "decision": "PENDING",
+      "decision": "SUSPENDED",
       "checks": [
         "identity",
         "homepage",
@@ -45,7 +45,7 @@
     },
     "food": {
       "packageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
-      "decision": "PENDING",
+      "decision": "SUSPENDED",
       "checks": [
         "identity",
         "homepage",
@@ -59,7 +59,7 @@
     },
     "editions": {
       "packageSha256": "bd187418ecca0f1d438e8ffdd43978293a3b5803deb0b9ed9dd8bc8e546f0189",
-      "decision": "PENDING",
+      "decision": "SUSPENDED",
       "checks": [
         "identity",
         "homepage",
@@ -72,6 +72,6 @@
       ]
     }
   },
-  "prohibitedInference": "No PASS without explicit human recipe decision on the exact qualified runtime.",
-  "state": "READY_FOR_HUMAN_RECIPE_ON_EXACT_LIVE_PRIVATE_BRIDGE"
+  "prohibitedInference": "No human recipe may start and no PASS may be recorded until cross-branch reconciliation is CLOSED and one exact reconciled runtime SHA is frozen.",
+  "state": "SUSPENDED_CROSS_BRANCH_RECONCILIATION"
 }
