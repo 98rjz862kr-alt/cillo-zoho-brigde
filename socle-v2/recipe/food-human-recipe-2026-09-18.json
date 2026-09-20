@@ -1,12 +1,14 @@
 {
   "schemaVersion": "2.0.0",
   "site": "food",
-  "decision": "HUMAN_RECIPE_NOT_OPEN_UNTIL_CLIENT_FACING_CANDIDATE_DEPLOYED",
+  "decision": "HUMAN_RECIPE_READY_ON_QUALIFIED_PRIVATE_BRIDGE",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
     "candidateSourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
     "candidatePackageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
-    "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
+    "bridgeRuntimeSha": "c96814a097d34cc29f673479bde0d398e372a7d5",
+    "renderDeployId": "dep-dansdmbtqb8s73d08km0",
+    "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
   },
   "devices": [
     {
