@@ -61,6 +61,16 @@
       "format": "WEBP",
       "sha256": "7ed83abd2cae7939f49489d33b70cba4c8688a77d9ee8d67def02c3b8b7e2817",
       "status": "SOURCE_DRIVE_WEB_CANONIQUE_INTEGREE_2026_09_18"
+    },
+    {
+      "name": "LMI-IMG-BRD-LOGO-COUVERTURE-CANON-V001.png",
+      "localPath": "assets/lmi-logo-main.png",
+      "driveId": "1i2Gvfxp7X3V8Q6EzOR0-bDFmpcDQCJTX",
+      "format": "PNG",
+      "bytes": 492238,
+      "sha256": "d796f29475383b8cc1bfda8ac44bb1b66933fdf96d0050004252b79a9b1b499b",
+      "status": "SOURCE_DRIVE_IDENTITE_CANONIQUE_INTEGREE_2026_09_20",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
     }
   ],
   "register": {
