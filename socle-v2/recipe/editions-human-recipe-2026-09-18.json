@@ -1,12 +1,14 @@
 {
   "schemaVersion": "2.0.0",
   "site": "editions",
-  "decision": "HUMAN_RECIPE_NOT_OPEN_UNTIL_CLIENT_FACING_CANDIDATE_DEPLOYED",
+  "decision": "HUMAN_RECIPE_READY_ON_QUALIFIED_PRIVATE_BRIDGE",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
-    "candidateSourceSha": "22ddec190229856b008c2357c6adc1785358d7ae",
-    "candidatePackageSha256": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2",
-    "bridgeRuntimeSha": "PENDING_NEW_CLIENT_FACING_DEPLOYMENT"
+    "candidateSourceSha": "b8856a8320defe24a8b2898851f2f67420ee3b43",
+    "candidatePackageSha256": "b5c6ad12ef0fe35d37b5d0e866607983c443eef538cca8d15a3e737b67bdf006",
+    "bridgeRuntimeSha": "c96814a097d34cc29f673479bde0d398e372a7d5",
+    "renderDeployId": "dep-dansdmbtqb8s73d08km0",
+    "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
   },
   "devices": [
     {
