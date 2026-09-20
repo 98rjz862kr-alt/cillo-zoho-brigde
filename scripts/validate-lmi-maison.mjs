@@ -33,7 +33,7 @@ for (const file of files) {
   assert(/LMI Maison/i.test(html), 'Identité LMI Maison absente: ' + file);
   assert(!/<form\b/i.test(html), 'Formulaire actif interdit: ' + file);
   assert(!/stripe|paypal|parcours d’encaissement/i.test(html), 'Action commerciale active interdite: ' + file);
-  if (/mailto:|tel:/i.test(html)) assert(file === 'contact.html', 'Lien de contact direct réservé à la page contact: ' + file);
+  if (/mailto:|tel:/i.test(html)) assert(['contact.html','mentions-legales-confidentialite.html'].includes(file), 'Lien de contact direct réservé aux pages contact ou mentions légales: ' + file);
 }
 for (const file of ['00-bat-lmi-maison.html','01-collection-inaugurale-lmi-maison.html']) {
   const html = readFileSync(path.join(root, file), 'utf8');
