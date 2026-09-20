@@ -4,10 +4,10 @@
   "decision": "HUMAN_RECIPE_READY_ON_QUALIFIED_PRIVATE_BRIDGE",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
-    "candidateSourceSha": "3a4ba25a1b47da47b5a607a35d7bd418c84f3b99",
-    "candidatePackageSha256": "13ecc9c248455d51c24680a1c1507ffab0d1b8ed7f5485aa3b497d7ba9325d8f",
-    "bridgeRuntimeSha": "f0ce61e2ee28fb6767f5b1598efb4fb574af82c0",
-    "renderDeployId": "dep-dantauuk1f9s739ssae0",
+    "candidateSourceSha": "3e44e8d5f71c753c7868522a62d9dfdcd51ff3b9",
+    "candidatePackageSha256": "c0e5f37d543569aa359ff5a99033c855771ba83511c101d7c93cd0db04ddca82",
+    "bridgeRuntimeSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
+    "renderDeployId": "dep-danthfg473hc73am3as0",
     "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
   },
   "devices": [
