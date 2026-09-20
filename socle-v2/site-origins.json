@@ -4,29 +4,29 @@
   "sites": {
     "musee": {
       "root": "drafts/lmi-musee-complet",
-      "candidateSourceSha": "df99c5bb0ad75b04b74a34a9cc7f46d406dc95cc",
-      "candidatePackageSha256": "49f9f03ff47f8240927f6266fd5db22cb67fa77a6a3edfbde011b1f72d49e97c",
-      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
+      "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
+      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "63a08794fda8b91df92b33d983d4b97b96c6e98d",
-      "candidatePackageSha256": "e62049f8ae353bada16c35f5307f69dd02466a2fb621b243d2e508d3d806e5bc",
+      "candidateSourceSha": "103ddd5740427734503801964ebce20ff60e1ca0",
+      "candidatePackageSha256": "44e3da1a8f9b2fb60a14e754da9101eb769b47574af78bcf1e12ec4d3cce5600",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "food": {
       "root": "drafts/lmi-food-site",
-      "candidateSourceSha": "ab9fad1ab5371c1d49d616dbe46107797bd3f9a7",
-      "candidatePackageSha256": "bf0ff36913884502384cd11e3daa5555f387beeff0940dd8e813de07006c3fcb",
+      "candidateSourceSha": "3a4ba25a1b47da47b5a607a35d7bd418c84f3b99",
+      "candidatePackageSha256": "13ecc9c248455d51c24680a1c1507ffab0d1b8ed7f5485aa3b497d7ba9325d8f",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": "a7621c1b4a741670eef012c6b9277bf8a4e5e0b7",
-      "candidatePackageSha256": "9834d5f07fc4575798ffa57942622e4eacf1db7438b84fbbcb43575fd7756d7d",
+      "candidateSourceSha": "746aa6f3912365fbb863bd0edacbcb40171f505b",
+      "candidatePackageSha256": "716c5b998d0682759d03255a02455cb795ee3ea140bc1e782d524f672e98b5e6",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
