@@ -1,13 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-20T18:02:00Z",
+  "recordedAt": "2026-09-20T18:21:00Z",
   "brand": "LES MOTS IMAGÉS",
   "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_HUMAN_RECIPE_SUSPENDED",
   "current": {
     "branch": "work/socle-commun-v2-20260915",
-    "head": "a73a569ce2104a23e48e980a5c2f3d1e8295a035",
+    "head": "c67c33767f87fa57443889fe907d0cdb8ced65b2",
     "pr": 118,
-    "prDraft": true
+    "prDraft": true,
+    "render": {
+      "serviceId": "srv-d9osqbmgekts73eoqis0",
+      "deployId": "dep-dao27f2d0e5s73emotk0",
+      "status": "live"
+    }
   },
   "comparedBranches": {
     "agent/transverse-4-sites-finalisation-20260907": {
@@ -58,18 +63,50 @@
     "Current private-app integration and ingestion contracts pass for four sites"
   ],
   "unresolvedBeforeRecipe": [
-    "Complete semantic review of remaining cross-branch differing functional files",
-    "Confirm no superior content or QA rule remains unabsorbed from parallel branch",
-    "Run consolidated workflow/Render build on final reconciliation head",
-    "Emit one immutable exact-SHA recipe target only after reconciliation state is CLOSED"
+    "Parallel agent branch is still considered active by project governance; re-read its latest head before freezing a recipe candidate.",
+    "If that branch advances, repeat file/function comparison against the new head.",
+    "Only then set reconciliation state CLOSED and freeze one exact runtime SHA."
   ],
   "humanRecipe": {
     "state": "SUSPENDED",
-    "reason": "Parallel candidates diverge; no unique reconciled candidate has been frozen."
+    "reason": "Cross-branch comparison is materially advanced but parallel work is still active; no immutable unique recipe candidate is frozen."
   },
   "publicationLocks": {
     "mergeMain": false,
     "dnsChange": false,
     "publicPublication": false
+  },
+  "latestBuildEvidence": [
+    "HUB_ASSET_INTEGRITY_PASS 4",
+    "HUB_SEO_PASS 32",
+    "HUB_VISITOR_COPY_PASS 32",
+    "HUB_RUNTIME_INTEGRITY_PASS 4",
+    "HUB_A11Y_RENDERED_PASS 32",
+    "Hub release lock: CROSS_BRANCH_QUALIFIED / LOCKED_HUMAN_RECIPE_REQUIRED",
+    "CANONICAL_BRAND_ALL_SITES_PASS 4",
+    "INTEGRATION_RUNTIME_PASS 4",
+    "SOCLE_V2_PASS",
+    "EDITIONS_RENDERED_CONTRACT_PASS 33",
+    "SOCLE_V2_RUNTIME_PASS",
+    "PRIVATE_APP_INTEGRATION_CONTRACT_PASS 4",
+    "PRIVATE_APP_INGESTION_PASS 4",
+    "PREVIEW_NAVIGATION_PASS 119/125/720/125",
+    "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes"
+  ],
+  "githubActions": {
+    "workflow": "LMI four-sites cross-branch validation",
+    "runId": 35528691089,
+    "status": "completed",
+    "conclusion": "failure",
+    "jobSteps": 0,
+    "qualification": "NOT_AN_APPLICATION_TEST_RESULT_RUNNER_DID_NOT_START_STEPS"
+  },
+  "resolutionByBranch": {
+    "agent/transverse-4-sites-finalisation-20260907": "Useful Hub integrity/SEO/runtime concepts absorbed and adapted; stale identity/auth/media assumptions rejected.",
+    "agent/lmi-food-finalisation-20260906": "Functional Food validators/catalogue controls substantially present; current candidate adds legal page, canonical identity and newer Drive/SHA media manifest.",
+    "agent/lmi-maison-finalisation-20260906": "Maison controls absorbed; current candidate adds canonical logo/hero provenance, legal page and six-system correction.",
+    "work/maison-convergence-20260915": "False-positive commerce validator correction already incorporated in current validator lineage; current product layer is newer.",
+    "work/editions-canonical-20260915": "Canonical brand correction retained; current Hub has broader visitor cleanup, four-asset provenance, SEO/a11y/runtime gates.",
+    "work/musee-brand-correction-20260915": "Canonical brand correction retained; current Museum is newer with canonical PNG logo, hero, expanded visitor pathways and legal linkage."
   }
 }
