@@ -11,23 +11,23 @@
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0",
-      "candidatePackageSha256": "cdcb7b5ff1ab5dd9b3e95177c02c89d2d3dd7142d17bc0cc043de0c7fc9e680f",
-      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "63a08794fda8b91df92b33d983d4b97b96c6e98d",
+      "candidatePackageSha256": "e62049f8ae353bada16c35f5307f69dd02466a2fb621b243d2e508d3d806e5bc",
+      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "food": {
       "root": "drafts/lmi-food-site",
-      "candidateSourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
-      "candidatePackageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
-      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "ab9fad1ab5371c1d49d616dbe46107797bd3f9a7",
+      "candidatePackageSha256": "bf0ff36913884502384cd11e3daa5555f387beeff0940dd8e813de07006c3fcb",
+      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": "b8856a8320defe24a8b2898851f2f67420ee3b43",
-      "candidatePackageSha256": "b5c6ad12ef0fe35d37b5d0e866607983c443eef538cca8d15a3e737b67bdf006",
-      "state": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "a7621c1b4a741670eef012c6b9277bf8a4e5e0b7",
+      "candidatePackageSha256": "9834d5f07fc4575798ffa57942622e4eacf1db7438b84fbbcb43575fd7756d7d",
+      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
   }
