@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "targetIntegrationSha": "7fb0d5f4af486d93b0e04bafddda296addce5342",
-  "renderDeployId": "dep-dao0qt2jnfac73a641lg",
+  "targetIntegrationSha": null,
+  "renderDeployId": null,
   "baseUrl": "https://cillo-zoho-bridge.onrender.com",
   "authentication": "Use the existing private Bridge session. Credentials are never stored in this file.",
   "routes": {
@@ -36,6 +36,7 @@
       "/atelier/file/hub-lmi-editions%2F20-mentions-legales-confidentialite.html"
     ]
   },
-  "decisionRule": "Record PASS/ADJUST/BLOCK only after visual human inspection on the exact target integration SHA.",
-  "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette"
+  "decisionRule": "Do not perform human recipe. Routes are informational only until one reconciled exact-SHA candidate is frozen.",
+  "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette",
+  "state": "SUSPENDED_CROSS_BRANCH_RECONCILIATION"
 }
