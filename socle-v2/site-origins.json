@@ -11,15 +11,15 @@
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "103ddd5740427734503801964ebce20ff60e1ca0",
-      "candidatePackageSha256": "44e3da1a8f9b2fb60a14e754da9101eb769b47574af78bcf1e12ec4d3cce5600",
+      "candidateSourceSha": "4536db7fc06ce1337a156e7ad22c51d405c93817",
+      "candidatePackageSha256": "a378a3bf039e737623aa13d32d6d6da9d4ffb7695782cb9700fb7171c5bf16cc",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "food": {
       "root": "drafts/lmi-food-site",
-      "candidateSourceSha": "3a4ba25a1b47da47b5a607a35d7bd418c84f3b99",
-      "candidatePackageSha256": "13ecc9c248455d51c24680a1c1507ffab0d1b8ed7f5485aa3b497d7ba9325d8f",
+      "candidateSourceSha": "3e44e8d5f71c753c7868522a62d9dfdcd51ff3b9",
+      "candidatePackageSha256": "c0e5f37d543569aa359ff5a99033c855771ba83511c101d7c93cd0db04ddca82",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
