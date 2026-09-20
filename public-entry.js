@@ -93,6 +93,66 @@ function atelierPage(){
   return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Bridge LMI — Brouillons privés</title><style>:root{--bleu:#143b7d;--nuit:#0f2747;--ocre:#cc7722;--ivoire:#f6f1e8;--sable:#75553f;--rouge:#85202d}*{box-sizing:border-box}body{margin:0;background:#ece9e2;color:#172238;font-family:Arial,sans-serif}header{background:linear-gradient(135deg,var(--nuit),var(--bleu));color:#fff;padding:35px max(20px,5vw);border-bottom:5px solid #d4af37}header h1{font-family:Georgia,serif;margin:0 0 8px;font-size:clamp(2rem,5vw,4rem)}main{max-width:1120px;margin:28px auto;padding:0 18px}.status,.warning{background:var(--ivoire);padding:18px;margin-bottom:22px;border-radius:10px}.status{border-left:6px solid var(--ocre)}.warning{border-left:6px solid var(--rouge)}article{display:flex;justify-content:space-between;gap:20px;align-items:center;background:#fff;border-radius:14px;padding:22px;margin:13px 0;box-shadow:0 8px 24px #0001}small{display:block;color:var(--sable);margin-top:7px}a{background:var(--bleu);color:#fff;text-decoration:none;padding:12px 16px;border-radius:8px;white-space:nowrap;font-weight:700}@media(max-width:700px){article{align-items:flex-start;flex-direction:column}}</style></head><body><header><h1>LES MOTS IMAGÉS — BRIDGE</h1><p>Atelier privé · aucun référencement · aucune publication</p></header><main>${boaNotice}<div class="status"><strong>${drafts.length} éléments protégés.</strong> Leur présence technique ne vaut pas validation artistique.</div>${cards||'<p>Aucun élément disponible.</p>'}</main></body></html>`;
 }
 
+function humanRecipePage(){
+  const sites=[
+    {
+      name:'Musée',
+      package:'b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf',
+      home:'lmi-musee-complet/index.html',
+      routes:[
+        ['Accueil','lmi-musee-complet/index.html'],
+        ['Collections','lmi-musee-complet/collections.html'],
+        ['Expositions permanentes','lmi-musee-complet/expositions-permanentes.html'],
+        ['Éducation & médiation','lmi-musee-complet/education-mediation.html'],
+        ['Contact','lmi-musee-complet/contact.html'],
+        ['Mentions légales','lmi-musee-complet/mentions-legales-confidentialite.html']
+      ]
+    },
+    {
+      name:'Maison',
+      package:'a378a3bf039e737623aa13d32d6d6da9d4ffb7695782cb9700fb7171c5bf16cc',
+      home:'lmi-maison-site/00-bat-lmi-maison.html',
+      routes:[
+        ['Accueil','lmi-maison-site/00-bat-lmi-maison.html'],
+        ['Collection inaugurale','lmi-maison-site/01-collection-inaugurale-lmi-maison.html'],
+        ['Parcours commercial privé','lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html'],
+        ['Contact','lmi-maison-site/contact.html'],
+        ['Mentions légales','lmi-maison-site/mentions-legales-confidentialite.html']
+      ]
+    },
+    {
+      name:'Food',
+      package:'c0e5f37d543569aa359ff5a99033c855771ba83511c101d7c93cd0db04ddca82',
+      home:'lmi-food-site/00-bat-lmi-food.html',
+      routes:[
+        ['Accueil','lmi-food-site/00-bat-lmi-food.html'],
+        ['Petits déjeuners & collations','lmi-food-site/02-petits-dejeuners-collations.html'],
+        ['Épicerie & condiments','lmi-food-site/04-epicerie-condiments.html'],
+        ['Collection éditoriale recettes','lmi-food-site/08-collection-editoriale-recettes.html'],
+        ['Contact','lmi-food-site/contact.html'],
+        ['Mentions légales','lmi-food-site/mentions-legales-confidentialite.html']
+      ]
+    },
+    {
+      name:'Éditions',
+      package:'c77f6ad97b2f2ccf315e9d7be88dfc9140786f92d985a2847d06395176be8370',
+      home:'hub-lmi-editions/01-accueil.html',
+      routes:[
+        ['Accueil','hub-lmi-editions/01-accueil.html'],
+        ['Catalogue éditorial','hub-lmi-editions/11-catalogue-editorial.html'],
+        ['Presse · partenaires · droits','hub-lmi-editions/19-presse-partenaires-droits.html'],
+        ['Contact','hub-lmi-editions/05-contact.html'],
+        ['Mentions légales','hub-lmi-editions/20-mentions-legales-confidentialite.html']
+      ]
+    }
+  ];
+  const cards=sites.map(site=>{
+    const buttons=site.routes.map(([label,route])=>`<a class="route" href="/atelier/file/${encodeURIComponent(route)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`).join('');
+    return `<section class="site"><div class="siteHead"><div><span class="eyebrow">CANDIDAT DE RECETTE</span><h2>${escapeHtml(site.name)}</h2><code>${escapeHtml(site.package)}</code></div><a class="open" href="/atelier/file/${encodeURIComponent(site.home)}" target="_blank" rel="noopener noreferrer">Ouvrir le site</a></div><div class="routes">${buttons}</div></section>`;
+  }).join('');
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Recette humaine — LES MOTS IMAGÉS</title><style>:root{--b:#143B7D;--n:#0F2747;--g:#D4AF37;--o:#CC7722;--i:#F6F1E8;--s:#75553F}*{box-sizing:border-box}body{margin:0;background:#efede7;color:#172238;font-family:Arial,sans-serif}header{background:linear-gradient(135deg,var(--n),var(--b));color:#fff;padding:42px max(20px,5vw);border-bottom:5px solid var(--g)}h1,h2{font-family:Georgia,serif}h1{font-size:clamp(2.3rem,5vw,4.6rem);margin:0 0 8px}header p{margin:5px 0;max-width:900px;line-height:1.6}.bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.pill{display:inline-block;background:#ffffff16;border:1px solid #ffffff32;padding:8px 12px;border-radius:999px;font-weight:800}main{width:min(1180px,calc(100% - 32px));margin:30px auto 60px}.notice{background:var(--i);border-left:6px solid var(--o);padding:18px 20px;border-radius:12px;margin-bottom:22px;line-height:1.6}.site{background:#fff;border-radius:20px;margin:18px 0;padding:24px;box-shadow:0 14px 38px #0f274712}.siteHead{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.eyebrow{font-size:.72rem;letter-spacing:.14em;font-weight:900;color:var(--o)}h2{font-size:2rem;color:var(--b);margin:6px 0 8px}code{display:block;max-width:720px;overflow-wrap:anywhere;color:#5b6575}.open,.route{display:inline-block;text-decoration:none;font-weight:900;border-radius:999px}.open{background:var(--b);color:#fff;padding:13px 18px;white-space:nowrap}.routes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.route{background:var(--i);color:var(--b);border:1px solid #143B7D22;padding:10px 14px}.help{margin-top:26px;background:#fff;padding:22px;border-radius:18px}.help strong{color:var(--b)}a:focus-visible{outline:3px solid var(--g);outline-offset:3px}@media(max-width:720px){.siteHead{flex-direction:column}.open{width:100%;text-align:center}}</style></head><body><header><h1>LES MOTS IMAGÉS — RECETTE HUMAINE</h1><p>Interface visuelle de recette. Ouvrir les sites et leurs parcours réels ci-dessous ; les documents Drive servent uniquement de registre de décisions et de preuves.</p><div class="bar"><span class="pill">Runtime 838e0119…</span><span class="pill">Render LIVE</span><span class="pill">Aucune publication publique</span></div></header><main><div class="notice"><strong>Contrôle humain attendu :</strong> identité, qualité graphique, illustrations, contenu, CTA, redirections, ergonomie, fluidité, responsive, crédibilité commerciale et administrative, perception premium. Résultats : PASS / ADJUST / BLOCK.</div>${cards}<div class="help"><strong>Ordre :</strong> Musée → Maison → Food → Éditions. Tester en priorité desktop 1440 px, iPhone 390 px et mobile 320 px.</div></main></body></html>`;
+}
+
 function proxy(req,res){
   const upstream=httpRequest({hostname:'127.0.0.1',port:internalPort,path:req.url,method:req.method,headers:{...req.headers,host:`127.0.0.1:${internalPort}`}},(upstreamRes)=>{res.writeHead(upstreamRes.statusCode||502,upstreamRes.headers);upstreamRes.pipe(res);});
   upstream.on('error',()=>{res.writeHead(503,{'content-type':'application/json; charset=utf-8','cache-control':'no-store'});res.end(JSON.stringify({error:'Bridge core is starting'}));});
@@ -111,6 +171,10 @@ const server=createServer(async(req,res)=>{
     const body=await parseForm(req);
     if(!passwordMatches(body.password))return sendHtml(res,loginPage('Mot de passe incorrect.'),401);
     createSession(res);res.writeHead(303,{location:'/atelier','cache-control':'no-store'});return res.end();
+  }
+  if(req.method==='GET'&&url.pathname==='/atelier/recette'){
+    if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendHtml(res,loginPage('Accès refusé.'),401);
+    return sendHtml(res,humanRecipePage());
   }
   if(req.method==='GET'&&url.pathname==='/api/socle-v2/private-app-exchange'){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})||exchangeTokenMatches(req)))return sendJson(res,{error:'Unauthorized'},401);
