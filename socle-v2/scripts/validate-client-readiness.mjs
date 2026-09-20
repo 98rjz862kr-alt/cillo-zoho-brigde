@@ -6,7 +6,8 @@ import { readDraftHtml } from '../../drafts.js';
 const here=path.dirname(fileURLToPath(import.meta.url));
 const root=path.resolve(here,'../..');
 const contract=JSON.parse(readFileSync(path.join(root,'socle-v2/contracts/client-facing-routes.v1.json'),'utf8'));
-const forbidden=/(?:^|[^\p{L}\p{N}_])(?:gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256|prépublication|accès privé|brouillon|atelier)(?=$|[^\p{L}\p{N}_])/iu;\nconst forbiddenBat=/(?:^|[^\p{L}\p{N}_])BAT(?=$|[^\p{L}\p{N}_])/u;
+const forbidden=/(?:^|[^\p{L}\p{N}_])(?:gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256|prépublication|accès privé|brouillon|atelier)(?=$|[^\p{L}\p{N}_])/iu;
+const forbiddenBat=/(?:^|[^\p{L}\p{N}_])BAT(?=$|[^\p{L}\p{N}_])/u;
 const oldBrand=/LES MOTS IMAGES(?![A-ZÉ])/i;
 function stripEnvironment(html){
   return html
