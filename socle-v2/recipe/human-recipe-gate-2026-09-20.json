@@ -1,10 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-20T13:00:19Z",
+  "recordedAt": "2026-09-20T16:45:09Z",
   "recipeTarget": {
-    "integrationSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
-    "renderDeployId": "dep-danthfg473hc73am3as0",
-    "privateBridgeUrl": "https://cillo-zoho-bridge.onrender.com"
+    "integrationSha": "7fb0d5f4af486d93b0e04bafddda296addce5342",
+    "renderDeployId": "dep-dao0qt2jnfac73a641lg",
+    "privateBridgeUrl": "https://cillo-zoho-bridge.onrender.com",
+    "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette"
   },
   "rule": "A human recipe decision applies only to this exact deployed integration SHA and the per-site package hashes recorded in runtime-convergence-2026-09-20.json.",
   "order": [
@@ -29,7 +30,7 @@
       ]
     },
     "maison": {
-      "packageSha256": "a378a3bf039e737623aa13d32d6d6da9d4ffb7695782cb9700fb7171c5bf16cc",
+      "packageSha256": "e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d",
       "decision": "PENDING",
       "checks": [
         "identity",
@@ -43,7 +44,7 @@
       ]
     },
     "food": {
-      "packageSha256": "c0e5f37d543569aa359ff5a99033c855771ba83511c101d7c93cd0db04ddca82",
+      "packageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
       "decision": "PENDING",
       "checks": [
         "identity",
@@ -57,7 +58,7 @@
       ]
     },
     "editions": {
-      "packageSha256": "c77f6ad97b2f2ccf315e9d7be88dfc9140786f92d985a2847d06395176be8370",
+      "packageSha256": "bd187418ecca0f1d438e8ffdd43978293a3b5803deb0b9ed9dd8bc8e546f0189",
       "decision": "PENDING",
       "checks": [
         "identity",
@@ -72,5 +73,5 @@
     }
   },
   "prohibitedInference": "No PASS without explicit human recipe decision on the exact qualified runtime.",
-  "state": "READY_FOR_HUMAN_RECIPE_ON_QUALIFIED_PRIVATE_BRIDGE"
+  "state": "READY_FOR_HUMAN_RECIPE_ON_EXACT_LIVE_PRIVATE_BRIDGE"
 }
