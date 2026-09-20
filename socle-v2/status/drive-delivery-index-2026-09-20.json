@@ -38,10 +38,11 @@
     "editions": "1usuPmZxM3-sBi14sgSCFxUSxwfRx3_EI"
   },
   "authority": {
-    "runtimeIntegrationSha": "f0ce61e2ee28fb6767f5b1598efb4fb574af82c0",
-    "renderDeployId": "dep-dantauuk1f9s739ssae0",
+    "runtimeIntegrationSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
+    "renderDeployId": "dep-danthfg473hc73am3as0",
     "pr": 118,
     "prState": "draft",
-    "evidenceCommit": "c28f0ef54642ee02ec1349e0d9470955499f09d8"
+    "evidenceCommit": "4d75924ba3afd096691902b9ae7b494d50f043a0",
+    "mediaManifestState": "COMPLETE_FOR_CURRENT_FOUR_SITE_CANDIDATES"
   }
 }
