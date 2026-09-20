@@ -30,7 +30,7 @@ function hasKeyboardFocusSupport(html,route){
     if(!href || /^(?:https?:|\/\/|data:)/i.test(href))continue;
     const raw=href.split(/[?#]/)[0];
     const target=path.posix.normalize(path.posix.join(path.posix.dirname(route),raw));
-    const disk=path.join('drafts',target);
+    const disk=path.resolve(root,'drafts',target);
     if(existsSync(disk) && /:focus-visible\b/i.test(readFileSync(disk,'utf8')))return true;
   }
   return false;
