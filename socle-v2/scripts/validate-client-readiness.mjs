@@ -1,8 +1,11 @@
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readDraftHtml } from '../../drafts.js';
 
-const contract=JSON.parse(readFileSync('socle-v2/contracts/client-facing-routes.v1.json','utf8'));
+const here=path.dirname(fileURLToPath(import.meta.url));
+const root=path.resolve(here,'../..');
+const contract=JSON.parse(readFileSync(path.join(root,'socle-v2/contracts/client-facing-routes.v1.json'),'utf8'));
 const forbidden=/\b(?:BAT|gate|candidate|placeholder|lorem|recette humaine|validation humaine|journal de recette|sommaire de contrôle|matrice QA|protocole d[’']exécution|Drive\s*→\s*SHA|SHA-?256|prépublication|accès privé|brouillon|atelier)\b/i;
 const oldBrand=/LES MOTS IMAGES(?![A-ZÉ])/i;
 function stripEnvironment(html){
