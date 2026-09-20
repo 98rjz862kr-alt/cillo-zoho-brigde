@@ -1,11 +1,11 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-20T18:21:00Z",
+  "recordedAt": "2026-09-20T18:23:00Z",
   "brand": "LES MOTS IMAGÉS",
-  "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_HUMAN_RECIPE_SUSPENDED",
+  "state": "KNOWN_PUSHED_HEADS_RECONCILED_WAITING_PARALLEL_AGENT_HEAD",
   "current": {
     "branch": "work/socle-commun-v2-20260915",
-    "head": "c67c33767f87fa57443889fe907d0cdb8ced65b2",
+    "head": "83dc0e1ae97e14c4f0c6ac31575cee60be9ce85a",
     "pr": 118,
     "prDraft": true,
     "render": {
@@ -69,7 +69,7 @@
   ],
   "humanRecipe": {
     "state": "SUSPENDED",
-    "reason": "Cross-branch comparison is materially advanced but parallel work is still active; no immutable unique recipe candidate is frozen."
+    "reason": "All currently pushed comparison heads have been reviewed, but parallel production is still active and may supersede them."
   },
   "publicationLocks": {
     "mergeMain": false,
@@ -108,5 +108,8 @@
     "work/maison-convergence-20260915": "False-positive commerce validator correction already incorporated in current validator lineage; current product layer is newer.",
     "work/editions-canonical-20260915": "Canonical brand correction retained; current Hub has broader visitor cleanup, four-asset provenance, SEO/a11y/runtime gates.",
     "work/musee-brand-correction-20260915": "Canonical brand correction retained; current Museum is newer with canonical PNG logo, hero, expanded visitor pathways and legal linkage."
-  }
+  },
+  "knownPushedHeadsReview": "COMPLETE",
+  "recipeFreezeEligible": false,
+  "blockingCondition": "The user confirms a parallel agent is still working. Re-read that branch after its next push before freezing a unique recipe SHA."
 }
