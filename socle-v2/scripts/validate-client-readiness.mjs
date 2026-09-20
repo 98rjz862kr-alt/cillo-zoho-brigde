@@ -53,7 +53,8 @@ for(const [site,definition] of Object.entries(contract.sites)){
     const visibleText=content.replace(/<[^>]+>/g,' ').replace(/&[a-z0-9#]+;/gi,' ').replace(/\s+/g,' ');
     if(forbidden.test(visibleText))throw new Error(`${site}: internal production vocabulary leaked into visitor content: ${route}`);
     if(oldBrand.test(visibleText))throw new Error(`${site}: non-canonical brand leaked: ${route}`);
-    if(!hasKeyboardFocusSupport(html,route))throw new Error(`${site}: visible keyboard focus support missing: ${route}`);
+    const rawHtml=readFileSync(path.join(root,'drafts',route),'utf8');
+    if(!hasKeyboardFocusSupport(rawHtml,route))throw new Error(`${site}: visible keyboard focus support missing: ${route}`);
     for(const match of html.matchAll(/href=["']([^"']+)["']/gi)){
       const href=match[1];
       if(!href || href.startsWith('#') || /^(?:https?:|mailto:|tel:|javascript:|\/atelier\/|\/api\/)/i.test(href))continue;
