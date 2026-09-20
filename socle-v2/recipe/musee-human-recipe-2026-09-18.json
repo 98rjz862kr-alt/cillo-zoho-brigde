@@ -6,8 +6,8 @@
   "target": {
     "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
     "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
-    "bridgeRuntimeSha": "f0ce61e2ee28fb6767f5b1598efb4fb574af82c0",
-    "renderDeployId": "dep-dantauuk1f9s739ssae0",
+    "bridgeRuntimeSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
+    "renderDeployId": "dep-danthfg473hc73am3as0",
     "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
   },
   "devices": [
