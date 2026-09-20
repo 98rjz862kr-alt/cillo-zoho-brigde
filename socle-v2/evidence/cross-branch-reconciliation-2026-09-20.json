@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-20T18:02:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_HUMAN_RECIPE_SUSPENDED",
+  "current": {
+    "branch": "work/socle-commun-v2-20260915",
+    "head": "a73a569ce2104a23e48e980a5c2f3d1e8295a035",
+    "pr": 118,
+    "prDraft": true
+  },
+  "comparedBranches": {
+    "agent/transverse-4-sites-finalisation-20260907": {
+      "status": "diverged",
+      "currentAheadBy": 439,
+      "currentBehindBy": 45,
+      "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
+    },
+    "work/maison-convergence-20260915": {
+      "status": "diverged",
+      "currentAheadBy": 464,
+      "currentBehindBy": 7,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "work/editions-canonical-20260915": {
+      "status": "diverged",
+      "currentAheadBy": 464,
+      "currentBehindBy": 21,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "work/musee-brand-correction-20260915": {
+      "status": "diverged",
+      "currentAheadBy": 440,
+      "currentBehindBy": 1,
+      "mergeBase": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+    }
+  },
+  "retainedFromOtherBranches": [
+    "Hub asset integrity gate",
+    "Hub Drive/SHA provenance gate",
+    "Hub visitor-copy fail-closed gate",
+    "Hub runtime integrity endpoint concept",
+    "Hub SEO gate",
+    "Independent four-site GitHub workflow concept"
+  ],
+  "adaptedBecauseStale": [
+    "Old unaccented displayed brand replaced by LES MOTS IMAGÉS",
+    "Old single-WebP Hub visual model replaced by current four-asset canonical manifest",
+    "Old query-password runtime test replaced by private session POST login",
+    "Old stale visitor title/H1 replaced by current canonical visitor copy"
+  ],
+  "currentAdvantagesAlreadyVerified": [
+    "Current Maison manifest contains later canonical hero and official logo provenance",
+    "Current Food manifest contains later official logo provenance",
+    "Current Socle V2 validates exact per-site runtime packages",
+    "Current client-facing gate covers 67 visitor routes",
+    "Current Bridge rejects unauthorized preview assets/routes",
+    "Current private-app integration and ingestion contracts pass for four sites"
+  ],
+  "unresolvedBeforeRecipe": [
+    "Complete semantic review of remaining cross-branch differing functional files",
+    "Confirm no superior content or QA rule remains unabsorbed from parallel branch",
+    "Run consolidated workflow/Render build on final reconciliation head",
+    "Emit one immutable exact-SHA recipe target only after reconciliation state is CLOSED"
+  ],
+  "humanRecipe": {
+    "state": "SUSPENDED",
+    "reason": "Parallel candidates diverge; no unique reconciled candidate has been frozen."
+  },
+  "publicationLocks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false
+  }
+}
