@@ -55,7 +55,7 @@ for(const [site,definition] of Object.entries(contract.sites)){
     if(oldBrand.test(visibleText))throw new Error(`${site}: non-canonical brand leaked: ${route}`);
     const rawHtml=readFileSync(path.join(root,'drafts',route),'utf8');
     if(!hasKeyboardFocusSupport(rawHtml,route))throw new Error(`${site}: visible keyboard focus support missing: ${route}`);
-    for(const match of html.matchAll(/href=["']([^"']+)["']/gi)){
+    for(const match of rawHtml.matchAll(/href=["']([^"']+)["']/gi)){
       const href=match[1];
       if(!href || href.startsWith('#') || /^(?:https?:|mailto:|tel:|javascript:|\/atelier\/|\/api\/)/i.test(href))continue;
       const raw=href.split(/[?#]/)[0];
