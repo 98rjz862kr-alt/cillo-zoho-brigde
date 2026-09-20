@@ -17,6 +17,11 @@ const required=[
   'readDraftAsset(relativePath)',
   'boaRecipeReady',
   'boaAssetReady',
+  'listHubVisualProvenance',
+  'getHubAssetIntegrity',
+  "url.pathname==='/api/hub-integrity'",
+  "res.setHeader('x-lmi-sha256'",
+  "res.setHeader('x-lmi-asset-bytes'",
   'Bridge protected atelier running'
 ];
 for(const token of required){if(!source.includes(token))throw new Error(`Protected Bridge entry token missing: ${token}`);}
