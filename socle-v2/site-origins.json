@@ -25,8 +25,8 @@
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": "44e2069d611ee9e2b147b78f30e4012974304128",
-      "candidatePackageSha256": "110efc17ca696309bbcb6bf5483c28338211947f4881ead27a5c44bc9aabb707",
+      "candidateSourceSha": "035f8660ebf39c6b8c68a764a67ab41b056740e3",
+      "candidatePackageSha256": "960fab587bd5e393e3d9af0c71bb59e85e02535302a8616942d5a3e98555fb9b",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
