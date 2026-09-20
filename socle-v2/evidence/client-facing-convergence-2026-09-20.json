@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "1.0.0",
+  "generatedAt": "2026-09-20T12:46:27Z",
+  "brand": "LES MOTS IMAGÉS",
+  "integrationBranch": "work/socle-commun-v2-20260915",
+  "liveIntegrationSha": "f0ce61e2ee28fb6767f5b1598efb4fb574af82c0",
+  "render": {
+    "serviceId": "srv-d9osqbmgekts73eoqis0",
+    "deployId": "dep-dantauuk1f9s739ssae0",
+    "status": "live",
+    "url": "https://cillo-zoho-bridge.onrender.com",
+    "build": "PASS",
+    "runtime": "PASS"
+  },
+  "gates": {
+    "canonicalBrand": "PASS_4",
+    "integrationRuntime": "PASS_4",
+    "socleV2": "PASS",
+    "editionsRenderedContract": "PASS_33",
+    "privateAppIntegrationContract": "PASS_4",
+    "privateAppIngestion": "PASS_4",
+    "previewNavigation": {
+      "status": "PASS",
+      "pages": 119,
+      "resources": 125,
+      "links": 737,
+      "unauthorizedDenied": 125,
+      "sessionAuthentication": true
+    },
+    "clientReadinessStructural": {
+      "status": "PASS",
+      "sites": 4,
+      "visitorRoutes": 43
+    },
+    "humanAestheticCommercialJudgement": "PENDING"
+  },
+  "sites": {
+    "musee": {
+      "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
+      "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
+      "runtimeExactPackage": true,
+      "humanRecipe": "PENDING"
+    },
+    "maison": {
+      "candidateSourceSha": "103ddd5740427734503801964ebce20ff60e1ca0",
+      "candidatePackageSha256": "44e3da1a8f9b2fb60a14e754da9101eb769b47574af78bcf1e12ec4d3cce5600",
+      "runtimeExactPackage": true,
+      "humanRecipe": "PENDING"
+    },
+    "food": {
+      "candidateSourceSha": "3a4ba25a1b47da47b5a607a35d7bd418c84f3b99",
+      "candidatePackageSha256": "13ecc9c248455d51c24680a1c1507ffab0d1b8ed7f5485aa3b497d7ba9325d8f",
+      "runtimeExactPackage": true,
+      "humanRecipe": "PENDING"
+    },
+    "editions": {
+      "candidateSourceSha": "daea7d9aea6cd7437bcd83e43908056ff085e3e2",
+      "candidatePackageSha256": "c77f6ad97b2f2ccf315e9d7be88dfc9140786f92d985a2847d06395176be8370",
+      "runtimeExactPackage": true,
+      "humanRecipe": "PENDING"
+    }
+  },
+  "publication": {
+    "mainMerge": false,
+    "dnsChange": false,
+    "publicPublication": false
+  },
+  "historicalMuseumProof": {
+    "sha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "role": "historical-integrity-proof-only-not-current-recipe-target"
+  }
+}
