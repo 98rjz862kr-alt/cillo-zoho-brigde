@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:30:00Z",
+  "recordedAt": "2026-09-22T18:39:05Z",
   "brand": "LES MOTS IMAGÉS",
   "state": "CROSS_BRANCH_PRODUCT_GAP_RECONCILIATION_ACTIVE",
   "recipe": {
@@ -10,7 +10,13 @@
   "current": {
     "branch": "work/socle-commun-v2-20260915",
     "pr": 118,
-    "latestComparedHead": "d3c924a628ed021378604ea87220aea56da45f4c"
+    "latestComparedHead": "d3c924a628ed021378604ea87220aea56da45f4c",
+    "latestRuntimeLockCommit": "475666a7dff105ead82f2dabe61bd66d5227a3c3",
+    "render": {
+      "serviceId": "srv-d9osqbmgekts73eoqis0",
+      "deployId": "dep-dapcm6jbc2fs73f8t5jg",
+      "status": "live"
+    }
   },
   "findings": {
     "editions": {
@@ -94,5 +100,10 @@
     "dnsChange": false,
     "publicPublication": false,
     "humanRecipe": false
+  },
+  "runtimeRecipeLock": {
+    "state": "ENFORCED",
+    "httpStatus": 423,
+    "proof": "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
   }
 }
