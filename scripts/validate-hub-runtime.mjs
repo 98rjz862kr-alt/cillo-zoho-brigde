@@ -39,6 +39,10 @@ try{
   const cookie=login.headers.get('set-cookie')?.split(';')[0]||'';
   if(!cookie.startsWith('lmi_session='))throw new Error('Bridge session cookie missing');
   const auth={headers:{cookie}};
+  const recipe=await request('/atelier/recette',auth);
+  const recipeHtml=await recipe.text();
+  if(recipe.status!==423||!recipeHtml.includes('RECETTE HUMAINE SUSPENDUE'))throw new Error(`Suspended human recipe route expected 423 lock, got ${recipe.status}`);
+  console.log('HUMAN_RECIPE_ROUTE_LOCK_PASS 423');
   const sitemap=await request('/sitemap.xml',auth);
   if(!sitemap.ok)throw new Error(`Authenticated sitemap failed: ${sitemap.status}`);
   const sitemapXml=await sitemap.text();
