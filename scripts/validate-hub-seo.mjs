@@ -1,3 +1,4 @@
+import { hubCanonicalUrlForFile } from '../hub-public-seo.js';
 import { listDraftFiles, readDraftHtml } from '../drafts.js';
 
 const files=listDraftFiles().filter(d=>/^hub-lmi-editions\/(?:0[1-9]|[12][0-9]|3[0-2])-.+\.html$/i.test(d.relativePath));
@@ -12,5 +13,15 @@ for(const draft of files){
   if(h1s.length!==1||h1s[0].length<10)throw new Error('Invalid H1 structure: '+draft.relativePath);
   if(/LES MOTS IMAGES\b|Les Mots Images\b/.test(title+' '+description+' '+h1s[0]))throw new Error('Non-canonical brand in SEO: '+draft.relativePath);
   if(/\b(?:brouillon|recette|prépublication|atelier|BAT)\b/i.test(title+' '+description+' '+h1s[0]))throw new Error('Internal production wording in SEO: '+draft.relativePath);
+  const file=draft.relativePath.split('/').pop();
+  const canonical=html?.match(/<link\b[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["'][^>]*>/i)?.[1]||'';
+  const ogTitle=html?.match(/<meta\b[^>]*property=["']og:title["'][^>]*content=["']([^"']+)["'][^>]*>/i)?.[1]||'';
+  const ogDescription=html?.match(/<meta\b[^>]*property=["']og:description["'][^>]*content=["']([^"']+)["'][^>]*>/i)?.[1]||'';
+  const ogUrl=html?.match(/<meta\b[^>]*property=["']og:url["'][^>]*content=["']([^"']+)["'][^>]*>/i)?.[1]||'';
+  const expected=hubCanonicalUrlForFile(file);
+  if(canonical!==expected)throw new Error('Canonical mismatch: '+draft.relativePath);
+  if(ogUrl!==expected)throw new Error('OpenGraph URL mismatch: '+draft.relativePath);
+  if(ogTitle!==title)throw new Error('OpenGraph title mismatch: '+draft.relativePath);
+  if(ogDescription!==description)throw new Error('OpenGraph description mismatch: '+draft.relativePath);
 }
-console.log('HUB_SEO_PASS '+files.length);
+console.log('HUB_SEO_PASS '+files.length+' canonical+OpenGraph');
