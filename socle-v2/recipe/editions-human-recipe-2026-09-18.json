@@ -4,8 +4,8 @@
   "decision": "SUSPENDED_CROSS_BRANCH_RECONCILIATION",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
-    "candidateSourceSha": "daea7d9aea6cd7437bcd83e43908056ff085e3e2",
-    "candidatePackageSha256": "c77f6ad97b2f2ccf315e9d7be88dfc9140786f92d985a2847d06395176be8370",
+    "candidateSourceSha": "b42d6cce3baef302ce6cff1bcdff340e35d09aa9",
+    "candidatePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
     "bridgeRuntimeSha": null,
     "renderDeployId": null,
     "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
@@ -279,7 +279,7 @@
   "finalDecision": "NOT_STARTED",
   "suspension": {
     "since": "2026-09-22T18:30:00Z",
-    "reason": "Parallel production is still active and specialist-branch product/content gaps remain unresolved; do not begin human recipe.",
+    "reason": "Cross-branch/source reconciliation remains active; do not begin human recipe.",
     "blockingEvidence": "socle-v2/evidence/cross-branch-product-gap-matrix-2026-09-22.json"
   }
 }
