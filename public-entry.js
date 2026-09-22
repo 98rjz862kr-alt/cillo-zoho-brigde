@@ -202,6 +202,10 @@ const server=createServer(async(req,res)=>{
   }
   if(req.method==='GET'&&url.pathname==='/atelier/recette'){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendHtml(res,loginPage('Accès refusé.'),401);
+    const gate=readJsonFile('socle-v2/recipe/human-recipe-gate-2026-09-20.json');
+    if(!gate||String(gate.state||'').startsWith('SUSPENDED')){
+      return sendHtml(res,'<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Recette humaine suspendue — LES MOTS IMAGÉS</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0F2747;color:#fff;font-family:Arial,sans-serif;padding:24px}.card{max-width:760px;background:#F6F1E8;color:#172238;border-radius:24px;padding:34px;border-top:6px solid #D4AF37;box-shadow:0 30px 80px #0005}h1{font:700 2.4rem Georgia,serif;color:#143B7D}.state{font-weight:900;color:#8b1e2d}</style></head><body><main class="card"><h1>RECETTE HUMAINE SUSPENDUE</h1><p class="state">CROISEMENT DES PRODUCTIONS EN COURS</p><p>Aucun candidat humain ne peut être ouvert tant que la production parallèle n’a pas été réconciliée, que les gaps Maison/Food ne sont pas fermés et qu’un exact-SHA unique n’est pas gelé après rebuild complet.</p></main></body></html>',423);
+    }
     return sendHtml(res,humanRecipePage());
   }
   if(req.method==='GET'&&url.pathname==='/api/hub-integrity'){
