@@ -9,6 +9,7 @@ import { isAuthorized } from './security.js';
 import { buildRuntimeRegistry } from './socle-v2/runtime-registry.mjs';
 import { getHubAssetIntegrity } from './hub-asset-integrity.js';
 import { listHubVisualProvenance } from './hub-provenance.js';
+import { hubCanonicalUrlForFile } from './hub-public-seo.js';
 
 const __filename=fileURLToPath(import.meta.url);
 const rootDir=path.dirname(__filename);
@@ -24,6 +25,7 @@ function escapeHtml(value){return String(value||'').replaceAll('&','&amp;').repl
 function sendHtml(res,html,status=200){res.writeHead(status,{'content-type':'text/html; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'self' 'unsafe-inline' data: https:; img-src 'self' data: https:; frame-ancestors 'self'"});res.end(html);}
 function sendAsset(res,asset){res.writeHead(200,{'content-type':asset.contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-security-policy':"default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data: https:; sandbox"});res.end(asset.content);}
 function sendJson(res,payload,status=200){const body=JSON.stringify(payload);res.writeHead(status,{'content-type':'application/json; charset=utf-8','x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-length':Buffer.byteLength(body)});res.end(body);}
+function sendText(res,body,contentType='text/plain; charset=utf-8',status=200){const value=String(body);res.writeHead(status,{'content-type':contentType,'x-robots-tag':'noindex, nofollow, noarchive','cache-control':'no-store','content-length':Buffer.byteLength(value)});res.end(value);}
 
 function readJsonFile(relativePath){
   const filePath=path.join(rootDir,relativePath);
@@ -31,6 +33,12 @@ function readJsonFile(relativePath){
     if(!existsSync(filePath)) return null;
     return JSON.parse(readFileSync(filePath,'utf8'));
   }catch{return null;}
+}
+
+function privateHubSitemap(){
+  const pages=listDraftFiles().map(d=>d.relativePath).filter(p=>/^hub-lmi-editions\/(?:0[1-9]|[12][0-9]|3[0-2])-[^/]+\.html$/i.test(p));
+  const urls=pages.map(p=>hubCanonicalUrlForFile(p.split('/').pop())).filter(Boolean);
+  return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+urls.map(u=>'  <url><loc>'+escapeHtml(u)+'</loc></url>').join('\n')+'\n</urlset>\n';
 }
 
 function hubIntegrityManifest(){
@@ -177,6 +185,11 @@ function proxy(req,res){
 const server=createServer(async(req,res)=>{
   const url=new URL(req.url,`http://127.0.0.1:${port}`);
   const query=Object.fromEntries(url.searchParams.entries());
+  if(req.method==='GET'&&url.pathname==='/robots.txt')return sendText(res,'User-agent: *\nDisallow: /\n');
+  if(req.method==='GET'&&url.pathname==='/sitemap.xml'){
+    if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendText(res,'Unauthorized','text/plain; charset=utf-8',401);
+    return sendText(res,privateHubSitemap(),'application/xml; charset=utf-8');
+  }
   if(req.method==='GET'&&url.pathname==='/'){res.writeHead(303,{location:'/atelier'});return res.end();}
   if(req.method==='GET'&&url.pathname==='/atelier'){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendHtml(res,loginPage());
