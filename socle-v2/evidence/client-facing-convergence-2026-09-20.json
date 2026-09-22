@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-20T16:45:09Z",
+  "generatedAt": "2026-09-22T18:53:00Z",
   "brand": "LES MOTS IMAGÉS",
   "integrationBranch": "work/socle-commun-v2-20260915",
-  "liveIntegrationSha": "7fb0d5f4af486d93b0e04bafddda296addce5342",
+  "liveIntegrationSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
   "render": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
-    "deployId": "dep-dao0qt2jnfac73a641lg",
+    "deployId": "dep-dapcsnbm8hqs739bn6a0",
     "status": "live",
     "url": "https://cillo-zoho-bridge.onrender.com",
     "build": "PASS",
@@ -23,7 +23,7 @@
       "status": "PASS",
       "pages": 119,
       "resources": 125,
-      "links": 720,
+      "links": 719,
       "unauthorizedDenied": 125,
       "sessionAuthentication": true
     },
@@ -32,32 +32,34 @@
       "sites": 4,
       "visitorRoutes": 67
     },
-    "humanAestheticCommercialJudgement": "PENDING"
+    "humanAestheticCommercialJudgement": "PENDING",
+    "humanRecipe": "SUSPENDED_CROSS_BRANCH_RECONCILIATION",
+    "humanRecipeRouteLock": "PASS_423"
   },
   "sites": {
     "musee": {
       "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
       "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
       "runtimeExactPackage": true,
-      "humanRecipe": "PENDING"
+      "humanRecipe": "SUSPENDED"
     },
     "maison": {
-      "candidateSourceSha": "ba1d42c2943a0c831a96d323583faf070a532418",
-      "candidatePackageSha256": "e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d",
+      "candidateSourceSha": "90f0745b8bc93beee912c5583f7d7f5696139785",
+      "candidatePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
       "runtimeExactPackage": true,
-      "humanRecipe": "PENDING"
+      "humanRecipe": "SUSPENDED"
     },
     "food": {
       "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
       "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
       "runtimeExactPackage": true,
-      "humanRecipe": "PENDING"
+      "humanRecipe": "SUSPENDED"
     },
     "editions": {
-      "candidateSourceSha": "82696b0c66eac76bdd728819259582b759e607d8",
-      "candidatePackageSha256": "bd187418ecca0f1d438e8ffdd43978293a3b5803deb0b9ed9dd8bc8e546f0189",
+      "candidateSourceSha": "b42d6cce3baef302ce6cff1bcdff340e35d09aa9",
+      "candidatePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
       "runtimeExactPackage": true,
-      "humanRecipe": "PENDING"
+      "humanRecipe": "SUSPENDED"
     }
   },
   "publication": {
