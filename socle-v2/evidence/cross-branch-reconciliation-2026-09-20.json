@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:26:20Z",
+  "recordedAt": "2026-09-22T18:39:05Z",
   "brand": "LES MOTS IMAGÉS",
   "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_RECIPE_SUSPENDED",
   "current": {
@@ -10,9 +10,10 @@
     "prDraft": true,
     "render": {
       "serviceId": "srv-d9osqbmgekts73eoqis0",
-      "deployId": "dep-dapcfuhsrm7s73f016rg",
+      "deployId": "dep-dapcm6jbc2fs73f8t5jg",
       "status": "live"
-    }
+    },
+    "latestRuntimeLockCommit": "475666a7dff105ead82f2dabe61bd66d5227a3c3"
   },
   "comparedBranches": {
     "agent/transverse-4-sites-finalisation-20260907": {
@@ -122,7 +123,8 @@
     "PRIVATE_APP_INGESTION_PASS 4",
     "PREVIEW_NAVIGATION_PASS 119 pages / 125 resources / 719 links / 125 unauthorized denied",
     "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes",
-    "RENDER_DEPLOY_LIVE dep-dapcfuhsrm7s73f016rg"
+    "RENDER_DEPLOY_LIVE dep-dapcfuhsrm7s73f016rg",
+    "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
   ],
   "githubActions": {
     "workflow": "LMI four-sites cross-branch validation",
@@ -142,5 +144,10 @@
   },
   "knownPushedHeadsReview": "COMPLETE",
   "recipeFreezeEligible": false,
-  "blockingCondition": "Parallel production remains active outside the currently mapped pushed heads. Re-read and compare its next concrete Git head before freezing a unique recipe SHA."
+  "blockingCondition": "Parallel production remains active outside the currently mapped pushed heads. Re-read and compare its next concrete Git head before freezing a unique recipe SHA.",
+  "runtimeRecipeLock": {
+    "state": "ENFORCED",
+    "httpStatus": 423,
+    "proof": "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
+  }
 }
