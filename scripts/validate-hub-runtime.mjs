@@ -21,6 +21,12 @@ try{
   }
   if(!ready)throw new Error(`Bridge runtime failed to start: ${stderr}`);
 
+  const robots=await request('/robots.txt');
+  const robotsText=await robots.text();
+  if(!robots.ok||robotsText!=='User-agent: *\nDisallow: /\n')throw new Error('Private Bridge robots.txt must disallow all crawling');
+  const deniedSitemap=await request('/sitemap.xml');
+  if(deniedSitemap.status!==401)throw new Error(`Unauthenticated private sitemap expected 401, got ${deniedSitemap.status}`);
+
   const denied=await request('/api/hub-integrity');
   if(denied.status!==401)throw new Error(`Unauthenticated integrity endpoint expected 401, got ${denied.status}`);
 
@@ -33,6 +39,11 @@ try{
   const cookie=login.headers.get('set-cookie')?.split(';')[0]||'';
   if(!cookie.startsWith('lmi_session='))throw new Error('Bridge session cookie missing');
   const auth={headers:{cookie}};
+  const sitemap=await request('/sitemap.xml',auth);
+  if(!sitemap.ok)throw new Error(`Authenticated sitemap failed: ${sitemap.status}`);
+  const sitemapXml=await sitemap.text();
+  const locs=[...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match)=>match[1]);
+  if(locs.length!==32||locs[0]!=='https://editions.lesmotsimages.com/'||locs.some((value)=>/00-sommaire/i.test(value)))throw new Error(`Private Editions sitemap inventory invalid: ${locs.length}`);
 
   const root=await request('/');
   if(root.status!==303||root.headers.get('location')!=='/atelier')throw new Error('Bridge root must redirect to protected atelier');
