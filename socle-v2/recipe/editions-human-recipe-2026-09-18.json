@@ -1,13 +1,13 @@
 {
   "schemaVersion": "2.0.0",
   "site": "editions",
-  "decision": "HUMAN_RECIPE_READY_ON_QUALIFIED_PRIVATE_BRIDGE",
+  "decision": "SUSPENDED_CROSS_BRANCH_RECONCILIATION",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
     "candidateSourceSha": "daea7d9aea6cd7437bcd83e43908056ff085e3e2",
     "candidatePackageSha256": "c77f6ad97b2f2ccf315e9d7be88dfc9140786f92d985a2847d06395176be8370",
-    "bridgeRuntimeSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
-    "renderDeployId": "dep-danthfg473hc73am3as0",
+    "bridgeRuntimeSha": null,
+    "renderDeployId": null,
     "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
   },
   "devices": [
@@ -276,5 +276,10 @@
       }
     }
   ],
-  "finalDecision": "PENDING"
+  "finalDecision": "NOT_STARTED",
+  "suspension": {
+    "since": "2026-09-22T18:30:00Z",
+    "reason": "Parallel production is still active and specialist-branch product/content gaps remain unresolved; do not begin human recipe.",
+    "blockingEvidence": "socle-v2/evidence/cross-branch-product-gap-matrix-2026-09-22.json"
+  }
 }
