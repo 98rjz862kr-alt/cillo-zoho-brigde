@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:39:05Z",
+  "recordedAt": "2026-09-22T18:58:00Z",
   "brand": "LES MOTS IMAGÉS",
   "state": "CROSS_BRANCH_PRODUCT_GAP_RECONCILIATION_ACTIVE",
   "recipe": {
@@ -16,7 +16,9 @@
       "serviceId": "srv-d9osqbmgekts73eoqis0",
       "deployId": "dep-dapcm6jbc2fs73f8t5jg",
       "status": "live"
-    }
+    },
+    "latestParallelHeadObserved": "957c27701994d4fb4de1bdd356b3a85fc7aeb6f4",
+    "parallelExecutionMode": "PARALLEL_AGENT_PUSHING_TO_SAME_CONSOLIDATION_BRANCH"
   },
   "findings": {
     "editions": {
@@ -53,7 +55,7 @@
       "comparedBranch": "agent/lmi-maison-finalisation-20260906",
       "otherHead": "ac66a28e39543938636c8c18374ecb24a43fc9db",
       "retainedControls": [
-        "one sign = one room",
+        "one sign = one piece",
         "separate sign families",
         "Drive/SHA identity provenance"
       ],
@@ -65,7 +67,31 @@
         "competent validation must be recorded where applicable",
         "traceability must link decision, series and graphic file"
       ],
-      "implication": "Human recipe must not start while individual cultural/sign-level evidence can still be incomplete."
+      "implication": "System inventory is now reconciled, but human recipe must not start while individual sign-level source/context/rights/validation evidence remains incomplete.",
+      "canonicalSystemInventory": {
+        "status": "CONFIRMED_AT_SYSTEM_LEVEL_FROM_DRIVE_MASTER",
+        "systems": [
+          "Hiéroglyphes",
+          "Tifinagh",
+          "Braille",
+          "Adinkra",
+          "Ndébélé",
+          "Amazigh",
+          "Ge’ez"
+        ],
+        "sourceDriveId": "1NjIf0aNAyCqZss6sGIEoKMvLRH_Oz4qHGLtNpJsnjpg",
+        "sourceTitle": "MASTER_LMI_MAISON_2026-09-12",
+        "distinction": "Tifinagh is the script family; Amazigh is a distinct cultural family of signs/motifs/symbols in the canonical Maison master.",
+        "visitorLayerRealigned": true
+      },
+      "brailleEvidence": {
+        "status": "PREPRODUCTION_EVIDENCE_FOUND",
+        "sources": [
+          "1hhz9XV_brdKx8LjjQ1D_afTTwIG5bXiyYEf2COwdYLU",
+          "1CVRcM2LqhIO8MVY0iHPe_SdM6axx-UqmgBylVlk8ur0"
+        ],
+        "conclusion": "Six Braille series and production tolerances are documented, but central control and individual sign-level cultural/rights proof remain open."
+      }
     },
     "food": {
       "status": "STRUCTURAL_CURRENT_BRANCH_AHEAD_BUT_REAL_PRODUCT_DATA_BLOCKERS_REMAIN",
@@ -81,18 +107,46 @@
         "final photography/BAT requires completion",
         "public ordering/payment remains locked"
       ],
-      "implication": "Client-facing structure can be technically ready while Food commercial/product production is not closed; human recipe remains premature."
+      "implication": "Food is no longer missing pilot formulas in the abstract; it is missing real measured/validated product evidence required to convert pilot formulas into sellable references.",
+      "pilotEvidence": {
+        "status": "PILOT_FORMULATIONS_FOUND_NOT_FINAL_PRODUCT_PASS",
+        "sourceDriveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM",
+        "sourceTitle": "LMI FOOD - Manuel fabrication jus tropicaux et cocktails - BAT v1",
+        "confirmed": [
+          "J01-J06 pilot formulations contain quantities for 10 L, 50 L and 100 L",
+          "theoretical yield guidance exists",
+          "development pH/Brix targets exist",
+          "lot-control fields and pilot process steps exist",
+          "working price ranges are explicitly non-final"
+        ],
+        "stillRequiresRealEvidence": [
+          "measured yield from actual production",
+          "final suppliers/lots and purchase evidence",
+          "final allergens",
+          "validated thermal process",
+          "validated conservation/shelf life",
+          "final compatible packaging",
+          "actual full cost and approved price",
+          "microbiological/ageing evidence",
+          "final photography and BAT"
+        ]
+      },
+      "recipeProtocol": {
+        "sourceDriveId": "1_pGnWoxD8QTytc1rGvcaDL_OQMHpHaDkuHbmZf0NqR8",
+        "rule": "One unverified critical point keeps a reference in correction."
+      }
     }
   },
   "reconciliationDecision": {
     "currentTechnicalBranch": "AHEAD_ON_INFRASTRUCTURE_AND_VISITOR_GATES",
     "noOverallWinnerFrozen": true,
-    "reason": "Parallel production remains active and product/content evidence gaps from older specialist branches are not all closed.",
+    "reason": "Parallel execution is now observed on the same consolidation branch. Infrastructure/visitor gates are ahead, while Maison sign-level evidence and Food real-product evidence remain open.",
     "nextRequiredWork": [
-      "close Maison sign-level cultural/source/rights evidence",
-      "close Food real recipe/product/commercial data evidence",
-      "re-read latest parallel agent Git head after its next push",
-      "rebuild exact-SHA candidate only after those gaps are closed"
+      "continue same-branch cross-agent reconciliation rather than freeze a winner",
+      "close Maison sign-level cultural/source/rights evidence without inferring from system-level names",
+      "use Food pilot formulas as test inputs only; collect/validate real measured product evidence before any commercial PASS",
+      "re-read same-branch parallel-agent deltas before each freeze attempt",
+      "rebuild exact-SHA candidate only after material gaps are closed"
     ]
   },
   "locks": {
@@ -105,5 +159,6 @@
     "state": "ENFORCED",
     "httpStatus": 423,
     "proof": "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
-  }
+  },
+  "sourceReconciliationEvidence": "socle-v2/evidence/maison-food-source-reconciliation-2026-09-22.json"
 }
