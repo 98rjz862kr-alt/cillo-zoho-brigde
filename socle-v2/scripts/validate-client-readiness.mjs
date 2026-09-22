@@ -103,4 +103,4 @@ for(const site of Object.keys(contract.sites)){
 }
 console.log(`CLIENT_READINESS_STRUCTURAL_PASS ${homes} sites / ${pages} visitor routes`);
 console.log('HUMAN_AESTHETIC_COMMERCIAL_JUDGEMENT_PENDING');
-console.log('HUMAN_RECIPE_GATE_STATE '+(sites.every(site=>String(JSON.parse(readFileSync(`socle-v2/recipe/${site}-human-recipe-2026-09-18.json`,`utf8`)).decision||'').startsWith('SUSPENDED'))?'SUSPENDED':'OPEN'));
+console.log('HUMAN_RECIPE_GATE_STATE '+(Object.keys(contract.sites).every(site=>String(JSON.parse(readFileSync(path.join(root,`socle-v2/recipe/${site}-human-recipe-2026-09-18.json`),'utf8')).decision||'').startsWith('SUSPENDED'))?'SUSPENDED':'OPEN'));
