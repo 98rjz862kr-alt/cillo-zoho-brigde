@@ -22,7 +22,11 @@ const required=[
   "url.pathname==='/api/hub-integrity'",
   "res.setHeader('x-lmi-sha256'",
   "res.setHeader('x-lmi-asset-bytes'",
-  'Bridge protected atelier running'
+  'Bridge protected atelier running',
+  "url.pathname==='/atelier/recette'",
+  "human-recipe-gate-2026-09-20.json",
+  "String(gate.state||'').startsWith('SUSPENDED')",
+  'RECETTE HUMAINE SUSPENDUE'
 ];
 for(const token of required){if(!source.includes(token))throw new Error(`Protected Bridge entry token missing: ${token}`);}
 
