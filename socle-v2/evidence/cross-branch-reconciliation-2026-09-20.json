@@ -1,41 +1,65 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-20T18:23:00Z",
+  "recordedAt": "2026-09-22T18:22:36Z",
   "brand": "LES MOTS IMAGÉS",
-  "state": "KNOWN_PUSHED_HEADS_RECONCILED_WAITING_PARALLEL_AGENT_HEAD",
+  "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_RECIPE_SUSPENDED",
   "current": {
     "branch": "work/socle-commun-v2-20260915",
-    "head": "83dc0e1ae97e14c4f0c6ac31575cee60be9ce85a",
+    "head": "9ace42441ac0c08b62824468227dcfdddfca48b7",
     "pr": 118,
     "prDraft": true,
     "render": {
       "serviceId": "srv-d9osqbmgekts73eoqis0",
-      "deployId": "dep-dao27f2d0e5s73emotk0",
+      "deployId": "dep-dapceh9srm7s73evroi0",
       "status": "live"
     }
   },
   "comparedBranches": {
     "agent/transverse-4-sites-finalisation-20260907": {
       "status": "diverged",
-      "currentAheadBy": 439,
+      "currentAheadBy": 458,
       "currentBehindBy": 45,
+      "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
+    },
+    "agent/hub-www-finalisation-20260907": {
+      "status": "diverged",
+      "currentAheadBy": 458,
+      "currentBehindBy": 28,
+      "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
+    },
+    "agent/lmi-food-finalisation-20260906": {
+      "status": "diverged",
+      "currentAheadBy": 483,
+      "currentBehindBy": 21,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "agent/lmi-maison-finalisation-20260906": {
+      "status": "diverged",
+      "currentAheadBy": 483,
+      "currentBehindBy": 7,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "agent/lmi-musee-finalisation-recette-20260907": {
+      "status": "diverged",
+      "currentAheadBy": 458,
+      "currentBehindBy": 20,
       "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
     },
     "work/maison-convergence-20260915": {
       "status": "diverged",
-      "currentAheadBy": 464,
+      "currentAheadBy": 483,
       "currentBehindBy": 7,
       "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
     },
     "work/editions-canonical-20260915": {
       "status": "diverged",
-      "currentAheadBy": 464,
+      "currentAheadBy": 483,
       "currentBehindBy": 21,
       "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
     },
     "work/musee-brand-correction-20260915": {
       "status": "diverged",
-      "currentAheadBy": 440,
+      "currentAheadBy": 459,
       "currentBehindBy": 1,
       "mergeBase": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
     }
@@ -46,12 +70,16 @@
     "Hub visitor-copy fail-closed gate",
     "Hub runtime integrity endpoint concept",
     "Hub SEO gate",
-    "Independent four-site GitHub workflow concept"
+    "Independent four-site GitHub workflow concept",
+    "Hub canonical URL and OpenGraph metadata contract",
+    "Private Bridge robots.txt disallow-all lock",
+    "Authenticated 32-URL Editions sitemap"
   ],
   "adaptedBecauseStale": [
     "Old unaccented displayed brand replaced by LES MOTS IMAGÉS",
     "Old single-WebP Hub visual model replaced by current four-asset canonical manifest",
     "Old query-password runtime test replaced by private session POST login",
+    "Old www.lesmotsimages.com canonical target replaced by editions.lesmotsimages.com",
     "Old stale visitor title/H1 replaced by current canonical visitor copy"
   ],
   "currentAdvantagesAlreadyVerified": [
@@ -60,16 +88,18 @@
     "Current Socle V2 validates exact per-site runtime packages",
     "Current client-facing gate covers 67 visitor routes",
     "Current Bridge rejects unauthorized preview assets/routes",
-    "Current private-app integration and ingestion contracts pass for four sites"
+    "Current private-app integration and ingestion contracts pass for four sites",
+    "Current Editions SEO validates 32 canonical+OpenGraph pages",
+    "Current Bridge exposes disallow-all robots.txt and authenticated Editions sitemap"
   ],
   "unresolvedBeforeRecipe": [
-    "Parallel agent branch is still considered active by project governance; re-read its latest head before freezing a recipe candidate.",
-    "If that branch advances, repeat file/function comparison against the new head.",
-    "Only then set reconciliation state CLOSED and freeze one exact runtime SHA."
+    "A parallel agent is still considered active by project governance; its latest pushed branch/head must be identified and re-read before freezing a recipe candidate.",
+    "If that parallel branch advances, repeat file/function comparison against the new head.",
+    "Only after all useful deltas are absorbed or explicitly rejected may reconciliation state become CLOSED and one exact runtime SHA be frozen."
   ],
   "humanRecipe": {
     "state": "SUSPENDED",
-    "reason": "All currently pushed comparison heads have been reviewed, but parallel production is still active and may supersede them."
+    "reason": "Technical candidate is stronger, but cross-agent reconciliation is not closed because a parallel production branch may still supersede it."
   },
   "publicationLocks": {
     "mergeMain": false,
@@ -78,7 +108,7 @@
   },
   "latestBuildEvidence": [
     "HUB_ASSET_INTEGRITY_PASS 4",
-    "HUB_SEO_PASS 32",
+    "HUB_SEO_PASS 32 canonical+OpenGraph",
     "HUB_VISITOR_COPY_PASS 32",
     "HUB_RUNTIME_INTEGRITY_PASS 4",
     "HUB_A11Y_RENDERED_PASS 32",
@@ -90,8 +120,9 @@
     "SOCLE_V2_RUNTIME_PASS",
     "PRIVATE_APP_INTEGRATION_CONTRACT_PASS 4",
     "PRIVATE_APP_INGESTION_PASS 4",
-    "PREVIEW_NAVIGATION_PASS 119/125/720/125",
-    "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes"
+    "PREVIEW_NAVIGATION_PASS 119 pages / 125 resources / 719 links / 125 unauthorized denied",
+    "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes",
+    "RENDER_DEPLOY_LIVE dep-dapceh9srm7s73evroi0"
   ],
   "githubActions": {
     "workflow": "LMI four-sites cross-branch validation",
@@ -111,5 +142,5 @@
   },
   "knownPushedHeadsReview": "COMPLETE",
   "recipeFreezeEligible": false,
-  "blockingCondition": "The user confirms a parallel agent is still working. Re-read that branch after its next push before freezing a unique recipe SHA."
+  "blockingCondition": "Parallel agent production has not yet been mapped to a final pushed Git branch/head for cross-comparison."
 }
