@@ -94,7 +94,13 @@ for(const site of Object.keys(contract.sites)){
   const recipe=JSON.parse(readFileSync(recipePath,'utf8'));
   if(!Array.isArray(recipe.checks)||recipe.checks.length<12)throw new Error(`${site}: client recipe matrix incomplete`);
   if(recipe.checks.some(check=>check.result!=='PENDING'))throw new Error(`${site}: human recipe result recorded before human execution`);
-  if(recipe.finalDecision!=='PENDING')throw new Error(`${site}: final human decision recorded prematurely`);
+  const suspended=String(recipe.decision||'').startsWith('SUSPENDED');
+  if(suspended){
+    if(recipe.finalDecision!=='NOT_STARTED')throw new Error(`${site}: suspended human recipe must remain NOT_STARTED`);
+  }else if(recipe.finalDecision!=='PENDING'){
+    throw new Error(`${site}: final human decision recorded prematurely`);
+  }
 }
 console.log(`CLIENT_READINESS_STRUCTURAL_PASS ${homes} sites / ${pages} visitor routes`);
 console.log('HUMAN_AESTHETIC_COMMERCIAL_JUDGEMENT_PENDING');
+console.log('HUMAN_RECIPE_GATE_STATE '+(sites.every(site=>String(JSON.parse(readFileSync(`socle-v2/recipe/${site}-human-recipe-2026-09-18.json`,`utf8`)).decision||'').startsWith('SUSPENDED'))?'SUSPENDED':'OPEN'));
