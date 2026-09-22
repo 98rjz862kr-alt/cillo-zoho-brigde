@@ -1,16 +1,16 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:22:36Z",
+  "recordedAt": "2026-09-22T18:26:20Z",
   "brand": "LES MOTS IMAGÉS",
   "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_RECIPE_SUSPENDED",
   "current": {
     "branch": "work/socle-commun-v2-20260915",
-    "head": "9ace42441ac0c08b62824468227dcfdddfca48b7",
+    "head": "d3c924a628ed021378604ea87220aea56da45f4c",
     "pr": 118,
     "prDraft": true,
     "render": {
       "serviceId": "srv-d9osqbmgekts73eoqis0",
-      "deployId": "dep-dapceh9srm7s73evroi0",
+      "deployId": "dep-dapcfuhsrm7s73f016rg",
       "status": "live"
     }
   },
@@ -99,7 +99,7 @@
   ],
   "humanRecipe": {
     "state": "SUSPENDED",
-    "reason": "Technical candidate is stronger, but cross-agent reconciliation is not closed because a parallel production branch may still supersede it."
+    "reason": "Cross-branch reconciliation remains open; no human recipe until the latest parallel production head is identified and reconciled."
   },
   "publicationLocks": {
     "mergeMain": false,
@@ -122,7 +122,7 @@
     "PRIVATE_APP_INGESTION_PASS 4",
     "PREVIEW_NAVIGATION_PASS 119 pages / 125 resources / 719 links / 125 unauthorized denied",
     "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes",
-    "RENDER_DEPLOY_LIVE dep-dapceh9srm7s73evroi0"
+    "RENDER_DEPLOY_LIVE dep-dapcfuhsrm7s73f016rg"
   ],
   "githubActions": {
     "workflow": "LMI four-sites cross-branch validation",
@@ -142,5 +142,5 @@
   },
   "knownPushedHeadsReview": "COMPLETE",
   "recipeFreezeEligible": false,
-  "blockingCondition": "Parallel agent production has not yet been mapped to a final pushed Git branch/head for cross-comparison."
+  "blockingCondition": "Parallel production remains active outside the currently mapped pushed heads. Re-read and compare its next concrete Git head before freezing a unique recipe SHA."
 }
