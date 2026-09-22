@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-22T18:55:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "state": "SOURCE_RECONCILIATION_IN_PROGRESS_HUMAN_RECIPE_SUSPENDED",
+  "maison": {
+    "canonicalSystemInventory": {
+      "status": "CONFIRMED_AT_SYSTEM_LEVEL",
+      "systems": [
+        "Hiéroglyphes",
+        "Tifinagh",
+        "Braille",
+        "Adinkra",
+        "Ndébélé",
+        "Amazigh",
+        "Ge’ez"
+      ],
+      "distinction": "Tifinagh is the script family; Amazigh is treated by the current canonical Maison master as a distinct cultural family of signs, motifs and symbols.",
+      "source": {
+        "driveId": "1NjIf0aNAyCqZss6sGIEoKMvLRH_Oz4qHGLtNpJsnjpg",
+        "title": "MASTER_LMI_MAISON_2026-09-12"
+      },
+      "visitorCorrectionCommits": [
+        "846be858222e46d5d2aa6f5fd9ff57cabce0445a",
+        "90f0745b8bc93beee912c5583f7d7f5696139785"
+      ],
+      "validatorCommit": "0592ec7e82fa6b81451690b821fe405c929120f2"
+    },
+    "brailleProductionEvidence": {
+      "status": "PREPRODUCTION_EVIDENCE_FOUND_NOT_FINAL_CULTURAL_RIGHTS_PASS",
+      "sources": [
+        {
+          "driveId": "1hhz9XV_brdKx8LjjQ1D_afTTwIG5bXiyYEf2COwdYLU",
+          "title": "LMI Maison - Cycle Braille 2026-06 - Livrable final de collection lifestyle"
+        },
+        {
+          "driveId": "1CVRcM2LqhIO8MVY0iHPe_SdM6axx-UqmgBylVlk8ur0",
+          "title": "LMI Maison - Cycle Braille 2026-06 - Livrable final de collection"
+        }
+      ],
+      "confirmed": [
+        "six coded Braille series exist in preproduction documentation",
+        "one sign/alphabet mixing is explicitly forbidden",
+        "production tolerances and expected deliverables are documented"
+      ],
+      "unresolved": [
+        "final central control",
+        "individual sign identity and source",
+        "sign meaning/context",
+        "rights or licence/public-domain status",
+        "competent cultural validation where applicable",
+        "final prototype and archive evidence for all series"
+      ]
+    },
+    "signLevelEvidence": {
+      "status": "NOT_CLOSED",
+      "controlMatrixPath": "drafts/lmi-maison-site/03-matrice-controle-culturel-lmi-maison.html",
+      "unresolvedMarkers": [
+        "À sélectionner",
+        "À documenter",
+        "À citer",
+        "À confirmer"
+      ],
+      "rule": "No individual sign or cultural reference receives PASS from system-level inventory alone."
+    }
+  },
+  "food": {
+    "pilotManual": {
+      "status": "PILOT_FORMULATIONS_FOUND_NOT_REAL_PRODUCT_VALIDATION",
+      "driveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM",
+      "title": "LMI FOOD - Manuel fabrication jus tropicaux et cocktails - BAT v1",
+      "confirmed": [
+        "pilot formulas J01-J06 include 10 L, 50 L and 100 L formulation quantities",
+        "theoretical yield guidance exists",
+        "pH and Brix development targets exist",
+        "pilot process steps and lot-record fields exist",
+        "working price ranges exist only as positioning references",
+        "the manual explicitly requires real-product validation before production/commercialisation"
+      ],
+      "notEquivalentToPass": [
+        "measured real yield",
+        "final supplier lots and purchase evidence",
+        "final allergen determination",
+        "validated thermal process",
+        "validated shelf life/conservation duration",
+        "validated final packaging compatibility",
+        "final actual cost calculation",
+        "approved selling price",
+        "microbiological/ageing evidence",
+        "final product photography/BAT"
+      ]
+    },
+    "finalRecipeProtocol": {
+      "driveId": "1_pGnWoxD8QTytc1rGvcaDL_OQMHpHaDkuHbmZf0NqR8",
+      "title": "LMI FOOD — Recette humaine finale — Consultation privée",
+      "rule": "One unverified critical point keeps the reference in correction; facts must be validated reference by reference."
+    },
+    "continuity": {
+      "driveId": "1au3gyN3uAdFNZvW9zJxNdHxTvwPHamXFG6aSuFiXk88",
+      "title": "LMI FOOD — Continuité intégrale — 4 août 2026",
+      "rule": "Do not publish unvalidated allergens, conservation, prices, suppliers or food-safety claims."
+    },
+    "status": "PRODUCT_EVIDENCE_NOT_CLOSED"
+  },
+  "recipe": {
+    "state": "SUSPENDED",
+    "freezeEligible": false
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "humanRecipe": false
+  }
+}
