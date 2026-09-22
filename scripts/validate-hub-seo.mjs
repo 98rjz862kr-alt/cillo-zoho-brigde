@@ -1,6 +1,8 @@
 import { hubCanonicalUrlForFile } from '../hub-public-seo.js';
 import { listDraftFiles, readDraftHtml } from '../drafts.js';
 
+function decodeHtml(value){return String(value||'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#039;/g,"'").replace(/&apos;/g,"'").replace(/&lt;/g,'<').replace(/&gt;/g,'>');}
+
 const files=listDraftFiles().filter(d=>/^hub-lmi-editions\/(?:0[1-9]|[12][0-9]|3[0-2])-.+\.html$/i.test(d.relativePath));
 for(const draft of files){
   const html=readDraftHtml(draft.relativePath);
@@ -21,7 +23,7 @@ for(const draft of files){
   const expected=hubCanonicalUrlForFile(file);
   if(canonical!==expected)throw new Error('Canonical mismatch: '+draft.relativePath);
   if(ogUrl!==expected)throw new Error('OpenGraph URL mismatch: '+draft.relativePath);
-  if(ogTitle!==title)throw new Error('OpenGraph title mismatch: '+draft.relativePath);
-  if(ogDescription!==description)throw new Error('OpenGraph description mismatch: '+draft.relativePath);
+  if(decodeHtml(ogTitle)!==decodeHtml(title))throw new Error('OpenGraph title mismatch: '+draft.relativePath);
+  if(decodeHtml(ogDescription)!==decodeHtml(description))throw new Error('OpenGraph description mismatch: '+draft.relativePath);
 }
 console.log('HUB_SEO_PASS '+files.length+' canonical+OpenGraph');
