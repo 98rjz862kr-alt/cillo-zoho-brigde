@@ -279,7 +279,7 @@
   "finalDecision": "NOT_STARTED",
   "suspension": {
     "since": "2026-09-22T18:30:00Z",
-    "reason": "Parallel production is still active and specialist-branch product/content gaps remain unresolved; do not begin human recipe.",
+    "reason": "Cross-branch/source reconciliation remains active; do not begin human recipe.",
     "blockingEvidence": "socle-v2/evidence/cross-branch-product-gap-matrix-2026-09-22.json"
   }
 }
