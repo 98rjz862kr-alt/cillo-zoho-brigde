@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-22T18:56:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "site": "food",
+  "state": "PILOT_FORMULATIONS_DOCUMENTED_REAL_PRODUCT_VALIDATION_PENDING",
+  "pilotSource": {
+    "driveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM",
+    "title": "LMI FOOD - Manuel fabrication jus tropicaux et cocktails - BAT v1"
+  },
+  "acceptanceProtocol": {
+    "driveId": "1_pGnWoxD8QTytc1rGvcaDL_OQMHpHaDkuHbmZf0NqR8",
+    "title": "LMI FOOD — Recette humaine finale — Consultation privée"
+  },
+  "continuitySource": {
+    "driveId": "1au3gyN3uAdFNZvW9zJxNdHxTvwPHamXFG6aSuFiXk88",
+    "title": "LMI FOOD — Continuité intégrale — 4 août 2026"
+  },
+  "references": [
+    {
+      "code": "J01",
+      "name": "Bissap - Ananas - Citron vert",
+      "pilotFormula": "DOCUMENTED_10L_50L_100L",
+      "realYield": "PENDING",
+      "finalAllergens": "PENDING",
+      "thermalProcess": "PENDING",
+      "shelfLife": "PENDING",
+      "packaging": "PENDING",
+      "actualCost": "PENDING",
+      "approvedPrice": "PENDING",
+      "microbiologyAgeing": "PENDING",
+      "finalPhotoBat": "PENDING"
+    },
+    {
+      "code": "J02",
+      "name": "Gingembre - Ananas - Citron vert",
+      "pilotFormula": "DOCUMENTED_10L_50L_100L",
+      "realYield": "PENDING",
+      "finalAllergens": "PENDING",
+      "thermalProcess": "PENDING",
+      "shelfLife": "PENDING",
+      "packaging": "PENDING",
+      "actualCost": "PENDING",
+      "approvedPrice": "PENDING",
+      "microbiologyAgeing": "PENDING",
+      "finalPhotoBat": "PENDING"
+    },
+    {
+      "code": "J03",
+      "name": "Mangue - Passion",
+      "pilotFormula": "DOCUMENTED_10L_50L_100L",
+      "realYield": "PENDING",
+      "finalAllergens": "PENDING",
+      "thermalProcess": "PENDING",
+      "shelfLife": "PENDING",
+      "packaging": "PENDING",
+      "actualCost": "PENDING",
+      "approvedPrice": "PENDING",
+      "microbiologyAgeing": "PENDING",
+      "finalPhotoBat": "PENDING"
+    },
+    {
+      "code": "J04",
+      "name": "Ananas - Menthe - Citron vert",
+      "pilotFormula": "DOCUMENTED_10L_50L_100L",
+      "realYield": "PENDING",
+      "finalAllergens": "PENDING",
+      "thermalProcess": "PENDING",
+      "shelfLife": "PENDING",
+      "packaging": "PENDING",
+      "actualCost": "PENDING",
+      "approvedPrice": "PENDING",
+      "microbiologyAgeing": "PENDING",
+      "finalPhotoBat": "PENDING"
+    },
+    {
+      "code": "J05",
+      "name": "Bouye - Vanille - Citron",
+      "pilotFormula": "DOCUMENTED_10L_50L_100L",
+      "realYield": "PENDING",
+      "finalAllergens": "PENDING",
+      "thermalProcess": "PENDING",
+      "shelfLife": "PENDING",
+      "packaging": "PENDING",
+      "actualCost": "PENDING",
+      "approvedPrice": "PENDING",
+      "microbiologyAgeing": "PENDING",
+      "finalPhotoBat": "PENDING"
+    },
+    {
+      "code": "J06",
+      "name": "Tamarin - Épices douces",
+      "pilotFormula": "DOCUMENTED_10L_50L_100L",
+      "realYield": "PENDING",
+      "finalAllergens": "PENDING",
+      "thermalProcess": "PENDING",
+      "shelfLife": "PENDING",
+      "packaging": "PENDING",
+      "actualCost": "PENDING",
+      "approvedPrice": "PENDING",
+      "microbiologyAgeing": "PENDING",
+      "finalPhotoBat": "PENDING"
+    }
+  ],
+  "sharedPilotEvidence": {
+    "pH_BrixTargets": "DOCUMENTED_AS_DEVELOPMENT_TARGETS_NOT_RELEASE_CRITERIA",
+    "theoreticalYield": "DOCUMENTED_NOT_MEASURED",
+    "workingPriceRanges": "DOCUMENTED_NOT_APPROVED",
+    "lotRecordTemplate": "DOCUMENTED"
+  },
+  "releaseRule": "A pilot formula is not a sellable-product PASS. Each real reference must close every critical field with measured or approved evidence.",
+  "humanRecipe": "SUSPENDED",
+  "publicOrderingPayment": "LOCKED",
+  "publicationLocks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false
+  }
+}
