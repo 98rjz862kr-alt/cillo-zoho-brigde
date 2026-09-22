@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-20T18:05:00Z",
+  "recordedAt": "2026-09-22T18:53:00Z",
   "recipeTarget": {
     "integrationSha": null,
     "renderDeployId": null,
@@ -30,13 +30,13 @@
       ]
     },
     "maison": {
-      "packageSha256": "e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d",
+      "packageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
       "decision": "SUSPENDED",
       "checks": [
         "identity",
         "homepage",
         "collection",
-        "six documented systems",
+        "seven canonical systems with Tifinagh/Amazigh distinction",
         "1 sign = 1 piece",
         "media provenance",
         "mobile",
@@ -58,7 +58,7 @@
       ]
     },
     "editions": {
-      "packageSha256": "bd187418ecca0f1d438e8ffdd43978293a3b5803deb0b9ed9dd8bc8e546f0189",
+      "packageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
       "decision": "SUSPENDED",
       "checks": [
         "identity",
@@ -72,6 +72,6 @@
       ]
     }
   },
-  "prohibitedInference": "No human recipe may start and no PASS may be recorded until cross-branch reconciliation is CLOSED and one exact reconciled runtime SHA is frozen.",
+  "prohibitedInference": "No human recipe may start and no PASS may be recorded until cross-branch/source reconciliation is CLOSED, Maison sign-level evidence and Food real-product evidence are closed, and one exact reconciled runtime SHA is frozen.",
   "state": "SUSPENDED_CROSS_BRANCH_RECONCILIATION"
 }
