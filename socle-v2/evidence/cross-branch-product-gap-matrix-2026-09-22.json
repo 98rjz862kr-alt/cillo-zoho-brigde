@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-22T18:30:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "state": "CROSS_BRANCH_PRODUCT_GAP_RECONCILIATION_ACTIVE",
+  "recipe": {
+    "state": "SUSPENDED",
+    "freezeEligible": false
+  },
+  "current": {
+    "branch": "work/socle-commun-v2-20260915",
+    "pr": 118,
+    "latestComparedHead": "d3c924a628ed021378604ea87220aea56da45f4c"
+  },
+  "findings": {
+    "editions": {
+      "status": "CURRENT_BRANCH_AHEAD_ON_VISITOR_LAYER",
+      "absorbed": [
+        "canonical URL contract",
+        "OpenGraph metadata",
+        "private robots lock",
+        "authenticated sitemap",
+        "runtime integrity",
+        "visitor-copy cleanup",
+        "rendered accessibility gates"
+      ],
+      "remainingBeforeHumanRecipe": [
+        "parallel agent latest pushed head must still be re-read if it advances"
+      ]
+    },
+    "musee": {
+      "status": "CURRENT_BRANCH_AHEAD_ON_STRUCTURAL_VISITOR_LAYER",
+      "comparedBranch": "agent/lmi-musee-finalisation-recette-20260907",
+      "otherHead": "2cc03023c5e3f60cec184e141ae9504b6ee9e3f4",
+      "currentAdvantages": [
+        "canonical identity correction retained",
+        "legal linkage retained",
+        "expanded qualified visitor routes",
+        "current media provenance and exact runtime package"
+      ],
+      "remainingBeforeHumanRecipe": [
+        "parallel agent latest pushed head must still be re-read if it advances"
+      ]
+    },
+    "maison": {
+      "status": "STRUCTURAL_CURRENT_BRANCH_AHEAD_BUT_CONTENT_EVIDENCE_NOT_CLOSED",
+      "comparedBranch": "agent/lmi-maison-finalisation-20260906",
+      "otherHead": "ac66a28e39543938636c8c18374ecb24a43fc9db",
+      "retainedControls": [
+        "one sign = one room",
+        "separate sign families",
+        "Drive/SHA identity provenance"
+      ],
+      "blockersDiscoveredInOtherBranch": [
+        "each cultural reference requires exact identification",
+        "meaning and cultural context must be documented",
+        "source must be cited",
+        "rights/license/public-domain status must be confirmed",
+        "competent validation must be recorded where applicable",
+        "traceability must link decision, series and graphic file"
+      ],
+      "implication": "Human recipe must not start while individual cultural/sign-level evidence can still be incomplete."
+    },
+    "food": {
+      "status": "STRUCTURAL_CURRENT_BRANCH_AHEAD_BUT_REAL_PRODUCT_DATA_BLOCKERS_REMAIN",
+      "comparedBranch": "agent/lmi-food-finalisation-20260906",
+      "otherHead": "ec8e0297b9efdbce7c24ddb135a9235b16fe6859",
+      "blockersDiscoveredInOtherBranch": [
+        "recipe/formulation trials still required for priority products",
+        "exact quantities and yields still require measurement",
+        "allergens require confirmation from final recipes",
+        "conservation protocols/durations require validation",
+        "packaging choices and product compatibility require decision",
+        "complete costs and selling prices require calculation/decision",
+        "final photography/BAT requires completion",
+        "public ordering/payment remains locked"
+      ],
+      "implication": "Client-facing structure can be technically ready while Food commercial/product production is not closed; human recipe remains premature."
+    }
+  },
+  "reconciliationDecision": {
+    "currentTechnicalBranch": "AHEAD_ON_INFRASTRUCTURE_AND_VISITOR_GATES",
+    "noOverallWinnerFrozen": true,
+    "reason": "Parallel production remains active and product/content evidence gaps from older specialist branches are not all closed.",
+    "nextRequiredWork": [
+      "close Maison sign-level cultural/source/rights evidence",
+      "close Food real recipe/product/commercial data evidence",
+      "re-read latest parallel agent Git head after its next push",
+      "rebuild exact-SHA candidate only after those gaps are closed"
+    ]
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "humanRecipe": false
+  }
+}
