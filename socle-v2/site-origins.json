@@ -11,9 +11,9 @@
     },
     "maison": {
       "root": "drafts/lmi-maison-site",
-      "candidateSourceSha": "ba1d42c2943a0c831a96d323583faf070a532418",
-      "candidatePackageSha256": "e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d",
-      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
+      "candidateSourceSha": "90f0745b8bc93beee912c5583f7d7f5696139785",
+      "candidatePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "food": {
