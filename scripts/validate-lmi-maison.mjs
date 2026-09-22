@@ -35,9 +35,12 @@ for (const file of files) {
   assert(!/stripe|paypal|parcours d’encaissement/i.test(html), 'Action commerciale active interdite: ' + file);
   if (/mailto:|tel:/i.test(html)) assert(['contact.html','mentions-legales-confidentialite.html'].includes(file), 'Lien de contact direct réservé aux pages contact ou mentions légales: ' + file);
 }
+const canonicalSystems=['Hiéroglyphes','Tifinagh','Braille','Adinkra','Ndébélé','Amazigh','Ge’ez'];
 for (const file of ['00-bat-lmi-maison.html','01-collection-inaugurale-lmi-maison.html']) {
   const html = readFileSync(path.join(root, file), 'utf8');
   for (const stale of ['690 €','840 €','260 €','620 g/m²','480 g/m²','390 g/m²','24 exemplaires','36 exemplaires']) assert(!html.includes(stale), 'Donnée divergente interdite dans la présentation: ' + stale);
+  for (const system of canonicalSystems) assert(html.includes(system), 'Système fondateur canonique absent dans '+file+': '+system);
+  assert(/Tifinagh[\s\S]{0,1200}Amazigh|Amazigh[\s\S]{0,1200}Tifinagh/i.test(html),'Distinction Tifinagh/Amazigh absente: '+file);
 }
 const culture = readFileSync(path.join(root, '03-matrice-controle-culturel-lmi-maison.html'), 'utf8');
 for (const marker of ['À sélectionner','À documenter','À citer','À confirmer']) assert(culture.includes(marker), 'Marqueur culturel absent: ' + marker);
