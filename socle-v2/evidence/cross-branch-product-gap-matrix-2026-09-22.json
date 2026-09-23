@@ -1,11 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:58:00Z",
+  "recordedAt": "2026-09-23T13:45:00Z",
   "brand": "LES MOTS IMAGÉS",
-  "state": "CROSS_BRANCH_PRODUCT_GAP_RECONCILIATION_ACTIVE",
+  "state": "CROSS_BRANCH_RECONCILED_FOR_SERVICE_PRODUCT_EVIDENCE_DEFERRED_TO_COMMERCIAL_RELEASE",
   "recipe": {
-    "state": "SUSPENDED",
-    "freezeEligible": false
+    "state": "SUSPENDED_RUNTIME_REBUILD",
+    "freezeEligible": false,
+    "blockedBy": [
+      "exact protocol 1.2 runtime rebuild"
+    ],
+    "notBlockedBy": [
+      "Maison sign-level evidence when unproven signs remain excluded or marked non-commercial",
+      "Food real-product evidence when ordering/public claims remain locked"
+    ]
   },
   "current": {
     "branch": "work/socle-commun-v2-20260915",
@@ -67,7 +74,7 @@
         "competent validation must be recorded where applicable",
         "traceability must link decision, series and graphic file"
       ],
-      "implication": "System inventory is now reconciled, but human recipe must not start while individual sign-level source/context/rights/validation evidence remains incomplete.",
+      "implication": "Maison may enter human service recipe with unproven individual signs excluded from final public/commercial claims. Sign-level source/context/rights/validation evidence remains mandatory before commercial/public release of those references.",
       "canonicalSystemInventory": {
         "status": "CONFIRMED_AT_SYSTEM_LEVEL_FROM_DRIVE_MASTER",
         "systems": [
@@ -107,7 +114,7 @@
         "final photography/BAT requires completion",
         "public ordering/payment remains locked"
       ],
-      "implication": "Food is no longer missing pilot formulas in the abstract; it is missing real measured/validated product evidence required to convert pilot formulas into sellable references.",
+      "implication": "Food may enter human service recipe using pilot content as clearly identified internal preparation material. Real measured/validated product evidence remains mandatory before sale, public ordering, final price/allergen/shelf-life claims or commercial PASS.",
       "pilotEvidence": {
         "status": "PILOT_FORMULATIONS_FOUND_NOT_FINAL_PRODUCT_PASS",
         "sourceDriveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM",
@@ -140,20 +147,22 @@
   "reconciliationDecision": {
     "currentTechnicalBranch": "AHEAD_ON_INFRASTRUCTURE_AND_VISITOR_GATES",
     "noOverallWinnerFrozen": true,
-    "reason": "Parallel execution is now observed on the same consolidation branch. Infrastructure/visitor gates are ahead, while Maison sign-level evidence and Food real-product evidence remain open.",
+    "reason": "Infrastructure and visitor gates are ahead. Maison and Food evidence gaps are commercial-release gaps, not blockers for a private human service recipe, provided the exact protocol 1.2 runtime is rebuilt and public/commercial actions stay locked.",
     "nextRequiredWork": [
-      "continue same-branch cross-agent reconciliation rather than freeze a winner",
-      "close Maison sign-level cultural/source/rights evidence without inferring from system-level names",
-      "use Food pilot formulas as test inputs only; collect/validate real measured product evidence before any commercial PASS",
-      "re-read same-branch parallel-agent deltas before each freeze attempt",
-      "rebuild exact-SHA candidate only after material gaps are closed"
+      "freeze an exact protocol 1.2 runtime candidate with private-app management connected",
+      "run human service recipe on the private candidate",
+      "keep Maison unproven sign references and Food unvalidated commercial claims visibly non-commercial",
+      "collect Maison sign-level and Food real-product evidence during post-production/operations before commercial release",
+      "do not publish, enable public ordering, or claim commercial PASS before those evidence gates close"
     ]
   },
   "locks": {
     "mergeMain": false,
     "dnsChange": false,
     "publicPublication": false,
-    "humanRecipe": false
+    "humanRecipe": false,
+    "publicOrdering": false,
+    "commercialRelease": true
   },
   "runtimeRecipeLock": {
     "state": "ENFORCED",
