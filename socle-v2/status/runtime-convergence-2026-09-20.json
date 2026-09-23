@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:53:00Z",
-  "state": "BRIDGE_RUNTIME_CONVERGED_CROSS_BRANCH_RECONCILIATION_ACTIVE_RECIPE_SUSPENDED",
+  "recordedAt": "2026-09-23T13:45:00Z",
+  "state": "HISTORICAL_RUNTIME_1_0_QUALIFIED_PROTOCOL_1_2_SOURCE_READY_REBUILD_REQUIRED",
   "integration": {
     "repository": "98rjz862kr-alt/cillo-zoho-brigde",
     "branch": "work/socle-commun-v2-20260915",
@@ -58,21 +58,24 @@
       "sites": 4,
       "visitorRoutes": 67
     },
-    "humanAestheticCommercialJudgement": "PENDING",
-    "humanRecipeRouteLock": "PASS_423"
+    "humanRecipeRouteLock": "PASS_423",
+    "humanServiceJudgement": "PENDING_AFTER_RUNTIME_REBUILD",
+    "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING"
   },
   "releaseGate": {
     "sourceSha": "SATISFIED",
     "build": "SATISFIED",
     "runtimeBridge": "SATISFIED",
     "mediaManifest": "TECHNICALLY_BOUND_PER_SITE",
-    "humanRecipe": "SUSPENDED_CROSS_BRANCH_RECONCILIATION"
+    "humanServiceRecipe": "SUSPENDED_RUNTIME_REBUILD",
+    "commercialRelease": "LOCKED_UNTIL_REAL_PRODUCT_RIGHTS_EVIDENCE"
   },
   "locks": {
     "mergeMain": false,
     "dnsChange": false,
     "publicPublication": false,
     "humanRecipePassInferred": false,
-    "humanRecipeStart": false
+    "humanRecipeStart": false,
+    "publicOrdering": false
   }
 }
