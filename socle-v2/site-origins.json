@@ -4,8 +4,8 @@
   "sites": {
     "musee": {
       "root": "drafts/lmi-musee-complet",
-      "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
-      "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
+      "candidateSourceSha": "6441a37f3e4c22dc7857ed31ca1bbff30edadf1c",
+      "candidatePackageSha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
@@ -25,8 +25,8 @@
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
-      "candidateSourceSha": "b42d6cce3baef302ce6cff1bcdff340e35d09aa9",
-      "candidatePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
+      "candidateSourceSha": "6441a37f3e4c22dc7857ed31ca1bbff30edadf1c",
+      "candidatePackageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
       "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }
