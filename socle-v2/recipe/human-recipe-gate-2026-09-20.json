@@ -1,13 +1,13 @@
 {
-  "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:53:00Z",
+  "schemaVersion": "1.1.0",
+  "recordedAt": "2026-09-23T13:45:00Z",
   "recipeTarget": {
     "integrationSha": null,
     "renderDeployId": null,
     "privateBridgeUrl": "https://cillo-zoho-bridge.onrender.com",
     "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette"
   },
-  "rule": "A human recipe decision applies only to this exact deployed integration SHA and the per-site package hashes recorded in runtime-convergence-2026-09-20.json.",
+  "rule": "La recette humaine de service évalue l'identité, le design, l'ergonomie, la navigation, les contenus de préparation, les fiches, les parcours et le pilotage depuis l'application privée sur un runtime exact. Elle peut commencer avec des références commercialement verrouillées lorsque l'activité réelle n'a pas encore démarré. Les preuves produit/droits finales conditionnent la publication, la vente et les allégations finales, pas la recette du service.",
   "order": [
     "musee",
     "maison",
@@ -17,7 +17,7 @@
   "sites": {
     "musee": {
       "packageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
-      "decision": "SUSPENDED",
+      "decision": "SUSPENDED_RUNTIME_REBUILD",
       "checks": [
         "identity",
         "homepage",
@@ -27,11 +27,12 @@
         "mobile",
         "keyboard focus",
         "legal/contact"
-      ]
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     },
     "maison": {
       "packageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
-      "decision": "SUSPENDED",
+      "decision": "SUSPENDED_RUNTIME_REBUILD",
       "checks": [
         "identity",
         "homepage",
@@ -41,11 +42,12 @@
         "media provenance",
         "mobile",
         "commercial locks"
-      ]
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     },
     "food": {
       "packageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
-      "decision": "SUSPENDED",
+      "decision": "SUSPENDED_RUNTIME_REBUILD",
       "checks": [
         "identity",
         "homepage",
@@ -55,11 +57,12 @@
         "media provenance",
         "mobile",
         "commercial locks"
-      ]
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     },
     "editions": {
       "packageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
-      "decision": "SUSPENDED",
+      "decision": "SUSPENDED_RUNTIME_REBUILD",
       "checks": [
         "identity",
         "homepage",
@@ -69,9 +72,21 @@
         "internal links",
         "mobile",
         "reading/commerce promises"
-      ]
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     }
   },
-  "prohibitedInference": "No human recipe may start and no PASS may be recorded until cross-branch/source reconciliation is CLOSED, Maison sign-level evidence and Food real-product evidence are closed, and one exact reconciled runtime SHA is frozen.",
-  "state": "SUSPENDED_CROSS_BRANCH_RECONCILIATION"
+  "prohibitedInference": "Aucun PASS commercial, aucune vente, aucune disponibilité publique et aucune allégation finale ne peuvent être déduits de la recette humaine de service. La recette humaine de service ne démarre qu'après gel d'un runtime exact intégrant le protocole 1.2 et le pilotage privé des quatre sites.",
+  "state": "SUSPENDED_RUNTIME_REBUILD",
+  "serviceRecipe": {
+    "eligibleAfterExactRuntime": true,
+    "realProductEvidenceRequired": false,
+    "privateAppManagementRequired": true,
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "commercialRelease": {
+    "state": "LOCKED",
+    "realProductOrRightsEvidenceRequired": true
+  }
 }
