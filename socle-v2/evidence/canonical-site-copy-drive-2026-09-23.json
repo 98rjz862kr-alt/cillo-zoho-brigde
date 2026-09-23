@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "authority": "Google Drive",
+  "rule": "VISIBLE_SITE_COPY_MUST_BE_DERIVED_FROM_CANONICAL_DRIVE_DOCUMENTS_NO_TEMPLATE_COPY",
+  "sources": {
+    "professionalMatrix": {
+      "title": "LMI — MATRICE DES TEXTES PROFESSIONNELS — État courant — 13 août 2026",
+      "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+      "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761"
+    },
+    "museeCms": {
+      "title": "Musee LMI Editions - Contenus CMS page par page - 2026-06-18",
+      "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+      "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd"
+    },
+    "maisonMaster": {
+      "title": "MASTER_LMI_MAISON_2026-09-12",
+      "driveId": "1NjIf0aNAyCqZss6sGIEoKMvLRH_Oz4qHGLtNpJsnjpg"
+    },
+    "foodBat": {
+      "title": "LMI FOOD - Manuel fabrication jus tropicaux et cocktails - BAT v1",
+      "driveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM"
+    }
+  },
+  "sites": {
+    "editions": {
+      "source": "professionalMatrix",
+      "requiredConcepts": [
+        "LMI Éditions",
+        "pôle source",
+        "livres",
+        "bandes dessinées",
+        "jeunesse",
+        "lecture",
+        "écoute"
+      ]
+    },
+    "food": {
+      "source": "professionalMatrix",
+      "requiredConcepts": [
+        "LMI FOOD",
+        "restaurant",
+        "traiteur",
+        "épicerie",
+        "jus faits maison",
+        "livres",
+        "e-books",
+        "bibliothèque",
+        "abonnements",
+        "cours"
+      ],
+      "commercialSafetySource": "foodBat"
+    },
+    "maison": {
+      "source": "professionalMatrix",
+      "requiredConcepts": [
+        "LMI Maison",
+        "textile",
+        "décoration",
+        "collections",
+        "matières",
+        "provenance"
+      ],
+      "culturalSource": "maisonMaster"
+    },
+    "musee": {
+      "source": "professionalMatrix",
+      "requiredConcepts": [
+        "Musée",
+        "conserver",
+        "documenter",
+        "transmettre",
+        "provenance",
+        "droits"
+      ],
+      "pageArchitectureSource": "museeCms"
+    }
+  },
+  "forbiddenVisiblePatterns": [
+    "brouillon privé",
+    "validation humaine obligatoire",
+    "journal de recette",
+    "matrice QA",
+    "protocole d’exécution",
+    "candidat privé",
+    "contrôle interne",
+    "template"
+  ],
+  "illustrationPolicy": {
+    "generationForbidden": true,
+    "exactDriveIdAndSha256Required": true
+  }
+}
