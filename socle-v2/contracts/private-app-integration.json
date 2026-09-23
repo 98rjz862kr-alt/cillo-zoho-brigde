@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "brand": "LES MOTS IMAGÉS",
   "principle": "PRIVATE_APP_CONTROL_PLANE_PUBLIC_SITES_PRESENTATION_PLANE",
   "privateApp": {
@@ -16,7 +16,11 @@
       "media",
       "workflow",
       "search",
-      "shield"
+      "shield",
+      "site-operations",
+      "product-sheets",
+      "replenishment",
+      "content-updates"
     ],
     "sourceRepository": "98rjz862kr-alt/lmi-application-privee-integration-contenus"
   },
@@ -75,16 +79,23 @@
     "leastPrivilege": true,
     "auditRequired": true
   },
-  "releaseGate": [
-    "PRIVATE_APP_SOURCE_VERSION",
-    "CONTENT_EXPORT_OR_API_SNAPSHOT",
-    "SITE_CANDIDATE_SOURCE_SHA",
-    "SITE_BUILD",
-    "RUNTIME_BRIDGE",
-    "MEDIA_MANIFEST",
-    "HUMAN_RECIPE"
-  ],
-  "protocolId": "lmi-sites-publication-protocol@1.1.0",
+  "releaseGate": {
+    "serviceReadiness": [
+      "PRIVATE_APP_SOURCE_VERSION",
+      "SITE_CANDIDATE_SOURCE_SHA",
+      "SITE_BUILD",
+      "RUNTIME_BRIDGE",
+      "MEDIA_MANIFEST",
+      "PRIVATE_APP_MANAGEMENT",
+      "HUMAN_SERVICE_RECIPE"
+    ],
+    "commercialRelease": [
+      "PRODUCT_OR_RIGHTS_EVIDENCE",
+      "APPROVED_PRICE_STOCK_OR_AVAILABILITY_WHERE_APPLICABLE",
+      "PUBLICATION_APPROVAL"
+    ]
+  },
+  "protocolId": "lmi-sites-publication-protocol@1.2.0",
   "brandContract": {
     "id": "lmi-brand-roles@2.0.0",
     "sourcePath": "integration/lmi-brand-roles.v1.json",
@@ -100,6 +111,23 @@
       "#C8A96B",
       "#C9C3BA"
     ],
-    "privateAppSourceSha": "61339dfbf6dee5a30c9c2380c3a73068d1bd41be"
+    "privateAppSourceSha": "cc58c3ffb3ca6dee0d8c779ec878fa6cbd12f9e5"
+  },
+  "management": {
+    "authority": "private-app",
+    "endpointPrefix": "/api/sites-operations",
+    "uiEndpoint": "/applications/sites-operations.html",
+    "capabilities": [
+      "product_sheets",
+      "content_updates",
+      "media_references",
+      "stock_tracking",
+      "replenishments",
+      "service_recipe"
+    ],
+    "serviceRecipeMayStartWithoutCommercialEvidence": true,
+    "publicPublication": false,
+    "publicOrdering": false,
+    "commercialReleaseEvidenceRequired": true
   }
 }
