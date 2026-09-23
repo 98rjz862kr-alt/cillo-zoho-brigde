@@ -16,9 +16,10 @@
     "build:bridge": "node socle-v2/scripts/prepare-build-history.mjs && npm run test:integration",
     "test:private-app-integration": "node socle-v2/scripts/validate-private-app-integration.mjs",
     "test:private-app-ingestion": "node socle-v2/scripts/test-private-app-ingestion.mjs",
-    "test:client-readiness": "node socle-v2/scripts/validate-client-readiness.mjs && node socle-v2/scripts/validate-drive-backed-visitor-assets.mjs",
+    "test:client-readiness": "node socle-v2/scripts/validate-client-readiness.mjs && node socle-v2/scripts/validate-drive-backed-visitor-assets.mjs && node socle-v2/scripts/validate-canonical-site-copy.mjs",
     "test:cross-branch-integrity": "node scripts/validate-hub-seo.mjs && node scripts/validate-hub-asset-integrity.mjs && node scripts/validate-hub-visitor-copy.mjs && node scripts/validate-hub-runtime.mjs && node scripts/validate-hub-a11y-rendered.mjs && node scripts/validate-hub-release-gates.mjs && node socle-v2/scripts/validate-client-readiness.mjs",
-    "test:drive-assets": "node socle-v2/scripts/validate-drive-backed-visitor-assets.mjs"
+    "test:drive-assets": "node socle-v2/scripts/validate-drive-backed-visitor-assets.mjs",
+    "test:canonical-site-copy": "node socle-v2/scripts/validate-canonical-site-copy.mjs"
   },
   "dependencies": {},
   "engines": {
