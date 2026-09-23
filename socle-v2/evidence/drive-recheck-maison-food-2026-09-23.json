@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-23T13:24:00Z",
+  "state": "DRIVE_RECHECK_COMPLETED_NO_FALSE_CLOSURE",
+  "scope": [
+    "maison",
+    "food"
+  ],
+  "maison": {
+    "conclusion": "CANON_CONFIRMED_SIGN_LEVEL_EVIDENCE_STILL_OPEN",
+    "sources": [
+      {
+        "driveId": "1NjIf0aNAyCqZss6sGIEoKMvLRH_Oz4qHGLtNpJsnjpg",
+        "title": "MASTER_LMI_MAISON_2026-09-12",
+        "confirms": [
+          "seven systems: Hiéroglyphes, Tifinagh, Braille, Adinkra, Ndébélé, Amazigh, Ge’ez",
+          "Tifinagh/Amazigh distinction",
+          "1 signe = 1 pièce",
+          "provenance and rights required for signs, motifs, objects and designs"
+        ],
+        "doesNotClose": [
+          "exact source per individual sign",
+          "meaning/context per individual sign",
+          "rights/license/public-domain status per individual sign",
+          "competent validation per individual sign",
+          "traceability from sign decision to graphic master"
+        ]
+      },
+      {
+        "driveId": "1hhz9XV_brdKx8LjjQ1D_afTTwIG5bXiyYEf2COwdYLU",
+        "title": "LMI Maison - Cycle Braille 2026-06 - Livrable final de collection lifestyle",
+        "confirms": [
+          "six Braille series exist at preproduction/prototype-control level",
+          "series/article codes, production tolerances and archive structure are documented"
+        ],
+        "doesNotClose": [
+          "central decisions remain for BR-GR-04-CH, BR-GR-05-SB, BR-GR-06-CU",
+          "no individual sign cultural/rights proof is established by this document"
+        ]
+      },
+      {
+        "driveId": "12BiMAgd0N6RIs2JvByicz1ZwDIyPVT9AhxdK0c4j7Yc",
+        "title": "LMI Maison - Cycle Braille 2026-06 - 06_Suivi - Suivi des priorites Braille",
+        "confirms": [
+          "prototype and validation statuses remain mixed; several decisions are still A faire"
+        ]
+      },
+      {
+        "driveId": "1xrDEUlefnG7FY_ELBxrFzKEe7CZjHHp0uUQ365UAP20",
+        "title": "LMI — Fiches Produits — Lot de recette humaine",
+        "confirms": [
+          "Maison grammars are protected data and must be sourced; factual data must never be invented"
+        ]
+      }
+    ],
+    "gate": "PENDING_EXTERNAL_EVIDENCE_OR_VALIDATED_SOURCE_FILES"
+  },
+  "food": {
+    "conclusion": "PILOT_CANON_CONFIRMED_REAL_PRODUCT_VALIDATION_STILL_OPEN",
+    "sources": [
+      {
+        "driveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM",
+        "title": "LMI FOOD - Manuel fabrication jus tropicaux et cocktails - BAT v1",
+        "confirms": [
+          "J01-J06 pilot formulas and pilot-lot process exist",
+          "theoretical yield framework exists",
+          "pH/Brix development targets exist",
+          "lot-control fields exist"
+        ],
+        "explicitlyRequiresBeforeCommercialization": [
+          "real yield",
+          "final suppliers/lots",
+          "validated allergens",
+          "validated time-temperature process",
+          "validated conservation duration",
+          "compatible final packaging",
+          "actual costs and approved prices",
+          "microbiological and ageing validation",
+          "final regulatory labelling"
+        ]
+      },
+      {
+        "driveId": "1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44",
+        "title": "SNAPSHOT_LMI_FOOD_CANDIDAT_FINALISATION_2026-09-06",
+        "confirms": [
+          "no commercial PASS without real product evidence",
+          "two untraceable external food photographs were removed rather than presented as final"
+        ]
+      },
+      {
+        "driveId": "1yqfscks_gDFWABZCfAlXy0R1l5A2ZMyjHFq34-IEimw",
+        "title": "MISSION_EQUIPE_LMI_FOOD_4_AGENTS",
+        "confirms": [
+          "only proven product facts may appear in the candidate; unverified price/allergen/conservation/supplier data must not be invented"
+        ]
+      }
+    ],
+    "gate": "PENDING_PHYSICAL_PRODUCT_VALIDATION_AND_FINAL_COMMERCIAL_DECISIONS"
+  },
+  "decision": {
+    "reopenSameDriveSearch": false,
+    "softwareOrCopyMustNotFabricateMissingEvidence": true,
+    "humanRecipe": false,
+    "renderRebuild": false,
+    "nextExecutableWithoutHumanProductEvidence": [
+      "keep unverified Maison sign assets out of public candidate",
+      "keep unverified Food commercial claims/order/payment locked",
+      "complete source-level integration and technical consistency work only",
+      "rebuild exact-SHA only when product-evidence gate is intentionally resolved or scope is explicitly reduced"
+    ]
+  }
+}
