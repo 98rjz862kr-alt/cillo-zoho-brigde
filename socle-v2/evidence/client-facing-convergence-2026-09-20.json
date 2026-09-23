@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-22T18:53:00Z",
+  "generatedAt": "2026-09-23T13:45:00Z",
   "brand": "LES MOTS IMAGÉS",
   "integrationBranch": "work/socle-commun-v2-20260915",
   "liveIntegrationSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
@@ -32,40 +32,46 @@
       "sites": 4,
       "visitorRoutes": 67
     },
-    "humanAestheticCommercialJudgement": "PENDING",
-    "humanRecipe": "SUSPENDED_CROSS_BRANCH_RECONCILIATION",
-    "humanRecipeRouteLock": "PASS_423"
+    "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
+    "humanRecipeRouteLock": "PASS_423",
+    "humanServiceJudgement": "PENDING_AFTER_RUNTIME_REBUILD",
+    "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING"
   },
   "sites": {
     "musee": {
       "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
       "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
       "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED"
+      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     },
     "maison": {
       "candidateSourceSha": "90f0745b8bc93beee912c5583f7d7f5696139785",
       "candidatePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
       "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED"
+      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     },
     "food": {
       "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
       "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
       "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED"
+      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     },
     "editions": {
       "candidateSourceSha": "b42d6cce3baef302ce6cff1bcdff340e35d09aa9",
       "candidatePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
       "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED"
+      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
     }
   },
   "publication": {
     "mainMerge": false,
     "dnsChange": false,
-    "publicPublication": false
+    "publicPublication": false,
+    "publicOrdering": false
   },
   "historicalMuseumProof": {
     "sha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
