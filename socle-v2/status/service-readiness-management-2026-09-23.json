@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-23T13:52:00Z",
+  "state": "SERVICE_READINESS_SOURCE_COMPLETE_RUNTIME_REBUILD_REQUIRED",
+  "principle": "READY_TO_SERVE_IS_NOT_READY_TO_PUBLISH",
+  "privateApp": {
+    "repository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
+    "branch": "codex/consolidation-integrale-application-lmi-v2",
+    "sourceSha": "cc58c3ffb3ca6dee0d8c779ec878fa6cbd12f9e5",
+    "protocolId": "lmi-sites-publication-protocol@1.2.0",
+    "managementUi": "/applications/sites-operations.html",
+    "managementApi": "/api/sites-operations",
+    "capabilities": [
+      "product_sheets",
+      "content_updates",
+      "media_references",
+      "stock_tracking",
+      "replenishments",
+      "service_recipe"
+    ],
+    "sourceTests": "PASS"
+  },
+  "bridge": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "branch": "work/socle-commun-v2-20260915",
+    "protocolId": "lmi-sites-publication-protocol@1.2.0",
+    "sourceTests": "PASS"
+  },
+  "humanServiceRecipe": {
+    "realProductEvidenceRequired": false,
+    "rightsEvidenceRequiredForExcludedOrClearlyLockedReferences": false,
+    "exactRuntimeRequired": true,
+    "privateAppManagementRequired": true,
+    "scope": [
+      "identity",
+      "design",
+      "ergonomics",
+      "navigation",
+      "content presentation",
+      "private management workflows",
+      "responsive behavior",
+      "service readiness"
+    ]
+  },
+  "commercialRelease": {
+    "state": "LOCKED",
+    "requires": [
+      "real product evidence where applicable",
+      "rights/provenance for released assets",
+      "approved price/stock/availability where applicable",
+      "publication approval"
+    ],
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "nextGate": "EXACT_PROTOCOL_1_2_RUNTIME_REBUILD_AND_QUALIFICATION"
+}
