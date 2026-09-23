@@ -7,7 +7,10 @@ const roots = [
   'drafts/lmi-maison-site',
   'drafts/lmi-musee-complet'
 ];
-const textExt = new Set(['.html','.css','.js','.mjs','.json','.xml','.svg','.md','.txt']);
+// Canonical brand copy is validated on textual/site surfaces. Exact Drive-backed
+// SVG wrappers are integrity-checked separately by the visitor asset SHA gate and
+// must not be rewritten merely to normalize non-rendered metadata.
+const textExt = new Set(['.html','.css','.js','.mjs','.json','.xml','.md','.txt']);
 const forbidden = /LES MOTS IMAGES|Les Mots Images/g;
 const findings = [];
 
