@@ -1,15 +1,18 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "brand": "LES MOTS IMAGÉS",
   "purpose": "visitor-facing-production-qualification-before-human-recipe",
   "rules": {
-    "prepublicationBannerAllowed": true,
+    "prepublicationBannerAllowed": false,
     "internalControlCopyForbiddenInVisitorContent": true,
     "homepageApprovedVisualRequired": true,
     "homepageActionRequired": true,
     "unverifiedCommerceForbidden": true,
     "humanAestheticJudgement": "PENDING_UNTIL_RECIPE",
-    "legalAndPrivacyRouteRequired": true
+    "legalAndPrivacyRouteRequired": true,
+    "templateOrWorkshopCopyForbiddenInVisitorContent": true,
+    "sourceContentMustResolveToDriveAndSha256": true,
+    "generatedIllustrationsForbidden": true
   },
   "sites": {
     "maison": {
