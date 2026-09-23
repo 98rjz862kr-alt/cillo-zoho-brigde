@@ -117,63 +117,19 @@ function atelierPage(){
 }
 
 function humanRecipePage(){
+  const gate=readJsonFile('socle-v2/recipe/human-recipe-gate-2026-09-20.json')||{};
+  const packageFor=(id,fallback)=>gate?.sites?.[id]?.packageSha256||fallback;
   const sites=[
-    {
-      name:'Musée',
-      package:'b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf',
-      home:'lmi-musee-complet/index.html',
-      routes:[
-        ['Accueil','lmi-musee-complet/index.html'],
-        ['Collections','lmi-musee-complet/collections.html'],
-        ['Expositions permanentes','lmi-musee-complet/expositions-permanentes.html'],
-        ['Éducation & médiation','lmi-musee-complet/education-mediation.html'],
-        ['Contact','lmi-musee-complet/contact.html'],
-        ['Mentions légales','lmi-musee-complet/mentions-legales-confidentialite.html']
-      ]
-    },
-    {
-      name:'Maison',
-      package:'e1aa1a94583fbe3bc6a5284d4581db2e1c5f152175832b9255b1eceead9b687d',
-      home:'lmi-maison-site/00-bat-lmi-maison.html',
-      routes:[
-        ['Accueil','lmi-maison-site/00-bat-lmi-maison.html'],
-        ['Collection inaugurale','lmi-maison-site/01-collection-inaugurale-lmi-maison.html'],
-        ['Parcours commercial privé','lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html'],
-        ['Contact','lmi-maison-site/contact.html'],
-        ['Mentions légales','lmi-maison-site/mentions-legales-confidentialite.html']
-      ]
-    },
-    {
-      name:'Food',
-      package:'c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22',
-      home:'lmi-food-site/00-bat-lmi-food.html',
-      routes:[
-        ['Accueil','lmi-food-site/00-bat-lmi-food.html'],
-        ['Petits déjeuners & collations','lmi-food-site/02-petits-dejeuners-collations.html'],
-        ['Épicerie & condiments','lmi-food-site/04-epicerie-condiments.html'],
-        ['Collection éditoriale recettes','lmi-food-site/08-collection-editoriale-recettes.html'],
-        ['Contact','lmi-food-site/contact.html'],
-        ['Mentions légales','lmi-food-site/mentions-legales-confidentialite.html']
-      ]
-    },
-    {
-      name:'Éditions',
-      package:'243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59',
-      home:'hub-lmi-editions/01-accueil.html',
-      routes:[
-        ['Accueil','hub-lmi-editions/01-accueil.html'],
-        ['Catalogue éditorial','hub-lmi-editions/11-catalogue-editorial.html'],
-        ['Presse · partenaires · droits','hub-lmi-editions/19-presse-partenaires-droits.html'],
-        ['Contact','hub-lmi-editions/05-contact.html'],
-        ['Mentions légales','hub-lmi-editions/20-mentions-legales-confidentialite.html']
-      ]
-    }
+    {id:'musee',name:'Musée',package:packageFor('musee','b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf'),routes:[['Accueil','lmi-musee-complet/index.html'],['Collections','lmi-musee-complet/collections.html'],['Expositions permanentes','lmi-musee-complet/expositions-permanentes.html'],['Éducation & médiation','lmi-musee-complet/education-mediation.html'],['Contact','lmi-musee-complet/contact.html'],['Mentions légales','lmi-musee-complet/mentions-legales-confidentialite.html']]},
+    {id:'maison',name:'Maison',package:packageFor('maison','695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926'),routes:[['Accueil','lmi-maison-site/00-bat-lmi-maison.html'],['Collection inaugurale','lmi-maison-site/01-collection-inaugurale-lmi-maison.html'],['Parcours commercial privé','lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html'],['Contact','lmi-maison-site/contact.html'],['Mentions légales','lmi-maison-site/mentions-legales-confidentialite.html']]},
+    {id:'food',name:'Food',package:packageFor('food','c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22'),routes:[['Accueil','lmi-food-site/00-bat-lmi-food.html'],['Petits déjeuners & collations','lmi-food-site/02-petits-dejeuners-collations.html'],['Épicerie & condiments','lmi-food-site/04-epicerie-condiments.html'],['Collection éditoriale recettes','lmi-food-site/08-collection-editoriale-recettes.html'],['Contact','lmi-food-site/contact.html'],['Mentions légales','lmi-food-site/mentions-legales-confidentialite.html']]},
+    {id:'editions',name:'Éditions',package:packageFor('editions','243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59'),routes:[['Accueil','hub-lmi-editions/01-accueil.html'],['Catalogue éditorial','hub-lmi-editions/11-catalogue-editorial.html'],['Presse · partenaires · droits','hub-lmi-editions/19-presse-partenaires-droits.html'],['Contact','hub-lmi-editions/05-contact.html'],['Mentions légales','hub-lmi-editions/20-mentions-legales-confidentialite.html']]}
   ];
   const cards=sites.map(site=>{
-    const buttons=site.routes.map(([label,route])=>`<span class="route" aria-disabled="true">${escapeHtml(label)}</span>`).join('');
-    return `<section class="site"><div class="siteHead"><div><span class="eyebrow">CANDIDAT DE RECETTE</span><h2>${escapeHtml(site.name)}</h2><code>${escapeHtml(site.package)}</code></div><span class="open" aria-disabled="true">Recette suspendue</span></div><div class="routes">${buttons}</div></section>`;
+    const buttons=site.routes.map(([label,route])=>`<a class="route" href="/atelier/file/${encodeURIComponent(route)}">${escapeHtml(label)}</a>`).join('');
+    return `<section class="site"><div class="siteHead"><div><span class="eyebrow">RECETTE DE SERVICE</span><h2>${escapeHtml(site.name)}</h2><code>${escapeHtml(site.package)}</code></div><a class="open" href="/atelier/file/${encodeURIComponent(site.routes[0][1])}">Ouvrir le candidat</a></div><div class="routes">${buttons}</div><p><strong>Publication commerciale :</strong> verrouillée. Les données réelles non encore produites restent hors PASS commercial.</p></section>`;
   }).join('');
-  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Recette humaine — LES MOTS IMAGÉS</title><style>:root{--b:#143B7D;--n:#0F2747;--g:#D4AF37;--o:#CC7722;--i:#F6F1E8;--s:#75553F}*{box-sizing:border-box}body{margin:0;background:#efede7;color:#172238;font-family:Arial,sans-serif}header{background:linear-gradient(135deg,var(--n),var(--b));color:#fff;padding:42px max(20px,5vw);border-bottom:5px solid var(--g)}h1,h2{font-family:Georgia,serif}h1{font-size:clamp(2.3rem,5vw,4.6rem);margin:0 0 8px}header p{margin:5px 0;max-width:900px;line-height:1.6}.bar{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}.pill{display:inline-block;background:#ffffff16;border:1px solid #ffffff32;padding:8px 12px;border-radius:999px;font-weight:800}main{width:min(1180px,calc(100% - 32px));margin:30px auto 60px}.notice{background:var(--i);border-left:6px solid var(--o);padding:18px 20px;border-radius:12px;margin-bottom:22px;line-height:1.6}.site{background:#fff;border-radius:20px;margin:18px 0;padding:24px;box-shadow:0 14px 38px #0f274712}.siteHead{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.eyebrow{font-size:.72rem;letter-spacing:.14em;font-weight:900;color:var(--o)}h2{font-size:2rem;color:var(--b);margin:6px 0 8px}code{display:block;max-width:720px;overflow-wrap:anywhere;color:#5b6575}.open,.route{display:inline-block;text-decoration:none;font-weight:900;border-radius:999px}.open{background:var(--b);color:#fff;padding:13px 18px;white-space:nowrap}.routes{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}.route{background:var(--i);color:var(--b);border:1px solid #143B7D22;padding:10px 14px}.help{margin-top:26px;background:#fff;padding:22px;border-radius:18px}.help strong{color:var(--b)}a:focus-visible{outline:3px solid var(--g);outline-offset:3px}@media(max-width:720px){.siteHead{flex-direction:column}.open{width:100%;text-align:center}}</style></head><body><header><h1>LES MOTS IMAGÉS — RECETTE SUSPENDUE</h1><p>Consolidation croisée des branches en cours. Cette interface ne constitue pas une cible de recette tant que le registre de réconciliation n’est pas fermé.</p><div class="bar"><span class="pill">Runtime ${escapeHtml((process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||'non résolu').slice(0,12))}</span><span class="pill">Render LIVE</span><span class="pill">Aucune publication publique</span></div></header><main><div class="notice"><strong>État :</strong> aucun contrôle humain à engager. Les candidats sont encore comparés et consolidés entre branches avant création d’une cible unique.</div>${cards}<div class="help"><strong>Ordre :</strong> Musée → Maison → Food → Éditions. Tester en priorité desktop 1440 px, iPhone 390 px et mobile 320 px.</div></main></body></html>`;
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Recette de service — LES MOTS IMAGÉS</title><style>:root{--b:#143B7D;--n:#0F2747;--g:#D4AF37;--o:#CC7722;--i:#F6F1E8;--s:#75553F}*{box-sizing:border-box}body{margin:0;background:#efede7;color:#172238;font-family:Arial,sans-serif}header{background:linear-gradient(135deg,var(--n),var(--b));color:#fff;padding:42px max(20px,5vw);border-bottom:5px solid var(--g)}h1,h2{font-family:Georgia,serif}h1{font-size:clamp(2.3rem,5vw,4.6rem);margin:0 0 8px}.bar,.routes{display:flex;gap:10px;flex-wrap:wrap}.pill{display:inline-block;background:#ffffff16;border:1px solid #ffffff32;padding:8px 12px;border-radius:999px;font-weight:800}main{width:min(1180px,calc(100% - 32px));margin:30px auto 60px}.notice,.site,.help{background:#fff;border-radius:18px;padding:22px;margin:18px 0}.notice{border-left:6px solid var(--o)}.siteHead{display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.eyebrow{font-size:.72rem;letter-spacing:.14em;font-weight:900;color:var(--o)}h2{font-size:2rem;color:var(--b);margin:6px 0 8px}code{display:block;overflow-wrap:anywhere;color:#5b6575}.open,.route{display:inline-block;text-decoration:none;font-weight:900;border-radius:999px}.open{background:var(--b);color:#fff;padding:13px 18px}.route{background:var(--i);color:var(--b);border:1px solid #143B7D22;padding:10px 14px}.routes{margin-top:22px}a:focus-visible{outline:3px solid var(--g);outline-offset:3px}@media(max-width:720px){.siteHead{flex-direction:column}.open{width:100%;text-align:center}}</style></head><body><header><h1>LES MOTS IMAGÉS — RECETTE DE SERVICE</h1><p>Validation privée des sites prêts à fonctionner, sans publication publique ni ouverture des ventes.</p><div class="bar"><span class="pill">Runtime ${escapeHtml((process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||'non résolu').slice(0,12))}</span><span class="pill">Accès protégé</span><span class="pill">Publication verrouillée</span></div></header><main><div class="notice"><strong>But :</strong> vérifier identité, design, ergonomie, navigation, contenus de préparation et parcours de gestion. Les preuves produit/droits finales sont exigées avant commercialisation, pas pour cette recette de service.</div>${cards}<div class="help"><strong>Ordre :</strong> Musée → Maison → Food → Éditions. Vérifier desktop 1440 px, iPhone 390 px et mobile 320 px.</div></main></body></html>`;
 }
 
 function proxy(req,res){
