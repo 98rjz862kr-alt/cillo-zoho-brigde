@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "brand": "LES MOTS IMAGÉS",
   "principle": "PRIVATE_APP_CONTROL_PLANE_PUBLIC_SITES_PRESENTATION_PLANE",
   "privateApp": {
@@ -84,9 +84,22 @@
     "MEDIA_MANIFEST",
     "HUMAN_RECIPE"
   ],
-  "protocolId": "lmi-sites-publication-protocol@1.0.0",
+  "protocolId": "lmi-sites-publication-protocol@1.1.0",
   "brandContract": {
-    "id": "lmi-brand-roles@1.0.0",
-    "sha256": "96fa0b11f0e5a2c288637bbb782aca54e77dc2ea4f8e7460c5193987b63e7b7a"
+    "id": "lmi-brand-roles@2.0.0",
+    "sourcePath": "integration/lmi-brand-roles.v1.json",
+    "authorityPath": "assets/brand/lmi-brand-authority.json",
+    "authoritySchema": "lmi.brand.authority/1",
+    "canonicalPalette": [
+      "#143B7D",
+      "#CC7722",
+      "#75553F",
+      "#D4AF37",
+      "#0F2747",
+      "#F6F1E8",
+      "#C8A96B",
+      "#C9C3BA"
+    ],
+    "privateAppSourceSha": "61339dfbf6dee5a30c9c2380c3a73068d1bd41be"
   }
 }

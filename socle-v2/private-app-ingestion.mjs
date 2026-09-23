@@ -1,6 +1,6 @@
 import crypto from 'node:crypto';
 
-export const PROTOCOL_ID='lmi-sites-publication-protocol@1.0.0';
+export const PROTOCOL_ID='lmi-sites-publication-protocol@1.1.0';
 export const UNIVERSES=Object.freeze(['editions','maison','food','musee']);
 
 function stableJson(value){
