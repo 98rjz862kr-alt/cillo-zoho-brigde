@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0.0",
   "site": "food",
-  "decision": "SUSPENDED_CROSS_BRANCH_RECONCILIATION",
+  "decision": "SUSPENDED_RUNTIME_REBUILD",
   "purpose": "neutral-client-facing-acceptance-without-coaching",
   "target": {
     "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
@@ -278,19 +278,33 @@
   ],
   "finalDecision": "NOT_STARTED",
   "suspension": {
-    "since": "2026-09-22T18:30:00Z",
-    "reason": "Cross-branch/source reconciliation remains active; do not begin human recipe.",
-    "blockingEvidence": "socle-v2/evidence/cross-branch-product-gap-matrix-2026-09-22.json",
-    "openEvidence": [
-      "measured real yield",
-      "final suppliers/lots",
-      "final allergens",
-      "validated thermal process",
-      "validated shelf life",
-      "final packaging compatibility",
-      "actual full cost and approved price",
-      "microbiological/ageing evidence",
-      "final photography/BAT"
-    ]
+    "since": "2026-09-23T13:45:00Z",
+    "reason": "Service recipe is allowed before real commercial evidence, but it must target one exact rebuilt protocol 1.2 runtime with private-app management connected.",
+    "blockingEvidence": "socle-v2/recipe/human-recipe-gate-2026-09-20.json"
+  },
+  "recipeScope": {
+    "type": "HUMAN_SERVICE_RECIPE",
+    "mayAssess": [
+      "identity",
+      "design",
+      "ergonomics",
+      "navigation",
+      "content presentation",
+      "private management workflows",
+      "responsive behavior",
+      "service readiness"
+    ],
+    "mayNotInfer": [
+      "commercial release",
+      "public availability",
+      "validated price or stock",
+      "validated rights for unproven references",
+      "validated Food safety/shelf-life/allergen claims"
+    ],
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "commercialRelease": {
+    "state": "LOCKED_UNTIL_REAL_EVIDENCE"
   }
 }
