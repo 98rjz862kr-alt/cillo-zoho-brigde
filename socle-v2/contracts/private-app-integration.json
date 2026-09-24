@@ -22,7 +22,10 @@
       "replenishment",
       "content-updates"
     ],
-    "sourceRepository": "98rjz862kr-alt/lmi-application-privee-integration-contenus"
+    "sourceRepository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
+    "sourceBranch": "codex/consolidation-integrale-application-lmi-v2",
+    "sourceSha": "9b9dd5cbe1dd9a1b9d213905cdfb581b36fab69d",
+    "sourceRegistryPath": "integration/sites-source-registry.v1.json"
   },
   "sites": {
     "editions": {
@@ -87,7 +90,8 @@
       "RUNTIME_BRIDGE",
       "MEDIA_MANIFEST",
       "PRIVATE_APP_MANAGEMENT",
-      "HUMAN_SERVICE_RECIPE"
+      "HUMAN_SERVICE_RECIPE",
+      "BRIDGE_SOURCE_REGISTRY_ALIGNMENT"
     ],
     "commercialRelease": [
       "PRODUCT_OR_RIGHTS_EVIDENCE",
@@ -111,7 +115,7 @@
       "#C8A96B",
       "#C9C3BA"
     ],
-    "privateAppSourceSha": "cc58c3ffb3ca6dee0d8c779ec878fa6cbd12f9e5"
+    "privateAppSourceSha": "9b9dd5cbe1dd9a1b9d213905cdfb581b36fab69d"
   },
   "management": {
     "authority": "private-app",
