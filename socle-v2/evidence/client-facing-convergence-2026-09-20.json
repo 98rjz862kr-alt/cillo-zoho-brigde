@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-24T12:45:00Z",
+  "generatedAt": "2026-09-24T12:51:00Z",
   "brand": "LES MOTS IMAGÉS",
   "integrationBranch": "work/socle-commun-v2-20260915",
   "liveIntegrationSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
@@ -38,7 +38,8 @@
     "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING",
     "driveBackedVisitorAssets": "PASS_4_67_PAGES_52_IMAGE_REFS",
     "canonicalSiteCopy": "PASS_4_67_PAGES",
-    "siteContentControlMap": "PASS_4_67_ROUTES_98_SOURCE_BINDINGS"
+    "siteContentControlMap": "PASS_4_67_ROUTES_98_SOURCE_BINDINGS",
+    "brandAuthorityAlignment": "PASS"
   },
   "sites": {
     "musee": {
@@ -98,6 +99,13 @@
     "food": "BOUND_WITH_OFFICIAL_LOGO_DRIVE_SHA",
     "editions": "BOUND"
   },
-  "currentSourceQualifiedSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
-  "currentBranchHeadAtEvidence": "e175b07739258353c50087722cc1aa71751d99c9"
+  "currentSourceQualifiedSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+  "currentBranchHeadAtEvidence": "e175b07739258353c50087722cc1aa71751d99c9",
+  "currentSourceQualification": "PASS_NPM_TEST_AND_INTEGRATION_AFTER_BRAND_AUTHORITY_ALIGNMENT",
+  "brandAuthority": {
+    "identityGold": "#D4AF37",
+    "premiumMatteGold": "#C8A96B",
+    "obsoleteColor": "#C9A13B",
+    "status": "PASS"
+  }
 }
