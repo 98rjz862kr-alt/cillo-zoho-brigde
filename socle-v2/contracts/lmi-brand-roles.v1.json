@@ -1,11 +1,26 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "2.0.0",
   "brand": "LES MOTS IMAGÉS",
   "tagline": "LE VERBE PAR L’IMAGE",
+  "authority": {
+    "path": "assets/brand/lmi-brand-authority.json",
+    "schema": "lmi.brand.authority/1",
+    "status": "CANONICAL"
+  },
+  "roles": {
+    "identityPrimary": "#143B7D",
+    "identityAccent": "#D4AF37",
+    "ochre": "#CC7722",
+    "sand": "#75553F",
+    "nightBlue": "#0F2747",
+    "ivory": "#F6F1E8",
+    "premiumAccent": "#C8A96B",
+    "stoneGray": "#C9C3BA"
+  },
   "colors": {
     "identity": {
       "blue": "#143B7D",
-      "gold": "#C9A13B"
+      "gold": "#D4AF37"
     },
     "palette": {
       "ochre": "#CC7722",
@@ -20,7 +35,9 @@
     }
   },
   "rules": {
-    "goldRolesDistinct": true,
-    "universalGoldForbidden": true
+    "unknownBrandColorForbidden": true,
+    "identityGold": "#D4AF37",
+    "premiumMatteGold": "#C8A96B",
+    "identityAndPremiumGoldMustRemainDistinct": true
   }
 }
