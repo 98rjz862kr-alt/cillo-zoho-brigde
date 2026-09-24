@@ -1,12 +1,12 @@
 {
   "schemaVersion": "1.1.0",
-  "recordedAt": "2026-09-24T12:45:00Z",
+  "recordedAt": "2026-09-24T12:51:00Z",
   "recipeTarget": {
     "integrationSha": null,
     "renderDeployId": null,
     "privateBridgeUrl": "https://cillo-zoho-bridge.onrender.com",
     "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette",
-    "requiredSourceSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "requiredSourceSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
     "currentHistoricalRuntimeSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
     "currentHistoricalDeployId": "dep-dapcsnbm8hqs739bn6a0"
   },
