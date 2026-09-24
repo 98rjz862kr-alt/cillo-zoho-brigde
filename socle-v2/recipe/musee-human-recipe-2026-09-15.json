@@ -1,99 +1,92 @@
 {
+  "schemaVersion": "2.0.0",
   "site": "musee",
-  "decision": "HUMAN_RECIPE_REQUIRED",
-  "bridge": {
+  "status": "HISTORICAL_SUPERSEDED",
+  "role": "historical-brand-correction-recipe-record",
+  "currentGate": "human-recipe-gate-2026-09-20.json",
+  "decision": "SUPERSEDED_DO_NOT_RUN",
+  "historicalFrozenSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+  "historicalFrozenPackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+  "historicalBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
+  "historicalBridge": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
     "deployId": "dep-dam6fnou01pc73eh87kg",
     "status": "live",
     "integrationSha": "3710a04529f77b411810354826352d1f2b52c534",
     "url": "https://cillo-zoho-bridge.onrender.com"
   },
-  "rules": [
-    "do-not-recipe-historical-live-snapshot-with-known-brand-error",
-    "converge-corrected-candidate-to-private-bridge-before-human-recipe",
-    "verify-runtime-package-sha-before-opening-recipe",
-    "record-each-reserve-against-corrected-source-sha",
-    "no-publication-or-dns-change-from-this-recipe"
+  "historicalTarget": {
+    "sourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+    "packageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47"
+  },
+  "rule": "This file preserves the September 15 Museum recipe lineage only. It must not be used to open or qualify the current human recipe.",
+  "currentRecipeRequirements": [
+    "use-current-consolidated-source",
+    "exact-private-bridge-runtime-required",
+    "verify-current-four-site-package-sha256",
+    "protocol-1.2-private-app-management-required",
+    "no-publication-or-dns-change"
   ],
   "checks": [
     {
       "id": "MUS-01",
       "label": "Accueil et navigation principale",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-02",
       "label": "17 pages publiques qualifiées accessibles sans erreur",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-03",
       "label": "Parcours collections et archives cohérents",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-04",
       "label": "Parcours Presse, Partenaires, Programmateurs et Prescripteurs",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-05",
       "label": "Contact et mentions légales affichés correctement",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-06",
       "label": "Desktop 1440 px sans rupture visuelle",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-07",
       "label": "Mobile 390 px et 320 px sans débordement",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-08",
       "label": "Navigation clavier et focus visible",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-09",
       "label": "Liens, médias, crédits et provenance visibles conformes",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-10",
       "label": "Aucune notice hypothétique exposée comme corpus validé",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-11",
       "label": "Robots, sitemap et canonical cohérents avec le paquet qualifié",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     },
     {
       "id": "MUS-12",
       "label": "Décision humaine finale GO / NO_GO consignée",
-      "result": "PENDING"
+      "result": "HISTORICAL_NOT_RUN"
     }
-  ],
-  "historicalFrozenSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
-  "historicalFrozenPackageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
-  "historicalBlocker": "BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES",
-  "targetSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
-  "targetPackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
-  "runtimeQualification": {
-    "build": "PASS",
-    "integrationTests": "PASS",
-    "healthRevision": "3710a04529f77b411810354826352d1f2b52c534",
-    "publicRuntimeManifestStatus": 401,
-    "previewNavigation": {
-      "pages": 115,
-      "resources": 120,
-      "links": 656,
-      "unauthorizedDenied": 120,
-      "sessionAuthentication": true
-    },
-    "museumRuntimeAudit": "PASS"
-  }
+  ]
 }
