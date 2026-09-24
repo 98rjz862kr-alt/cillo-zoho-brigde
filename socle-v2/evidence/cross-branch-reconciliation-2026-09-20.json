@@ -1,17 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-22T18:39:05Z",
+  "recordedAt": "2026-09-24T10:15:00Z",
   "brand": "LES MOTS IMAGÉS",
-  "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE_RECIPE_SUSPENDED",
+  "state": "CROSS_BRANCH_RECONCILIATION_SOURCE_QUALIFIED_RUNTIME_REBUILD_PENDING",
   "current": {
     "branch": "work/socle-commun-v2-20260915",
-    "head": "d3c924a628ed021378604ea87220aea56da45f4c",
+    "head": "26eb89310b2fc39e685a92832d7a39542829a0a4",
     "pr": 118,
     "prDraft": true,
     "render": {
       "serviceId": "srv-d9osqbmgekts73eoqis0",
-      "deployId": "dep-dapcm6jbc2fs73f8t5jg",
-      "status": "live"
+      "deployId": "dep-dapcsnbm8hqs739bn6a0",
+      "status": "live_historical_runtime",
+      "runtimeSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c"
     },
     "latestRuntimeLockCommit": "475666a7dff105ead82f2dabe61bd66d5227a3c3"
   },
@@ -94,13 +95,14 @@
     "Current Bridge exposes disallow-all robots.txt and authenticated Editions sitemap"
   ],
   "unresolvedBeforeRecipe": [
-    "A parallel agent is still considered active by project governance; its latest pushed branch/head must be identified and re-read before freezing a recipe candidate.",
-    "If that parallel branch advances, repeat file/function comparison against the new head.",
-    "Only after all useful deltas are absorbed or explicitly rejected may reconciliation state become CLOSED and one exact runtime SHA be frozen."
+    "Rebuild and qualify exact runtime for source SHA 26eb89310b2fc39e685a92832d7a39542829a0a4.",
+    "Verify exact runtime package hashes equal the source-qualified package hashes above.",
+    "Recheck any newer same-branch commits before freezing the recipe target.",
+    "Keep commercial publication locked until Maison/Food release evidence is intentionally satisfied."
   ],
   "humanRecipe": {
     "state": "SUSPENDED",
-    "reason": "Cross-branch reconciliation remains open; no human recipe until the latest parallel production head is identified and reconciled."
+    "reason": "Current source is qualified locally but the exact runtime still serves historical SHA dfde95f9; no human recipe before exact-SHA runtime rebuild and cross-check."
   },
   "publicationLocks": {
     "mergeMain": false,
@@ -144,10 +146,62 @@
   },
   "knownPushedHeadsReview": "COMPLETE",
   "recipeFreezeEligible": false,
-  "blockingCondition": "Parallel production remains active outside the currently mapped pushed heads. Re-read and compare its next concrete Git head before freezing a unique recipe SHA.",
+  "blockingCondition": "EXACT_SOURCE_26eb893_RUNTIME_REBUILD_AND_REQUALIFICATION_REQUIRED",
   "runtimeRecipeLock": {
     "state": "ENFORCED",
     "httpStatus": 423,
     "proof": "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
+  },
+  "latestSourceQualification": {
+    "machine": "MinideABDOULAYE.lan",
+    "date": "2026-09-24",
+    "sourceSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "npmTest": "PASS",
+    "integrationTest": "PASS",
+    "evidence": [
+      "HUB_ASSET_INTEGRITY_PASS 4",
+      "HUB_SEO_PASS 32 canonical+OpenGraph",
+      "HUB_VISITOR_COPY_PASS 32",
+      "HUMAN_RECIPE_ROUTE_LOCK_PASS 423",
+      "HUB_RUNTIME_INTEGRITY_PASS 4",
+      "HUB_A11Y_RENDERED_PASS 32",
+      "CANONICAL_BRAND_ALL_SITES_PASS 4",
+      "INTEGRATION_RUNTIME_PASS 4",
+      "SOCLE_V2_PASS",
+      "EDITIONS_RENDERED_CONTRACT_PASS 33",
+      "SOCLE_V2_RUNTIME_PASS",
+      "PRIVATE_APP_INTEGRATION_CONTRACT_PASS 4 PROTOCOL_1_2",
+      "PRIVATE_APP_INGESTION_PASS 4",
+      "PREVIEW_NAVIGATION_PASS 119 pages / 125 resources / 719 links / 125 unauthorized denied",
+      "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes",
+      "DRIVE_BACKED_VISITOR_ASSETS_PASS 4 sites / 67 pages / 52 image refs",
+      "CANONICAL_SITE_COPY_PASS 4 sites / 67 pages",
+      "SITE_CONTENT_CONTROL_MAP_PASS 4 sites / 67 routes / 98 source bindings"
+    ]
+  },
+  "currentSourcePackages": {
+    "musee": {
+      "sha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "files": 49
+    },
+    "maison": {
+      "sha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "files": 19
+    },
+    "food": {
+      "sha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "files": 34
+    },
+    "editions": {
+      "sha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "files": 39
+    }
+  },
+  "parallelProductionObservation": {
+    "sameBranchAdvancedSincePriorAudit": true,
+    "previousComparedHead": "4c11b102eb129a975e14339d2d9d95eefc800fb6",
+    "currentHead": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "commitsAdded": 32,
+    "interpretation": "Parallel work has been landing on the same consolidation branch, so cross-check is performed by head-to-head delta review rather than branch name alone."
   }
 }
