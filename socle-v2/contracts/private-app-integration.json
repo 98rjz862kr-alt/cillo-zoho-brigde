@@ -24,7 +24,7 @@
     ],
     "sourceRepository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
     "sourceBranch": "codex/consolidation-integrale-application-lmi-v2",
-    "sourceSha": "374497fe6f8db7878d30c75ae03a0dbe010c33a5",
+    "sourceSha": "cb572ed84d01b19c7c04dd723b06bc34d08a1630",
     "sourceRegistryPath": "integration/sites-source-registry.v1.json",
     "crossRepositoryReferencePolicy": "NO_MUTUAL_LATEST_SHA_CYCLE",
     "sitePackageAuthority": "PRIVATE_APP_SOURCE_REGISTRY_REGISTERED_SHA256",
@@ -125,7 +125,7 @@
       "#C8A96B",
       "#C9C3BA"
     ],
-    "privateAppSourceSha": "374497fe6f8db7878d30c75ae03a0dbe010c33a5"
+    "privateAppSourceSha": "cb572ed84d01b19c7c04dd723b06bc34d08a1630"
   },
   "management": {
     "authority": "private-app",
