@@ -26,7 +26,7 @@ function validateTokens() {
   if (data?.brand?.canonicalName !== 'LES MOTS IMAGÉS') fail('tokens.json: nom canonique incorrect');
   if (data?.brand?.tagline !== 'LE VERBE PAR L’IMAGE') fail('tokens.json: signature incorrecte');
   const expected = {
-  identityGold: '#C9A13B',
+  identityGold: '#D4AF37',
     blue:'#143B7D', ochre:'#CC7722', sand:'#75553F', gold:'#D4AF37',
     night:'#0F2747', ivory:'#F6F1E8', matteGold:'#C8A96B', stone:'#C9C3BA'
   };
@@ -132,10 +132,16 @@ if (existsSync(manifestDir)) {
 
 const brandRoles = JSON.parse(readFileSync(new URL('../contracts/lmi-brand-roles.v1.json', import.meta.url), 'utf8'));
 if (brandRoles.brand !== 'LES MOTS IMAGÉS') fail('brand roles: nom incorrect');
-if (brandRoles.colors?.identity?.gold !== '#C9A13B') fail('brand roles: identity gold incorrect');
-if (brandRoles.colors?.palette?.gold !== '#D4AF37') fail('brand roles: palette gold incorrect');
+if (brandRoles.schemaVersion !== '2.0.0') fail('brand roles: schema version incorrect');
+if (brandRoles.authority?.path !== 'assets/brand/lmi-brand-authority.json' || brandRoles.authority?.schema !== 'lmi.brand.authority/1') fail('brand roles: canonical authority missing');
+if (brandRoles.roles?.identityPrimary !== '#143B7D') fail('brand roles: identity blue incorrect');
+if (brandRoles.roles?.identityAccent !== '#D4AF37') fail('brand roles: identity gold incorrect');
+if (brandRoles.roles?.premiumAccent !== '#C8A96B') fail('brand roles: premium matte gold incorrect');
+if (brandRoles.colors?.identity?.gold !== '#D4AF37' || brandRoles.colors?.palette?.gold !== '#D4AF37') fail('brand roles: gold must follow canonical authority');
 if (brandRoles.colors?.premium?.matteGold !== '#C8A96B') fail('brand roles: matte gold incorrect');
-if (brandRoles.rules?.goldRolesDistinct !== true || brandRoles.rules?.universalGoldForbidden !== true) fail('brand roles: governance incorrect');
-if (new Set([brandRoles.colors.identity.gold, brandRoles.colors.palette.gold, brandRoles.colors.premium.matteGold]).size !== 3) fail('brand roles: golds must remain distinct');
+if (brandRoles.rules?.unknownBrandColorForbidden !== true || brandRoles.rules?.identityGold !== '#D4AF37' || brandRoles.rules?.premiumMatteGold !== '#C8A96B' || brandRoles.rules?.identityAndPremiumGoldMustRemainDistinct !== true) fail('brand roles: governance incorrect');
+if (brandRoles.roles?.identityAccent === brandRoles.roles?.premiumAccent) fail('brand roles: identity and premium gold must remain distinct');
+if (JSON.stringify(brandRoles).includes('#C9A13B')) fail('brand roles: obsolete #C9A13B forbidden');
+if (JSON.stringify(parseJson(path.join(ROOT,'tokens.json'))).includes('#C9A13B')) fail('tokens.json: obsolete #C9A13B forbidden');
 
 if (!process.exitCode) console.log('SOCLE_V2_PASS');
