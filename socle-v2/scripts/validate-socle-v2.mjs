@@ -85,6 +85,7 @@ function validateBrandInSocle() {
         const rel=path.relative(ROOT,full);
         const text=readFileSync(full,'utf8');
         if (/LES MOTS IMAGES|Les Mots Images/.test(text)) fail(`${rel}: variante de marque non canonique`);
+        if (/#C9A13B/i.test(text)) fail(`${rel}: couleur de marque obsolète #C9A13B`);
       }
     }
   }
