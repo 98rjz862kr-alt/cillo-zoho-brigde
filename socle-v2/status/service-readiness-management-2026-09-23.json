@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-24T10:15:00Z",
-  "state": "SOURCE_26EB893_QUALIFIED_EXACT_RUNTIME_REBUILD_REQUIRED",
+  "recordedAt": "2026-09-24T12:50:00Z",
+  "state": "SOURCE_91C0688_QUALIFIED_EXACT_RUNTIME_REBUILD_REQUIRED",
   "principle": "READY_TO_SERVE_IS_NOT_READY_TO_PUBLISH",
   "privateApp": {
     "repository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
@@ -24,8 +24,8 @@
     "repository": "98rjz862kr-alt/cillo-zoho-brigde",
     "branch": "work/socle-commun-v2-20260915",
     "protocolId": "lmi-sites-publication-protocol@1.2.0",
-    "sourceTests": "PASS_MAC_MINI_NPM_TEST_AND_INTEGRATION",
-    "sourceSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "sourceTests": "PASS_MAC_MINI_NPM_TEST_AND_INTEGRATION_AFTER_BRAND_AUTHORITY_ALIGNMENT",
+    "sourceSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
     "sourcePackageHashes": {
       "musee": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
       "maison": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
@@ -66,5 +66,13 @@
     "publicPublication": false,
     "publicOrdering": false
   },
-  "nextGate": "DEPLOY_AND_QUALIFY_EXACT_SOURCE_SHA_26EB89310B2FC39E685A92832D7A39542829A0A4"
+  "nextGate": "DEPLOY_AND_QUALIFY_EXACT_SOURCE_SHA_91C0688F6F64275828A6FF0CB645EAADD9AEF965",
+  "brandAuthorityReconciliation": {
+    "state": "PASS",
+    "privateAppAuthority": "assets/brand/lmi-brand-authority.json",
+    "socleIdentityGold": "#D4AF37",
+    "premiumMatteGold": "#C8A96B",
+    "obsoleteColorRejected": "#C9A13B",
+    "localQualification": "PASS"
+  }
 }
