@@ -15,7 +15,7 @@ if(contract.security.serverToServerAuthRequired!==true)fail('server-to-server au
 if(contract.brandContract?.id!=='lmi-brand-roles@2.0.0')fail('brand contract id');
 if(contract.brandContract?.authorityPath!=='assets/brand/lmi-brand-authority.json')fail('brand authority path');
 if(contract.brandContract?.authoritySchema!=='lmi.brand.authority/1')fail('brand authority schema');
-if(contract.brandContract?.privateAppSourceSha!=='374497fe6f8db7878d30c75ae03a0dbe010c33a5')fail('private app source sha');
+if(contract.brandContract?.privateAppSourceSha!=='cb572ed84d01b19c7c04dd723b06bc34d08a1630')fail('private app source sha');
 if(contract.privateApp?.sourceSha!==contract.brandContract?.privateAppSourceSha)fail('private app source alignment');
 if(contract.privateApp?.sourceRegistryPath!=='integration/sites-source-registry.v1.json')fail('private app source registry path');
 if(contract.privateApp?.crossRepositoryReferencePolicy!=='NO_MUTUAL_LATEST_SHA_CYCLE')fail('cross-repository reference policy');
