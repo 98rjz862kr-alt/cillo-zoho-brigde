@@ -15,9 +15,11 @@ if(contract.security.serverToServerAuthRequired!==true)fail('server-to-server au
 if(contract.brandContract?.id!=='lmi-brand-roles@2.0.0')fail('brand contract id');
 if(contract.brandContract?.authorityPath!=='assets/brand/lmi-brand-authority.json')fail('brand authority path');
 if(contract.brandContract?.authoritySchema!=='lmi.brand.authority/1')fail('brand authority schema');
-if(contract.brandContract?.privateAppSourceSha!=='9b9dd5cbe1dd9a1b9d213905cdfb581b36fab69d')fail('private app source sha');
+if(contract.brandContract?.privateAppSourceSha!=='374497fe6f8db7878d30c75ae03a0dbe010c33a5')fail('private app source sha');
 if(contract.privateApp?.sourceSha!==contract.brandContract?.privateAppSourceSha)fail('private app source alignment');
 if(contract.privateApp?.sourceRegistryPath!=='integration/sites-source-registry.v1.json')fail('private app source registry path');
+if(contract.privateApp?.crossRepositoryReferencePolicy!=='NO_MUTUAL_LATEST_SHA_CYCLE')fail('cross-repository reference policy');
+if(contract.privateApp?.sitePackageAuthority!=='PRIVATE_APP_SOURCE_REGISTRY_REGISTERED_SHA256')fail('site package authority');
 const canonical=['#143B7D','#CC7722','#75553F','#D4AF37','#0F2747','#F6F1E8','#C8A96B','#C9C3BA'];
 if(JSON.stringify(contract.brandContract?.canonicalPalette)!==JSON.stringify(canonical))fail('canonical palette');
 if(contract.brandContract?.canonicalPalette?.includes('#C9A13B'))fail('obsolete non-canonical gold');
