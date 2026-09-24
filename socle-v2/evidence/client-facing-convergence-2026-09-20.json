@@ -1,24 +1,24 @@
 {
   "schemaVersion": "1.0.0",
-  "generatedAt": "2026-09-23T13:45:00Z",
+  "generatedAt": "2026-09-24T12:45:00Z",
   "brand": "LES MOTS IMAGÉS",
   "integrationBranch": "work/socle-commun-v2-20260915",
   "liveIntegrationSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
   "render": {
     "serviceId": "srv-d9osqbmgekts73eoqis0",
     "deployId": "dep-dapcsnbm8hqs739bn6a0",
-    "status": "live",
+    "status": "live_historical",
     "url": "https://cillo-zoho-bridge.onrender.com",
     "build": "PASS",
-    "runtime": "PASS"
+    "runtime": "PASS_HISTORICAL_NOT_EXACT_CURRENT_SOURCE"
   },
   "gates": {
     "canonicalBrand": "PASS_4",
     "integrationRuntime": "PASS_4",
     "socleV2": "PASS",
     "editionsRenderedContract": "PASS_33",
-    "privateAppIntegrationContract": "PASS_4",
-    "privateAppIngestion": "PASS_4",
+    "privateAppIntegrationContract": "PASS_4_PROTOCOL_1_2_SOURCE",
+    "privateAppIngestion": "PASS_4_SOURCE",
     "previewNavigation": {
       "status": "PASS",
       "pages": 119,
@@ -32,39 +32,54 @@
       "sites": 4,
       "visitorRoutes": 67
     },
-    "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
+    "humanRecipe": "SUSPENDED_EXACT_RUNTIME_REBUILD",
     "humanRecipeRouteLock": "PASS_423",
     "humanServiceJudgement": "PENDING_AFTER_RUNTIME_REBUILD",
-    "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING"
+    "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING",
+    "driveBackedVisitorAssets": "PASS_4_67_PAGES_52_IMAGE_REFS",
+    "canonicalSiteCopy": "PASS_4_67_PAGES",
+    "siteContentControlMap": "PASS_4_67_ROUTES_98_SOURCE_BINDINGS"
   },
   "sites": {
     "musee": {
       "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
       "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
-      "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
-      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+      "runtimeExactPackage": false,
+      "humanRecipe": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE",
+      "currentSourcePackageSha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "liveRuntimePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
+      "runtimeExactCurrentSource": false
     },
     "maison": {
       "candidateSourceSha": "90f0745b8bc93beee912c5583f7d7f5696139785",
       "candidatePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
       "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
-      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+      "humanRecipe": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE",
+      "currentSourcePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "liveRuntimePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "runtimeExactCurrentSource": false
     },
     "food": {
       "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
       "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
       "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
-      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+      "humanRecipe": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE",
+      "currentSourcePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "liveRuntimePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "runtimeExactCurrentSource": false
     },
     "editions": {
       "candidateSourceSha": "b42d6cce3baef302ce6cff1bcdff340e35d09aa9",
       "candidatePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
-      "runtimeExactPackage": true,
-      "humanRecipe": "SUSPENDED_RUNTIME_REBUILD",
-      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+      "runtimeExactPackage": false,
+      "humanRecipe": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE",
+      "currentSourcePackageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "liveRuntimePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
+      "runtimeExactCurrentSource": false
     }
   },
   "publication": {
@@ -82,5 +97,7 @@
     "maison": "BOUND_WITH_OFFICIAL_LOGO_DRIVE_SHA",
     "food": "BOUND_WITH_OFFICIAL_LOGO_DRIVE_SHA",
     "editions": "BOUND"
-  }
+  },
+  "currentSourceQualifiedSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+  "currentBranchHeadAtEvidence": "e175b07739258353c50087722cc1aa71751d99c9"
 }
