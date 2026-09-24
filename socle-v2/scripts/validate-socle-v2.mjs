@@ -95,27 +95,32 @@ function validateDeployGuard() {
   const file=path.join(ROOT,'deploy-guard.json');
   const data=parseJson(file);
   if (!data) return;
-  if (data.branch!=='work/socle-commun-v2-20260915'||data.autoDeploy!==false) fail('deploy guard: configuration Render inattendue');
-  if (data.liveSourceSha!=='3710a04529f77b411810354826352d1f2b52c534') fail('deploy guard: runtime privé LIVE inattendu');
-  if (data.liveRecipeEligible!==true||data.liveBlocker!==null) fail('deploy guard: runtime privé non éligible à la recette');
-  if (data.targetCandidateSourceSha!=='751a00b91760dbff36691a0ac460c0da7bf524f7') fail('deploy guard: candidat Musée corrigé inattendu');
-  if (data.targetCandidatePackageSha256!=='a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47') fail('deploy guard: paquet Musée corrigé inattendu');
-  if (data.museumRecipePending!==true) fail('deploy guard: recette Musée doit rester en attente');
-  if (data.mergeMainAllowed!==false||data.manualDeployAllowed!==false) fail('deploy guard: déploiement doit être reverrouillé pendant la recette');
+  if (data.branch!=='work/socle-commun-v2-20260915'||data.autoDeploy!==false||data.autoDeployTrigger!=='off') fail('deploy guard: configuration Render inattendue');
+  if (data.liveSourceSha!=='dfde95f972d584b4ecfe79b0d0ebab684002d73c') fail('deploy guard: runtime historique LIVE inattendu');
+  if (data.liveDeployId!=='dep-dapcsnbm8hqs739bn6a0'||data.liveStatus!=='live_historical') fail('deploy guard: déploiement historique inattendu');
+  if (data.liveRecipeEligible!==false||data.liveBlocker!=='LIVE_RUNTIME_NOT_EXACT_CURRENT_SOURCE') fail('deploy guard: recette doit rester verrouillée sur runtime historique');
+  if (data.humanRecipePending!==true||data.humanRecipeStartAllowed!==false) fail('deploy guard: recette humaine doit rester suspendue');
+  if (data.mergeMainAllowed!==false||data.publicPublicationAllowed!==false||data.dnsChangeAllowed!==false) fail('deploy guard: verrous de publication incorrects');
+  if (data.privateBridgeDeployAllowed!==true||data.targetPolicy!=='LATEST_REQUALIFIED_CONSOLIDATED_HEAD') fail('deploy guard: déploiement privé exact doit rester autorisé après requalification');
+  const expected={
+    musee:'a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1',
+    maison:'695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926',
+    food:'c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22',
+    editions:'67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950'
+  };
+  for (const [site,sha] of Object.entries(expected)) if (data.requiredPackageSha256?.[site]!==sha) fail(`deploy guard: paquet source ${site} inattendu`);
 }
 
 function validateMuseumRecipe() {
   const file=path.join(ROOT,'recipe/musee-human-recipe-2026-09-15.json');
   const data=parseJson(file);
   if (!data) return;
+  if (data.status!=='HISTORICAL_SUPERSEDED'||data.decision!=='SUPERSEDED_DO_NOT_RUN') fail('recette Musée historique: statut de déclassement incorrect');
+  if (data.currentGate!=='human-recipe-gate-2026-09-20.json') fail('recette Musée historique: gate courant absent');
   if (data.historicalFrozenSourceSha!=='f8d046bdfea2c0854364579cca59cbd2fd85a8b9') fail('recette Musée: SHA historique gelé incorrect');
   if (data.historicalFrozenPackageSha256!=='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd') fail('recette Musée: paquet historique gelé incorrect');
   if (data.historicalBlocker!=='BRAND_IDENTITY_NON_CANONICAL_LES_MOTS_IMAGES') fail('recette Musée: blocage de marque historique absent');
-  if (data.targetSourceSha!=='751a00b91760dbff36691a0ac460c0da7bf524f7') fail('recette Musée: SHA candidat corrigé incorrect');
-  if (data.targetPackageSha256!=='a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47') fail('recette Musée: paquet candidat corrigé incorrect');
-  if (!Array.isArray(data.checks)||data.checks.length<12) fail('recette Musée: contrôles humains incomplets');
-  if (data.decision==='WAITING_FOR_CORRECTED_BRIDGE_CANDIDATE' && (data.checks||[]).some((c)=>c.result!=='BLOCKED_PENDING_CORRECTED_RUNTIME')) fail('recette Musée: contrôles doivent rester bloqués avant convergence runtime');
-  if (data.decision==='HUMAN_RECIPE_REQUIRED' && (data.checks||[]).some((c)=>c.result!=='PENDING')) fail('recette Musée: résultat humain prérempli interdit');
+  if (!Array.isArray(data.checks)||data.checks.length<12||(data.checks||[]).some((entry)=>entry.result!=='HISTORICAL_NOT_RUN')) fail('recette Musée historique: contrôles doivent rester non exécutés');
 }
 
 validateStructure();
