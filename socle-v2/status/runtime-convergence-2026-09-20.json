@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-24T12:45:00Z",
-  "state": "CURRENT_SOURCE_QUALIFIED_HISTORICAL_RUNTIME_LIVE_EXACT_REBUILD_REQUIRED",
+  "recordedAt": "2026-09-24T12:51:00Z",
+  "state": "SOURCE_91C0688_QUALIFIED_RUNTIME_HISTORICAL_EXACT_REBUILD_REQUIRED",
   "integration": {
     "repository": "98rjz862kr-alt/cillo-zoho-brigde",
     "branch": "work/socle-commun-v2-20260915",
@@ -68,10 +68,11 @@
     "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING",
     "driveBackedVisitorAssets": "PASS_4_67_PAGES_52_IMAGE_REFS",
     "canonicalSiteCopy": "PASS_4_67_PAGES",
-    "siteContentControlMap": "PASS_4_67_ROUTES_98_SOURCE_BINDINGS"
+    "siteContentControlMap": "PASS_4_67_ROUTES_98_SOURCE_BINDINGS",
+    "brandAuthorityAlignment": "PASS"
   },
   "releaseGate": {
-    "sourceSha": "SATISFIED_CURRENT_SOURCE",
+    "sourceSha": "SATISFIED_CURRENT_SOURCE_91C0688",
     "build": "SATISFIED_SOURCE",
     "runtimeBridge": "HISTORICAL_NOT_EXACT_CURRENT_SOURCE",
     "mediaManifest": "TECHNICALLY_BOUND_PER_SITE",
@@ -87,9 +88,9 @@
     "publicOrdering": false
   },
   "sourceQualified": {
-    "head": "26eb89310b2fc39e685a92832d7a39542829a0a4",
-    "branchHeadAtEvidence": "e175b07739258353c50087722cc1aa71751d99c9",
-    "tests": "PASS_LOCAL_MAC_MINI_NPM_TEST_AND_INTEGRATION",
-    "protocolId": "lmi-sites-publication-protocol@1.2.0"
+    "head": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "tests": "PASS_NPM_TEST_AND_INTEGRATION",
+    "protocolId": "lmi-sites-publication-protocol@1.2.0",
+    "brandAuthority": "D4AF37_IDENTITY_C8A96B_PREMIUM"
   }
 }
