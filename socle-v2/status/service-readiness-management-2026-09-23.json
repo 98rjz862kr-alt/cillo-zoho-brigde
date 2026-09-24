@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-23T13:52:00Z",
-  "state": "SERVICE_READINESS_SOURCE_COMPLETE_RUNTIME_REBUILD_REQUIRED",
+  "recordedAt": "2026-09-24T10:15:00Z",
+  "state": "SOURCE_26EB893_QUALIFIED_EXACT_RUNTIME_REBUILD_REQUIRED",
   "principle": "READY_TO_SERVE_IS_NOT_READY_TO_PUBLISH",
   "privateApp": {
     "repository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
@@ -24,7 +24,19 @@
     "repository": "98rjz862kr-alt/cillo-zoho-brigde",
     "branch": "work/socle-commun-v2-20260915",
     "protocolId": "lmi-sites-publication-protocol@1.2.0",
-    "sourceTests": "PASS"
+    "sourceTests": "PASS_MAC_MINI_NPM_TEST_AND_INTEGRATION",
+    "sourceSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "sourcePackageHashes": {
+      "musee": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "maison": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "food": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "editions": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950"
+    },
+    "currentLiveRuntime": {
+      "sha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
+      "deployId": "dep-dapcsnbm8hqs739bn6a0",
+      "qualification": "HISTORICAL_PROTOCOL_RUNTIME"
+    }
   },
   "humanServiceRecipe": {
     "realProductEvidenceRequired": false,
@@ -40,7 +52,8 @@
       "private management workflows",
       "responsive behavior",
       "service readiness"
-    ]
+    ],
+    "state": "SUSPENDED_EXACT_RUNTIME_REQUIRED"
   },
   "commercialRelease": {
     "state": "LOCKED",
@@ -53,5 +66,5 @@
     "publicPublication": false,
     "publicOrdering": false
   },
-  "nextGate": "EXACT_PROTOCOL_1_2_RUNTIME_REBUILD_AND_QUALIFICATION"
+  "nextGate": "DEPLOY_AND_QUALIFY_EXACT_SOURCE_SHA_26EB89310B2FC39E685A92832D7A39542829A0A4"
 }
