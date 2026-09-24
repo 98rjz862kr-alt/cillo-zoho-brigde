@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "recordedAt": "2026-09-24T10:15:00Z",
+  "recordedAt": "2026-09-24T12:50:00Z",
   "brand": "LES MOTS IMAGÉS",
   "state": "CROSS_BRANCH_RECONCILIATION_SOURCE_QUALIFIED_RUNTIME_REBUILD_PENDING",
   "current": {
@@ -75,14 +75,16 @@
     "Independent four-site GitHub workflow concept",
     "Hub canonical URL and OpenGraph metadata contract",
     "Private Bridge robots.txt disallow-all lock",
-    "Authenticated 32-URL Editions sitemap"
+    "Authenticated 32-URL Editions sitemap",
+    "Private-app canonical brand authority: identity gold #D4AF37, premium matte gold #C8A96B"
   ],
   "adaptedBecauseStale": [
     "Old unaccented displayed brand replaced by LES MOTS IMAGÉS",
     "Old single-WebP Hub visual model replaced by current four-asset canonical manifest",
     "Old query-password runtime test replaced by private session POST login",
     "Old www.lesmotsimages.com canonical target replaced by editions.lesmotsimages.com",
-    "Old stale visitor title/H1 replaced by current canonical visitor copy"
+    "Old stale visitor title/H1 replaced by current canonical visitor copy",
+    "Obsolete #C9A13B Socle identity-gold role replaced by canonical #D4AF37 authority"
   ],
   "currentAdvantagesAlreadyVerified": [
     "Current Maison manifest contains later canonical hero and official logo provenance",
@@ -95,14 +97,14 @@
     "Current Bridge exposes disallow-all robots.txt and authenticated Editions sitemap"
   ],
   "unresolvedBeforeRecipe": [
-    "Rebuild and qualify exact runtime for source SHA 26eb89310b2fc39e685a92832d7a39542829a0a4.",
-    "Verify exact runtime package hashes equal the source-qualified package hashes above.",
-    "Recheck any newer same-branch commits before freezing the recipe target.",
-    "Keep commercial publication locked until Maison/Food release evidence is intentionally satisfied."
+    "Deploy and qualify exact runtime for source SHA 91c0688f6f64275828a6ff0cb645eaadd9aef965.",
+    "Verify exact runtime package hashes equal the current source-qualified package hashes.",
+    "Recheck any newer production HEAD before freezing the recipe target.",
+    "Keep commercial publication locked until Maison/Food release evidence and Editions exact cover authorities are intentionally satisfied."
   ],
   "humanRecipe": {
     "state": "SUSPENDED",
-    "reason": "Current source is qualified locally but the exact runtime still serves historical SHA dfde95f9; no human recipe before exact-SHA runtime rebuild and cross-check."
+    "reason": "Source passes full local qualification after brand-authority reconciliation; exact runtime is still historical and must be rebuilt."
   },
   "publicationLocks": {
     "mergeMain": false,
@@ -146,7 +148,7 @@
   },
   "knownPushedHeadsReview": "COMPLETE",
   "recipeFreezeEligible": false,
-  "blockingCondition": "EXACT_SOURCE_26eb893_RUNTIME_REBUILD_AND_REQUALIFICATION_REQUIRED",
+  "blockingCondition": "EXACT_SOURCE_91C0688F6F64275828A6FF0CB645EAADD9AEF965_RUNTIME_REBUILD_AND_REQUALIFICATION_REQUIRED",
   "runtimeRecipeLock": {
     "state": "ENFORCED",
     "httpStatus": 423,
@@ -155,9 +157,10 @@
   "latestSourceQualification": {
     "machine": "MinideABDOULAYE.lan",
     "date": "2026-09-24",
-    "sourceSha": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "sourceSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
     "npmTest": "PASS",
     "integrationTest": "PASS",
+    "brandAuthority": "PASS_D4AF37_IDENTITY_GOLD",
     "evidence": [
       "HUB_ASSET_INTEGRITY_PASS 4",
       "HUB_SEO_PASS 32 canonical+OpenGraph",
