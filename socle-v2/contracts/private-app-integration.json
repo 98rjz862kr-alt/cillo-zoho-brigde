@@ -27,7 +27,15 @@
     "sourceSha": "374497fe6f8db7878d30c75ae03a0dbe010c33a5",
     "sourceRegistryPath": "integration/sites-source-registry.v1.json",
     "crossRepositoryReferencePolicy": "NO_MUTUAL_LATEST_SHA_CYCLE",
-    "sitePackageAuthority": "PRIVATE_APP_SOURCE_REGISTRY_REGISTERED_SHA256"
+    "sitePackageAuthority": "PRIVATE_APP_SOURCE_REGISTRY_REGISTERED_SHA256",
+    "sourceRegistryBlobSha": "4f943cd6a7b106dd21b0e3e0c3faba0146fa99b9",
+    "sourceRegistryBridgeSnapshotSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "registeredSitePackageSha256": {
+      "editions": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "food": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "maison": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "musee": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1"
+    }
   },
   "sites": {
     "editions": {
