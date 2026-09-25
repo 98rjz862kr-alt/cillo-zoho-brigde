@@ -15,6 +15,9 @@ const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
 assert(manifest.site === 'food.lesmotsimages.com', 'Unexpected LMI FOOD target site');
 assert(manifest.canonicalSource === 'Google Drive', 'Google Drive must remain canonical source');
 assert(manifest.publication === 'INTERDITE_SANS_VALIDATION_TRANSVERSE', 'Publication lock missing');
+assert(manifest.branch === 'work/socle-commun-v2-20260915', 'Manifest must track active consolidation branch');
+assert(manifest.pullRequest === 118, 'Manifest must track consolidation PR #118');
+assert(manifest.illustrationPolicy?.rule === 'NO_GENERIC_DUPLICATION_AS_PAGE_COVERAGE', 'Illustration anti-duplication policy missing');
 assert(manifest.register?.spreadsheetId === '1OZql5LfxndgzJQsRr9sdeF8qCRj_HZMVxMk8h87VrNo', 'Unexpected LMI FOOD SHA-256 register');
 assert(manifest.candidateSnapshot?.driveId === '1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44', 'Unexpected candidate snapshot Drive ID');
 assert(/^[a-f0-9]{64}$/.test(String(manifest.candidateSnapshot?.sha256 || '')), 'Candidate snapshot SHA-256 missing or invalid');
@@ -62,6 +65,10 @@ for (const file of pages) {
 }
 
 const bat = readFileSync(path.join(root, '00-bat-lmi-food.html'), 'utf8');
+for (const file of pages.filter((name) => name !== '00-bat-lmi-food.html')) {
+  const html = readFileSync(path.join(root, file), 'utf8');
+  assert(!/LMI-FOOD-WEB-HERO-V001\.webp/i.test(html), `Generic homepage hero duplicated on secondary page: ${file}`);
+}
 for (const retired of manifest.removedUntraceableMedia || []) {
   assert(retired.action === 'RETIRE_DU_BAT_SANS_REGENERATION', `Unexpected retired-media action for ${retired.name}`);
   assert(!bat.includes(retired.name), `Retired untraceable media still referenced in BAT: ${retired.name}`);
