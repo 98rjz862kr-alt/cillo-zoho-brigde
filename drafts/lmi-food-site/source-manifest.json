@@ -2,14 +2,14 @@
   "site": "food.lesmotsimages.com",
   "canonicalSource": "Google Drive",
   "repository": "98rjz862kr-alt/cillo-zoho-brigde",
-  "branch": "agent/lmi-food-finalisation-20260906",
-  "pullRequest": 104,
+  "branch": "work/socle-commun-v2-20260915",
+  "pullRequest": 118,
   "publication": "INTERDITE_SANS_VALIDATION_TRANSVERSE",
   "candidateTracking": {
     "contentBaselineCommit": "924709135584dcb9f4fb76febbf1fb575c2c30c8",
-    "technicalHead": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
+    "technicalHead": "HEAD_OF_WORK_SOCLE_COMMUN_V2_20260915",
     "base": "TRACKED_IN_GITHUB_AND_DRIVE_REGISTERS",
-    "reason": "avoid circular self-reference when manifest updates advance branch HEAD"
+    "reason": "manifest aligned with active consolidation branch; final exact SHA must be pinned only at freeze"
   },
   "candidateSnapshot": {
     "name": "SNAPSHOT_LMI_FOOD_CANDIDAT_FINALISATION_2026-09-06.txt",
@@ -106,5 +106,26 @@
     "illustrationWithoutDriveIdAndSha256": "FAIL",
     "publicPaymentOrOrdering": "FAIL",
     "finalBridgePass": "REQUIRES_TRANSVERSE_VALIDATION"
+  },
+  "illustrationPolicy": {
+    "rule": "NO_GENERIC_DUPLICATION_AS_PAGE_COVERAGE",
+    "homepageHero": "LMI-FOOD-WEB-HERO-V001.webp",
+    "secondaryPages": "TEXT_FIRST_UNTIL_PAGE_SPECIFIC_DRIVE_SHA_ASSET_EXISTS",
+    "generation": "INTERDITE_POUR_COMBLER_UN_MANQUE"
+  },
+  "brandAuthority": {
+    "name": "LES MOTS IMAGÉS",
+    "institutionalSignature": "LE VERBE PAR L’IMAGE",
+    "foodSignature": "Saveurs choisies, présentation soignée",
+    "colors": {
+      "bleu": "#143B7D",
+      "ocre": "#CC7722",
+      "sable": "#75553F",
+      "or": "#D4AF37",
+      "bleuNuit": "#0F2747",
+      "ivoire": "#F6F1E8",
+      "orMat": "#C8A96B",
+      "grisPierre": "#C9C3BA"
+    }
   }
 }
