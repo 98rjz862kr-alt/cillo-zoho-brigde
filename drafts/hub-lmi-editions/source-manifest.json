@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0.0",
+  "site": "editions.lesmotsimages.com",
+  "canonicalSource": "Google Drive",
+  "policy": {
+    "generateIllustrations": false,
+    "useExistingDriveAssetsOnly": true,
+    "requireDriveId": true,
+    "requireSha256": true,
+    "publicPublication": false
+  },
+  "master": {
+    "title": "MASTER_EDITION_PUBLICATIONS_2026-09-12",
+    "driveId": "1h8krs3PzD1YUWyYnjAJ7aZpZM4mAcfEAt-cmCsRf1Ro",
+    "status": "ACTIVE"
+  },
+  "batManifest": {
+    "title": "SHA256_MANIFEST_BAT_INTERIEURS_7_TITRES_LMI_2026-09-13.txt",
+    "driveId": "1IP8sQatMI_y_WrcLf1O7uRdmts25-34Z",
+    "status": "ACTIVE"
+  },
+  "titles": [
+    {
+      "title": "Destination connue, itinéraires incertains",
+      "driveId": "1F-1ePcJCl-IJu0O5koT1TSn8VPICc8mTP3P9UTlJU3I",
+      "docxSha256": "3ab610e4a1a48bcd84fa3d2a1ff14af0a4bb05c9a4e55790ae6b4a54f69a8db0",
+      "pdfSha256": "c34dc0819453a648d225bb6ff7056a2f04f7a0e7350a09b7e6d881ffafa8457d"
+    },
+    {
+      "title": "Lettres à ceux qui viendront",
+      "driveId": "1DLSJElTU6Wn6kcvcjKO3TrzeXIcj7HC8HRLMK02plJ0",
+      "docxSha256": "09cfbd73712c3080ca77c0fa968a1f0d22d22960f4e3778dddb74b7dec451852",
+      "pdfSha256": "aad1b840035797775adf91851a0a2618e0343ff5e1c3dd1a52725811c3e9204f"
+    },
+    {
+      "title": "Le racisme est universel",
+      "driveId": "17VJ4jteKszbDRpzdvdb7QCaSoHFHC6DWgh-BosOqhFU",
+      "docxSha256": "27502b78e4687567007e1f5e235dd7e13e981da29798da8204e0b035b1d56888",
+      "pdfSha256": "0f601136d32f3e78fec112ff0476f48e13d67da619dd47e7186a7a22ef0ba805"
+    },
+    {
+      "title": "La femme maîtresse du monde mais ostracisée",
+      "driveId": "1zCuYWCO2ovEVqXzk-16n9Eng68zXF7ri4gCNGPUVw8M",
+      "docxSha256": "b4b21c4c383f7761d4ae34a1856d4c47a74fa323d5c5facd068a14c9dc99af1a",
+      "pdfSha256": "e4bfee4d404d7b552e2e9e04542a6458b37d519d45d2a58430b5324b9fcea54b"
+    },
+    {
+      "title": "Le peuple sans messager",
+      "driveId": "1fHhQW4r7uJDmyhEuWEpOHICbScb8C7uxEqtvBbbzpqU",
+      "docxSha256": "a7e393502827104bb446378a34b4ea7179dc2d9370e2f5df361403e10f485c9e",
+      "pdfSha256": "7457ce0dedbc66b9833aba13e167cf786d95c8219f5dbe9735811c172941cfb2"
+    },
+    {
+      "title": "Féodalisme religieux",
+      "driveId": "1OpGoI3QlFRwp8MdHfE-e2i5VfvbH6rcGDRoelNuq7QM",
+      "docxSha256": "26552be2b95643e29707f0bd425b6eaedc2a55cb768d636a9eac39899d363d82",
+      "pdfSha256": "906b7a408c99ebeba80c3cc450ebae05d4e5fcfe278f43dc26d852766bf570ea"
+    },
+    {
+      "title": "Sombres mémoires, verbes muets",
+      "driveId": "1uX8ucxj3d_N3GBllo8rCGT4lEqpCdXzHP-t7cdjsfk0",
+      "docxSha256": "d2b57b5ecadd437776c44b66d71d0739f4684098a62a8bc2ae086d94138851d9",
+      "pdfSha256": "baccbf5c8ea9a1741d28b6fab1eed01f7d604ffaf94ec6b8a88781f391b87980"
+    }
+  ],
+  "illustrationSources": [
+    {
+      "name": "LMI-EDT-WEB-HERO-V001.webp",
+      "driveId": "1HJRlpn9SoO-SfyHbHQX-on5GLnDA_jot",
+      "sha256": "e607517f5d980597469607fee3099e2884438eaaaa375ca055252cfd5290bbe7",
+      "status": "EXISTING_DRIVE_ASSET"
+    },
+    {
+      "name": "COUVERTURE_BOA_TOTEM_SOYA_PREPUB_V2.jpg",
+      "driveId": "1qKmgxf40Dl4rS16ZA1PRodF29NmUowDA",
+      "sha256": "13ac00be26e61f6537cbeb1fb32977689a558437e94ceb0aed86c8d7495f6f5e",
+      "status": "EXISTING_DRIVE_ASSET"
+    },
+    {
+      "name": "COUVERTURE_FLEUVE_SANS_NOM_PREPUB_V2.jpg",
+      "driveId": "105ruK0gmwVqt9tcNL6vSf5w8P1BMgYij",
+      "sha256": "3803846c2c5651c5d7f6c1fd775806d0ac3eac57367ab0f58911c381dc4e88aa",
+      "status": "EXISTING_DRIVE_ASSET"
+    },
+    {
+      "name": "LMI-IMG-BRD-LOGO-COUVERTURE-CANON-V001.png",
+      "driveId": "1i2Gvfxp7X3V8Q6EzOR0-bDFmpcDQCJTX",
+      "sha256": "d796f29475383b8cc1bfda8ac44bb1b66933fdf96d0050004252b79a9b1b499b",
+      "status": "EXISTING_DRIVE_ASSET"
+    }
+  ]
+}

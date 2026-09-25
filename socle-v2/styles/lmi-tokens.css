@@ -1,0 +1,30 @@
+:root{
+  --lmi-blue:#143B7D;
+  --lmi-identity-gold:#D4AF37;
+  --lmi-ochre:#CC7722;
+  --lmi-sand:#75553F;
+  --lmi-gold:#D4AF37;
+  --lmi-night:#0F2747;
+  --lmi-ivory:#F6F1E8;
+  --lmi-matte-gold:#C8A96B;
+  --lmi-stone:#C9C3BA;
+  --lmi-paper:#FFFDF8;
+  --lmi-ink:#172235;
+  --lmi-muted:#5E697A;
+  --lmi-space-1:.25rem;
+  --lmi-space-2:.5rem;
+  --lmi-space-3:.75rem;
+  --lmi-space-4:1rem;
+  --lmi-space-6:1.5rem;
+  --lmi-space-8:2rem;
+  --lmi-space-12:3rem;
+  --lmi-space-16:4rem;
+  --lmi-radius-sm:.5rem;
+  --lmi-radius-md:.875rem;
+  --lmi-radius-lg:1.5rem;
+  --lmi-radius-pill:999px;
+  --lmi-shadow-soft:0 12px 36px rgba(15,39,71,.08);
+  --lmi-shadow-raised:0 22px 64px rgba(15,39,71,.14);
+  --lmi-content-max:1180px;
+  --lmi-reading-max:760px;
+}

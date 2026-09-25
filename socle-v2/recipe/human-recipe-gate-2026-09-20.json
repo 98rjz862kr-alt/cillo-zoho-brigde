@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.1.0",
+  "recordedAt": "2026-09-24T12:51:00Z",
+  "recipeTarget": {
+    "integrationSha": null,
+    "renderDeployId": null,
+    "privateBridgeUrl": "https://cillo-zoho-bridge.onrender.com",
+    "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette",
+    "requiredSourceSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "currentHistoricalRuntimeSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
+    "currentHistoricalDeployId": "dep-dapcsnbm8hqs739bn6a0"
+  },
+  "rule": "La recette humaine de service évalue l'identité, le design, l'ergonomie, la navigation, les contenus de préparation, les fiches, les parcours et le pilotage depuis l'application privée sur un runtime exact. Elle peut commencer avec des références commercialement verrouillées lorsque l'activité réelle n'a pas encore démarré. Les preuves produit/droits finales conditionnent la publication, la vente et les allégations finales, pas la recette du service.",
+  "order": [
+    "musee",
+    "maison",
+    "food",
+    "editions"
+  ],
+  "sites": {
+    "musee": {
+      "packageSha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "decision": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "checks": [
+        "identity",
+        "homepage",
+        "navigation",
+        "collections/exhibitions",
+        "media/credits",
+        "mobile",
+        "keyboard focus",
+        "legal/contact"
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+    },
+    "maison": {
+      "packageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "decision": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "checks": [
+        "identity",
+        "homepage",
+        "collection",
+        "seven canonical systems with Tifinagh/Amazigh distinction",
+        "1 sign = 1 piece",
+        "media provenance",
+        "mobile",
+        "commercial locks"
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+    },
+    "food": {
+      "packageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "decision": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "checks": [
+        "identity",
+        "homepage",
+        "breakfast",
+        "grocery",
+        "transmission",
+        "media provenance",
+        "mobile",
+        "commercial locks"
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+    },
+    "editions": {
+      "packageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "decision": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+      "checks": [
+        "identity",
+        "homepage",
+        "catalogue",
+        "press/rights",
+        "canonical visuals",
+        "internal links",
+        "mobile",
+        "reading/commerce promises"
+      ],
+      "commercialRelease": "LOCKED_UNTIL_REAL_EVIDENCE"
+    }
+  },
+  "prohibitedInference": "Aucun PASS humain, commercial ou de publication ne peut être déduit du runtime historique. La recette de service ne démarre qu'après déploiement et qualification du HEAD exact consolidé avec protocole 1.2, paquets courants et pilotage privé.",
+  "state": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+  "serviceRecipe": {
+    "eligibleAfterExactRuntime": true,
+    "realProductEvidenceRequired": false,
+    "privateAppManagementRequired": true,
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "commercialRelease": {
+    "state": "LOCKED",
+    "realProductOrRightsEvidenceRequired": true
+  }
+}

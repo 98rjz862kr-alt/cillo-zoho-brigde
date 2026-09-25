@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-24T12:51:00Z",
+  "state": "SOURCE_91C0688_QUALIFIED_RUNTIME_HISTORICAL_EXACT_REBUILD_REQUIRED",
+  "integration": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "branch": "work/socle-commun-v2-20260915",
+    "integrationSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
+    "renderServiceId": "srv-d9osqbmgekts73eoqis0",
+    "renderDeployId": "dep-dapcsnbm8hqs739bn6a0",
+    "renderStatus": "live_historical",
+    "url": "https://cillo-zoho-bridge.onrender.com",
+    "exactCurrentSource": false
+  },
+  "packages": {
+    "musee": {
+      "sourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
+      "runtimePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
+      "files": 49,
+      "exactCandidateContent": false,
+      "sourcePackageSha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1"
+    },
+    "maison": {
+      "sourceSha": "90f0745b8bc93beee912c5583f7d7f5696139785",
+      "runtimePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "files": 19,
+      "exactCandidateContent": true,
+      "sourcePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926"
+    },
+    "food": {
+      "sourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
+      "runtimePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "files": 34,
+      "exactCandidateContent": true,
+      "sourcePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22"
+    },
+    "editions": {
+      "sourceSha": "b42d6cce3baef302ce6cff1bcdff340e35d09aa9",
+      "runtimePackageSha256": "243e32f45196f6914374716ecf1d92611b477e6e5bf756ffa31f12750b1d2b59",
+      "files": 39,
+      "exactCandidateContent": false,
+      "sourcePackageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950"
+    }
+  },
+  "buildEvidence": {
+    "canonicalBrandAllSites": "PASS_4",
+    "integrationRuntime": "PASS_4",
+    "socleV2": "PASS",
+    "editionsRenderedContract": "PASS_33",
+    "socleV2Runtime": "PASS",
+    "privateAppIntegrationContract": "PASS_4_PROTOCOL_1_2_SOURCE",
+    "privateAppIngestion": "PASS_4_SOURCE",
+    "previewNavigation": {
+      "status": "PASS",
+      "pages": 119,
+      "resources": 125,
+      "links": 719,
+      "unauthorizedDenied": 125,
+      "sessionAuthentication": true
+    },
+    "clientReadinessStructural": {
+      "status": "PASS",
+      "sites": 4,
+      "visitorRoutes": 67
+    },
+    "humanRecipeRouteLock": "PASS_423",
+    "humanServiceJudgement": "PENDING_EXACT_RUNTIME_REBUILD",
+    "privateAppManagement": "SOURCE_CONNECTED_PROTOCOL_1_2_RUNTIME_PENDING",
+    "driveBackedVisitorAssets": "PASS_4_67_PAGES_52_IMAGE_REFS",
+    "canonicalSiteCopy": "PASS_4_67_PAGES",
+    "siteContentControlMap": "PASS_4_67_ROUTES_98_SOURCE_BINDINGS",
+    "brandAuthorityAlignment": "PASS"
+  },
+  "releaseGate": {
+    "sourceSha": "SATISFIED_CURRENT_SOURCE_91C0688",
+    "build": "SATISFIED_SOURCE",
+    "runtimeBridge": "HISTORICAL_NOT_EXACT_CURRENT_SOURCE",
+    "mediaManifest": "TECHNICALLY_BOUND_PER_SITE",
+    "humanServiceRecipe": "SUSPENDED_EXACT_RUNTIME_REBUILD",
+    "commercialRelease": "LOCKED_UNTIL_REAL_PRODUCT_RIGHTS_EVIDENCE"
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "humanRecipePassInferred": false,
+    "humanRecipeStart": false,
+    "publicOrdering": false
+  },
+  "sourceQualified": {
+    "head": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "tests": "PASS_NPM_TEST_AND_INTEGRATION",
+    "protocolId": "lmi-sites-publication-protocol@1.2.0",
+    "brandAuthority": "D4AF37_IDENTITY_C8A96B_PREMIUM"
+  }
+}

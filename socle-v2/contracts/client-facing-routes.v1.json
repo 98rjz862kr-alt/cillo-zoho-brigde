@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "1.1.0",
+  "brand": "LES MOTS IMAGÉS",
+  "purpose": "visitor-facing-production-qualification-before-human-recipe",
+  "rules": {
+    "prepublicationBannerAllowed": false,
+    "internalControlCopyForbiddenInVisitorContent": true,
+    "homepageApprovedVisualRequired": true,
+    "homepageActionRequired": true,
+    "unverifiedCommerceForbidden": true,
+    "humanAestheticJudgement": "PENDING_UNTIL_RECIPE",
+    "legalAndPrivacyRouteRequired": true,
+    "templateOrWorkshopCopyForbiddenInVisitorContent": true,
+    "sourceContentMustResolveToDriveAndSha256": true,
+    "generatedIllustrationsForbidden": true
+  },
+  "sites": {
+    "maison": {
+      "home": "lmi-maison-site/00-bat-lmi-maison.html",
+      "visitorRoutes": [
+        "lmi-maison-site/00-bat-lmi-maison.html",
+        "lmi-maison-site/01-collection-inaugurale-lmi-maison.html",
+        "lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html",
+        "lmi-maison-site/contact.html",
+        "lmi-maison-site/mentions-legales-confidentialite.html"
+      ],
+      "internalRoutesExcluded": [
+        "lmi-maison-site/00-index-controle-lmi-maison.html",
+        "lmi-maison-site/01-protocole-tache-continue-lmi-maison.html",
+        "lmi-maison-site/02-certificat-authentification-lmi-maison.html",
+        "lmi-maison-site/03-matrice-controle-culturel-lmi-maison.html",
+        "lmi-maison-site/05-dossier-technique-textile-lmi-maison.html",
+        "lmi-maison-site/07-journal-recette-technique-lmi-maison.html",
+        "lmi-maison-site/07-sommaire-controle-lmi-maison.html",
+        "lmi-maison-site/08-registre-recette-finale-lmi-maison.html",
+        "lmi-maison-site/09-protocole-production-continue-lmi-maison.html"
+      ],
+      "contactRoute": "lmi-maison-site/contact.html",
+      "legalRoute": "lmi-maison-site/mentions-legales-confidentialite.html"
+    },
+    "food": {
+      "home": "lmi-food-site/00-bat-lmi-food.html",
+      "visitorRoutes": [
+        "lmi-food-site/00-bat-lmi-food.html",
+        "lmi-food-site/02-petits-dejeuners-collations.html",
+        "lmi-food-site/04-epicerie-condiments.html",
+        "lmi-food-site/08-collection-editoriale-recettes.html",
+        "lmi-food-site/contact.html",
+        "lmi-food-site/mentions-legales-confidentialite.html"
+      ],
+      "internalRoutesExcluded": [
+        "lmi-food-site/01-plan-publication-lmi-food.html",
+        "lmi-food-site/05-catalogue-prioritaire-lmi-food.html",
+        "lmi-food-site/06-fiches-produits-petits-dejeuners.html",
+        "lmi-food-site/07-sommaire-controle-lmi-food.html",
+        "lmi-food-site/10-controle-bibliotheque-premium.html",
+        "lmi-food-site/13-matrice-qa-recettes.html",
+        "lmi-food-site/16-cahier-charges-conditionnements.html",
+        "lmi-food-site/17-matrice-consultation-fournisseurs.html",
+        "lmi-food-site/18-plan-finalisation-lmi-food.html",
+        "lmi-food-site/19-continuite-projet-lmi-food.html",
+        "lmi-food-site/19-validation-humaine-lmi-food.html",
+        "lmi-food-site/20-protocole-execution-production.html",
+        "lmi-food-site/21-fiche-essai-standardisation.html",
+        "lmi-food-site/22-journal-recette-technique.html",
+        "lmi-food-site/27-controle-qualite-readiness.html"
+      ],
+      "contactRoute": "lmi-food-site/contact.html",
+      "legalRoute": "lmi-food-site/mentions-legales-confidentialite.html"
+    },
+    "editions": {
+      "home": "hub-lmi-editions/01-accueil.html",
+      "visitorRoutes": [
+        "hub-lmi-editions/01-accueil.html",
+        "hub-lmi-editions/02-comprendre-lmi.html",
+        "hub-lmi-editions/03-choisir-son-pole.html",
+        "hub-lmi-editions/04-poles-associes.html",
+        "hub-lmi-editions/05-contact.html",
+        "hub-lmi-editions/06-lmi-maison.html",
+        "hub-lmi-editions/07-lmi-food.html",
+        "hub-lmi-editions/08-lmi-musee.html",
+        "hub-lmi-editions/09-manuscrits-textes.html",
+        "hub-lmi-editions/10-ressources-acces-fiches.html",
+        "hub-lmi-editions/11-catalogue-editorial.html",
+        "hub-lmi-editions/12-catalogue-bd-adaptations.html",
+        "hub-lmi-editions/13-univers-illustres-da.html",
+        "hub-lmi-editions/14-audio-transmission.html",
+        "hub-lmi-editions/15-livres-audio.html",
+        "hub-lmi-editions/16-actualites-evenements.html",
+        "hub-lmi-editions/17-a-propos-ressources.html",
+        "hub-lmi-editions/18-blog.html",
+        "hub-lmi-editions/19-presse-partenaires-droits.html",
+        "hub-lmi-editions/20-mentions-legales-confidentialite.html",
+        "hub-lmi-editions/21-destination-connue-itineraires-incertains.html",
+        "hub-lmi-editions/22-lettres-a-ceux-qui-viendront.html",
+        "hub-lmi-editions/23-sombres-memoires-verbes-muets.html",
+        "hub-lmi-editions/24-la-femme-maitresse-du-monde-mais-ostracisee.html",
+        "hub-lmi-editions/25-le-peuple-sans-messager.html",
+        "hub-lmi-editions/26-feodalisme-religieux.html",
+        "hub-lmi-editions/27-l-utopie-pour-faconner-le-reel.html",
+        "hub-lmi-editions/28-l-autocensure.html",
+        "hub-lmi-editions/29-le-racisme-est-universel.html",
+        "hub-lmi-editions/30-l-otage-de-l-absurde.html",
+        "hub-lmi-editions/31-le-boa-totem-de-soya.html",
+        "hub-lmi-editions/32-le-fleuve-sans-nom.html"
+      ],
+      "contactRoute": "hub-lmi-editions/05-contact.html",
+      "legalRoute": "hub-lmi-editions/20-mentions-legales-confidentialite.html"
+    },
+    "musee": {
+      "home": "lmi-musee-complet/index.html",
+      "visitorRoutes": [
+        "lmi-musee-complet/index.html",
+        "lmi-musee-complet/comprendre-le-monde-par-ses-peripheries.html",
+        "lmi-musee-complet/archives-fonds-traces.html",
+        "lmi-musee-complet/collections-editoriales.html",
+        "lmi-musee-complet/principes-curatoriaux.html",
+        "lmi-musee-complet/references-et-filiations.html",
+        "lmi-musee-complet/education-mediation.html",
+        "lmi-musee-complet/expositions-permanentes.html",
+        "lmi-musee-complet/expositions-temporaires.html",
+        "lmi-musee-complet/recherche-transmission.html",
+        "lmi-musee-complet/visiter.html",
+        "lmi-musee-complet/presse-droits.html",
+        "lmi-musee-complet/partenaires.html",
+        "lmi-musee-complet/soutenir.html",
+        "lmi-musee-complet/contact.html",
+        "lmi-musee-complet/mentions-legales-confidentialite.html",
+        "lmi-musee-complet/collections.html",
+        "lmi-musee-complet/collections-editoriales/atlas-des-humanites-disparues.html",
+        "lmi-musee-complet/collections-editoriales/les-routes-invisibles.html",
+        "lmi-musee-complet/collections-editoriales/archives-des-seuils.html",
+        "lmi-musee-complet/parcours/presse.html",
+        "lmi-musee-complet/parcours/programmateurs.html",
+        "lmi-musee-complet/parcours/prescripteurs.html",
+        "lmi-musee-complet/parcours/partenaires.html"
+      ],
+      "contactRoute": "lmi-musee-complet/contact.html",
+      "legalRoute": "lmi-musee-complet/mentions-legales-confidentialite.html"
+    }
+  }
+}

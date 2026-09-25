@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "2.0.0",
+  "site": "musee",
+  "decision": "SUSPENDED_RUNTIME_REBUILD",
+  "purpose": "neutral-client-facing-acceptance-without-coaching",
+  "target": {
+    "candidateSourceSha": "1a50234a504ed9e767a3334d827d96cfaf2cad80",
+    "candidatePackageSha256": "b69cec0267ebccd6cf1f92369b9529b3d95ab7b679aa595ef5c7c11a66108ddf",
+    "bridgeRuntimeSha": null,
+    "renderDeployId": null,
+    "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
+  },
+  "devices": [
+    {
+      "name": "iPhone-reference",
+      "viewport": "390px",
+      "result": "PENDING"
+    },
+    {
+      "name": "small-mobile",
+      "viewport": "320px",
+      "result": "PENDING"
+    },
+    {
+      "name": "desktop",
+      "viewport": "1440px",
+      "result": "PENDING"
+    }
+  ],
+  "rules": [
+    "tester-observes-before-explanation",
+    "record-spontaneous-understanding-before-guidance",
+    "no-result-may-be-marked-pass-by-machine",
+    "failed-or-reserved-criterion-returns-to-production",
+    "no-publication-or-dns-change-from-recipe"
+  ],
+  "checks": [
+    {
+      "id": "MUS-01",
+      "label": "Accueil compris spontanément et proposition du Musée identifiable",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-02",
+      "label": "Intérêt à poursuivre la visite et hiérarchie visuelle",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-03",
+      "label": "Qualité éditoriale, ton, lisibilité et cohérence des textes",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-04",
+      "label": "Illustrations, médias, crédits et provenance perçus comme cohérents",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-05",
+      "label": "Navigation et architecture de l’information sans confusion",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-06",
+      "label": "Ergonomie et fluidité perçues sur iPhone 390 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-07",
+      "label": "Ergonomie et fluidité perçues sur mobile 320 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-08",
+      "label": "Ergonomie et fluidité perçues sur desktop 1440 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-09",
+      "label": "Parcours collections, archives et expositions compréhensibles",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-10",
+      "label": "Parcours presse, partenaires, programmateurs et prescripteurs convaincants",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-11",
+      "label": "Crédibilité institutionnelle, différenciation et confiance",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-12",
+      "label": "Contact, soutien et mentions légales faciles à trouver",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-13",
+      "label": "Clavier, focus et accessibilité d’usage",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-14",
+      "label": "Absence de contenu provisoire ou de notice hypothétique présentée comme validée",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-15",
+      "label": "Cohérence de marque LMI et rôles distincts des ors",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "MUS-16",
+      "label": "Décision humaine et réserves consignées",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    }
+  ],
+  "finalDecision": "NOT_STARTED",
+  "suspension": {
+    "since": "2026-09-23T13:45:00Z",
+    "reason": "Service recipe is allowed before real commercial evidence, but it must target one exact rebuilt protocol 1.2 runtime with private-app management connected.",
+    "blockingEvidence": "socle-v2/recipe/human-recipe-gate-2026-09-20.json"
+  },
+  "recipeScope": {
+    "type": "HUMAN_SERVICE_RECIPE",
+    "mayAssess": [
+      "identity",
+      "design",
+      "ergonomics",
+      "navigation",
+      "content presentation",
+      "private management workflows",
+      "responsive behavior",
+      "service readiness"
+    ],
+    "mayNotInfer": [
+      "commercial release",
+      "public availability",
+      "validated price or stock",
+      "validated rights for unproven references",
+      "validated Food safety/shelf-life/allergen claims"
+    ],
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "commercialRelease": {
+    "state": "LOCKED_UNTIL_REAL_EVIDENCE"
+  }
+}

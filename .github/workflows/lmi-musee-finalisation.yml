@@ -1,25 +1,24 @@
 name: LMI Musee Finalisation
 
 on:
-  push:
-    branches:
-      - agent/lmi-musee-finalisation-20260906
-  pull_request:
-    paths:
-      - 'drafts/lmi-musee-complet/**'
-      - 'scripts/validate-lmi-musee.mjs'
-      - 'scripts/audit-lmi-musee-finalisation.mjs'
-      - 'package.json'
-      - '.github/workflows/lmi-musee-finalisation.yml'
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
   musee-finalisation:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     timeout-minutes: 10
     steps:
+      - name: Runner startup probe
+        run: |
+          echo "runner-started"
+          node --version
       - name: Checkout exact candidate
         uses: actions/checkout@v4
       - name: Setup Node

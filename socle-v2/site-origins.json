@@ -1,0 +1,34 @@
+{
+  "version": "2.0.0-alpha.2",
+  "algorithm": "sha256(path + NUL + size + NUL + fileSha256 + LF), paths sorted",
+  "sites": {
+    "musee": {
+      "root": "drafts/lmi-musee-complet",
+      "candidateSourceSha": "6441a37f3e4c22dc7857ed31ca1bbff30edadf1c",
+      "candidatePackageSha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
+      "mayRedeployBeforeRecipe": true
+    },
+    "maison": {
+      "root": "drafts/lmi-maison-site",
+      "candidateSourceSha": "90f0745b8bc93beee912c5583f7d7f5696139785",
+      "candidatePackageSha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE",
+      "mayRedeployBeforeRecipe": true
+    },
+    "food": {
+      "root": "drafts/lmi-food-site",
+      "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
+      "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
+      "mayRedeployBeforeRecipe": true
+    },
+    "editions": {
+      "root": "drafts/hub-lmi-editions",
+      "candidateSourceSha": "6441a37f3e4c22dc7857ed31ca1bbff30edadf1c",
+      "candidatePackageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE",
+      "mayRedeployBeforeRecipe": true
+    }
+  }
+}

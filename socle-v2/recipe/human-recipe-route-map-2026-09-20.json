@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "targetIntegrationSha": null,
+  "renderDeployId": null,
+  "baseUrl": "https://cillo-zoho-bridge.onrender.com",
+  "authentication": "Use the existing private Bridge session. Credentials are never stored in this file.",
+  "routes": {
+    "musee": [
+      "/atelier/file/lmi-musee-complet%2Findex.html",
+      "/atelier/file/lmi-musee-complet%2Fcollections.html",
+      "/atelier/file/lmi-musee-complet%2Fexpositions-permanentes.html",
+      "/atelier/file/lmi-musee-complet%2Feducation-mediation.html",
+      "/atelier/file/lmi-musee-complet%2Fcontact.html",
+      "/atelier/file/lmi-musee-complet%2Fmentions-legales-confidentialite.html"
+    ],
+    "maison": [
+      "/atelier/file/lmi-maison-site%2F00-bat-lmi-maison.html",
+      "/atelier/file/lmi-maison-site%2F01-collection-inaugurale-lmi-maison.html",
+      "/atelier/file/lmi-maison-site%2F06-parcours-commercial-prive-lmi-maison.html",
+      "/atelier/file/lmi-maison-site%2Fcontact.html",
+      "/atelier/file/lmi-maison-site%2Fmentions-legales-confidentialite.html"
+    ],
+    "food": [
+      "/atelier/file/lmi-food-site%2F00-bat-lmi-food.html",
+      "/atelier/file/lmi-food-site%2F02-petits-dejeuners-collations.html",
+      "/atelier/file/lmi-food-site%2F04-epicerie-condiments.html",
+      "/atelier/file/lmi-food-site%2F08-collection-editoriale-recettes.html",
+      "/atelier/file/lmi-food-site%2Fcontact.html",
+      "/atelier/file/lmi-food-site%2Fmentions-legales-confidentialite.html"
+    ],
+    "editions": [
+      "/atelier/file/hub-lmi-editions%2F01-accueil.html",
+      "/atelier/file/hub-lmi-editions%2F11-catalogue-editorial.html",
+      "/atelier/file/hub-lmi-editions%2F19-presse-partenaires-droits.html",
+      "/atelier/file/hub-lmi-editions%2F05-contact.html",
+      "/atelier/file/hub-lmi-editions%2F20-mentions-legales-confidentialite.html"
+    ]
+  },
+  "decisionRule": "Do not perform human recipe. Routes are informational only until one reconciled exact-SHA candidate is frozen.",
+  "recipeInterface": "https://cillo-zoho-bridge.onrender.com/atelier/recette",
+  "state": "SUSPENDED_CROSS_BRANCH_RECONCILIATION"
+}

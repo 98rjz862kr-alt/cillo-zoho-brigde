@@ -2,11 +2,13 @@ import { readFileSync, readdirSync, statSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { decorateHubDraft } from './hub-premium.js';
+import { professionalizeHubVisitorCopy } from './hub-visitor-copy.js';
 import { finalizeHubDraft } from './hub-finalize.js';
 import { enforceOfficialHubIdentity } from './hub-identity.js';
 import { integrateHubVisuals } from './hub-visuals.js';
 import { stabilizeHubRuntime } from './hub-stability.js';
 import { enhanceHubAccessibility } from './hub-accessibility.js';
+import { rewritePreviewHtml, rewritePreviewCss } from './socle-v2/preview-paths.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,6 +20,7 @@ const ASSET_MIME_TYPES = new Map([
   ['.jpeg', 'image/jpeg'],
   ['.webp', 'image/webp'],
   ['.gif', 'image/gif'],
+  ['.css', 'text/css; charset=utf-8'],
 ]);
 
 function walk(directory, prefix = '') {
@@ -36,7 +39,8 @@ function walk(directory, prefix = '') {
 }
 
 function resolveDraftPath(relativePath, allowedExtensions) {
-  const decoded = decodeURIComponent(String(relativePath || '')).replace(/^\/+/, '');
+  let decoded;
+  try { decoded = decodeURIComponent(String(relativePath || '')).replace(/^\/+/, ''); } catch { return null; }
   if (!decoded) return null;
   const extension = path.extname(decoded).toLowerCase();
   if (!allowedExtensions.has(extension)) return null;
@@ -55,8 +59,8 @@ function inlinePreviewAssets(relativeHtmlPath, html) {
     if (!assetPath.startsWith(`${path.resolve(DRAFT_ROOT)}${path.sep}`)) return full;
     try {
       if (path.basename(assetPath) === 'lmi-logo-officiel.svg') {
-        const webpPath = path.join(path.dirname(assetPath), 'lmi-logo-main.webp');
-        if (statSync(webpPath).isFile()) return `${prefix}data:image/webp;base64,${readFileSync(webpPath).toString('base64')}${suffix}`;
+        const logoPath = path.join(path.dirname(assetPath), 'lmi-logo-main.png');
+        if (statSync(logoPath).isFile()) return `${prefix}/atelier/file/${encodeURIComponent(path.relative(DRAFT_ROOT, logoPath).split(path.sep).join('/'))}${suffix}`;
       }
       const ext = path.extname(assetPath).toLowerCase();
       const mime = ASSET_MIME_TYPES.get(ext);
@@ -78,17 +82,18 @@ export function readDraftHtml(relativePath) {
     const rawHtml = readFileSync(resolved.absolutePath, 'utf8');
     const html = inlinePreviewAssets(resolved.decoded, rawHtml);
     const decorated = decorateHubDraft(resolved.decoded, html);
-    const finalized = finalizeHubDraft(resolved.decoded, decorated);
+    const professionalized = professionalizeHubVisitorCopy(resolved.decoded, decorated);
+    const finalized = finalizeHubDraft(resolved.decoded, professionalized);
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
     const visualized = integrateHubVisuals(resolved.decoded, identified);
     const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
-    return enhanceHubAccessibility(resolved.decoded, stabilized);
+    return rewritePreviewHtml(resolved.decoded, enhanceHubAccessibility(resolved.decoded, stabilized));
   } catch { return null; }
 }
 
 export function readDraftAsset(relativePath) {
   const resolved = resolveDraftPath(relativePath, new Set(ASSET_MIME_TYPES.keys()));
   if (!resolved) return null;
-  try { return { content: readFileSync(resolved.absolutePath), contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream' }; }
+  try { const raw=readFileSync(resolved.absolutePath); const content=resolved.extension === '.css' ? Buffer.from(rewritePreviewCss(resolved.decoded, raw.toString('utf8'))) : raw; return { content, contentType: ASSET_MIME_TYPES.get(resolved.extension) || 'application/octet-stream' }; }
   catch { return null; }
 }

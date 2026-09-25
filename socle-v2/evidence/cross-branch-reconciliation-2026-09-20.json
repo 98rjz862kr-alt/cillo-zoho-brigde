@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-24T12:50:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "state": "CROSS_BRANCH_RECONCILIATION_SOURCE_QUALIFIED_RUNTIME_REBUILD_PENDING",
+  "current": {
+    "branch": "work/socle-commun-v2-20260915",
+    "head": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "pr": 118,
+    "prDraft": true,
+    "render": {
+      "serviceId": "srv-d9osqbmgekts73eoqis0",
+      "deployId": "dep-dapcsnbm8hqs739bn6a0",
+      "status": "live_historical_runtime",
+      "runtimeSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c"
+    },
+    "latestRuntimeLockCommit": "475666a7dff105ead82f2dabe61bd66d5227a3c3"
+  },
+  "comparedBranches": {
+    "agent/transverse-4-sites-finalisation-20260907": {
+      "status": "diverged",
+      "currentAheadBy": 458,
+      "currentBehindBy": 45,
+      "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
+    },
+    "agent/hub-www-finalisation-20260907": {
+      "status": "diverged",
+      "currentAheadBy": 458,
+      "currentBehindBy": 28,
+      "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
+    },
+    "agent/lmi-food-finalisation-20260906": {
+      "status": "diverged",
+      "currentAheadBy": 483,
+      "currentBehindBy": 21,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "agent/lmi-maison-finalisation-20260906": {
+      "status": "diverged",
+      "currentAheadBy": 483,
+      "currentBehindBy": 7,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "agent/lmi-musee-finalisation-recette-20260907": {
+      "status": "diverged",
+      "currentAheadBy": 458,
+      "currentBehindBy": 20,
+      "mergeBase": "9b67a1efbb1067ba03227da8d8418612ecb5d386"
+    },
+    "work/maison-convergence-20260915": {
+      "status": "diverged",
+      "currentAheadBy": 483,
+      "currentBehindBy": 7,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "work/editions-canonical-20260915": {
+      "status": "diverged",
+      "currentAheadBy": 483,
+      "currentBehindBy": 21,
+      "mergeBase": "cbfa8a860e44fb7ca805159e14d7cc9279d1562b"
+    },
+    "work/musee-brand-correction-20260915": {
+      "status": "diverged",
+      "currentAheadBy": 459,
+      "currentBehindBy": 1,
+      "mergeBase": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+    }
+  },
+  "retainedFromOtherBranches": [
+    "Hub asset integrity gate",
+    "Hub Drive/SHA provenance gate",
+    "Hub visitor-copy fail-closed gate",
+    "Hub runtime integrity endpoint concept",
+    "Hub SEO gate",
+    "Independent four-site GitHub workflow concept",
+    "Hub canonical URL and OpenGraph metadata contract",
+    "Private Bridge robots.txt disallow-all lock",
+    "Authenticated 32-URL Editions sitemap",
+    "Private-app canonical brand authority: identity gold #D4AF37, premium matte gold #C8A96B"
+  ],
+  "adaptedBecauseStale": [
+    "Old unaccented displayed brand replaced by LES MOTS IMAGÉS",
+    "Old single-WebP Hub visual model replaced by current four-asset canonical manifest",
+    "Old query-password runtime test replaced by private session POST login",
+    "Old www.lesmotsimages.com canonical target replaced by editions.lesmotsimages.com",
+    "Old stale visitor title/H1 replaced by current canonical visitor copy",
+    "Obsolete #C9A13B Socle identity-gold role replaced by canonical #D4AF37 authority"
+  ],
+  "currentAdvantagesAlreadyVerified": [
+    "Current Maison manifest contains later canonical hero and official logo provenance",
+    "Current Food manifest contains later official logo provenance",
+    "Current Socle V2 validates exact per-site runtime packages",
+    "Current client-facing gate covers 67 visitor routes",
+    "Current Bridge rejects unauthorized preview assets/routes",
+    "Current private-app integration and ingestion contracts pass for four sites",
+    "Current Editions SEO validates 32 canonical+OpenGraph pages",
+    "Current Bridge exposes disallow-all robots.txt and authenticated Editions sitemap"
+  ],
+  "unresolvedBeforeRecipe": [
+    "Deploy and qualify exact runtime for source SHA 91c0688f6f64275828a6ff0cb645eaadd9aef965.",
+    "Verify exact runtime package hashes equal the current source-qualified package hashes.",
+    "Recheck any newer production HEAD before freezing the recipe target.",
+    "Keep commercial publication locked until Maison/Food release evidence and Editions exact cover authorities are intentionally satisfied."
+  ],
+  "humanRecipe": {
+    "state": "SUSPENDED",
+    "reason": "Source passes full local qualification after brand-authority reconciliation; exact runtime is still historical and must be rebuilt."
+  },
+  "publicationLocks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false
+  },
+  "latestBuildEvidence": [
+    "HUB_ASSET_INTEGRITY_PASS 4",
+    "HUB_SEO_PASS 32 canonical+OpenGraph",
+    "HUB_VISITOR_COPY_PASS 32",
+    "HUB_RUNTIME_INTEGRITY_PASS 4",
+    "HUB_A11Y_RENDERED_PASS 32",
+    "Hub release lock: CROSS_BRANCH_QUALIFIED / LOCKED_HUMAN_RECIPE_REQUIRED",
+    "CANONICAL_BRAND_ALL_SITES_PASS 4",
+    "INTEGRATION_RUNTIME_PASS 4",
+    "SOCLE_V2_PASS",
+    "EDITIONS_RENDERED_CONTRACT_PASS 33",
+    "SOCLE_V2_RUNTIME_PASS",
+    "PRIVATE_APP_INTEGRATION_CONTRACT_PASS 4",
+    "PRIVATE_APP_INGESTION_PASS 4",
+    "PREVIEW_NAVIGATION_PASS 119 pages / 125 resources / 719 links / 125 unauthorized denied",
+    "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes",
+    "RENDER_DEPLOY_LIVE dep-dapcfuhsrm7s73f016rg",
+    "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
+  ],
+  "githubActions": {
+    "workflow": "LMI four-sites cross-branch validation",
+    "runId": 35528691089,
+    "status": "completed",
+    "conclusion": "failure",
+    "jobSteps": 0,
+    "qualification": "NOT_AN_APPLICATION_TEST_RESULT_RUNNER_DID_NOT_START_STEPS"
+  },
+  "resolutionByBranch": {
+    "agent/transverse-4-sites-finalisation-20260907": "Useful Hub integrity/SEO/runtime concepts absorbed and adapted; stale identity/auth/media assumptions rejected.",
+    "agent/lmi-food-finalisation-20260906": "Functional Food validators/catalogue controls substantially present; current candidate adds legal page, canonical identity and newer Drive/SHA media manifest.",
+    "agent/lmi-maison-finalisation-20260906": "Maison controls absorbed; current candidate adds canonical logo/hero provenance, legal page and six-system correction.",
+    "work/maison-convergence-20260915": "False-positive commerce validator correction already incorporated in current validator lineage; current product layer is newer.",
+    "work/editions-canonical-20260915": "Canonical brand correction retained; current Hub has broader visitor cleanup, four-asset provenance, SEO/a11y/runtime gates.",
+    "work/musee-brand-correction-20260915": "Canonical brand correction retained; current Museum is newer with canonical PNG logo, hero, expanded visitor pathways and legal linkage."
+  },
+  "knownPushedHeadsReview": "COMPLETE",
+  "recipeFreezeEligible": false,
+  "blockingCondition": "EXACT_SOURCE_91C0688F6F64275828A6FF0CB645EAADD9AEF965_RUNTIME_REBUILD_AND_REQUALIFICATION_REQUIRED",
+  "runtimeRecipeLock": {
+    "state": "ENFORCED",
+    "httpStatus": 423,
+    "proof": "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
+  },
+  "latestSourceQualification": {
+    "machine": "MinideABDOULAYE.lan",
+    "date": "2026-09-24",
+    "sourceSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "npmTest": "PASS",
+    "integrationTest": "PASS",
+    "brandAuthority": "PASS_D4AF37_IDENTITY_GOLD",
+    "evidence": [
+      "HUB_ASSET_INTEGRITY_PASS 4",
+      "HUB_SEO_PASS 32 canonical+OpenGraph",
+      "HUB_VISITOR_COPY_PASS 32",
+      "HUMAN_RECIPE_ROUTE_LOCK_PASS 423",
+      "HUB_RUNTIME_INTEGRITY_PASS 4",
+      "HUB_A11Y_RENDERED_PASS 32",
+      "CANONICAL_BRAND_ALL_SITES_PASS 4",
+      "INTEGRATION_RUNTIME_PASS 4",
+      "SOCLE_V2_PASS",
+      "EDITIONS_RENDERED_CONTRACT_PASS 33",
+      "SOCLE_V2_RUNTIME_PASS",
+      "PRIVATE_APP_INTEGRATION_CONTRACT_PASS 4 PROTOCOL_1_2",
+      "PRIVATE_APP_INGESTION_PASS 4",
+      "PREVIEW_NAVIGATION_PASS 119 pages / 125 resources / 719 links / 125 unauthorized denied",
+      "CLIENT_READINESS_STRUCTURAL_PASS 4 sites / 67 visitor routes",
+      "DRIVE_BACKED_VISITOR_ASSETS_PASS 4 sites / 67 pages / 52 image refs",
+      "CANONICAL_SITE_COPY_PASS 4 sites / 67 pages",
+      "SITE_CONTENT_CONTROL_MAP_PASS 4 sites / 67 routes / 98 source bindings"
+    ]
+  },
+  "currentSourcePackages": {
+    "musee": {
+      "sha256": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "files": 49
+    },
+    "maison": {
+      "sha256": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "files": 19
+    },
+    "food": {
+      "sha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "files": 34
+    },
+    "editions": {
+      "sha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "files": 39
+    }
+  },
+  "parallelProductionObservation": {
+    "sameBranchAdvancedSincePriorAudit": true,
+    "previousComparedHead": "4c11b102eb129a975e14339d2d9d95eefc800fb6",
+    "currentHead": "26eb89310b2fc39e685a92832d7a39542829a0a4",
+    "commitsAdded": 32,
+    "interpretation": "Parallel work has been landing on the same consolidation branch, so cross-check is performed by head-to-head delta review rather than branch name alone."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "asOf": "2026-09-15T21:27:00+02:00",
+  "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+  "integrationHead": "74537d405313b558b05da35be0b244af0900dd60",
+  "workflow": "LMI Musee Finalisation",
+  "runId": 35013604465,
+  "runNumber": 92,
+  "status": "completed",
+  "conclusion": "failure",
+  "jobId": 104531382067,
+  "job": "musee-finalisation",
+  "steps": null,
+  "classification": "RUNNER_STARTUP_FAILURE_BEFORE_STEPS",
+  "applicationGateInterpretation": "NO_APPLICATION_TEST_FAILURE_PROVEN",
+  "localEquivalentValidation": {
+    "canonicalBrandAllSites": "PASS",
+    "integrationRuntime": "PASS_4_OF_4",
+    "museeValidator": "PASS",
+    "museeAudit": "PASS",
+    "socleV2": "PASS"
+  }
+}

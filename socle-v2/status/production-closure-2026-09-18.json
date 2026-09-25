@@ -1,0 +1,38 @@
+{
+  "asOf": "2026-09-18T18:35:00+02:00",
+  "status": "MACHINE_PRODUCTION_CLOSED_AT_HUMAN_RECIPE_GATE",
+  "bridgeBranchHead": "27bdd2017c7a1d2e4a9eeca0bccd65463a6a4694",
+  "liveRuntimeSourceSha": "3710a04529f77b411810354826352d1f2b52c534",
+  "liveDeployId": "dep-dam6fnou01pc73eh87kg",
+  "privateAppHead": "f814088abd437c4c5f80f85794e93016cf8ef7df",
+  "brandContractSha256": "96fa0b11f0e5a2c288637bbb782aca54e77dc2ea4f8e7460c5193987b63e7b7a",
+  "publicationProtocolSha256": "366d43757ab6c716809ede16da148f1bb85befed823770f2ad3c8908f4c9eeed",
+  "machineGates": {
+    "bridgeIntegration": "PASS",
+    "canonicalBrandAllSites": 4,
+    "integrationRuntime": 4,
+    "socleV2": "PASS",
+    "editionsRenderedContractPages": 33,
+    "runtimeRegistry": "PASS",
+    "privateAppIntegrationUniverses": 4,
+    "privateAppIngestionUniverses": 4,
+    "previewPages": 115,
+    "previewResources": 120,
+    "previewLinks": 656,
+    "unauthorizedDenied": 120,
+    "sessionAuthentication": true,
+    "privateAppSitesGate": "PASS"
+  },
+  "humanRecipe": {
+    "musee": "PENDING",
+    "maison": "PENDING",
+    "food": "PENDING",
+    "editions": "PENDING"
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false
+  },
+  "nextRequiredActor": "HUMAN_RECIPE"
+}

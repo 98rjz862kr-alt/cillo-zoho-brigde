@@ -1,0 +1,55 @@
+{
+  "site": {
+    "id": "musee",
+    "name": "LMI Musée",
+    "publicHost": "musee.lesmotsimages.com",
+    "bridgeScope": "https://bridge.lesmotsimages.com"
+  },
+  "candidate": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "packageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd",
+    "sourcePr": 116
+  },
+  "integration": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "sourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "mode": "direct-candidate-runtime"
+  },
+  "build": {
+    "id": "git-archive-f8d046bd-20260915",
+    "sha256": "ec80043ecc9cc70d69bb5037b48c2dc85457d54d32fd177af81c62224fc9aabb"
+  },
+  "runtime": {
+    "bridgeUrl": "https://bridge.lesmotsimages.com",
+    "observedAt": "2026-09-07T12:53:46Z",
+    "renderServiceId": "srv-d9osqbmgekts73eoqis0",
+    "renderDeployId": "dep-dafb7867bikc73fsrg1g",
+    "renderStatus": "live",
+    "sourceManifestStatus": "READY_TO_PUBLISH",
+    "integrationSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "packageSha256": "ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd"
+  },
+  "mediaManifest": {
+    "sha256": "962786007c591915cf8df6a6be6774a4f3e25447a483a9810559b5505b910a32",
+    "items": [
+      {
+        "path": "drafts/lmi-musee-complet/assets/lmi-logo-officiel.svg",
+        "sha256": "13837d0e1c89548277f40c8c8289afd5c0f27e8d8437c0a4422a91512a7d5952",
+        "provenance": "repository-at-source-sha; Drive canonical source previously inventoried",
+        "rightsStatus": "unknown",
+        "referenceCount": 41
+      }
+    ]
+  },
+  "recipeGate": {
+    "status": "NO_GO",
+    "checkedAt": "2026-09-15T20:35:00+02:00",
+    "p0": 0,
+    "p1": 1,
+    "decision": "SUPERSEDED_FOR_RECIPE_BY_BRAND_CORRECTION",
+    "blockers": [
+      "Brand identity rendered as LES MOTS IMAGES / Les Mots Images instead of canonical LES MOTS IMAGÉS"
+    ]
+  }
+}

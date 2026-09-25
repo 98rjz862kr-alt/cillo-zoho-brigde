@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-24T12:50:00Z",
+  "state": "SOURCE_91C0688_QUALIFIED_EXACT_RUNTIME_REBUILD_REQUIRED",
+  "principle": "READY_TO_SERVE_IS_NOT_READY_TO_PUBLISH",
+  "privateApp": {
+    "repository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
+    "branch": "codex/consolidation-integrale-application-lmi-v2",
+    "sourceSha": "cc58c3ffb3ca6dee0d8c779ec878fa6cbd12f9e5",
+    "protocolId": "lmi-sites-publication-protocol@1.2.0",
+    "managementUi": "/applications/sites-operations.html",
+    "managementApi": "/api/sites-operations",
+    "capabilities": [
+      "product_sheets",
+      "content_updates",
+      "media_references",
+      "stock_tracking",
+      "replenishments",
+      "service_recipe"
+    ],
+    "sourceTests": "PASS"
+  },
+  "bridge": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "branch": "work/socle-commun-v2-20260915",
+    "protocolId": "lmi-sites-publication-protocol@1.2.0",
+    "sourceTests": "PASS_MAC_MINI_NPM_TEST_AND_INTEGRATION_AFTER_BRAND_AUTHORITY_ALIGNMENT",
+    "sourceSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "sourcePackageHashes": {
+      "musee": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1",
+      "maison": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "food": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "editions": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950"
+    },
+    "currentLiveRuntime": {
+      "sha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
+      "deployId": "dep-dapcsnbm8hqs739bn6a0",
+      "qualification": "HISTORICAL_PROTOCOL_RUNTIME"
+    }
+  },
+  "humanServiceRecipe": {
+    "realProductEvidenceRequired": false,
+    "rightsEvidenceRequiredForExcludedOrClearlyLockedReferences": false,
+    "exactRuntimeRequired": true,
+    "privateAppManagementRequired": true,
+    "scope": [
+      "identity",
+      "design",
+      "ergonomics",
+      "navigation",
+      "content presentation",
+      "private management workflows",
+      "responsive behavior",
+      "service readiness"
+    ],
+    "state": "SUSPENDED_EXACT_RUNTIME_REQUIRED"
+  },
+  "commercialRelease": {
+    "state": "LOCKED",
+    "requires": [
+      "real product evidence where applicable",
+      "rights/provenance for released assets",
+      "approved price/stock/availability where applicable",
+      "publication approval"
+    ],
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "nextGate": "DEPLOY_AND_QUALIFY_EXACT_SOURCE_SHA_91C0688F6F64275828A6FF0CB645EAADD9AEF965",
+  "brandAuthorityReconciliation": {
+    "state": "PASS",
+    "privateAppAuthority": "assets/brand/lmi-brand-authority.json",
+    "socleIdentityGold": "#D4AF37",
+    "premiumMatteGold": "#C8A96B",
+    "obsoleteColorRejected": "#C9A13B",
+    "localQualification": "PASS"
+  }
+}

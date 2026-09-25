@@ -1,0 +1,38 @@
+{
+  "site": "maison",
+  "baseCandidateSha": "90feb347652b025ebb657e76d41f691a11956ef6",
+  "sourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0",
+  "sourceBranch": "work/maison-brand-correction-20260915",
+  "corrections": [
+    "Canonical brand identity corrected to LES MOTS IMAGÉS.",
+    "Technical journal wording aligned with the inactive-commerce validator semantics."
+  ],
+  "candidatePackageSha256": "df6e0e5308f147c282bd54366205e1ea5a02ff33d7c0faf55f65fd2e3c1e5051",
+  "validation": {
+    "validateLmiMaison": "PASS",
+    "auditLmiMaisonFinalisation": "PASS",
+    "gitDiffCheck": "PASS",
+    "nonCanonicalBrandOccurrences": 0
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "clientFacingUpgrade": {
+    "date": "2026-09-18",
+    "canonicalHeroIntegrated": true,
+    "sourceCommit": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+    "packageSha256": "81cdafff356090421232e7fe1f585146f1dca5ecb299ac0ceb90827a71660641",
+    "humanRecipe": "PENDING"
+  },
+  "clientFacingRequalification": {
+    "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+    "packageSha256": "df6e0e5308f147c282bd54366205e1ea5a02ff33d7c0faf55f65fd2e3c1e5051",
+    "structuralGate": "PASS",
+    "visitorContactJourney": "PASS",
+    "humanAestheticCommercialJudgement": "PENDING",
+    "bridgeDeployment": "PENDING",
+    "sourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0"
+  }
+}

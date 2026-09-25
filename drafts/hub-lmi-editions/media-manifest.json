@@ -1,0 +1,52 @@
+{
+  "version": 2,
+  "verifiedAt": "2026-09-15",
+  "reason": "Restore exact canonical source bytes after corrupt WebP derivative found. Historical files remain in git history.",
+  "assets": [
+    {
+      "path": "assets/logo-lmi-hub.png",
+      "sourceDriveId": "1i2Gvfxp7X3V8Q6EzOR0-bDFmpcDQCJTX",
+      "sourceName": "LMI-IMG-BRD-LOGO-COUVERTURE-CANON-V001.png",
+      "sha256": "d796f29475383b8cc1bfda8ac44bb1b66933fdf96d0050004252b79a9b1b499b",
+      "bytes": 492238,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_PASS_AND_VISUALLY_REVIEWED_2026_09_15",
+      "usage": "PREPUBLICATION_REFERENCE",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/boa-totem-soya.jpg",
+      "sourceDriveId": "1qKmgxf40Dl4rS16ZA1PRodF29NmUowDA",
+      "sourceName": "COUVERTURE_BOA_TOTEM_SOYA_PREPUB_V2.jpg",
+      "sha256": "13ac00be26e61f6537cbeb1fb32977689a558437e94ceb0aed86c8d7495f6f5e",
+      "bytes": 598863,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_PASS_AND_VISUALLY_REVIEWED_2026_09_15",
+      "usage": "PREPUBLICATION_REFERENCE",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/le-fleuve-sans-nom.jpg",
+      "sourceDriveId": "105ruK0gmwVqt9tcNL6vSf5w8P1BMgYij",
+      "sourceName": "COUVERTURE_FLEUVE_SANS_NOM_PREPUB_V2.jpg",
+      "sha256": "3803846c2c5651c5d7f6c1fd775806d0ac3eac57367ab0f58911c381dc4e88aa",
+      "bytes": 497620,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_PASS_AND_VISUALLY_REVIEWED_2026_09_15",
+      "usage": "PREPUBLICATION_REFERENCE",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-EDT-WEB-HERO-V001.webp",
+      "sourceDriveId": "1HJRlpn9SoO-SfyHbHQX-on5GLnDA_jot",
+      "sourceName": "LMI-EDT-WEB-HERO-V001.webp",
+      "sha256": "e607517f5d980597469607fee3099e2884438eaaaa375ca055252cfd5290bbe7",
+      "bytes": 150744,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "SOURCE_DRIVE_WEB_CANONIQUE_INTEGREE_2026_09_18",
+      "usage": "PREPUBLICATION_HERO",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    }
+  ],
+  "publicRelease": "NOT_APPROVED"
+}

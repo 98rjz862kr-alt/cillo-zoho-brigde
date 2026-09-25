@@ -1,7 +1,7 @@
 const HUB_DRAFT_PATTERN = /^hub-lmi-editions\/.+\.html$/i;
 
-const OFFICIAL_LOGO_ALT = 'Les Mots Images — Le verbe par l’image';
-const OFFICIAL_LOGO_MARKUP = `<img class="lmi-official-logo" data-lmi-approved="official-logo-2026-08-20" data-lmi-asset="logo-lmi-hub.webp" alt="${OFFICIAL_LOGO_ALT}" width="700" height="439" loading="eager" decoding="async">`;
+const OFFICIAL_LOGO_ALT = 'Les Mots Imagés — Le verbe par l’image';
+const OFFICIAL_LOGO_MARKUP = `<img class="lmi-official-logo" data-lmi-approved="official-logo-2026-08-20" data-lmi-asset="logo-lmi-hub.png" alt="${OFFICIAL_LOGO_ALT}" width="1000" height="635" loading="eager" decoding="async">`;
 
 const IDENTITY_CSS = `
 <style id="lmi-official-identity-guard">
