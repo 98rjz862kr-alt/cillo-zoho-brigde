@@ -76,6 +76,39 @@
       "sha256": "d796f29475383b8cc1bfda8ac44bb1b66933fdf96d0050004252b79a9b1b499b",
       "status": "SOURCE_DRIVE_IDENTITE_CANONIQUE_INTEGREE_2026_09_20",
       "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "name": "LMI-FOOD-WEB-PETITS-DEJEUNERS-V001.png",
+      "driveId": "1KkpCIN17yurErd2E5k9KuXW1JUMq4nzQ",
+      "route": "02-petits-dejeuners-collations.html",
+      "format": "PNG",
+      "width": 1672,
+      "height": 941,
+      "sha256": "fda5c39cf64aa604349e8bdc91e3d6784afd72311fdeaa3905fe57a9c53ab796",
+      "status": "SOURCE_DRIVE_SHA256_VERIFIEE_PENDING_INTEGRATION",
+      "rightsStatus": "A_DOCUMENTER_AVANT_PUBLICATION"
+    },
+    {
+      "name": "LMI-FOOD-WEB-EPICERIE-CONDIMENTS-V001.png",
+      "driveId": "1WvywRjN3XBM4eJ0F0ZtsKtV0kje-WGP5",
+      "route": "04-epicerie-condiments.html",
+      "format": "PNG",
+      "width": 1842,
+      "height": 854,
+      "sha256": "bea577af19469d38a00be4384a11b05c5affd665e27ddfabe3edb54d1c1780c2",
+      "status": "SOURCE_DRIVE_SHA256_VERIFIEE_PENDING_INTEGRATION",
+      "rightsStatus": "A_DOCUMENTER_AVANT_PUBLICATION"
+    },
+    {
+      "name": "LMI-FOOD-WEB-COLLECTION-RECETTES-V001.png",
+      "driveId": "1wUV-DSqXeSGy6s73XpE2-cXJRNiGmvQ0",
+      "route": "08-collection-editoriale-recettes.html",
+      "format": "PNG",
+      "width": 1672,
+      "height": 941,
+      "sha256": "f8786d8b109a80bda297e19330c2fbd121ad2c0c68b09d1dc7feafbfdfed3075",
+      "status": "SOURCE_DRIVE_SHA256_VERIFIEE_PENDING_INTEGRATION",
+      "rightsStatus": "A_DOCUMENTER_AVANT_PUBLICATION"
     }
   ],
   "removedUntraceableMedia": [
@@ -111,7 +144,10 @@
     "rule": "NO_GENERIC_DUPLICATION_AS_PAGE_COVERAGE",
     "homepageHero": "LMI-FOOD-WEB-HERO-V001.webp",
     "secondaryPages": "TEXT_FIRST_UNTIL_PAGE_SPECIFIC_DRIVE_SHA_ASSET_EXISTS",
-    "generation": "INTERDITE_POUR_COMBLER_UN_MANQUE"
+    "generation": "INTERDITE_POUR_COMBLER_UN_MANQUE",
+    "pageSpecificAssets": "3_SOURCE_DRIVE_SHA256_VERIFIEES_PENDING_INTEGRATION",
+    "contactAndLegal": "IDENTITE_CANONIQUE_ONLY_NO_COMMERCIAL_PHOTO_REQUIRED",
+    "lastAudit": "2026-09-25"
   },
   "brandAuthority": {
     "name": "LES MOTS IMAGÉS",
