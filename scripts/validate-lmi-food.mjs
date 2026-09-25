@@ -3,7 +3,8 @@ import path from 'node:path';
 
 const root = path.resolve('drafts/lmi-food-site');
 const requiredPrefixes = Array.from({ length: 28 }, (_, index) => `${String(index).padStart(2, '0')}-`);
-const requiredColors = ['#143B7D', '#CC7722'];
+const canonicalColors = ['#143B7D', '#CC7722', '#75553F', '#D4AF37', '#0F2747', '#F6F1E8', '#C8A96B', '#C9C3BA'];
+const forbiddenLegacyColors = ['#071A35', '#F7F3EA', '#8B1E2D', '#596579', '#0A203E', '#061429', '#0F315F'];
 const forbiddenPublicClaims = [
   /durée de conservation validée/i,
   /allergènes validés/i,
@@ -40,7 +41,8 @@ for (const file of files) {
   assert(/LMI FOOD/i.test(html), `LMI FOOD identity missing: ${file}`);
   assert(/<h1[^>]*>[^<]+<\/h1>/i.test(html), `Primary heading missing: ${file}`);
   assert(html.length >= 900, `Page is unexpectedly short: ${file}`);
-  assert(requiredColors.some((color) => html.toUpperCase().includes(color)), `LMI palette marker missing: ${file}`);
+  assert(canonicalColors.some((color) => html.toUpperCase().includes(color)), `LMI palette marker missing: ${file}`);
+  for (const color of forbiddenLegacyColors) assert(!html.toUpperCase().includes(color), `Non-canonical legacy color found: ${file} ${color}`);
   assert(!/href=["']#["']/i.test(html), `Placeholder link found: ${file}`);
   assert(!/\b(?:lorem ipsum|texte template|à remplacer|placeholder)\b/i.test(html), `Template residue found: ${file}`);
 
@@ -53,6 +55,10 @@ for (const file of files) {
     const sha256 = (image.match(/\bdata-lmi-sha256=["']([^"']+)["']/i) || [])[1] || '';
     assert(driveId.length >= 10, `Non-decorative illustration without Drive provenance: ${file}`);
     assert(/^[a-f0-9]{64}$/.test(sha256), `Non-decorative illustration without SHA-256: ${file}`);
+  }
+
+  if (file !== '00-bat-lmi-food.html') {
+    assert(!/LMI-FOOD-WEB-HERO-V001\.webp/i.test(html), `Generic homepage hero duplicated on secondary page: ${file}`);
   }
 
   for (const pattern of forbiddenPublicClaims) {
