@@ -8,5 +8,5 @@ export function hubPublicPathForFile(fileName){
 }
 export function hubCanonicalUrlForFile(fileName){
   const p=hubPublicPathForFile(fileName);
-  return p==null?null:`https://editions.lesmotsimages.com${p}`;
+  return p==null?null:`https://www.lesmotsimages.com${p}`;
 }

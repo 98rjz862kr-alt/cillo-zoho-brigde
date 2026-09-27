@@ -20,4 +20,4 @@ for(const page of pages){
   const visible=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
   if(forbidden.test(visible)||bat.test(visible))throw new Error(`Internal production wording remains in ${page.relativePath}`);
 }
-console.log(JSON.stringify({site:'editions.lesmotsimages.com',privateCandidate:'CROSS_BRANCH_QUALIFIED',publicPublication:'LOCKED_HUMAN_RECIPE_REQUIRED',visitorPages:pages.length,hashedServedVisuals:manifest.assets.length,p0Technical:0},null,2));
+console.log(JSON.stringify({site:'www.lesmotsimages.com',privateCandidate:'CROSS_BRANCH_QUALIFIED',publicPublication:'LOCKED_HUMAN_RECIPE_REQUIRED',visitorPages:pages.length,hashedServedVisuals:manifest.assets.length,p0Technical:0},null,2));

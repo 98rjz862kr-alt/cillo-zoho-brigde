@@ -47,7 +47,7 @@ function hubIntegrityManifest(){
     return {...p,servedSha256:integrity.sha256,servedBytes:integrity.size,exactSourceBytes:integrity.sha256===p.sourceSha256};
   });
   return {
-    site:'editions.lesmotsimages.com',
+    site:'www.lesmotsimages.com',
     brand:'LES MOTS IMAGÉS',
     ready:assets.length>0&&assets.every((a)=>a.exactSourceBytes===true),
     assets

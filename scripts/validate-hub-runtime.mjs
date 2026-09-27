@@ -47,7 +47,7 @@ try{
   if(!sitemap.ok)throw new Error(`Authenticated sitemap failed: ${sitemap.status}`);
   const sitemapXml=await sitemap.text();
   const locs=[...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match)=>match[1]);
-  if(locs.length!==32||locs[0]!=='https://editions.lesmotsimages.com/'||locs.some((value)=>/00-sommaire/i.test(value)))throw new Error(`Private Editions sitemap inventory invalid: ${locs.length}`);
+  if(locs.length!==32||locs[0]!=='https://www.lesmotsimages.com/'||locs.some((value)=>new URL(value).origin!=='https://www.lesmotsimages.com'||/00-sommaire/i.test(value)))throw new Error(`Private Editions sitemap inventory invalid: ${locs.length}`);
 
   const root=await request('/');
   if(root.status!==303||root.headers.get('location')!=='/atelier')throw new Error('Bridge root must redirect to protected atelier');
@@ -67,7 +67,7 @@ try{
   const integrity=await request('/api/hub-integrity',auth);
   if(!integrity.ok)throw new Error(`Authenticated integrity endpoint failed: ${integrity.status}`);
   const manifest=await integrity.json();
-  if(manifest.site!=='editions.lesmotsimages.com'||manifest.brand!=='LES MOTS IMAGÉS'||manifest.ready!==true||manifest.assets?.length!==4){
+  if(manifest.site!=='www.lesmotsimages.com'||manifest.brand!=='LES MOTS IMAGÉS'||manifest.ready!==true||manifest.assets?.length!==4){
     throw new Error('Hub integrity manifest is incomplete');
   }
   for(const asset of manifest.assets){
