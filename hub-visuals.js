@@ -2,6 +2,7 @@ const HUB_DRAFT_PATTERN=/^hub-lmi-editions\/.+\.html$/i;
 const ASSET_ROOT='hub-lmi-editions/assets/';
 
 const VISUAL_STYLE=`<style id="lmi-hub-visual-style">
+.lmi-metier-visual{width:min(180px,45vw);margin:22px 0}.lmi-metier-visual img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:18px}
 .lmi-editorial-visual{position:relative;overflow:hidden;border-radius:28px;background:#0f2747;box-shadow:0 24px 60px rgba(15,39,71,.20)}
 .lmi-editorial-visual img{display:block;width:100%;height:100%;object-fit:cover}
 .lmi-editorial-visual figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 20px 16px;background:linear-gradient(transparent,rgba(15,39,71,.92));color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.04em}
@@ -18,6 +19,21 @@ const ASSET_SCRIPT=`<script id="lmi-hub-visual-script">(function(){document.quer
 
 function img(asset,alt,cls=''){return `<img ${cls?`class="${cls}"`:''} data-lmi-asset="${asset}" alt="${alt}" loading="eager" decoding="async">`;}
 function figure(asset,alt,caption=''){return `<figure class="lmi-editorial-visual">${img(asset,alt)}${caption?`<figcaption>${caption}</figcaption>`:''}</figure>`;}
+
+function addMetierVisual(html,file){
+  const map={
+    '02-comprendre-lmi.html':['LMI-ENT-HUB-ICO-WEB-V1.webp','L’écosystème Les Mots Imagés'],
+    '03-choisir-son-pole.html':['LMI-ENT-HUB-ICO-WEB-V1.webp','Les métiers de l’écosystème LMI'],
+    '06-lmi-maison.html':['LMI-MAI-CORE-ICO-WEB-V1.webp','LMI Maison'],
+    '07-lmi-food.html':['LMI-FOD-CORE-ICO-WEB-V1.webp','LMI Food'],
+    '08-lmi-musee.html':['LMI-MUS-CORE-ICO-WEB-V1.webp','LMI Musée'],
+    '09-manuscrits-textes.html':['LMI-EDT-CORE-ICO-WEB-V1.webp','LMI Éditions'],
+    '19-presse-partenaires-droits.html':['LMI-LIC-CORE-ICO-WEB-V1.webp','LMI Licensing — droits et adaptations']
+  };
+  const item=map[file];if(!item)return html;
+  const visual=`<figure class="lmi-metier-visual"><img src="/atelier/file/${encodeURIComponent(ASSET_ROOT+item[0])}" data-lmi-asset="${item[0]}" alt="${item[1]}" width="768" height="768" loading="lazy" decoding="async"></figure>`;
+  return html.replace(/(<h1\b[^>]*>[\s\S]*?<\/h1>)/i,`$1${visual}`);
+}
 
 function addHomeVisuals(html){
   let out=html;
@@ -62,6 +78,7 @@ export function integrateHubVisuals(relativePath,html){
   if(file==='01-accueil.html')out=addHomeVisuals(out);
   if(['11-catalogue-editorial.html','12-catalogue-bd-adaptations.html','13-univers-illustres-da.html'].includes(file))out=addCatalogueVisuals(out);
   out=restoreEditorialHero(out,file);
+  out=addMetierVisual(out,file);
   if(file==='31-le-boa-totem-de-soya.html')out=addWorkVisual(out,'boa-totem-soya.jpg','Couverture du Boa Totem de Soya');
   if(file==='32-le-fleuve-sans-nom.html')out=addWorkVisual(out,'le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom');
   if(!out.includes('id="lmi-hub-visual-style"'))out=out.replace(/<\/head>/i,`${VISUAL_STYLE}</head>`);

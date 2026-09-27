@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "verifiedAt": "2026-09-15",
-  "reason": "Restore exact canonical source bytes after corrupt WebP derivative found. Historical files remain in git history.",
+  "version": 3,
+  "verifiedAt": "2026-09-27",
+  "reason": "Integrate six exact canonical métier visuals; preserve all existing source assets.",
   "assets": [
     {
       "path": "assets/logo-lmi-hub.png",
@@ -45,6 +45,72 @@
       "sourceBytesUnchanged": true,
       "decodeQA": "SOURCE_DRIVE_WEB_CANONIQUE_INTEGREE_2026_09_18",
       "usage": "PREPUBLICATION_HERO",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-ENT-HUB-ICO-WEB-V1.webp",
+      "sourceDriveId": "1a58MjMqmHjqraVmUdC2BsSIzDi7bRbYb",
+      "sourceName": "LMI-ENT-HUB-ICO-WEB-V1.webp",
+      "sha256": "ad92b840af1e74f4d10bf288ac681ab5a226ff086e62fa231ace6b886d920459",
+      "bytes": 151734,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_AND_VISUAL_REVIEW_2026_09_27",
+      "usage": "METIER_NAVIGATION",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-LIC-CORE-ICO-WEB-V1.webp",
+      "sourceDriveId": "1ejXUVO3gYL3Q1P3HusocU1Wd5MjNn2W4",
+      "sourceName": "LMI-LIC-CORE-ICO-WEB-V1.webp",
+      "sha256": "4485ee7dd34bbdff4ee6a7392720f7eab3b12fee71887dd89d583806acd405eb",
+      "bytes": 153984,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_AND_VISUAL_REVIEW_2026_09_27",
+      "usage": "METIER_NAVIGATION",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-MUS-CORE-ICO-WEB-V1.webp",
+      "sourceDriveId": "1dceAITpnSZQdANx5UmwHw_nFrjtPNc-x",
+      "sourceName": "LMI-MUS-CORE-ICO-WEB-V1.webp",
+      "sha256": "8cd7782fa2c28f50287d2a4f848dca0c6de443680b3d3f2a78f365a4e084f93d",
+      "bytes": 155986,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_AND_VISUAL_REVIEW_2026_09_27",
+      "usage": "METIER_NAVIGATION",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-MAI-CORE-ICO-WEB-V1.webp",
+      "sourceDriveId": "1bTCphlOH_Hj-e7UDY2aEXIuC6E1H4hl-",
+      "sourceName": "LMI-MAI-CORE-ICO-WEB-V1.webp",
+      "sha256": "36437fa44d87a5da983890886f22f050cc260797484e9a8a0d92e4579f2f1ba6",
+      "bytes": 130874,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_AND_VISUAL_REVIEW_2026_09_27",
+      "usage": "METIER_NAVIGATION",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-FOD-CORE-ICO-WEB-V1.webp",
+      "sourceDriveId": "1MqAjHIp90gcgYRrqXRMLJCB1TEKMOfAM",
+      "sourceName": "LMI-FOD-CORE-ICO-WEB-V1.webp",
+      "sha256": "8db1bda8592b7f4a0e27115c7d74a65c31ef8430708a119fc44f254dfd238920",
+      "bytes": 145650,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_AND_VISUAL_REVIEW_2026_09_27",
+      "usage": "METIER_NAVIGATION",
+      "publicationApproval": "HUMAN_RECIPE_REQUIRED"
+    },
+    {
+      "path": "assets/LMI-EDT-CORE-ICO-WEB-V1.webp",
+      "sourceDriveId": "1jp9bcE8GVA2tVJXytHyHb_-irkIUEt6C",
+      "sourceName": "LMI-EDT-CORE-ICO-WEB-V1.webp",
+      "sha256": "f4eee5aa574cabc1fd9802814df76376706607cc91b4783582a76c9f1dea4e9e",
+      "bytes": 139092,
+      "sourceBytesUnchanged": true,
+      "decodeQA": "PIL_FULL_DECODE_AND_VISUAL_REVIEW_2026_09_27",
+      "usage": "METIER_NAVIGATION",
       "publicationApproval": "HUMAN_RECIPE_REQUIRED"
     }
   ],
