@@ -1,0 +1,36 @@
+{
+  "post": 3,
+  "date": "2026-09-27",
+  "baseSourceSha": "a8af8b05969485223b9363c25038faa8df1bfac1",
+  "savedPatchSha256": "4ce9cae6584d4bc89415c54f11604d9a6c47a1df60cb0e36953cb6b79c416b1f",
+  "savedSeoSha256": "c8b518b16e5e22ee7fbfb866787785197ddbef964759ac8c458c2878573af8d0",
+  "decisions": {
+    "drafts.js": "Existing current pipeline retained; duplicate SEO stage not reintroduced.",
+    "hub-seo.js": "Canonical and URL metadata already covered. Extra og:type, og:site_name and twitter:card incorporated into existing visitor-copy module with correct accented brand. Original preserved.",
+    "hub-premium.js": "Recovered logo, previous/next boundary and pager-home links now target P01; home label corrected to Accueil. Remaining breadcrumb routes belong to post 5.",
+    "hub-accessibility.js": "Recovered two-column mobile header; ensured four menu links and home pager are not hidden by legacy CSS.",
+    "hub-visitor-copy.js": "Recovered homepage responsive rules; omitted global overflow hiding to avoid concealing layout defects.",
+    "qaScreenshots": "Preserved as historical local evidence, not used as proof of current rendering."
+  },
+  "newImages": 0,
+  "deployment": "NOT_DEPLOYED",
+  "visualQa": "NOT_RUN",
+  "scope": "LOCAL_CHANGES_CONSOLIDATION",
+  "validation": {
+    "visitorPagesChecked": 32,
+    "htmlPages": 33,
+    "inlineScriptsSyntaxChecked": 190,
+    "socialMetadataUnique": true,
+    "homepageCssScoped": true,
+    "canonicalWwwPreserved": true,
+    "fourImageHashesPreserved": true,
+    "tests": [
+      "validate-hub-seo",
+      "validate-hub-links",
+      "validate-hub-a11y-rendered",
+      "validate-hub-visitor-copy",
+      "validate-hub-runtime"
+    ],
+    "visualQa": "NOT_RUN"
+  }
+}

@@ -126,7 +126,7 @@ function premiumScript(pageNumber, group) {
   const pageTitle=(body.querySelector('h1')?.textContent||document.title||'Hub LMI Éditions').replace(/\s+/g,' ').trim();
   const shell=document.createElement('div');
   shell.className='lmi-shell-nav';
-  shell.innerHTML='<div class="lmi-shell-inner"><a class="lmi-wordmark" href="'+draft(files[0])+'"><span class="lmi-wordmark-mark">LMI</span><span class="lmi-wordmark-copy"><strong>Les Mots Imagés</strong><small>Le verbe par l’image</small></span></a><div class="lmi-shell-title"><span>Page '+String(pageNumber).padStart(2,'0')+' · '+group+'</span><strong>'+pageTitle+'</strong></div><nav class="lmi-shell-links"><a class="lmi-shell-link" href="'+draft(files[1])+'">Accueil</a><a class="lmi-shell-link" href="'+draft(files[11])+'">Catalogue</a><a class="lmi-shell-link" href="'+draft(files[17])+'">À propos</a><a class="lmi-shell-link" href="'+draft(files[5])+'">Contact</a></nav></div>';
+  shell.innerHTML='<div class="lmi-shell-inner"><a class="lmi-wordmark" href="'+draft(files[1])+'"><span class="lmi-wordmark-mark">LMI</span><span class="lmi-wordmark-copy"><strong>Les Mots Imagés</strong><small>Le verbe par l’image</small></span></a><div class="lmi-shell-title"><span>Page '+String(pageNumber).padStart(2,'0')+' · '+group+'</span><strong>'+pageTitle+'</strong></div><nav class="lmi-shell-links"><a class="lmi-shell-link" href="'+draft(files[1])+'">Accueil</a><a class="lmi-shell-link" href="'+draft(files[11])+'">Catalogue</a><a class="lmi-shell-link" href="'+draft(files[17])+'">À propos</a><a class="lmi-shell-link" href="'+draft(files[5])+'">Contact</a></nav></div>';
   if(statusBar&&statusBar.nextSibling)body.insertBefore(shell,statusBar.nextSibling);else body.insertBefore(shell,body.firstChild);
 
   const rail=document.createElement('aside');
@@ -158,10 +158,10 @@ function premiumScript(pageNumber, group) {
 
   const pager=document.createElement('footer');
   pager.className='lmi-runtime-pager';
-  const previous=pageNumber>1?files[pageNumber-1]:files[0];
-  const next=pageNumber<files.length-1?files[pageNumber+1]:files[0];
+  const previous=pageNumber>1?files[pageNumber-1]:files[1];
+  const next=pageNumber<files.length-1?files[pageNumber+1]:files[1];
   const titleFromFile=(file)=>file.replace(/^\d{2}-/,'').replace(/\.html$/,'').replace(/-/g,' ').replace(/\b\w/g,(c)=>c.toUpperCase());
-  pager.innerHTML='<a href="'+draft(previous)+'"><small>Page précédente</small><strong>'+titleFromFile(previous)+'</strong></a><a class="home" href="'+draft(files[0])+'" aria-label="Sommaire">⌂</a><a href="'+draft(next)+'"><small>Page suivante</small><strong>'+titleFromFile(next)+'</strong></a>';
+  pager.innerHTML='<a href="'+draft(previous)+'"><small>Page précédente</small><strong>'+titleFromFile(previous)+'</strong></a><a class="home" href="'+draft(files[1])+'" aria-label="Accueil">⌂</a><a href="'+draft(next)+'"><small>Page suivante</small><strong>'+titleFromFile(next)+'</strong></a>';
   const existingFooter=body.querySelector('footer:not(.lmi-runtime-pager)');
   if(existingFooter)body.insertBefore(pager,existingFooter);else body.appendChild(pager);
 })();
