@@ -106,8 +106,8 @@ function validateDeployGuard() {
   const expected={
     musee:'a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1',
     maison:'695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926',
-    food:'c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22',
-    editions:'e19370ff88117906b72e7c3910f62d0a6242eee32211bb4839ff83085a951b9a'
+    food:'a8d7e962ab9cf91ca6aa18827764d71be4eba20d887e29e78c8a5d408ebef9de',
+    editions:'e0e0731e735115ca8e57ded07e0194005df2f0462df4329e30f5a9cb445c9e47'
   };
   for (const [site,sha] of Object.entries(expected)) if (data.requiredPackageSha256?.[site]!==sha) fail(`deploy guard: paquet source ${site} inattendu`);
 }

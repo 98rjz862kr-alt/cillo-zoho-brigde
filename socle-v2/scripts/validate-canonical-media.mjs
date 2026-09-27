@@ -9,7 +9,8 @@ for(const root of ['drafts/lmi-musee-complet','drafts/hub-lmi-editions']){
   const manifest=JSON.parse(readFileSync(path.join(root,'media-manifest.json'),'utf8'));
   for(const item of manifest.assets){
     const b=readFileSync(path.join(root,item.path));
-    if(!item.sourceDriveId||!item.sourceBytesUnchanged||b.length!==item.bytes||sha(b)!==item.sha256)throw new Error('Canonical media differs from source: '+item.path);
+    const authorizedGenerated=root==='drafts/hub-lmi-editions'&&item.sourceKind==='AI_GENERATED_WEB_PRESENTATION'&&item.authorization==='USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27'&&/^assets\/LMI-EDT-P(?:21|22|23|25|26|27|28|29|30|31|32)-WEB-V001\.png$/.test(item.path);
+    if((!item.sourceDriveId&&!authorizedGenerated)||!item.sourceBytesUnchanged||b.length!==item.bytes||sha(b)!==item.sha256)throw new Error('Canonical media differs from source: '+item.path);
     if(item.path.endsWith('.png')){
       if(b.subarray(0,8).toString('hex')!=='89504e470d0a1a0a')throw new Error('Invalid PNG signature');
       let offset=8,ended=false;

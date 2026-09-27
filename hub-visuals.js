@@ -10,14 +10,16 @@ const VISUAL_STYLE=`<style id="lmi-hub-visual-style">
 .lmi-hero-visuals figure{margin:0;min-height:250px}.lmi-hero-visuals figure:first-child{transform:translateY(18px) rotate(-2deg)}.lmi-hero-visuals figure:last-child{transform:rotate(1.4deg)}.lmi-editions-hero-stack{display:block}.lmi-editions-hero-stack figure{min-height:320px;transform:none!important}.lmi-editions-hero-stack img{aspect-ratio:16/10}
 .lmi-visual-band{width:min(calc(100% - 36px),1240px);margin:34px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .lmi-visual-band figure{margin:0;min-height:280px}
-.lmi-work-image{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;margin-bottom:18px;box-shadow:0 12px 28px rgba(15,39,71,.16)}
+.lmi-work-image{width:100%;aspect-ratio:4/5;object-fit:contain;background:#F6F1E8;border-radius:18px;margin-bottom:18px;box-shadow:0 12px 28px rgba(15,39,71,.16)}
 .lmi-feature-visual{width:min(calc(100% - 36px),980px);margin:28px auto 44px}.lmi-feature-visual figure{margin:0;min-height:340px}
+.lmi-generated-cover{width:min(100%,460px);margin:24px 0}.lmi-generated-cover img{display:block;width:100%;height:auto;object-fit:contain;border-radius:12px}.lmi-generated-cover figcaption{font-size:.8rem;margin-top:8px;color:#75553F}
+.lmi-feature-visual img{height:auto;max-height:640px;object-fit:contain;background:#F6F1E8}
 @media(max-width:760px){.lmi-hero-visuals,.lmi-visual-band{grid-template-columns:1fr}.lmi-hero-visuals figure:first-child,.lmi-hero-visuals figure:last-child{transform:none}.lmi-hero-visuals figure,.lmi-visual-band figure,.lmi-feature-visual figure{min-height:240px}.lmi-feature-visual{margin-top:20px}}
 </style>`;
 
 const ASSET_SCRIPT=`<script id="lmi-hub-visual-script">(function(){document.querySelectorAll('img[data-lmi-asset]').forEach(function(img){var p='${ASSET_ROOT}'+img.getAttribute('data-lmi-asset');img.src='/atelier/file/'+encodeURIComponent(p);});})();</script>`;
 
-function img(asset,alt,cls=''){return `<img ${cls?`class="${cls}"`:''} data-lmi-asset="${asset}" alt="${alt}" loading="eager" decoding="async">`;}
+function img(asset,alt,cls=''){return `<img ${cls?`class="${cls}"`:''} src="/atelier/file/${encodeURIComponent(ASSET_ROOT+asset)}" data-lmi-asset="${asset}" alt="${alt}" loading="eager" decoding="async">`;}
 function figure(asset,alt,caption=''){return `<figure class="lmi-editorial-visual">${img(asset,alt)}${caption?`<figcaption>${caption}</figcaption>`:''}</figure>`;}
 
 function addMetierVisual(html,file){
@@ -39,13 +41,13 @@ function addHomeVisuals(html){
   let out=html;
   const stack=`<div class="lmi-hero-visuals lmi-editions-hero-stack" aria-label="Univers LMI Éditions en image">${figure('LMI-EDT-WEB-HERO-V001.webp','Univers visuel LMI Éditions — mots, images et transmission','LMI Éditions · Le verbe par l’image')}</div>`;
   out=out.replace(/(<aside\b[^>]*class=["'][^"']*editorial-card[^"']*["'][^>]*>)/i,`$1${stack}`);
-  out=out.replace(/(<a\b(?=[^>]*\bhref=["']31-le-boa-totem-de-soya\.html["'])(?=[^>]*\bclass=["'][^"']*work[^"']*["'])[^>]*>)/i,`$1${img('boa-totem-soya.jpg','Couverture du Boa Totem de Soya','lmi-work-image')}`);
-  out=out.replace(/(<a\b(?=[^>]*\bhref=["']32-le-fleuve-sans-nom\.html["'])(?=[^>]*\bclass=["'][^"']*work[^"']*["'])[^>]*>)/i,`$1${img('le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom','lmi-work-image')}`);
+  out=out.replace(/(<a\b(?=[^>]*\bhref=["']31-le-boa-totem-de-soya\.html["'])(?=[^>]*\bclass=["'][^"']*work[^"']*["'])[^>]*>)/i,`$1${img('LMI-EDT-P31-WEB-V001.png','Couverture du Boa Totem de Soya','lmi-work-image')}`);
+  out=out.replace(/(<a\b(?=[^>]*\bhref=["']32-le-fleuve-sans-nom\.html["'])(?=[^>]*\bclass=["'][^"']*work[^"']*["'])[^>]*>)/i,`$1${img('LMI-EDT-P32-WEB-V001.png','Couverture du Fleuve sans nom','lmi-work-image')}`);
   return out;
 }
 
 function addCatalogueVisuals(html){
-  const band=`<section class="lmi-visual-band" aria-label="Sélection visuelle LMI Éditions">${figure('boa-totem-soya.jpg','Couverture du Boa Totem de Soya','Jeunesse · récit illustré')}${figure('le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom','Récit · adaptation graphique')}</section>`;
+  const band=`<section class="lmi-visual-band" aria-label="Sélection visuelle LMI Éditions">${figure('LMI-EDT-P31-WEB-V001.png','Couverture du Boa Totem de Soya','Jeunesse · récit illustré')}${figure('LMI-EDT-P32-WEB-V001.png','Couverture du Fleuve sans nom','Récit · adaptation graphique')}</section>`;
   return html.replace(/(<main\b[^>]*>)/i,`$1${band}`);
 }
 
@@ -70,6 +72,16 @@ function addWorkVisual(html,asset,alt){
 }
 
 
+
+function addGeneratedCover(html,file){
+  const id=file.slice(0,2);
+  if(!['21','22','23','25','26','27','28','29','30'].includes(id))return html;
+  const asset='LMI-EDT-P'+id+'-WEB-V001.png';
+  const title=(html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1]||'').replace(/<[^>]+>/g,'').replace(/"/g,'&quot;');
+  const visual='<figure class="lmi-generated-cover"><img src="/atelier/file/'+encodeURIComponent(ASSET_ROOT+asset)+'" data-lmi-asset="'+asset+'" alt="Visuel de '+title+'" width="1024" height="1536" loading="eager" decoding="async"><figcaption>Visuel de présentation de l’œuvre.</figcaption></figure>';
+  return html.replace(/(<h1\b[^>]*>[\s\S]*?<\/h1>)/i,'$1'+visual);
+}
+
 export function integrateHubVisuals(relativePath,html){
   const normalized=String(relativePath||'').replace(/^\/+/, '');
   if(!HUB_DRAFT_PATTERN.test(normalized))return html;
@@ -79,8 +91,9 @@ export function integrateHubVisuals(relativePath,html){
   if(['11-catalogue-editorial.html','12-catalogue-bd-adaptations.html','13-univers-illustres-da.html'].includes(file))out=addCatalogueVisuals(out);
   out=restoreEditorialHero(out,file);
   out=addMetierVisual(out,file);
-  if(file==='31-le-boa-totem-de-soya.html')out=addWorkVisual(out,'boa-totem-soya.jpg','Couverture du Boa Totem de Soya');
-  if(file==='32-le-fleuve-sans-nom.html')out=addWorkVisual(out,'le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom');
+  out=addGeneratedCover(out,file);
+  if(file==='31-le-boa-totem-de-soya.html')out=addWorkVisual(out,'LMI-EDT-P31-WEB-V001.png','Couverture du Boa Totem de Soya');
+  if(file==='32-le-fleuve-sans-nom.html')out=addWorkVisual(out,'LMI-EDT-P32-WEB-V001.png','Couverture du Fleuve sans nom');
   if(!out.includes('id="lmi-hub-visual-style"'))out=out.replace(/<\/head>/i,`${VISUAL_STYLE}</head>`);
   if(!out.includes('id="lmi-hub-visual-script"'))out=out.replace(/<\/body>/i,`${ASSET_SCRIPT}</body>`);
   return out;

@@ -19,14 +19,14 @@
     "food": {
       "root": "drafts/lmi-food-site",
       "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
-      "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "candidatePackageSha256": "a8d7e962ab9cf91ca6aa18827764d71be4eba20d887e29e78c8a5d408ebef9de",
       "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     },
     "editions": {
       "root": "drafts/hub-lmi-editions",
       "candidateSourceSha": "6441a37f3e4c22dc7857ed31ca1bbff30edadf1c",
-      "candidatePackageSha256": "e19370ff88117906b72e7c3910f62d0a6242eee32211bb4839ff83085a951b9a",
+      "candidatePackageSha256": "e0e0731e735115ca8e57ded07e0194005df2f0462df4329e30f5a9cb445c9e47",
       "state": "CROSS_BRANCH_RECONCILIATION_ACTIVE",
       "mayRedeployBeforeRecipe": true
     }

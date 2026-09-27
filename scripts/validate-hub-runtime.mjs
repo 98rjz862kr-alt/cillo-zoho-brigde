@@ -1,4 +1,5 @@
 import { spawn } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 const port=4191;
@@ -76,7 +77,7 @@ try{
   const integrity=await request('/api/hub-integrity',auth);
   if(!integrity.ok)throw new Error(`Authenticated integrity endpoint failed: ${integrity.status}`);
   const manifest=await integrity.json();
-  if(manifest.site!=='www.lesmotsimages.com'||manifest.brand!=='LES MOTS IMAGÉS'||manifest.ready!==true||manifest.assets?.length!==10){
+  if(manifest.site!=='www.lesmotsimages.com'||manifest.brand!=='LES MOTS IMAGÉS'||manifest.ready!==true||manifest.assets?.length!==JSON.parse(readFileSync('drafts/hub-lmi-editions/media-manifest.json','utf8')).assets.length){
     throw new Error('Hub integrity manifest is incomplete');
   }
   for(const asset of manifest.assets){
@@ -88,7 +89,7 @@ try{
     if(response.headers.get('x-lmi-sha256')!==sha)throw new Error(`Runtime SHA header mismatch for ${asset.assetName}`);
     if(Number(response.headers.get('x-lmi-asset-bytes'))!==bytes.length)throw new Error(`Runtime length header mismatch for ${asset.assetName}`);
   }
-  console.log('HUB_RUNTIME_INTEGRITY_PASS 10');
+  console.log('HUB_RUNTIME_INTEGRITY_PASS '+manifest.assets.length);
 } finally {
   child.kill('SIGTERM');
 }

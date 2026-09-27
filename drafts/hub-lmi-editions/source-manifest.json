@@ -3,11 +3,14 @@
   "site": "www.lesmotsimages.com",
   "canonicalSource": "Google Drive",
   "policy": {
-    "generateIllustrations": false,
-    "useExistingDriveAssetsOnly": true,
-    "requireDriveId": true,
+    "generateIllustrations": true,
+    "useExistingDriveAssetsOnly": false,
+    "requireDriveId": false,
     "requireSha256": true,
-    "publicPublication": false
+    "publicPublication": false,
+    "requireDriveIdForExistingDriveAssets": true,
+    "generatedAssetsAuthorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27",
+    "generatedAssetsScope": "Missing web presentations and clean web derivatives only; no replacement of P24 validated photograph; no print BAT approval."
   },
   "master": {
     "title": "MASTER_EDITION_PUBLICATIONS_2026-09-12",
@@ -87,6 +90,74 @@
       "driveId": "1i2Gvfxp7X3V8Q6EzOR0-bDFmpcDQCJTX",
       "sha256": "d796f29475383b8cc1bfda8ac44bb1b66933fdf96d0050004252b79a9b1b499b",
       "status": "EXISTING_DRIVE_ASSET"
+    }
+  ],
+  "generatedWebAssets": [
+    {
+      "path": "assets/LMI-EDT-P21-WEB-V001.png",
+      "sha256": "097562488fb0b833d045424879ea930ba74d752e9f7236965ff5e5a3b8cd9141",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P22-WEB-V001.png",
+      "sha256": "5fc543b816a0720ad10069fc8cedcd4a2464f1bec0e962175afadfed31b9b95a",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P23-WEB-V001.png",
+      "sha256": "8d689016607c8804cb5e24ea1ed626b75061c0a40deceed3946070c14e7e6208",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P25-WEB-V001.png",
+      "sha256": "9ee9076f2f9c1859424f4f8321c41b21de237bf4a57aab22a1ead044226f276d",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P26-WEB-V001.png",
+      "sha256": "b15857e36b91030fd90199950ef1144eb2af53a5e5d6ec97d37dabde18de2c93",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P27-WEB-V001.png",
+      "sha256": "259fc4cc85351a6d3f8e6a49e75b1ed1f5bd1d07695af9ffa1a2571ed1afd9f2",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P28-WEB-V001.png",
+      "sha256": "75d5df57d1ead29e04cc7b22011ed4b13eec47989aa899a75b02ccf93c079209",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P29-WEB-V001.png",
+      "sha256": "78524772436c8702f5996e6b8d9be1812a27b9c674aca8b6b4199f28f5b266f1",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P30-WEB-V001.png",
+      "sha256": "2602b2c47c32eb5b91b42153ffc20b3b8b3430ef12ffc629a38d9b6e8d122de3",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P31-WEB-V001.png",
+      "sha256": "b2adbc7fd833e4fc603ebd0a03c530fa72c3ab3beaebecc5a6fe797316f71506",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
+    },
+    {
+      "path": "assets/LMI-EDT-P32-WEB-V001.png",
+      "sha256": "f53a8150ee240722e4131961e39c1fed66860076ae7cd69158137f4b4c974967",
+      "sourceKind": "AI_GENERATED_WEB_PRESENTATION",
+      "authorization": "USER_REQUEST_GENERATE_NEEDED_IMAGES_AND_SHA256_2026_09_27"
     }
   ]
 }
