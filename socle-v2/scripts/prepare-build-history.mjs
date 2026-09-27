@@ -1,7 +1,5 @@
 import { execFileSync } from 'node:child_process';
-const sha='f8d046bdfea2c0854364579cca59cbd2fd85a8b9';
-const object=sha+':drafts/lmi-musee-complet/source-manifest.json';
-try { execFileSync('git',['cat-file','-e',object],{stdio:'ignore'}); }
-catch { execFileSync('git',['fetch','--no-tags','origin',sha],{stdio:'inherit'}); }
-execFileSync('git',['cat-file','-e',object],{stdio:'inherit'});
-console.log('BUILD_HISTORY_READY '+sha);
+// The frozen-snapshot validator supports both full Git checkouts and Render source archives.
+// It checks the historical package when Git is present, or the existing pinned portable proof.
+execFileSync(process.execPath,['scripts/validate-frozen-museum-snapshot.mjs'],{stdio:'inherit'});
+console.log('BUILD_HISTORY_OR_PORTABLE_PROOF_READY f8d046bdfea2c0854364579cca59cbd2fd85a8b9');
