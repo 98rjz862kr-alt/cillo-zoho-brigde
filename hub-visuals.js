@@ -2,14 +2,14 @@ const HUB_DRAFT_PATTERN=/^hub-lmi-editions\/.+\.html$/i;
 const ASSET_ROOT='hub-lmi-editions/assets/';
 
 const VISUAL_STYLE=`<style id="lmi-hub-visual-style">
-.lmi-editorial-visual{position:relative;overflow:hidden;border-radius:28px;background:#0f2747;box-shadow:0 24px 60px rgba(7,26,53,.20)}
+.lmi-editorial-visual{position:relative;overflow:hidden;border-radius:28px;background:#0f2747;box-shadow:0 24px 60px rgba(15,39,71,.20)}
 .lmi-editorial-visual img{display:block;width:100%;height:100%;object-fit:cover}
-.lmi-editorial-visual figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 20px 16px;background:linear-gradient(transparent,rgba(7,26,53,.92));color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.04em}
+.lmi-editorial-visual figcaption{position:absolute;left:0;right:0;bottom:0;padding:38px 20px 16px;background:linear-gradient(transparent,rgba(15,39,71,.92));color:#fff;font-size:.78rem;font-weight:800;letter-spacing:.04em}
 .lmi-hero-visuals{display:grid;grid-template-columns:.78fr 1.22fr;gap:14px;margin:0 0 28px;align-items:end}
 .lmi-hero-visuals figure{margin:0;min-height:250px}.lmi-hero-visuals figure:first-child{transform:translateY(18px) rotate(-2deg)}.lmi-hero-visuals figure:last-child{transform:rotate(1.4deg)}.lmi-editions-hero-stack{display:block}.lmi-editions-hero-stack figure{min-height:320px;transform:none!important}.lmi-editions-hero-stack img{aspect-ratio:16/10}
 .lmi-visual-band{width:min(calc(100% - 36px),1240px);margin:34px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 .lmi-visual-band figure{margin:0;min-height:280px}
-.lmi-work-image{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;margin-bottom:18px;box-shadow:0 12px 28px rgba(7,26,53,.16)}
+.lmi-work-image{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;margin-bottom:18px;box-shadow:0 12px 28px rgba(15,39,71,.16)}
 .lmi-feature-visual{width:min(calc(100% - 36px),980px);margin:28px auto 44px}.lmi-feature-visual figure{margin:0;min-height:340px}
 @media(max-width:760px){.lmi-hero-visuals,.lmi-visual-band{grid-template-columns:1fr}.lmi-hero-visuals figure:first-child,.lmi-hero-visuals figure:last-child{transform:none}.lmi-hero-visuals figure,.lmi-visual-band figure,.lmi-feature-visual figure{min-height:240px}.lmi-feature-visual{margin-top:20px}}
 </style>`;

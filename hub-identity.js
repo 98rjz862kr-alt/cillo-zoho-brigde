@@ -5,9 +5,9 @@ const OFFICIAL_LOGO_MARKUP = `<img class="lmi-official-logo" data-lmi-approved="
 
 const IDENTITY_CSS = `
 <style id="lmi-official-identity-guard">
-body .lmi-official-logo{display:block;width:clamp(168px,17vw,190px);height:auto;max-height:116px;object-fit:contain;background:#fff;border-radius:12px;padding:4px;box-shadow:0 10px 28px rgba(7,26,53,.14)}
+body .lmi-official-logo{display:block;width:clamp(168px,17vw,190px);height:auto;max-height:116px;object-fit:contain;background:#fff;border-radius:12px;padding:4px;box-shadow:0 10px 28px rgba(15,39,71,.14)}
 body[data-lmi-runtime="premium-v2"] .lmi-wordmark{gap:0!important;min-width:174px;align-items:center}
-body[data-lmi-runtime="premium-v2"] .lmi-wordmark .lmi-official-logo{width:174px;max-height:108px;padding:3px;border-radius:10px;box-shadow:0 8px 22px rgba(7,26,53,.12)}
+body[data-lmi-runtime="premium-v2"] .lmi-wordmark .lmi-official-logo{width:174px;max-height:108px;padding:3px;border-radius:10px;box-shadow:0 8px 22px rgba(15,39,71,.12)}
 body[data-lmi-runtime="premium-v2"] .lmi-wordmark-copy{display:none!important}
 body .brand,body .identity{gap:0!important}
 body .brand>.lmi-official-logo+div,body .identity>.lmi-official-logo+div{display:none!important}
