@@ -14,6 +14,9 @@ const routeMatch=sample.match(/const routes=(\{[\s\S]*?\});const q=/);
 if(!routeMatch)throw new Error('Hub route map is not exposed in the protected render');
 const routes=JSON.parse(routeMatch[1]);
 
+if(routes['/']!=='01-accueil.html'||routes['/sommaire']!=='01-accueil.html')throw new Error('Visitor home aliases must target P01');
+if(Object.values(routes).some(target=>target.startsWith('00-')))throw new Error('Private index must not be a visitor route target');
+
 const unresolved=[];
 const placeholders=[];
 const directFiles=[];
