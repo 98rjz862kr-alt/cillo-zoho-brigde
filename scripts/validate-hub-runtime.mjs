@@ -59,6 +59,15 @@ try{
   if(!homeHtml.includes('Des mots qui deviennent images, mémoire et transmission.'))throw new Error('Visitor home H1 is not current canonical H1');
   if(/Brouillon Bridge|validation humaine obligatoire|bridge\.lesmotsimages\.com/i.test(homeHtml))throw new Error('Internal wording leaked into authenticated visitor home');
 
+  for(const file of ['11-catalogue-editorial.html','19-presse-partenaires-droits.html']){
+    const response=await request('/atelier/file/'+encodeURIComponent('hub-lmi-editions/'+file),auth);
+    if(!response.ok)throw new Error('Restored HERO page unavailable: '+file);
+    const html=await response.text();
+    const heroes=[...html.matchAll(/<img\b[^>]*data-lmi-hero="editorial"[^>]*>/gi)];
+    if(heroes.length!==1||!heroes[0][0].includes('src="/atelier/file/hub-lmi-editions%2Fassets%2FLMI-EDT-WEB-HERO-V001.webp"'))throw new Error('Restored HERO not served in '+file);
+  }
+  console.log('HUB_RUNTIME_RESTORED_HERO_PASS P11 P19');
+
   const privateSommaire=await request(`/atelier/file/${encodeURIComponent('hub-lmi-editions/00-sommaire-hub-lmi-editions.html')}`,auth);
   if(!privateSommaire.ok)throw new Error(`Private sommaire failed: ${privateSommaire.status}`);
   const privateHtml=await privateSommaire.text();

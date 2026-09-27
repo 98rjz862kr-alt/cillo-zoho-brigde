@@ -1,0 +1,28 @@
+{
+  "post": 4,
+  "date": "2026-09-27",
+  "baseSourceSha": "f411fb93f31c22d697e65e0114847c2e9d82f8fa",
+  "pages": [
+    "11-catalogue-editorial.html",
+    "19-presse-partenaires-droits.html"
+  ],
+  "change": "Restore canonical HERO after identity filtering, in the original aside.manifest and figure.hero-media containers.",
+  "asset": "LMI-EDT-WEB-HERO-V001.webp",
+  "assetSha256": "e607517f5d980597469607fee3099e2884438eaaaa375ca055252cfd5290bbe7",
+  "assetBytes": 150744,
+  "dimensions": [
+    1600,
+    900
+  ],
+  "newImages": 0,
+  "validation": {
+    "oneHeroPerTargetPage": true,
+    "originalContainerPreserved": true,
+    "authenticatedLocalHttp": true,
+    "fourAssetHashes": true,
+    "seoPages": 32,
+    "htmlAccessibilityPages": 32
+  },
+  "deployment": "NOT_DEPLOYED",
+  "visualBrowserQa": "NOT_RUN"
+}

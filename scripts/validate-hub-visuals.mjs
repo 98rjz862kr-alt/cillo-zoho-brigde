@@ -1,3 +1,4 @@
+import { createHash } from 'node:crypto';
 import { readDraftAsset, readDraftHtml } from '../drafts.js';
 
 const logo=readDraftAsset('hub-lmi-editions/assets/logo-lmi-hub.png');
@@ -34,3 +35,17 @@ for(const [name,html] of [['home',home],['boa',boaPage],['fleuve',fleuvePage],['
 }
 
 console.log('Validated official LMI logo, Hub editorial visuals, local assets and protected asset loading.');
+
+const heroAsset='LMI-EDT-WEB-HERO-V001.webp';
+const heroSha='e607517f5d980597469607fee3099e2884438eaaaa375ca055252cfd5290bbe7';
+if(createHash('sha256').update(editionsHero.content).digest('hex')!==heroSha)throw new Error('HERO bytes no longer match the canonical source');
+for(const [file,container] of [['11-catalogue-editorial.html','aside'],['19-presse-partenaires-droits.html','figure']]){
+  const html=readDraftHtml('hub-lmi-editions/'+file)||'';
+  const images=[...html.matchAll(/<img\b[^>]*>/gi)].map(m=>m[0]).filter(tag=>tag.includes('data-lmi-asset="'+heroAsset+'"'));
+  if(images.length!==1)throw new Error(file+': exactly one restored HERO required');
+  if(!images[0].includes('src="/atelier/file/hub-lmi-editions%2Fassets%2F'+heroAsset+'"'))throw new Error(file+': protected HERO source missing');
+  if(!images[0].includes('width="1600" height="900"'))throw new Error(file+': HERO intrinsic dimensions missing');
+  const slot=new RegExp('<'+container+'\\b[^>]*>\\s*<img[^>]*data-lmi-hero="editorial"','i');
+  if(!slot.test(html))throw new Error(file+': HERO displaced from its editorial slot');
+}
+console.log('HUB_RESTORED_HERO_PASS P11 P19 SHA256');

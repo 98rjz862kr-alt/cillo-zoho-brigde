@@ -33,6 +33,20 @@ function addCatalogueVisuals(html){
   return html.replace(/(<main\b[^>]*>)/i,`$1${band}`);
 }
 
+// Restore the approved HERO in its original editorial slot after the identity filter.
+function restoreEditorialHero(html,file){
+  const placements={
+    '11-catalogue-editorial.html':{container:/(<aside\b[^>]*class=["'][^"']*\bmanifest\b[^"']*["'][^>]*>)/i,alt:'Univers visuel LMI Éditions — catalogue, lecture et transmission'},
+    '19-presse-partenaires-droits.html':{container:/(<figure\b[^>]*class=["'][^"']*\bhero-media\b[^"']*["'][^>]*>)/i,alt:'Univers visuel LMI Éditions — presse, partenariats et droits'}
+  };
+  const placement=placements[file];
+  if(!placement||html.includes('data-lmi-hero="editorial"'))return html;
+  const asset='LMI-EDT-WEB-HERO-V001.webp';
+  const source='/atelier/file/'+encodeURIComponent(ASSET_ROOT+asset);
+  const image=`<img data-lmi-hero="editorial" data-lmi-asset="${asset}" src="${source}" alt="${placement.alt}" width="1600" height="900" loading="eager" decoding="async">`;
+  return html.replace(placement.container,`$1${image}`);
+}
+
 function addWorkVisual(html,asset,alt){
   const visual=`<div class="lmi-feature-visual">${figure(asset,alt)}</div>`;
   const replaced=html.replace(/(<h1\b[^>]*>[\s\S]*?<\/h1>)/i,`$1${visual}`);
@@ -47,6 +61,7 @@ export function integrateHubVisuals(relativePath,html){
   let out=String(html||'');
   if(file==='01-accueil.html')out=addHomeVisuals(out);
   if(['11-catalogue-editorial.html','12-catalogue-bd-adaptations.html','13-univers-illustres-da.html'].includes(file))out=addCatalogueVisuals(out);
+  out=restoreEditorialHero(out,file);
   if(file==='31-le-boa-totem-de-soya.html')out=addWorkVisual(out,'boa-totem-soya.jpg','Couverture du Boa Totem de Soya');
   if(file==='32-le-fleuve-sans-nom.html')out=addWorkVisual(out,'le-fleuve-sans-nom.jpg','Couverture du Fleuve sans nom');
   if(!out.includes('id="lmi-hub-visual-style"'))out=out.replace(/<\/head>/i,`${VISUAL_STYLE}</head>`);
