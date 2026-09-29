@@ -1,4 +1,4 @@
-name: LMI DLA registry access probe
+name: LMI DLA visible runtime build
 
 on:
   push:
@@ -10,20 +10,62 @@ on:
 
 permissions:
   contents: read
-  packages: write
 
 jobs:
-  registry-probe:
+  build-push:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LMI_GITHUB_TOKEN: ${{ secrets.LMI_GITHUB_TOKEN }}
+      TARGET_REPO: 98rjz862kr-alt/lmi-application-privee-integration-contenus
+      TARGET_BRANCH: codex/consolidation-integrale-application-lmi-v2
+      IMAGE: ghcr.io/98rjz862kr-alt/lmi-application-privee-integration-contenus:raisonnable-fullbody-703b2288
     steps:
-      - name: Login GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
-      - name: Pull current LMI application image
-        run: docker pull ghcr.io/98rjz862kr-alt/lmi-application-privee-integration-contenus:raisonnable-fullbody-703b2288
-      - name: Probe write permission with isolated tag
+      - name: Verify sealed deployment credential
+        shell: bash
         run: |
-          set -eu
-          src=ghcr.io/98rjz862kr-alt/lmi-application-privee-integration-contenus:raisonnable-fullbody-703b2288
-          dst=ghcr.io/98rjz862kr-alt/lmi-application-privee-integration-contenus:dla-crossrepo-probe-${GITHUB_SHA}
-          docker tag "$src" "$dst"
-          docker push "$dst"
+          set -euo pipefail
+          test -n "${LMI_GITHUB_TOKEN:-}" || { echo "LMI_GITHUB_TOKEN secret is not configured in this repository" >&2; exit 1; }
+
+      - name: Checkout exact canonical LMI source
+        shell: bash
+        run: |
+          set -euo pipefail
+          basic="$(printf 'x-access-token:%s' "$LMI_GITHUB_TOKEN" | base64 -w0)"
+          echo "::add-mask::$basic"
+          git -c "http.extraheader=AUTHORIZATION: basic $basic" clone             --branch "$TARGET_BRANCH" --single-branch             "https://github.com/$TARGET_REPO.git" target
+          cd target
+          source_sha="$(git rev-parse HEAD)"
+          printf '%s' "$source_sha" > /tmp/source_sha
+          echo "SOURCE_SHA=$source_sha"
+
+      - name: Verify DLA illustrated recipe source
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd target
+          test -f assets/brand/dual-language-architect-hero.svg
+          grep -q 'src="/assets/brand/dual-language-architect-hero.svg"' applications/dual-language-architect.html
+          grep -q 'id="dlaStartRecipe"' applications/dual-language-architect.html
+          grep -q 'Valider réellement' applications/dual-language-architect.html
+          grep -q 'dlaStartRecipe' applications/dual-language-architect.js
+          grep -q '/api/dual-language-architect/relay/validate' applications/dual-language-architect.js
+          node --test tests/dual-language-illustrated-interface.test.js
+
+      - name: Login to LMI GHCR
+        shell: bash
+        run: printf '%s' "$LMI_GITHUB_TOKEN" | docker login ghcr.io -u 98rjz862kr-alt --password-stdin
+
+      - name: Build and push visible runtime image
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd target
+          source_sha="$(cat /tmp/source_sha)"
+          docker build             --platform linux/amd64             --file Dockerfile.runtime             --build-arg "LMI_SOURCE_SHA=$source_sha"             --tag "$IMAGE" .
+          docker inspect "$IMAGE" --format '{{json .Config.Labels}}' | grep -q "$source_sha"
+          docker push "$IMAGE" | tee /tmp/push.log
+          digest="$(grep -Eo 'digest: sha256:[0-9a-f]{64}' /tmp/push.log | tail -1 | awk '{print $2}')"
+          test -n "$digest"
+          echo "IMAGE_DIGEST=$digest"
+          echo "SOURCE_SHA=$source_sha"
