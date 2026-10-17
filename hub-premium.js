@@ -124,10 +124,12 @@ function premiumScript(pageNumber, group) {
   const allBodyChildren=[...body.children];
   const statusBar=allBodyChildren.find((el)=>/(bridge|status)/i.test(el.className||''));
   const pageTitle=(body.querySelector('h1')?.textContent||document.title||'Hub LMI Éditions').replace(/\s+/g,' ').trim();
-  const shell=document.createElement('div');
+  const shell=body.querySelector('[data-lmi-shared-header]')||document.createElement('div');
+  if(!body.dataset.lmiShell){
   shell.className='lmi-shell-nav';
   shell.innerHTML='<div class="lmi-shell-inner"><a class="lmi-wordmark" href="'+draft(files[1])+'"><span class="lmi-wordmark-mark">LMI</span><span class="lmi-wordmark-copy"><strong>Les Mots Imagés</strong><small>Le verbe par l’image</small></span></a><div class="lmi-shell-title"><span>Page '+String(pageNumber).padStart(2,'0')+' · '+group+'</span><strong>'+pageTitle+'</strong></div><nav class="lmi-shell-links"><a class="lmi-shell-link" href="'+draft(files[1])+'">Accueil</a><a class="lmi-shell-link" href="'+draft(files[11])+'">Catalogue</a><a class="lmi-shell-link" href="'+draft(files[17])+'">À propos</a><a class="lmi-shell-link" href="'+draft(files[5])+'">Contact</a></nav></div>';
   if(statusBar&&statusBar.nextSibling)body.insertBefore(shell,statusBar.nextSibling);else body.insertBefore(shell,body.firstChild);
+  }
 
   const rail=document.createElement('aside');
   rail.className='lmi-page-rail';
@@ -146,11 +148,11 @@ function premiumScript(pageNumber, group) {
 
   const cardSelectors='article,.card,.panel,.item,.pole,.axis,.offer,.feature,.bloc,.block,.notice,.scope,.note,.box,.tile';
   body.querySelectorAll(cardSelectors).forEach((el)=>{
-    if(!el.closest('.lmi-shell-nav')&&!el.classList.contains('lmi-runtime-hero')&&!el.closest('.lmi-runtime-hero'))el.classList.add('lmi-card-runtime');
+    if(!el.closest('.lmi-shell-nav,.lmi-shell')&&!el.classList.contains('lmi-runtime-hero')&&!el.closest('.lmi-runtime-hero'))el.classList.add('lmi-card-runtime');
   });
 
   body.querySelectorAll('img').forEach((img)=>{
-    if(!img.closest('.lmi-shell-nav')){
+    if(!img.closest('.lmi-shell-nav,.lmi-shell')){
       img.style.borderRadius=img.style.borderRadius||'22px';
       img.style.boxShadow=img.style.boxShadow||'0 18px 48px rgba(15,39,71,.14)';
     }

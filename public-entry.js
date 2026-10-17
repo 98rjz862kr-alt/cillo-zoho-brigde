@@ -90,11 +90,60 @@ function boaRuntimeStatus(){
   };
 }
 
-const sessions=new Set();
-function parseCookies(header=''){return Object.fromEntries(header.split(';').map(v=>v.trim()).filter(Boolean).map(v=>{const i=v.indexOf('=');return i<0?[v,'']:[v.slice(0,i),decodeURIComponent(v.slice(i+1))];}));}
-function hasSession(req){const token=parseCookies(req.headers.cookie||'').lmi_session||'';return token.length===64&&sessions.has(token);}
-function createSession(res){const token=randomBytes(32).toString('hex');sessions.add(token);res.setHeader('set-cookie',`lmi_session=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=28800`);return token;}
-async function parseForm(req){let raw='';for await(const chunk of req){raw+=chunk;if(raw.length>4096)throw new Error('Request too large');}return Object.fromEntries(new URLSearchParams(raw).entries());}
+const SESSION_MAX_AGE=28800;
+const sessions=new Map();
+function parseCookies(header=''){
+  const cookies=Object.create(null);
+  for(const part of String(header).split(';')){
+    const value=part.trim();
+    const separator=value.indexOf('=');
+    if(separator<1)continue;
+    try{cookies[value.slice(0,separator)]=decodeURIComponent(value.slice(separator+1));}
+    catch{ /* A malformed client cookie is not an authenticated session. */ }
+  }
+  return cookies;
+}
+function hasSession(req){
+  const token=parseCookies(req.headers.cookie||'').lmi_session||'';
+  if(!/^[a-f0-9]{64}$/.test(token))return false;
+  const expiresAt=sessions.get(token);
+  if(!expiresAt)return false;
+  if(expiresAt<=Date.now()){sessions.delete(token);return false;}
+  return true;
+}
+function createSession(req,res){
+  const now=Date.now();
+  for(const [key,expiresAt] of sessions)if(expiresAt<=now)sessions.delete(key);
+  const token=randomBytes(32).toString('hex');
+  sessions.set(token,now+SESSION_MAX_AGE*1000);
+  const secure=Boolean(req.socket.encrypted)||process.env.RENDER==='true'||process.env.NODE_ENV==='production'||String(req.headers['x-forwarded-proto']||'').split(',')[0].trim()==='https';
+  res.setHeader('set-cookie',`lmi_session=${token}; HttpOnly; SameSite=Strict; Path=/; Max-Age=${SESSION_MAX_AGE}${secure?'; Secure':''}`);
+  return token;
+}
+function parseForm(req){
+  return new Promise((resolve,reject)=>{
+    let bytes=0;
+    let chunks=[];
+    let rejected=false;
+    const fail=(statusCode,message)=>{
+      if(rejected)return;
+      rejected=true;
+      chunks=[];
+      reject(Object.assign(new Error(message),{statusCode}));
+    };
+    req.on('data',chunk=>{
+      if(rejected)return;
+      bytes+=chunk.length;
+      if(bytes>4096){fail(413,'Request too large');return;}
+      chunks.push(chunk);
+    });
+    req.on('end',()=>{
+      if(!rejected)resolve(Object.fromEntries(new URLSearchParams(Buffer.concat(chunks).toString('utf8')).entries()));
+    });
+    req.on('aborted',()=>fail(400,'Incomplete request'));
+    req.on('error',()=>fail(400,'Invalid request'));
+  });
+}
 function passwordMatches(value=''){const expected=process.env.ADMIN_PASSWORD||'';if(!expected||expected==='change-me')return false;const a=Buffer.from(String(value));const b=Buffer.from(expected);return a.length===b.length&&timingSafeEqual(a,b);}
 function exchangeTokenMatches(req){
   const expected=process.env.LMI_EXCHANGE_TOKEN||'';
@@ -138,7 +187,7 @@ function proxy(req,res){
   req.pipe(upstream);
 }
 
-const server=createServer(async(req,res)=>{
+async function handleRequest(req,res){
   const url=new URL(req.url,`http://127.0.0.1:${port}`);
   const query=Object.fromEntries(url.searchParams.entries());
   if(req.method==='GET'&&url.pathname==='/robots.txt')return sendText(res,'User-agent: *\nDisallow: /\n');
@@ -154,7 +203,7 @@ const server=createServer(async(req,res)=>{
   if(req.method==='POST'&&url.pathname==='/atelier'){
     const body=await parseForm(req);
     if(!passwordMatches(body.password))return sendHtml(res,loginPage('Mot de passe incorrect.'),401);
-    createSession(res);res.writeHead(303,{location:'/atelier','cache-control':'no-store'});return res.end();
+    createSession(req,res);res.writeHead(303,{location:'/atelier','cache-control':'no-store'});return res.end();
   }
   if(req.method==='GET'&&url.pathname==='/atelier/recette'){
     if(!(hasSession(req)||isAuthorized({headers:req.headers})))return sendHtml(res,loginPage('Accès refusé.'),401);
@@ -206,6 +255,16 @@ const server=createServer(async(req,res)=>{
     return res.end(JSON.stringify({ok:true,service:'cillo-zoho-bridge',publicAtelier:false,drafts:listDraftFiles().length,adminPasswordConfigured:Boolean(process.env.ADMIN_PASSWORD&&process.env.ADMIN_PASSWORD!=='change-me'),...boa,revision:process.env.RENDER_GIT_COMMIT||process.env.GIT_COMMIT||null}));
   }
   return proxy(req,res);
+}
+
+const server=createServer((req,res)=>{
+  handleRequest(req,res).catch(error=>{
+    if(res.destroyed||res.writableEnded)return;
+    if(res.headersSent){res.destroy();return;}
+    const status=error?.statusCode===413?413:error?.statusCode===400?400:500;
+    const message=status===413?'Requête trop volumineuse.':status===400?'Requête invalide.':'La requête ne peut pas être traitée.';
+    sendText(res,message,'text/plain; charset=utf-8',status);
+  });
 });
 
 server.listen(port,'0.0.0.0',()=>console.log(`Bridge protected atelier running on port ${port}`));

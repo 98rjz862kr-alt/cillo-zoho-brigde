@@ -1,0 +1,50 @@
+name: LMI four-sites finalisation candidate
+
+on:
+  push:
+    branches:
+      - work/quatre-sites-finalisation-20261017
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  qualify-candidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout the exact candidate and preserved media
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Use the project's Node version
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.node-version'
+      - name: Prepare evidence directory
+        run: mkdir -p qualification-evidence
+      - name: Validate the complete project
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee qualification-evidence/npm-test.log
+      - name: Validate the exact Render build and all integration gates
+        if: always()
+        run: |
+          set -o pipefail
+          npm run build:bridge 2>&1 | tee qualification-evidence/build-bridge.log
+      - name: Preserve source and package evidence
+        if: always()
+        run: |
+          git rev-parse HEAD > qualification-evidence/commit.txt
+          node socle-v2/scripts/print-site-packages.mjs > qualification-evidence/site-packages.json
+          git archive --format=tar.gz --output=qualification-evidence/source-candidate.tar.gz HEAD
+          sha256sum qualification-evidence/source-candidate.tar.gz > qualification-evidence/SHA256SUMS.txt
+      - name: Upload the reviewable candidate and test logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lmi-four-sites-candidate-${{ github.sha }}
+          path: qualification-evidence/
+          retention-days: 14
+          if-no-files-found: error

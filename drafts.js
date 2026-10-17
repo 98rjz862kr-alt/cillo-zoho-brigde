@@ -9,6 +9,7 @@ import { integrateHubVisuals } from './hub-visuals.js';
 import { stabilizeHubRuntime } from './hub-stability.js';
 import { enhanceHubAccessibility } from './hub-accessibility.js';
 import { rewritePreviewHtml, rewritePreviewCss } from './socle-v2/preview-paths.mjs';
+import { applySharedSiteShell, OFFICIAL_LOGO_PROVENANCE } from './socle-v2/shared-shell.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -60,7 +61,12 @@ function inlinePreviewAssets(relativeHtmlPath, html) {
     try {
       if (path.basename(assetPath) === 'lmi-logo-officiel.svg') {
         const logoPath = path.join(path.dirname(assetPath), 'lmi-logo-main.png');
-        if (statSync(logoPath).isFile()) return `${prefix}/atelier/file/${encodeURIComponent(path.relative(DRAFT_ROOT, logoPath).split(path.sep).join('/'))}${suffix}`;
+        if (statSync(logoPath).isFile()) {
+          const image = `${prefix}/atelier/file/${encodeURIComponent(path.relative(DRAFT_ROOT, logoPath).split(path.sep).join('/'))}${suffix}`;
+          // The replacement PNG must carry its own Drive/SHA provenance, never
+          // the SVG wrapper's metadata retained from the source img tag.
+          return image.replace(/\sdata-lmi-(?:drive-id|sha256)=["'][^"']*["']/gi, '').replace(/\s*\/?>$/, ` data-lmi-drive-id="${OFFICIAL_LOGO_PROVENANCE.driveId}" data-lmi-sha256="${OFFICIAL_LOGO_PROVENANCE.sha256}">`);
+        }
       }
       const ext = path.extname(assetPath).toLowerCase();
       const mime = ASSET_MIME_TYPES.get(ext);
@@ -87,7 +93,8 @@ export function readDraftHtml(relativePath) {
     const identified = enforceOfficialHubIdentity(resolved.decoded, finalized);
     const visualized = integrateHubVisuals(resolved.decoded, identified);
     const stabilized = stabilizeHubRuntime(resolved.decoded, html, visualized);
-    return rewritePreviewHtml(resolved.decoded, enhanceHubAccessibility(resolved.decoded, stabilized));
+    const accessible = enhanceHubAccessibility(resolved.decoded, stabilized);
+    return rewritePreviewHtml(resolved.decoded, applySharedSiteShell(resolved.decoded, accessible));
   } catch { return null; }
 }
 
