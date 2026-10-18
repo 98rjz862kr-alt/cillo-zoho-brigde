@@ -1,0 +1,21 @@
+{
+  "site": "food",
+  "candidate": {
+    "sourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
+    "source": "PR #104",
+    "localQualification": "npm test and Food validators documented as PASS at exact head"
+  },
+  "bridge": {
+    "observedSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "exactCandidateServed": false
+  },
+  "requiredNext": [
+    "preserve candidate exact SHA",
+    "build candidate without changing source",
+    "deploy candidate to private Bridge prepublication",
+    "verify runtime source SHA equals candidate source SHA",
+    "generate complete media manifest with provenance, rights and SHA-256",
+    "run recipe gate"
+  ],
+  "forbidden": ["rebuild Food from scratch", "activate unproved commercial claims", "declare PASS from PR evidence alone", "publish publicly"]
+}

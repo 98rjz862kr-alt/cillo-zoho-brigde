@@ -1,0 +1,41 @@
+{
+  "site": "food",
+  "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
+  "sourcePr": 104,
+  "validation": {
+    "validateLmiFood": "PASS",
+    "validatePublicEntry": "PASS",
+    "npmTest": "PASS",
+    "gitDiffCheck": "PASS"
+  },
+  "build": {
+    "format": "git-archive-tar",
+    "sha256": "bdd8a8b00b14cac73d0fdf6b04f3c3c44d38b987925e050ca92f93ceffd10279"
+  },
+  "mediaReferenceScan": {
+    "referenceCount": 1,
+    "interpretation": "Canonical Drive-provenanced LMI Food web hero integrated; further recipe/product imagery remains a production workstream."
+  },
+  "runtimeBridge": {
+    "exactCandidateServed": false,
+    "observedBridgeSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9"
+  },
+  "releaseStatus": "CLIENT_FACING_CONTENT_CLEAN_REQUALIFICATION_ACTIVE_HUMAN_RECIPE_NOT_OPEN",
+  "candidatePackageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
+  "clientFacingUpgrade": {
+    "date": "2026-09-18",
+    "canonicalHeroIntegrated": true,
+    "sourceCommit": "705ed48fb9a8a259b160e62319fe3328514c79f8",
+    "packageSha256": "9adeb39fdb305bc285e1355f94ea9cc1edfda9541ee85cd29f33cda09927832c",
+    "humanRecipe": "PENDING"
+  },
+  "clientFacingRequalification": {
+    "sourceCommit": "12c08096bcd8947d10519c51e52fc991842ec8d7",
+    "packageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5",
+    "structuralGate": "PASS",
+    "visitorContactJourney": "PASS",
+    "humanAestheticCommercialJudgement": "PENDING",
+    "bridgeDeployment": "PENDING",
+    "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-23T20:36:00Z",
+  "policy": {
+    "generatedIllustrationsForbidden": true,
+    "substituteIllustrationsForbidden": true,
+    "exactDriveIdAndSha256RequiredForIntegratedAssets": true,
+    "unfinishedCommercialAssetMustRemainAbsentRatherThanBeInvented": true
+  },
+  "sites": {
+    "maison": {
+      "visitorPages": 5,
+      "pagesWithVerifiedImages": 4,
+      "pagesWithoutImages": [
+        "lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html"
+      ],
+      "status": "SERVICE_CONTENT_VALID_NO_GENERATION",
+      "note": "The private commercial workflow page does not require a decorative image; no substitute asset is introduced."
+    },
+    "food": {
+      "visitorPages": 6,
+      "pagesWithVerifiedImages": 6,
+      "pagesWithoutImages": [],
+      "status": "DRIVE_BACKED_IMAGE_COVERAGE_COMPLETE"
+    },
+    "musee": {
+      "visitorPages": 24,
+      "pagesWithVerifiedImages": 24,
+      "pagesWithoutImages": [],
+      "status": "DRIVE_BACKED_IMAGE_COVERAGE_COMPLETE"
+    },
+    "editions": {
+      "visitorPages": 32,
+      "pagesWithVerifiedImages": 8,
+      "pagesWithoutImages": 24,
+      "status": "PARTIAL_BY_SOURCE_AUTHORITY",
+      "integratedVerifiedAssets": [
+        {
+          "name": "LMI-EDT-WEB-HERO-V001.webp",
+          "driveId": "1HJRlpn9SoO-SfyHbHQX-on5GLnDA_jot",
+          "sha256": "e607517f5d980597469607fee3099e2884438eaaaa375ca055252cfd5290bbe7"
+        },
+        {
+          "name": "COUVERTURE_BOA_TOTEM_SOYA_PREPUB_V2.jpg",
+          "driveId": "1qKmgxf40Dl4rS16ZA1PRodF29NmUowDA",
+          "sha256": "13ac00be26e61f6537cbeb1fb32977689a558437e94ceb0aed86c8d7495f6f5e"
+        },
+        {
+          "name": "COUVERTURE_FLEUVE_SANS_NOM_PREPUB_V2.jpg",
+          "driveId": "105ruK0gmwVqt9tcNL6vSf5w8P1BMgYij",
+          "sha256": "3803846c2c5651c5d7f6c1fd775806d0ac3eac57367ab0f58911c381dc4e88aa"
+        }
+      ],
+      "sevenTitleCoverAuthority": {
+        "driveRegisterId": "1-vgwlVZzhumtWC41FiRA92CPe2q6VUHY6Hds_0O75Mc",
+        "executionSheetsDriveId": "1ZMVUUMd6o3eUXbz6dkAjm5iPRU1k-9k-wAmhSzlchg0",
+        "protocolDriveId": "1OG5NPwpQPDPidoRWqLYP9B8rgamfGro4MAg-oIPad_w",
+        "sourceState": "COVERS_IN_PROGRESS",
+        "masterCoverPdfsPresent": false,
+        "websiteDerivativesRule": "Web versions derive from the paper master cover; they must not reinvent the identity.",
+        "title04Rule": "Use exclusively the photograph already approved by the author. No generated or replacement image.",
+        "action": "KEEP_TITLE_PAGES_TEXT_ONLY_UNTIL_EXACT_MASTER_OR_WEB_DERIVATIVE_IS_RECOVERED_WITH_SHA256"
+      }
+    }
+  }
+}

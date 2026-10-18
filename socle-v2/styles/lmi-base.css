@@ -1,0 +1,18 @@
+@import './lmi-tokens.css';
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--lmi-ivory);color:var(--lmi-ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{color:var(--lmi-blue)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--lmi-gold);outline-offset:3px}
+img{max-width:100%;height:auto}
+.lmi-container{width:min(calc(100% - 2rem),var(--lmi-content-max));margin-inline:auto}
+.lmi-reading{max-width:var(--lmi-reading-max)}
+.lmi-title{font-family:Georgia,'Times New Roman',serif;color:var(--lmi-blue);line-height:1.05;letter-spacing:-.03em}
+.lmi-eyebrow{font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--lmi-ochre)}
+.lmi-card{background:var(--lmi-paper);border:1px solid rgba(20,59,125,.14);border-radius:var(--lmi-radius-lg);box-shadow:var(--lmi-shadow-soft);padding:var(--lmi-space-8)}
+.lmi-button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:.75rem 1.15rem;border-radius:var(--lmi-radius-pill);font-weight:800;text-decoration:none;border:1px solid transparent}
+.lmi-button--primary{background:var(--lmi-blue);color:#fff}
+.lmi-button--secondary{background:transparent;color:var(--lmi-blue);border-color:var(--lmi-blue)}
+.lmi-prepub-banner{background:#8b1e2d;color:#fff;text-align:center;padding:.55rem 1rem;font-size:.72rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.lmi-prepub-banner a{color:#fff}
+@media(max-width:640px){.lmi-card{padding:var(--lmi-space-6)}}

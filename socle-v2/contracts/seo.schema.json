@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"LMI SEO Contract V2",
+  "type":"object",
+  "required":["title","description","canonical","robots","h1"],
+  "properties":{
+    "title":{"type":"string","minLength":10,"maxLength":70},
+    "description":{"type":"string","minLength":40,"maxLength":180},
+    "canonical":{"type":"string","format":"uri"},
+    "robots":{"enum":["index,follow","noindex,nofollow,noarchive"]},
+    "h1":{"type":"string","minLength":1},
+    "openGraph":{"type":"object","properties":{"title":{"type":"string"},"description":{"type":"string"},"image":{"type":"string"}},"additionalProperties":false}
+  },
+  "additionalProperties":false
+}

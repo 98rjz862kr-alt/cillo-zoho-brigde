@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-23T19:10:00Z",
+  "rule": "NO_ASSET_GENERATION_DRIVE_SOURCES_AND_REGISTERED_SHA256_ONLY",
+  "sites": {
+    "editions": {
+      "sourceManifest": "drafts/hub-lmi-editions/source-manifest.json",
+      "masterDriveId": "1h8krs3PzD1YUWyYnjAJ7aZpZM4mAcfEAt-cmCsRf1Ro",
+      "shaRegistryDriveId": "1pD7lpLPvc_MtQeB9Uz1XMdqzoDjt_a_O0E12rR9YOH4",
+      "batShaManifestDriveId": "1IP8sQatMI_y_WrcLf1O7uRdmts25-34Z"
+    },
+    "food": {
+      "sourceManifest": "drafts/lmi-food-site/source-manifest.json",
+      "shaRegistryDriveId": "1OZql5LfxndgzJQsRr9sdeF8qCRj_HZMVxMk8h87VrNo",
+      "snapshotDriveId": "1VDXsYfm25Egeu5wRI_Iz2cXV2FeA4gsPHOVS-Wswb44",
+      "snapshotSha256": "73fb57d768a10dce475d6c1cde85ddae2e7fa16042ba03259805e58f6da0069b"
+    },
+    "maison": {
+      "sourceManifest": "drafts/lmi-maison-site/source-manifest.json",
+      "shaRegistryDriveId": "18a1Wdg94UbqEkind0Igh9NmtnqPDJOOOxemhOlFLKls",
+      "candidateProofDriveId": "1kP3HcDx6pL7zY8WUycX_x926OAV3bbmpU6f-cmruWbY",
+      "candidateProofSha256": "62ae327fac17b4f78492d438b454fee9bb80c8173b34819d03646329e49a5b48"
+    },
+    "musee": {
+      "sourceManifest": "drafts/lmi-musee-complet/source-manifest.json",
+      "shaRegistryDriveId": "1z2FAUCsGKEd5VT73ExY_otfTHbpQX20ZT3DgLNuTdgo",
+      "runtimeProofDriveId": "11cXXgKcdp_65i2rrkaHGUxUZItmtJuKl",
+      "runtimeProofSha256": "703a666f82cc627e32eb2244bc60da2b18660621327a1adf30631551a7692222"
+    }
+  },
+  "forbidden": [
+    "generated illustrations",
+    "unregistered image substitution",
+    "Drive ID used as hash",
+    "publication without explicit later approval"
+  ]
+}

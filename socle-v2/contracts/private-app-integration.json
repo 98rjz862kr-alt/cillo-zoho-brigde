@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "1.2.0",
+  "brand": "LES MOTS IMAGÉS",
+  "principle": "PRIVATE_APP_CONTROL_PLANE_PUBLIC_SITES_PRESENTATION_PLANE",
+  "privateApp": {
+    "role": "canonical-internal-control-plane",
+    "publicExposure": false,
+    "universes": [
+      "editions",
+      "maison",
+      "food",
+      "musee"
+    ],
+    "requiredCapabilities": [
+      "cms",
+      "media",
+      "workflow",
+      "search",
+      "shield",
+      "site-operations",
+      "product-sheets",
+      "replenishment",
+      "content-updates"
+    ],
+    "sourceRepository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
+    "sourceBranch": "codex/consolidation-integrale-application-lmi-v2",
+    "sourceSha": "cb572ed84d01b19c7c04dd723b06bc34d08a1630",
+    "sourceRegistryPath": "integration/sites-source-registry.v1.json",
+    "crossRepositoryReferencePolicy": "NO_MUTUAL_LATEST_SHA_CYCLE",
+    "sitePackageAuthority": "PRIVATE_APP_SOURCE_REGISTRY_REGISTERED_SHA256",
+    "sourceRegistryBlobSha": "4f943cd6a7b106dd21b0e3e0c3faba0146fa99b9",
+    "sourceRegistryBridgeSnapshotSha": "91c0688f6f64275828a6ff0cb645eaadd9aef965",
+    "registeredSitePackageSha256": {
+      "editions": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+      "food": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+      "maison": "695fdbc0bc935d4dc31238ee375f35c86755a16080cc75ca15f539d39eb57926",
+      "musee": "a3f2848ffbc12957a77ac897206522c3ca13eafffcc2ca711491a7f352c6dbf1"
+    }
+  },
+  "sites": {
+    "editions": {
+      "appRoute": "/editions",
+      "publicRole": "editorial-catalog-and-reading",
+      "writeBack": "approval-only"
+    },
+    "maison": {
+      "appRoute": "/maison",
+      "publicRole": "catalog-and-collections",
+      "writeBack": "approval-only"
+    },
+    "food": {
+      "appRoute": "/food",
+      "publicRole": "recipes-products-terroirs",
+      "writeBack": "approval-only"
+    },
+    "musee": {
+      "appRoute": "/musee",
+      "publicRole": "works-collections-exhibitions-mediation",
+      "writeBack": "approval-only"
+    }
+  },
+  "exchange": {
+    "direction": "private-app-to-sites-by-default",
+    "transport": "versioned-signed-manifest-or-authenticated-api",
+    "requiredFields": [
+      "lmiId",
+      "universe",
+      "version",
+      "status",
+      "updatedAt",
+      "provenance",
+      "sha256"
+    ],
+    "publishableStatuses": [
+      "APPROVED_FOR_BRIDGE",
+      "APPROVED_FOR_PUBLICATION"
+    ],
+    "forbiddenFromPublic": [
+      "DRAFT",
+      "IN_REVIEW",
+      "REJECTED",
+      "QUARANTINED",
+      "PRIVATE_ONLY"
+    ],
+    "mediaPolicy": "sha256-provenance-rights-required",
+    "failClosed": true
+  },
+  "security": {
+    "sitesMayCallPrivateAppDirectlyFromBrowser": false,
+    "publicTokensAllowed": false,
+    "serverToServerAuthRequired": true,
+    "leastPrivilege": true,
+    "auditRequired": true
+  },
+  "releaseGate": {
+    "serviceReadiness": [
+      "PRIVATE_APP_SOURCE_VERSION",
+      "SITE_CANDIDATE_SOURCE_SHA",
+      "SITE_BUILD",
+      "RUNTIME_BRIDGE",
+      "MEDIA_MANIFEST",
+      "PRIVATE_APP_MANAGEMENT",
+      "HUMAN_SERVICE_RECIPE",
+      "BRIDGE_SOURCE_REGISTRY_ALIGNMENT"
+    ],
+    "commercialRelease": [
+      "PRODUCT_OR_RIGHTS_EVIDENCE",
+      "APPROVED_PRICE_STOCK_OR_AVAILABILITY_WHERE_APPLICABLE",
+      "PUBLICATION_APPROVAL"
+    ]
+  },
+  "protocolId": "lmi-sites-publication-protocol@1.2.0",
+  "brandContract": {
+    "id": "lmi-brand-roles@2.0.0",
+    "sourcePath": "integration/lmi-brand-roles.v1.json",
+    "authorityPath": "assets/brand/lmi-brand-authority.json",
+    "authoritySchema": "lmi.brand.authority/1",
+    "canonicalPalette": [
+      "#143B7D",
+      "#CC7722",
+      "#75553F",
+      "#D4AF37",
+      "#0F2747",
+      "#F6F1E8",
+      "#C8A96B",
+      "#C9C3BA"
+    ],
+    "privateAppSourceSha": "cb572ed84d01b19c7c04dd723b06bc34d08a1630"
+  },
+  "management": {
+    "authority": "private-app",
+    "endpointPrefix": "/api/sites-operations",
+    "uiEndpoint": "/applications/sites-operations.html",
+    "capabilities": [
+      "product_sheets",
+      "content_updates",
+      "media_references",
+      "stock_tracking",
+      "replenishments",
+      "service_recipe"
+    ],
+    "serviceRecipeMayStartWithoutCommercialEvidence": true,
+    "publicPublication": false,
+    "publicOrdering": false,
+    "commercialReleaseEvidenceRequired": true
+  }
+}

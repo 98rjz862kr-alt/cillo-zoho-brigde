@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "date": "2026-09-20",
+  "brand": "LES MOTS IMAGÉS",
+  "rootFolder": {
+    "id": "1CyZYGD2uP3tQ5NkvJGmTFwTGLHy_19r3",
+    "name": "11_LMI_SOCLE_COMMUN_SITES_V2_EXECUTION"
+  },
+  "folders": {
+    "proofs": {
+      "id": "1CbXmqbc8RFUFXXGM7nV1u5gt6gk04zbZ",
+      "name": "01_PREUVES_TECHNIQUES"
+    },
+    "humanRecipe": {
+      "id": "11AdqyE8928otuTXBmD0dpgNmb_ljU9kg",
+      "name": "02_RECETTE_HUMAINE"
+    },
+    "sites": {
+      "id": "1BX6oeAko9ih6IBzLNe_0cQXoeBvkh6BY",
+      "name": "03_SITES"
+    },
+    "archives": {
+      "id": "1Rk37UuU0GcN4Go4l1T6MLXxGhjKig13Q",
+      "name": "04_ARCHIVES"
+    }
+  },
+  "docs": {
+    "master": "1nipUTLo3NZYnRaufVGxJUyOIuCytNHoJgG1Uy9yVEy8",
+    "canonicalState": "1A9W-pGb78VV8xxG_cRyCHmo6W5wUjTrxOrWBm9aeLSQ",
+    "handoff": "128dK3bhY-LlxqNcP33Jz-AXbzYVPh-aCKGhhUZLMvuo",
+    "deliveryIndex": "1SrI_hYCmJ6-BjE_Uj1Z9OYckZBSbrtjWprZ80mE7SN8",
+    "shaRegistry": "1gHapCyoJRrX2UVbkac46Lpgbkv2kjd4ZQNTN9wUMsTo"
+  },
+  "siteFolders": {
+    "musee": "1I-IvAbuxE7aB8MRFEpDUsVjpnccTPKMK",
+    "maison": "1-IjmH8lwT__9JbEHdirF4LCNBJHZOoys",
+    "food": "1ybLQRJ9ate5GnMnXtrazGug2aP1xuRto",
+    "editions": "1usuPmZxM3-sBi14sgSCFxUSxwfRx3_EI"
+  },
+  "authority": {
+    "runtimeIntegrationSha": "838e01190b7a52bf5345aab78f5d83a2fd61a857",
+    "renderDeployId": "dep-danthfg473hc73am3as0",
+    "pr": 118,
+    "prState": "draft",
+    "evidenceCommit": "4d75924ba3afd096691902b9ae7b494d50f043a0",
+    "mediaManifestState": "COMPLETE_FOR_CURRENT_FOUR_SITE_CANDIDATES"
+  }
+}

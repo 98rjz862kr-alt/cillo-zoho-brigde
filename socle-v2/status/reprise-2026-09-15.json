@@ -1,0 +1,63 @@
+{
+  "asOf": "2026-09-15T20:57:06.223888+00:00",
+  "status": "CORRECTIONS_PREPARED_NOT_DEPLOYED",
+  "siteCandidates": {
+    "musee": {
+      "root": "drafts/lmi-musee-complet",
+      "registeredSourceSha": "a8bd193b9f227aa4ab781ab3e71c9aa64d3ef92c",
+      "registeredPackageSha256": "2c7925dea160966350d995c1172115091a3846e31221fa88825341cb9435b1ea",
+      "proposedSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "proposedPackageSha256": "a606ee4c5567de2b0c2a88eee402a81dfd1ab896a62a1691705309ac00b8fc47",
+      "files": 48,
+      "promotionStatus": "APPROVAL_REQUIRED"
+    },
+    "maison": {
+      "root": "drafts/lmi-maison-site",
+      "registeredSourceSha": "0d52471927eec325863662c505fa5d2fc0ca6fd4",
+      "registeredPackageSha256": "a8d14d20bcc801852cbbf2625c0318c255dbeef875d100c447c5aba0995308f1",
+      "proposedSourceSha": "0d52471927eec325863662c505fa5d2fc0ca6fd4",
+      "proposedPackageSha256": "a8d14d20bcc801852cbbf2625c0318c255dbeef875d100c447c5aba0995308f1",
+      "files": 15,
+      "promotionStatus": "UNCHANGED"
+    },
+    "food": {
+      "root": "drafts/lmi-food-site",
+      "registeredSourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
+      "registeredPackageSha256": "569592662ece8b8ea5131f282d4c4150bbeec34d8413d31adc82ccfae011d0dc",
+      "proposedSourceSha": "212ff413e60df9195052deb61c9da75a03e31ebe",
+      "proposedPackageSha256": "569592662ece8b8ea5131f282d4c4150bbeec34d8413d31adc82ccfae011d0dc",
+      "files": 30,
+      "promotionStatus": "UNCHANGED"
+    },
+    "editions": {
+      "root": "drafts/hub-lmi-editions",
+      "registeredSourceSha": "7de14ba0381f4f83907900c95a83f5dc15377f81",
+      "registeredPackageSha256": "1ffcbbc1b4d377073d4652aa57742f7567edc71ba50a3b11ff5367832a962110",
+      "proposedSourceSha": "751a00b91760dbff36691a0ac460c0da7bf524f7",
+      "proposedPackageSha256": "6e259224a5ffa6aa72c8ac5d5c4d914ba6472aef34797979da4164265245c48f",
+      "files": 37,
+      "promotionStatus": "APPROVAL_REQUIRED"
+    }
+  },
+  "localValidation": {
+    "npmTest": "PASS",
+    "preview": {
+      "status": "PASS",
+      "pages": 115,
+      "resources": 120,
+      "links": 656,
+      "unauthorizedDenied": 120
+    },
+    "mediaSources": "PASS",
+    "integrationGate": "NO_GO_NEW_MEDIA_CANDIDATES_NOT_PROMOTED"
+  },
+  "approvalReview": {
+    "decision": "REJECTED",
+    "scope": "changing deployment guard and promoting media-corrected candidates before human recipe",
+    "pendingUserDecision": "Authorize registry update and private Bridge deployment, keeping all human recipe results pending."
+  },
+  "remoteRuntime": "HISTORICAL_F8D_UNCHANGED",
+  "publicPublicationAllowed": false,
+  "mainMergeAllowed": false,
+  "dnsChanged": false
+}

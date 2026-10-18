@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-23T13:16:00Z",
+  "state": "SOURCE_RECONCILED_RUNTIME_NOT_REQUALIFIED",
+  "recipe": "SUSPENDED",
+  "privateApp": {
+    "repository": "98rjz862kr-alt/lmi-application-privee-integration-contenus",
+    "branch": "codex/consolidation-integrale-application-lmi-v2",
+    "sourceSha": "61339dfbf6dee5a30c9c2380c3a73068d1bd41be",
+    "protocolId": "lmi-sites-publication-protocol@1.1.0"
+  },
+  "bridge": {
+    "repository": "98rjz862kr-alt/cillo-zoho-brigde",
+    "branch": "work/socle-commun-v2-20260915",
+    "sourceReconciliationSha": "413449cf396ada5bbfa8bbb9b3e657f391e5aac3",
+    "protocolId": "lmi-sites-publication-protocol@1.1.0"
+  },
+  "brand": {
+    "authority": "assets/brand/lmi-brand-authority.json",
+    "authoritySchema": "lmi.brand.authority/1",
+    "roleContract": "lmi-brand-roles@2.0.0",
+    "obsoleteColorRejected": "#C9A13B",
+    "canonicalPalette": [
+      "#143B7D",
+      "#CC7722",
+      "#75553F",
+      "#D4AF37",
+      "#0F2747",
+      "#F6F1E8",
+      "#C8A96B",
+      "#C9C3BA"
+    ]
+  },
+  "historicalRuntime": {
+    "exactIntegrationSha": "dfde95f972d584b4ecfe79b0d0ebab684002d73c",
+    "renderDeployId": "dep-dapcsnbm8hqs739bn6a0",
+    "qualification": "HISTORICAL_PROTOCOL_1_0_RUNTIME_ONLY",
+    "protocol11RuntimeQualified": false
+  },
+  "gates": {
+    "sourceContractReconciled": true,
+    "bridgeSourceReconciled": true,
+    "runtimeRebuildRequired": true,
+    "exactShaRuntimeRequired": true,
+    "maisonSignLevelEvidence": "PENDING",
+    "foodRealProductEvidence": "PENDING",
+    "humanRecipe": false
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "renderDeployment": false,
+    "humanRecipe": false
+  }
+}

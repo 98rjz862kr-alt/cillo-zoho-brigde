@@ -1,0 +1,32 @@
+{
+  "date": "2026-09-27",
+  "post": 2,
+  "scope": "HUB_PUBLIC_DESTINATION",
+  "publicHost": "www.lesmotsimages.com",
+  "baseSourceSha": "773bfed7691a8917512cff46765f47ea3b67be62",
+  "previousPackageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+  "candidatePackageSha256": "8e0dff1db8cea5cba44c12bd582ad5de3676aedc42b55a66ffe660326864a8d2",
+  "candidateFiles": 39,
+  "privateAppRegisteredPackageSha256": "67ee1f124902612476b46b66532849f14c996fff22e54c619dd9665216fcf950",
+  "privateAppRegistryAlignment": "PENDING_FINAL_CONSOLIDATION",
+  "runtimeDeployment": "NOT_DEPLOYED",
+  "visualQa": "NOT_RUN",
+  "publicPublication": false,
+  "newImages": 0,
+  "note": "User confirmed the Hub public destination as www. Department-specific editions links and historical evidence remain distinct.",
+  "localValidation": {
+    "seoCanonicalAndOpenGraphPages": 32,
+    "renderedHtmlPages": 33,
+    "runtimeImageHashes": 4,
+    "privateRecipeHttpStatus": 423,
+    "passedCommands": [
+      "scripts/validate-hub-seo.mjs",
+      "scripts/validate-hub-runtime.mjs",
+      "scripts/validate-hub-release-gates.mjs",
+      "socle-v2/scripts/validate-socle-v2.mjs",
+      "socle-v2/scripts/validate-editions-rendered-contract.mjs",
+      "socle-v2/scripts/validate-private-app-integration.mjs"
+    ],
+    "scope": "TARGETED_LOCAL_CHECKS_NOT_FULL_SITE_QUALIFICATION"
+  }
+}

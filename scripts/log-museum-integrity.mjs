@@ -3,7 +3,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const assets = [
-  'drafts/lmi-musee-complet/assets/lmi-logo-main.webp',
+  'drafts/lmi-musee-complet/assets/lmi-logo-main.png',
   'drafts/lmi-musee-complet/assets/lmi-logo-officiel.svg',
   'drafts/lmi-musee-complet/source-manifest.json'
 ];

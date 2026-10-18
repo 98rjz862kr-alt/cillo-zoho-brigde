@@ -5,6 +5,8 @@ import path from 'node:path';
 const root=path.resolve('drafts/lmi-musee-complet');
 const publicPages=[
  'index.html','pourquoi-un-musee-lmi-editions.html','comprendre-le-monde-par-ses-peripheries.html','archives-fonds-traces.html','collections-editoriales.html',
+ 'collections.html','education-mediation.html','expositions-permanentes.html','expositions-temporaires.html','recherche-transmission.html',
+ 'visiter.html','presse-droits.html','partenaires.html','soutenir.html',
  'collections-editoriales/atlas-des-humanites-disparues.html','collections-editoriales/les-routes-invisibles.html','collections-editoriales/archives-des-seuils.html',
  'principes-curatoriaux.html','references-et-filiations.html','journal-de-construction.html','contact.html','mentions-legales-confidentialite.html',
  'parcours/presse.html','parcours/partenaires.html','parcours/programmateurs.html','parcours/prescripteurs.html'
@@ -45,9 +47,9 @@ for(const color of ['#143B7D','#CC7722','#75553F','#D4AF37','#0F2747','#F6F1E8',
 assert(css.includes(':focus-visible'),'Keyboard focus style missing'); assert(/@media\(max-width:900px\)/.test(css),'Responsive breakpoint missing');
 const manifest=JSON.parse(readFileSync(path.join(root,'source-manifest.json'),'utf8'));
 assert(manifest.site==='musee.lesmotsimages.com','Wrong source manifest site');
-assert(manifest.status==='READY_TO_PUBLISH','Manifest status not READY_TO_PUBLISH');
+assert(manifest.status==='CANDIDATE_RECIPE_REQUIRED','Manifest status not CANDIDATE_RECIPE_REQUIRED');
 assert(Array.isArray(manifest.documents)&&manifest.documents.length>=8,'Insufficient canonical documents in manifest');
 for(const doc of manifest.documents){assert(/^[a-f0-9]{64}$/.test(doc.sha256),`Invalid document SHA256 for ${doc.title}`);assert(doc.driveId,`Drive ID missing for ${doc.title}`);}
 assert(!manifest.documents.some(d=>d.status==='A_REQUALIFIER'),'A_REQUALIFIER remains in source manifest');
 const hashes=Object.fromEntries(allFiles.sort().map(file=>[path.relative(root,file),sha256(file)]));
-console.log(JSON.stringify({site:'musee.lesmotsimages.com',status:'READY_TO_PUBLISH_AUDITED',pages:pages.length,publicPages:publicPages.length,sourceDocuments:manifest.documents.length,files:hashes},null,2));
+console.log(JSON.stringify({site:'musee.lesmotsimages.com',status:'TECHNICAL_CANDIDATE_AUDITED_HUMAN_RECIPE_PENDING',pages:pages.length,publicPages:publicPages.length,sourceDocuments:manifest.documents.length,files:hashes},null,2));

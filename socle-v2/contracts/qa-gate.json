@@ -1,0 +1,22 @@
+{
+  "version":"2.0.0-alpha.1",
+  "common":[
+    "exact-source-sha",
+    "build-sha256",
+    "bridge-runtime-source-sha",
+    "media-manifest-complete",
+    "media-rights-known-or-restricted",
+    "no-placeholder",
+    "no-broken-route",
+    "keyboard-navigation",
+    "mobile-navigation",
+    "desktop-navigation",
+    "image-integrity",
+    "heading-hierarchy",
+    "contrast-review",
+    "canonical-and-robots",
+    "open-graph",
+    "human-recipe-recorded"
+  ],
+  "passRule":"p0===0 && p1===0 && exactSha===true && mediaCoverage===1"
+}

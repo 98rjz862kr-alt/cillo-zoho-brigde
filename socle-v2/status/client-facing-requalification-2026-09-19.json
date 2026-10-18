@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-19",
+  "state": "CLIENT_FACING_REQUALIFICATION_ACTIVE",
+  "visitorScope": {
+    "sites": 4,
+    "routes": 40,
+    "humanRecipe": "PENDING"
+  },
+  "packages": {
+    "musee": {
+      "sourceSha": "df99c5bb0ad75b04b74a34a9cc7f46d406dc95cc",
+      "packageSha256": "71f0cc516ef23ebadd632362126b77f0e5e505626b369fe40f78484c471578f9"
+    },
+    "maison": {
+      "sourceSha": "e8e4fe117f07e27f18ff258fa0d8c2c8a3fd1fe0",
+      "packageSha256": "df6e0e5308f147c282bd54366205e1ea5a02ff33d7c0faf55f65fd2e3c1e5051"
+    },
+    "food": {
+      "sourceSha": "446e93fe3df774418e70f2b4071773213fe52cab",
+      "packageSha256": "264a29a67bb41b68997bcea4e493bbd570f3c7bcc67622a76f6439e045d7b5d5"
+    },
+    "editions": {
+      "sourceSha": "22ddec190229856b008c2357c6adc1785358d7ae",
+      "packageSha256": "36ecc1ed944d90cabbf59c48fe80daebe01f7ff32a0c8719d8e697c72811d0b2"
+    }
+  },
+  "checks": {
+    "viewportTitleH1InternalVocabularyBrand": "STATIC_GITHUB_BYTE_AUDIT_PASS",
+    "keyboardFocus": "ENFORCED_BY_VALIDATOR_AND_SITE_STYLES",
+    "visitorToInternalLinks": "FAIL_CLOSED_VALIDATOR_PRESENT",
+    "contactDirectAction": "FAIL_CLOSED_VALIDATOR_PRESENT",
+    "packageBinding": "UPDATED",
+    "localClientReadinessTest": "PENDING_REMOTE_EXECUTION",
+    "fullIntegrationTest": "PENDING_REMOTE_EXECUTION",
+    "visualCoverage": "MAISON_HOME_COLLECTION_AND_FOOD_HOME_BREAKFAST_GROCERY_TRANSMISSION_USE_CANONICAL_VERIFIED_VISUALS",
+    "maisonResponsiveHero": "TABLET_BREAKPOINT_CORRECTED",
+    "museeKeyboardFocusDefect": "CORRECTED_AT_3d642986beeb65955222a763357fe3ec7656e97f",
+    "museeHomepageStructuralAudit": "PASS_VIEWPORT_SINGLE_H1_TITLE_STYLESHEET"
+  },
+  "validator": {
+    "path": "socle-v2/scripts/validate-client-readiness.mjs",
+    "focusVisibleGateAddedAtCommit": "8e4614e35e6470bdfebb7cd155386000c908be02"
+  },
+  "remoteExecution": {
+    "device": "MinideABDOULAYE.lan",
+    "deviceId": "388fc09c-3a21-489d-8209-5769aae0e664",
+    "accountQuotaRemainingPercentObserved": 83,
+    "commandChannel": "UNAVAILABLE_2026-09-20; full local test replay remains pending and no PASS is inferred",
+    "consequence": "runtime tests deferred; no PASS inferred"
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "renderDeploy": false,
+    "humanRecipe": false
+  }
+}

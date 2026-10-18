@@ -1,0 +1,17 @@
+{
+  "version":"2.0.0-alpha.1",
+  "bridge":{
+    "robots":"noindex,nofollow,noarchive",
+    "cacheControl":"no-store",
+    "contentSecurityPolicy":{"required":true,"allowInlineStylesDuringMigration":true,"allowInlineScripts":false},
+    "frameAncestors":"'self'",
+    "referrerPolicy":"strict-origin-when-cross-origin",
+    "xContentTypeOptions":"nosniff"
+  },
+  "public":{
+    "contentSecurityPolicy":{"required":true},
+    "referrerPolicy":"strict-origin-when-cross-origin",
+    "xContentTypeOptions":"nosniff",
+    "permissionsPolicy":"camera=(), microphone=(), geolocation=()"
+  }
+}

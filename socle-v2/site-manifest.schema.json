@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lesmotsimages.com/schema/site-manifest-v2.json",
+  "title": "LMI Site Manifest V2",
+  "type": "object",
+  "required": ["site","candidate","integration","build","runtime","mediaManifest","recipeGate"],
+  "properties": {
+    "site": {
+      "type": "object",
+      "required": ["id","name","publicHost","bridgeScope"],
+      "properties": {
+        "id": {"enum": ["editions","food","maison","musee"]},
+        "name": {"type": "string","minLength": 1},
+        "publicHost": {"type": "string","minLength": 1},
+        "bridgeScope": {"type": "string","minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "candidate": {
+      "type": "object",
+      "required": ["repository","sourceSha","packageSha256"],
+      "properties": {
+        "repository": {"type": "string","pattern": "^[^/]+/[^/]+$"},
+        "sourceSha": {"type": "string","pattern": "^[0-9a-f]{40}$"},
+        "packageSha256": {"type": "string","pattern": "^[0-9a-f]{64}$"},
+        "sourcePr": {"type": ["integer","null"],"minimum": 1}
+      },
+      "additionalProperties": true
+    },
+    "integration": {
+      "type": "object",
+      "required": ["repository","sourceSha"],
+      "properties": {
+        "repository": {"type": "string","pattern": "^[^/]+/[^/]+$"},
+        "sourceSha": {"type": "string","pattern": "^[0-9a-f]{40}$"}
+      },
+      "additionalProperties": true
+    },
+    "build": {
+      "type": "object",
+      "required": ["id","sha256"],
+      "properties": {
+        "id": {"type": "string","minLength": 1},
+        "sha256": {"type": "string","pattern": "^[0-9a-f]{64}$"}
+      },
+      "additionalProperties": true
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["bridgeUrl","observedAt","integrationSha","packageSha256"],
+      "properties": {
+        "bridgeUrl": {"type": "string","format": "uri"},
+        "observedAt": {"type": "string","format": "date-time"},
+        "integrationSha": {"type": "string","pattern": "^[0-9a-f]{40}$"},
+        "packageSha256": {"type": "string","pattern": "^[0-9a-f]{64}$"}
+      },
+      "additionalProperties": true
+    },
+    "mediaManifest": {
+      "type": "object",
+      "required": ["sha256","items"],
+      "properties": {
+        "sha256": {"type": "string","pattern": "^[0-9a-f]{64}$"},
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path","sha256","provenance","rightsStatus"],
+            "properties": {
+              "path": {"type": "string","minLength": 1},
+              "sha256": {"type": "string","pattern": "^[0-9a-f]{64}$"},
+              "provenance": {"type": "string","minLength": 1},
+              "rightsStatus": {"enum": ["cleared","restricted","unknown"]}
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "recipeGate": {
+      "type": "object",
+      "required": ["status","checkedAt"],
+      "properties": {
+        "status": {"enum": ["PASS","NO_GO","NOT_RUN"]},
+        "checkedAt": {"type": "string","format": "date-time"},
+        "p0": {"type": "integer","minimum": 0},
+        "p1": {"type": "integer","minimum": 0}
+      },
+      "additionalProperties": true
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"recipeGate": {"properties": {"status": {"const": "PASS"}}}}},
+      "then": {
+        "properties": {
+          "recipeGate": {
+            "properties": {"p0": {"const": 0},"p1": {"const": 0}},
+            "required": ["p0","p1"]
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false
+}

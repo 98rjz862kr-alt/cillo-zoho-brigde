@@ -1,0 +1,21 @@
+{
+  "site": "maison",
+  "candidate": {
+    "sourceSha": "90feb347652b025ebb657e76d41f691a11956ef6",
+    "source": "PR #119 (minimal validator correction over PR #108 candidate)",
+    "localQualification": "candidate controls documented"
+  },
+  "bridge": {
+    "observedSourceSha": "f8d046bdfea2c0854364579cca59cbd2fd85a8b9",
+    "exactCandidateServed": false
+  },
+  "requiredNext": [
+    "preserve candidate exact SHA",
+    "build candidate without changing source",
+    "deploy candidate to private Bridge prepublication",
+    "verify runtime source SHA equals candidate source SHA",
+    "generate complete media manifest with provenance, rights and SHA-256",
+    "run recipe gate"
+  ],
+  "forbidden": ["rebuild Maison from scratch", "declare PASS from PR evidence alone", "publish publicly"]
+}

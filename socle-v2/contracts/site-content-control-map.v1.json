@@ -1,0 +1,928 @@
+{
+  "schemaVersion": "1.0.0",
+  "authority": "Google Drive + registered SHA-256",
+  "publicPublication": false,
+  "generatedIllustrationsForbidden": true,
+  "sites": {
+    "maison": {
+      "home": "lmi-maison-site/00-bat-lmi-maison.html",
+      "routes": [
+        {
+          "route": "lmi-maison-site/00-bat-lmi-maison.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-maison-site/01-collection-inaugurale-lmi-maison.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-maison-site/06-parcours-commercial-prive-lmi-maison.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-maison-site/contact.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-maison-site/mentions-legales-confidentialite.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        }
+      ]
+    },
+    "food": {
+      "home": "lmi-food-site/00-bat-lmi-food.html",
+      "routes": [
+        {
+          "route": "lmi-food-site/00-bat-lmi-food.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-food-site/02-petits-dejeuners-collations.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-food-site/04-epicerie-condiments.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-food-site/08-collection-editoriale-recettes.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-food-site/contact.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-food-site/mentions-legales-confidentialite.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        }
+      ]
+    },
+    "editions": {
+      "home": "hub-lmi-editions/01-accueil.html",
+      "routes": [
+        {
+          "route": "hub-lmi-editions/01-accueil.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/02-comprendre-lmi.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/03-choisir-son-pole.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/04-poles-associes.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/05-contact.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/06-lmi-maison.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/07-lmi-food.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/08-lmi-musee.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/09-manuscrits-textes.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/10-ressources-acces-fiches.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/11-catalogue-editorial.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/12-catalogue-bd-adaptations.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/13-univers-illustres-da.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/14-audio-transmission.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/15-livres-audio.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/16-actualites-evenements.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/17-a-propos-ressources.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/18-blog.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/19-presse-partenaires-droits.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/20-mentions-legales-confidentialite.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/21-destination-connue-itineraires-incertains.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "1F-1ePcJCl-IJu0O5koT1TSn8VPICc8mTP3P9UTlJU3I",
+              "docxSha256": "3ab610e4a1a48bcd84fa3d2a1ff14af0a4bb05c9a4e55790ae6b4a54f69a8db0",
+              "pdfSha256": "c34dc0819453a648d225bb6ff7056a2f04f7a0e7350a09b7e6d881ffafa8457d",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/22-lettres-a-ceux-qui-viendront.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "1DLSJElTU6Wn6kcvcjKO3TrzeXIcj7HC8HRLMK02plJ0",
+              "docxSha256": "09cfbd73712c3080ca77c0fa968a1f0d22d22960f4e3778dddb74b7dec451852",
+              "pdfSha256": "aad1b840035797775adf91851a0a2618e0343ff5e1c3dd1a52725811c3e9204f",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/23-sombres-memoires-verbes-muets.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "1uX8ucxj3d_N3GBllo8rCGT4lEqpCdXzHP-t7cdjsfk0",
+              "docxSha256": "d2b57b5ecadd437776c44b66d71d0739f4684098a62a8bc2ae086d94138851d9",
+              "pdfSha256": "baccbf5c8ea9a1741d28b6fab1eed01f7d604ffaf94ec6b8a88781f391b87980",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/24-la-femme-maitresse-du-monde-mais-ostracisee.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "1zCuYWCO2ovEVqXzk-16n9Eng68zXF7ri4gCNGPUVw8M",
+              "docxSha256": "b4b21c4c383f7761d4ae34a1856d4c47a74fa323d5c5facd068a14c9dc99af1a",
+              "pdfSha256": "e4bfee4d404d7b552e2e9e04542a6458b37d519d45d2a58430b5324b9fcea54b",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/25-le-peuple-sans-messager.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "1fHhQW4r7uJDmyhEuWEpOHICbScb8C7uxEqtvBbbzpqU",
+              "docxSha256": "a7e393502827104bb446378a34b4ea7179dc2d9370e2f5df361403e10f485c9e",
+              "pdfSha256": "7457ce0dedbc66b9833aba13e167cf786d95c8219f5dbe9735811c172941cfb2",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/26-feodalisme-religieux.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "1OpGoI3QlFRwp8MdHfE-e2i5VfvbH6rcGDRoelNuq7QM",
+              "docxSha256": "26552be2b95643e29707f0bd425b6eaedc2a55cb768d636a9eac39899d363d82",
+              "pdfSha256": "906b7a408c99ebeba80c3cc450ebae05d4e5fcfe278f43dc26d852766bf570ea",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/27-l-utopie-pour-faconner-le-reel.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/28-l-autocensure.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/29-le-racisme-est-universel.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "17VJ4jteKszbDRpzdvdb7QCaSoHFHC6DWgh-BosOqhFU",
+              "docxSha256": "27502b78e4687567007e1f5e235dd7e13e981da29798da8204e0b035b1d56888",
+              "pdfSha256": "0f601136d32f3e78fec112ff0476f48e13d67da619dd47e7186a7a22ef0ba805",
+              "role": "title-bat"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/30-l-otage-de-l-absurde.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/31-le-boa-totem-de-soya.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "hub-lmi-editions/32-le-fleuve-sans-nom.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        }
+      ]
+    },
+    "musee": {
+      "home": "lmi-musee-complet/index.html",
+      "routes": [
+        {
+          "route": "lmi-musee-complet/index.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/comprendre-le-monde-par-ses-peripheries.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/archives-fonds-traces.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/collections-editoriales.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/principes-curatoriaux.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/references-et-filiations.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/education-mediation.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/expositions-permanentes.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/expositions-temporaires.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/recherche-transmission.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/visiter.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/presse-droits.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/partenaires.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/soutenir.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/contact.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/mentions-legales-confidentialite.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/collections.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/collections-editoriales/atlas-des-humanites-disparues.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/collections-editoriales/les-routes-invisibles.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/collections-editoriales/archives-des-seuils.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/parcours/presse.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/parcours/programmateurs.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/parcours/prescripteurs.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        },
+        {
+          "route": "lmi-musee-complet/parcours/partenaires.html",
+          "sources": [
+            {
+              "driveId": "1PEztnpzzFPkb83WikHi3efV6S2yY55dGpx0gLD2CaUQ",
+              "sha256": "1cc2181bc8caf5e8b9ffb36452cd452b290ab7f0f3656c8714ac114e1913c761",
+              "role": "professional-copy"
+            },
+            {
+              "driveId": "19C8MvPl4GCFh57N7XDoYJWS7A66Z8AE86Cn3b-7-dds",
+              "sha256": "06f952cb4d8fa8735fe74176effdc764e2784c17f41f9974f70b9d96576586dd",
+              "role": "museum-page-cms"
+            }
+          ],
+          "assetPolicy": "drive-id+sha256-only"
+        }
+      ]
+    }
+  },
+  "sourceRule": "Every operational source must carry a registered SHA-256; discovery-only Drive documents without a registered hash are excluded until registered."
+}

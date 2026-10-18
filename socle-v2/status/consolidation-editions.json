@@ -1,0 +1,24 @@
+{
+  "site":"editions",
+  "state":"CANONICAL_CANDIDATE_BUILT",
+  "sourceSha":"7de14ba0381f4f83907900c95a83f5dc15377f81",
+  "sourcePr":120,
+  "brand":"LES MOTS IMAGÉS",
+  "validatedScope":[
+    "33 Hub pages",
+    "48 protected routes",
+    "visitor copy",
+    "SEO essentials",
+    "responsive/accessibility structural checks",
+    "protected Bridge entry",
+    "3 SHA-256-bound visual assets with Drive provenance",
+    "full npm test"
+  ],
+  "stillRequiredBeforePass":[
+    "serve this exact source SHA on Bridge without replacing the frozen Museum snapshot before its human recipe",
+    "observe runtime exact SHA",
+    "run final Bridge recipe on the exact candidate",
+    "record human recipe decision"
+  ],
+  "releaseRule":"No PASS until one source SHA satisfies the full five-link gate."
+}

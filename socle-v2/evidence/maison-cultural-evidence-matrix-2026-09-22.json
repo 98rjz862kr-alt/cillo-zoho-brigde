@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-22T18:56:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "site": "maison",
+  "state": "SYSTEM_INVENTORY_CONFIRMED_SIGN_LEVEL_EVIDENCE_PENDING",
+  "canonicalSource": {
+    "driveId": "1NjIf0aNAyCqZss6sGIEoKMvLRH_Oz4qHGLtNpJsnjpg",
+    "title": "MASTER_LMI_MAISON_2026-09-12"
+  },
+  "governingRule": "1 sign = 1 piece; no sign is approved from system-level naming alone.",
+  "systems": [
+    {
+      "id": "hieroglyphes",
+      "label": "Hiéroglyphes",
+      "systemStatus": "CONFIRMED_CANONICAL",
+      "signEvidenceStatus": "PENDING",
+      "required": [
+        "exact sign/reference",
+        "meaning/context",
+        "source",
+        "rights/licence/public-domain",
+        "competent validation where applicable",
+        "series/file/decision traceability"
+      ]
+    },
+    {
+      "id": "tifinagh",
+      "label": "Tifinagh",
+      "systemStatus": "CONFIRMED_CANONICAL_SCRIPT_FAMILY",
+      "signEvidenceStatus": "PENDING",
+      "required": [
+        "exact glyph/reference",
+        "meaning/context",
+        "source",
+        "rights/licence/public-domain",
+        "competent validation where applicable",
+        "series/file/decision traceability"
+      ]
+    },
+    {
+      "id": "braille",
+      "label": "Braille",
+      "systemStatus": "CONFIRMED_CANONICAL",
+      "signEvidenceStatus": "PREPRODUCTION_EVIDENCE_FOUND_CENTRAL_CONTROL_PENDING",
+      "sources": [
+        {
+          "driveId": "1hhz9XV_brdKx8LjjQ1D_afTTwIG5bXiyYEf2COwdYLU",
+          "title": "LMI Maison - Cycle Braille 2026-06 - Livrable final de collection lifestyle"
+        },
+        {
+          "driveId": "1CVRcM2LqhIO8MVY0iHPe_SdM6axx-UqmgBylVlk8ur0",
+          "title": "LMI Maison - Cycle Braille 2026-06 - Livrable final de collection"
+        },
+        {
+          "driveId": "12BiMAgd0N6RIs2JvByicz1ZwDIyPVT9AhxdK0c4j7Yc",
+          "title": "LMI Maison - Cycle Braille 2026-06 - 06_Suivi - Suivi des priorites Braille"
+        }
+      ],
+      "series": [
+        {
+          "code": "BR-GR-01-SA",
+          "room": "Salon",
+          "product": "Coussin décoratif carré",
+          "status": "À faire",
+          "decision": "Accord de poursuite"
+        },
+        {
+          "code": "BR-GR-02-BU",
+          "room": "Bureau",
+          "product": "Rideau double largeur",
+          "status": "À faire",
+          "decision": "Poursuite avec corrections"
+        },
+        {
+          "code": "BR-GR-03-SM",
+          "room": "Salle à manger",
+          "product": "Chemin de table",
+          "status": "À faire",
+          "decision": "Accord de principe"
+        },
+        {
+          "code": "BR-GR-04-CH",
+          "room": "Chambre",
+          "product": "Couvre-lit matelassé",
+          "status": "À faire",
+          "decision": "Décision centrale à obtenir"
+        },
+        {
+          "code": "BR-GR-05-SB",
+          "room": "Salle de bain",
+          "product": "Drap de bain premium",
+          "status": "À faire",
+          "decision": "Décision centrale à obtenir"
+        },
+        {
+          "code": "BR-GR-06-CU",
+          "room": "Cuisine",
+          "product": "Tablier premium",
+          "status": "À faire",
+          "decision": "Décision centrale à obtenir"
+        }
+      ],
+      "required": [
+        "exact sign/reference per series",
+        "Braille content/meaning",
+        "source/reference",
+        "rights or production entitlement if applicable",
+        "central validation",
+        "final prototype/archive evidence"
+      ]
+    },
+    {
+      "id": "adinkra",
+      "label": "Adinkra",
+      "systemStatus": "CONFIRMED_CANONICAL",
+      "signEvidenceStatus": "PENDING",
+      "required": [
+        "exact symbol/reference",
+        "meaning/context",
+        "source",
+        "rights/licence/public-domain",
+        "competent validation where applicable",
+        "series/file/decision traceability"
+      ]
+    },
+    {
+      "id": "ndebele",
+      "label": "Ndébélé",
+      "systemStatus": "CONFIRMED_CANONICAL",
+      "signEvidenceStatus": "PENDING",
+      "required": [
+        "exact motif/reference",
+        "meaning/context",
+        "source",
+        "rights/licence/public-domain",
+        "competent validation where applicable",
+        "series/file/decision traceability"
+      ]
+    },
+    {
+      "id": "amazigh",
+      "label": "Amazigh",
+      "systemStatus": "CONFIRMED_CANONICAL_CULTURAL_FAMILY_DISTINCT_FROM_TIFINAGH",
+      "signEvidenceStatus": "PENDING",
+      "required": [
+        "exact motif/sign/reference",
+        "meaning/context",
+        "source",
+        "rights/licence/public-domain",
+        "competent validation where applicable",
+        "series/file/decision traceability"
+      ]
+    },
+    {
+      "id": "geez",
+      "label": "Ge’ez",
+      "systemStatus": "CONFIRMED_CANONICAL",
+      "signEvidenceStatus": "PENDING",
+      "required": [
+        "exact glyph/reference",
+        "meaning/context",
+        "source",
+        "rights/licence/public-domain",
+        "competent validation where applicable",
+        "series/file/decision traceability"
+      ]
+    }
+  ],
+  "registerAudit": {
+    "registerId": "18a1Wdg94UbqEkind0Igh9NmtnqPDJOOOxemhOlFLKls",
+    "title": "REGISTRE_SHA256_LMI_MAISON",
+    "observation": "System/sign searches returned no populated sign-level illustration/document rows; current registry does not close cultural proof."
+  },
+  "humanRecipe": "SUSPENDED",
+  "publicationLocks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "1.0.0",
+  "recordedAt": "2026-09-23T13:45:00Z",
+  "brand": "LES MOTS IMAGÉS",
+  "state": "CROSS_BRANCH_RECONCILED_FOR_SERVICE_PRODUCT_EVIDENCE_DEFERRED_TO_COMMERCIAL_RELEASE",
+  "recipe": {
+    "state": "SUSPENDED_RUNTIME_REBUILD",
+    "freezeEligible": false,
+    "blockedBy": [
+      "exact protocol 1.2 runtime rebuild"
+    ],
+    "notBlockedBy": [
+      "Maison sign-level evidence when unproven signs remain excluded or marked non-commercial",
+      "Food real-product evidence when ordering/public claims remain locked"
+    ]
+  },
+  "current": {
+    "branch": "work/socle-commun-v2-20260915",
+    "pr": 118,
+    "latestComparedHead": "d3c924a628ed021378604ea87220aea56da45f4c",
+    "latestRuntimeLockCommit": "475666a7dff105ead82f2dabe61bd66d5227a3c3",
+    "render": {
+      "serviceId": "srv-d9osqbmgekts73eoqis0",
+      "deployId": "dep-dapcm6jbc2fs73f8t5jg",
+      "status": "live"
+    },
+    "latestParallelHeadObserved": "957c27701994d4fb4de1bdd356b3a85fc7aeb6f4",
+    "parallelExecutionMode": "PARALLEL_AGENT_PUSHING_TO_SAME_CONSOLIDATION_BRANCH"
+  },
+  "findings": {
+    "editions": {
+      "status": "CURRENT_BRANCH_AHEAD_ON_VISITOR_LAYER",
+      "absorbed": [
+        "canonical URL contract",
+        "OpenGraph metadata",
+        "private robots lock",
+        "authenticated sitemap",
+        "runtime integrity",
+        "visitor-copy cleanup",
+        "rendered accessibility gates"
+      ],
+      "remainingBeforeHumanRecipe": [
+        "parallel agent latest pushed head must still be re-read if it advances"
+      ]
+    },
+    "musee": {
+      "status": "CURRENT_BRANCH_AHEAD_ON_STRUCTURAL_VISITOR_LAYER",
+      "comparedBranch": "agent/lmi-musee-finalisation-recette-20260907",
+      "otherHead": "2cc03023c5e3f60cec184e141ae9504b6ee9e3f4",
+      "currentAdvantages": [
+        "canonical identity correction retained",
+        "legal linkage retained",
+        "expanded qualified visitor routes",
+        "current media provenance and exact runtime package"
+      ],
+      "remainingBeforeHumanRecipe": [
+        "parallel agent latest pushed head must still be re-read if it advances"
+      ]
+    },
+    "maison": {
+      "status": "STRUCTURAL_CURRENT_BRANCH_AHEAD_BUT_CONTENT_EVIDENCE_NOT_CLOSED",
+      "comparedBranch": "agent/lmi-maison-finalisation-20260906",
+      "otherHead": "ac66a28e39543938636c8c18374ecb24a43fc9db",
+      "retainedControls": [
+        "one sign = one piece",
+        "separate sign families",
+        "Drive/SHA identity provenance"
+      ],
+      "blockersDiscoveredInOtherBranch": [
+        "each cultural reference requires exact identification",
+        "meaning and cultural context must be documented",
+        "source must be cited",
+        "rights/license/public-domain status must be confirmed",
+        "competent validation must be recorded where applicable",
+        "traceability must link decision, series and graphic file"
+      ],
+      "implication": "Maison may enter human service recipe with unproven individual signs excluded from final public/commercial claims. Sign-level source/context/rights/validation evidence remains mandatory before commercial/public release of those references.",
+      "canonicalSystemInventory": {
+        "status": "CONFIRMED_AT_SYSTEM_LEVEL_FROM_DRIVE_MASTER",
+        "systems": [
+          "Hiéroglyphes",
+          "Tifinagh",
+          "Braille",
+          "Adinkra",
+          "Ndébélé",
+          "Amazigh",
+          "Ge’ez"
+        ],
+        "sourceDriveId": "1NjIf0aNAyCqZss6sGIEoKMvLRH_Oz4qHGLtNpJsnjpg",
+        "sourceTitle": "MASTER_LMI_MAISON_2026-09-12",
+        "distinction": "Tifinagh is the script family; Amazigh is a distinct cultural family of signs/motifs/symbols in the canonical Maison master.",
+        "visitorLayerRealigned": true
+      },
+      "brailleEvidence": {
+        "status": "PREPRODUCTION_EVIDENCE_FOUND",
+        "sources": [
+          "1hhz9XV_brdKx8LjjQ1D_afTTwIG5bXiyYEf2COwdYLU",
+          "1CVRcM2LqhIO8MVY0iHPe_SdM6axx-UqmgBylVlk8ur0"
+        ],
+        "conclusion": "Six Braille series and production tolerances are documented, but central control and individual sign-level cultural/rights proof remain open."
+      }
+    },
+    "food": {
+      "status": "STRUCTURAL_CURRENT_BRANCH_AHEAD_BUT_REAL_PRODUCT_DATA_BLOCKERS_REMAIN",
+      "comparedBranch": "agent/lmi-food-finalisation-20260906",
+      "otherHead": "ec8e0297b9efdbce7c24ddb135a9235b16fe6859",
+      "blockersDiscoveredInOtherBranch": [
+        "recipe/formulation trials still required for priority products",
+        "exact quantities and yields still require measurement",
+        "allergens require confirmation from final recipes",
+        "conservation protocols/durations require validation",
+        "packaging choices and product compatibility require decision",
+        "complete costs and selling prices require calculation/decision",
+        "final photography/BAT requires completion",
+        "public ordering/payment remains locked"
+      ],
+      "implication": "Food may enter human service recipe using pilot content as clearly identified internal preparation material. Real measured/validated product evidence remains mandatory before sale, public ordering, final price/allergen/shelf-life claims or commercial PASS.",
+      "pilotEvidence": {
+        "status": "PILOT_FORMULATIONS_FOUND_NOT_FINAL_PRODUCT_PASS",
+        "sourceDriveId": "1XU03V7MaIB-Ko8o4XKG70-Ck5mQZFXdM",
+        "sourceTitle": "LMI FOOD - Manuel fabrication jus tropicaux et cocktails - BAT v1",
+        "confirmed": [
+          "J01-J06 pilot formulations contain quantities for 10 L, 50 L and 100 L",
+          "theoretical yield guidance exists",
+          "development pH/Brix targets exist",
+          "lot-control fields and pilot process steps exist",
+          "working price ranges are explicitly non-final"
+        ],
+        "stillRequiresRealEvidence": [
+          "measured yield from actual production",
+          "final suppliers/lots and purchase evidence",
+          "final allergens",
+          "validated thermal process",
+          "validated conservation/shelf life",
+          "final compatible packaging",
+          "actual full cost and approved price",
+          "microbiological/ageing evidence",
+          "final photography and BAT"
+        ]
+      },
+      "recipeProtocol": {
+        "sourceDriveId": "1_pGnWoxD8QTytc1rGvcaDL_OQMHpHaDkuHbmZf0NqR8",
+        "rule": "One unverified critical point keeps a reference in correction."
+      }
+    }
+  },
+  "reconciliationDecision": {
+    "currentTechnicalBranch": "AHEAD_ON_INFRASTRUCTURE_AND_VISITOR_GATES",
+    "noOverallWinnerFrozen": true,
+    "reason": "Infrastructure and visitor gates are ahead. Maison and Food evidence gaps are commercial-release gaps, not blockers for a private human service recipe, provided the exact protocol 1.2 runtime is rebuilt and public/commercial actions stay locked.",
+    "nextRequiredWork": [
+      "freeze an exact protocol 1.2 runtime candidate with private-app management connected",
+      "run human service recipe on the private candidate",
+      "keep Maison unproven sign references and Food unvalidated commercial claims visibly non-commercial",
+      "collect Maison sign-level and Food real-product evidence during post-production/operations before commercial release",
+      "do not publish, enable public ordering, or claim commercial PASS before those evidence gates close"
+    ]
+  },
+  "locks": {
+    "mergeMain": false,
+    "dnsChange": false,
+    "publicPublication": false,
+    "humanRecipe": false,
+    "publicOrdering": false,
+    "commercialRelease": true
+  },
+  "runtimeRecipeLock": {
+    "state": "ENFORCED",
+    "httpStatus": 423,
+    "proof": "HUMAN_RECIPE_ROUTE_LOCK_PASS 423"
+  },
+  "sourceReconciliationEvidence": "socle-v2/evidence/maison-food-source-reconciliation-2026-09-22.json"
+}

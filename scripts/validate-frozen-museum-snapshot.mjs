@@ -1,0 +1,36 @@
+import { execFileSync } from 'node:child_process';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { hashPackage } from '../socle-v2/scripts/package-hash.mjs';
+
+const sha='f8d046bdfea2c0854364579cca59cbd2fd85a8b9';
+const root='drafts/lmi-musee-complet';
+const expectedPackage='ec2a52a24e6de4d88f67422484a977c176d34be32359d32aec0a0067fb1fd4cd';
+const proofPath='socle-v2/history/frozen-museum-f8d046bd.json';
+const frozenObject=`${sha}:${root}/source-manifest.json`;
+let objectAvailable=true;
+try { execFileSync('git',['cat-file','-e',frozenObject],{stdio:'ignore'}); } catch { objectAvailable=false; }
+if(!objectAvailable){
+  if(!existsSync(proofPath))throw new Error('Frozen Museum Git object unavailable and portable proof missing');
+  const proof=JSON.parse(readFileSync(proofPath,'utf8'));
+  if(proof.sourceSha!==sha||proof.packageSha256!==expectedPackage||proof.files!==47)throw new Error('Frozen Museum portable proof mismatch');
+  if(proof.sourceManifestStatus!=='READY_TO_PUBLISH'||proof.containsBlockingARequalifier!==false)throw new Error('Frozen Museum portable proof status mismatch');
+  console.log(`FROZEN_MUSEUM_PROOF_PASS ${sha} ${expectedPackage} ${proof.files} files`);
+  process.exit(0);
+}
+const manifest=JSON.parse(execFileSync('git',['show',frozenObject],{encoding:'utf8'}));
+if(manifest.status!=='READY_TO_PUBLISH')throw new Error(`Frozen Museum manifest expected READY_TO_PUBLISH, got ${manifest.status}`);
+if(manifest.documents?.some((d)=>d.status==='A_REQUALIFIER'))throw new Error('Frozen Museum snapshot contains blocking A_REQUALIFIER source');
+const temp=mkdtempSync(path.join(tmpdir(),'lmi-musee-frozen-'));
+try{
+  const archive=execFileSync('git',['archive','--format=tar',sha,root],{maxBuffer:64*1024*1024});
+  const tarPath=path.join(temp,'snapshot.tar');
+  writeFileSync(tarPath,archive);
+  execFileSync('tar',['-xf',tarPath,'-C',temp]);
+  const packageResult=hashPackage(path.join(temp,root));
+  if(packageResult.sha256!==expectedPackage)throw new Error(`Frozen Museum package SHA mismatch: ${packageResult.sha256}`);
+  console.log(`FROZEN_MUSEUM_PASS ${sha} ${packageResult.sha256} ${packageResult.files.length} files`);
+} finally {
+  rmSync(temp,{recursive:true,force:true});
+}

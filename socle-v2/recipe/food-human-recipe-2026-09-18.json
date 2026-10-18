@@ -1,0 +1,310 @@
+{
+  "schemaVersion": "2.0.0",
+  "site": "food",
+  "decision": "SUSPENDED_RUNTIME_REBUILD",
+  "purpose": "neutral-client-facing-acceptance-without-coaching",
+  "target": {
+    "candidateSourceSha": "482c0dd3404cf16c4107b302d4d3518c9d7a4c6a",
+    "candidatePackageSha256": "c7b75fb1620af0ab2e458fe2a2645f1457d9fb7f828c7ded2bd73f3c977aeb22",
+    "bridgeRuntimeSha": null,
+    "renderDeployId": null,
+    "bridgeUrl": "https://cillo-zoho-bridge.onrender.com"
+  },
+  "devices": [
+    {
+      "name": "iPhone-reference",
+      "viewport": "390px",
+      "result": "PENDING"
+    },
+    {
+      "name": "small-mobile",
+      "viewport": "320px",
+      "result": "PENDING"
+    },
+    {
+      "name": "desktop",
+      "viewport": "1440px",
+      "result": "PENDING"
+    }
+  ],
+  "rules": [
+    "tester-observes-before-explanation",
+    "record-spontaneous-understanding-before-guidance",
+    "no-result-may-be-marked-pass-by-machine",
+    "failed-or-reserved-criterion-returns-to-production",
+    "no-publication-or-dns-change-from-recipe"
+  ],
+  "checks": [
+    {
+      "id": "FOO-01",
+      "label": "Accueil compris spontanément et promesse Food identifiable",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-02",
+      "label": "Appétence, désir de découverte et force de première impression",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-03",
+      "label": "Qualité éditoriale des recettes, produits et terroirs",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-04",
+      "label": "Qualité des visuels culinaires et cohérence de présentation",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-05",
+      "label": "Hiérarchie des offres et lisibilité des familles",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-06",
+      "label": "Navigation et architecture de l’information sans confusion",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-07",
+      "label": "Ergonomie et fluidité perçues sur iPhone 390 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-08",
+      "label": "Ergonomie et fluidité perçues sur mobile 320 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-09",
+      "label": "Ergonomie et fluidité perçues sur desktop 1440 px",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-10",
+      "label": "Parcours découverte vers contact ou demande naturel",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-11",
+      "label": "Clarté commerciale sans prix, allergène, conservation, disponibilité ou fournisseur non prouvé",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-12",
+      "label": "Crédibilité, différenciation et confiance",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-13",
+      "label": "Contact et informations de confiance faciles à trouver",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-14",
+      "label": "Clavier, focus et accessibilité d’usage",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-15",
+      "label": "Cohérence de marque LMI et rôles distincts des ors",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    },
+    {
+      "id": "FOO-16",
+      "label": "Décision humaine et réserves consignées",
+      "result": "PENDING",
+      "evidence": {
+        "spontaneousUnderstanding": null,
+        "intendedAction": null,
+        "frictionOrConfusion": null,
+        "trustOrDoubt": null,
+        "visualIssue": null,
+        "commercialIssue": null,
+        "reference": null,
+        "severity": null
+      }
+    }
+  ],
+  "finalDecision": "NOT_STARTED",
+  "suspension": {
+    "since": "2026-09-23T13:45:00Z",
+    "reason": "Service recipe is allowed before real commercial evidence, but it must target one exact rebuilt protocol 1.2 runtime with private-app management connected.",
+    "blockingEvidence": "socle-v2/recipe/human-recipe-gate-2026-09-20.json"
+  },
+  "recipeScope": {
+    "type": "HUMAN_SERVICE_RECIPE",
+    "mayAssess": [
+      "identity",
+      "design",
+      "ergonomics",
+      "navigation",
+      "content presentation",
+      "private management workflows",
+      "responsive behavior",
+      "service readiness"
+    ],
+    "mayNotInfer": [
+      "commercial release",
+      "public availability",
+      "validated price or stock",
+      "validated rights for unproven references",
+      "validated Food safety/shelf-life/allergen claims"
+    ],
+    "publicPublication": false,
+    "publicOrdering": false
+  },
+  "commercialRelease": {
+    "state": "LOCKED_UNTIL_REAL_EVIDENCE"
+  }
+}
