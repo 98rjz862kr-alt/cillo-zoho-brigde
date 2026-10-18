@@ -43,6 +43,49 @@ function pageGroup(pageNumber) {
   return 'oeuvres';
 }
 
+// Navigation labels are derived solely from the page titles in public base 61209e9.
+const PAGE_TITLES = [
+  "",
+  "Accueil",
+  "Comprendre LMI Éditions",
+  "Choisir son pôle",
+  "Les pôles associés",
+  "Informations et contacts officiels",
+  "LMI Maison",
+  "LMI Food — Les Mets Inspirés",
+  "LMI Musée",
+  "Manuscrits & textes",
+  "Ressources & accès aux fiches",
+  "Catalogue éditorial",
+  "BD & adaptations",
+  "Univers illustrés & direction artistique",
+  "Audio & transmission",
+  "Livres & audio",
+  "Actualités & événements",
+  "À propos & ressources",
+  "Blog",
+  "Presse, partenaires & droits",
+  "Mentions légales & confidentialité",
+  "Destination connue, itinéraires incertains",
+  "Lettres à ceux qui viendront",
+  "Sombres mémoires, verbes muets",
+  "La femme maîtresse du monde ; mais ostracisée",
+  "Le peuple sans messager",
+  "Féodalisme religieux",
+  "L’utopie pour façonner le réel",
+  "L’autocensure",
+  "Le racisme est universel",
+  "L’otage de l’absurde",
+  "Le Boa Totem de Soya",
+  "Le Fleuve sans nom"
+];
+const GROUP_TITLES = {
+  orientation: 'LMI Éditions',
+  poles: 'Pôles associés',
+  ressources: 'Lire et découvrir',
+  oeuvres: 'Œuvres'
+};
+
 const PREMIUM_CSS = `
 <style id="lmi-premium-runtime-style">
 :root{--lmi-blue:#143B7D;--lmi-night:#0F2747;--lmi-ochre:#CC7722;--lmi-sand:#75553F;--lmi-gold:#D4AF37;--lmi-ivory:#F6F1E8;--lmi-paper:#F6F1E8;--lmi-ink:#172235;--lmi-muted:#5E697A;--lmi-line:rgba(20,59,125,.14);--lmi-shadow:0 22px 64px rgba(15,39,71,.12);--lmi-max:1180px}
@@ -109,12 +152,14 @@ body[data-lmi-runtime="premium-v2"][data-lmi-group="oeuvres"] .lmi-runtime-hero 
 
 function premiumScript(pageNumber, group) {
   const files = JSON.stringify(PAGE_FILES);
-  return `
+  return String.raw`
 <script id="lmi-premium-runtime-script">
 (function(){
   const pageNumber=${pageNumber};
   const group=${JSON.stringify(group)};
+  const groupTitle=${JSON.stringify(GROUP_TITLES[group])};
   const files=${files};
+  const titles=${JSON.stringify(PAGE_TITLES)};
   const q=location.search||'';
   const draft=(file)=>'/atelier/file/'+encodeURIComponent('hub-lmi-editions/'+file)+q;
   const body=document.body;
@@ -127,14 +172,9 @@ function premiumScript(pageNumber, group) {
   const shell=body.querySelector('[data-lmi-shared-header]')||document.createElement('div');
   if(!body.dataset.lmiShell){
   shell.className='lmi-shell-nav';
-  shell.innerHTML='<div class="lmi-shell-inner"><a class="lmi-wordmark" href="'+draft(files[1])+'"><span class="lmi-wordmark-mark">LMI</span><span class="lmi-wordmark-copy"><strong>Les Mots Imagés</strong><small>Le verbe par l’image</small></span></a><div class="lmi-shell-title"><span>Page '+String(pageNumber).padStart(2,'0')+' · '+group+'</span><strong>'+pageTitle+'</strong></div><nav class="lmi-shell-links"><a class="lmi-shell-link" href="'+draft(files[1])+'">Accueil</a><a class="lmi-shell-link" href="'+draft(files[11])+'">Catalogue</a><a class="lmi-shell-link" href="'+draft(files[17])+'">À propos</a><a class="lmi-shell-link" href="'+draft(files[5])+'">Contact</a></nav></div>';
+  shell.innerHTML='<div class="lmi-shell-inner"><a class="lmi-wordmark" href="'+draft(files[1])+'"><span class="lmi-wordmark-mark">LMI</span><span class="lmi-wordmark-copy"><strong>Les Mots Imagés</strong><small>Le verbe par l’image</small></span></a><div class="lmi-shell-title"><span>'+groupTitle+'</span><strong>'+pageTitle+'</strong></div><nav class="lmi-shell-links"><a class="lmi-shell-link" href="'+draft(files[1])+'">Accueil</a><a class="lmi-shell-link" href="'+draft(files[11])+'">Catalogue</a><a class="lmi-shell-link" href="'+draft(files[17])+'">À propos</a><a class="lmi-shell-link" href="'+draft(files[5])+'">Contact</a></nav></div>';
   if(statusBar&&statusBar.nextSibling)body.insertBefore(shell,statusBar.nextSibling);else body.insertBefore(shell,body.firstChild);
   }
-
-  const rail=document.createElement('aside');
-  rail.className='lmi-page-rail';
-  rail.innerHTML='<strong>'+String(pageNumber).padStart(2,'0')+'</strong><span>'+group+'</span>';
-  body.appendChild(rail);
 
   const h1=body.querySelector('h1');
   if(h1){
@@ -162,7 +202,7 @@ function premiumScript(pageNumber, group) {
   pager.className='lmi-runtime-pager';
   const previous=pageNumber>1?files[pageNumber-1]:files[1];
   const next=pageNumber<files.length-1?files[pageNumber+1]:files[1];
-  const titleFromFile=(file)=>file.replace(/^\d{2}-/,'').replace(/\.html$/,'').replace(/-/g,' ').replace(/\b\w/g,(c)=>c.toUpperCase());
+  const titleFromFile=(file)=>titles[files.indexOf(file)]||'LMI Éditions';
   pager.innerHTML='<a href="'+draft(previous)+'"><small>Page précédente</small><strong>'+titleFromFile(previous)+'</strong></a><a class="home" href="'+draft(files[1])+'" aria-label="Accueil">⌂</a><a href="'+draft(next)+'"><small>Page suivante</small><strong>'+titleFromFile(next)+'</strong></a>';
   const existingFooter=body.querySelector('footer:not(.lmi-runtime-pager)');
   if(existingFooter)body.insertBefore(pager,existingFooter);else body.appendChild(pager);
