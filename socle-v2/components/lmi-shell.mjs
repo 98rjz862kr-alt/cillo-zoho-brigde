@@ -1,3 +1,5 @@
+import { mobileNavigationScript } from './mobile-navigation.mjs';
+
 const CANONICAL_BRAND = 'LES MOTS IMAGÉS';
 const TAGLINE = 'LE VERBE PAR L’IMAGE';
 const SITES = Object.freeze({
@@ -31,11 +33,12 @@ export function renderPrepublicationBanner() {
   return '<div class="lmi-prepublication" role="status">Brouillon privé de prépublication · validation humaine obligatoire</div>';
 }
 
-export function renderHeader({ siteId = 'editions', homeHref = '/', logoSrc = '', logoDriveId = '', logoSha256 = '', logoAsset = '', logoApproval = '', siteLinks = SITES, navigation = [], currentHref = '', contentId = 'lmi-main-content', prepublication = false } = {}) {
+export function renderHeader({ siteId = 'editions', homeHref = '/', logoSrc = '', logoDriveId = '', logoSha256 = '', logoAsset = '', logoApproval = '', siteLinks = SITES, navigation = [], contextNavigation = [], currentHref = '', contentId = 'lmi-main-content', prepublication = false } = {}) {
   const site = siteDefinition(siteId);
   const ecosystem = Object.entries(SITES).map(([id, definition]) => `<a data-lmi-site-link="${id}" href="${safeHref(siteLinks[id]?.href || definition.href)}"${id === siteId ? ' aria-current="true"' : ''}>${esc(definition.label)}</a>`).join('');
   const logo = logoSrc ? `<img class="lmi-brand__logo" src="${safeHref(logoSrc)}" alt="${CANONICAL_BRAND}" width="1000" height="635" loading="eager" decoding="async"${logoDriveId ? ` data-lmi-drive-id="${esc(logoDriveId)}"` : ''}${logoSha256 ? ` data-lmi-sha256="${esc(logoSha256)}"` : ''}${logoAsset ? ` data-lmi-asset="${esc(logoAsset)}"` : ''}${logoApproval ? ` data-lmi-approved="${esc(logoApproval)}"` : ''}>` : '';
-  return `${prepublication ? renderPrepublicationBanner() : ''}<a class="lmi-skip-link" href="#${esc(contentId)}">Aller au contenu</a><header class="lmi-header lmi-shell" data-lmi-shared-header="${esc(siteId)}"><div class="lmi-header__inner"><a class="lmi-brand" href="${safeHref(homeHref)}">${logo}<span class="lmi-brand__copy"><span class="lmi-brand__name">LMI ${esc(site.label)}</span><small class="lmi-brand__tagline">${TAGLINE}</small></span></a><nav class="lmi-ecosystem-nav" aria-label="Écosystème Les Mots Imagés">${ecosystem}</nav></div><div class="lmi-header__navigation"><nav class="lmi-site-nav" aria-label="Navigation LMI ${esc(site.label)}">${renderLinks(navigation, currentHref)}</nav></div></header>`;
+  const context = contextNavigation.length ? `<div class="lmi-context-navigation"><nav class="lmi-context-nav" aria-label="Dans cette rubrique">${renderLinks(contextNavigation, currentHref)}</nav></div>` : '';
+  return `${prepublication ? renderPrepublicationBanner() : ''}<a class="lmi-skip-link" href="#${esc(contentId)}">Aller au contenu</a><header class="lmi-header lmi-shell" data-lmi-shared-header="${esc(siteId)}"><div class="lmi-header__inner"><a class="lmi-brand" href="${safeHref(homeHref)}">${logo}<span class="lmi-brand__copy"><span class="lmi-brand__name">LMI ${esc(site.label)}</span><small class="lmi-brand__tagline">${TAGLINE}</small></span></a><button class="lmi-menu-toggle" type="button" data-lmi-menu-toggle aria-label="Menu LMI ${esc(site.label)}" aria-controls="lmi-site-navigation" aria-expanded="true" hidden>Menu <span class="lmi-menu-toggle__mark" aria-hidden="true">+</span></button><nav class="lmi-ecosystem-nav" aria-label="Écosystème Les Mots Imagés">${ecosystem}</nav></div><div class="lmi-header__navigation" id="lmi-site-navigation"><nav class="lmi-site-nav" aria-label="Navigation LMI ${esc(site.label)}">${renderLinks(navigation, currentHref)}</nav></div>${context}</header><script id="lmi-mobile-navigation">${mobileNavigationScript}</script>`;
 }
 
 export function renderFooter({ siteId = 'editions', links = [], currentHref = '' } = {}) {

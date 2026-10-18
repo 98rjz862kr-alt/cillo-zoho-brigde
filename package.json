@@ -22,7 +22,7 @@
     "test:canonical-site-copy": "node socle-v2/scripts/validate-canonical-site-copy.mjs",
     "test:site-content-map": "node socle-v2/scripts/validate-site-content-control-map.mjs",
     "test:request-hardening": "node scripts/test-bridge-request-hardening.mjs",
-    "test:shell": "node scripts/test-shared-shell.mjs",
+    "test:shell": "node scripts/test-shared-shell.mjs && node scripts/test-mobile-navigation.mjs",
     "test:shell-brand": "node scripts/test-shared-shell-brand.mjs",
     "test:hub-navigation": "node scripts/test-hub-navigation-emitted.mjs"
   },
