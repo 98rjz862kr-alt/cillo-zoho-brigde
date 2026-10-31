@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-31",
+  "scope": "Security advisory Node.js configuration; no proof of running Render process version",
+  "runtime_source_commit": "961a11df7286769d9d8833c169704519a967d573",
+  "node_selection": "22.23.4",
+  "engines": ">=22.23.4 <23 || >=24.22.1 <25 || >=26.12.1 <27",
+  "transitive_dependencies_changed": false,
+  "local_test_image": "lmi-security-cillo-native:961a11d",
+  "local_test_image_id": "sha256:f45585fc7d955a3530651ccd0474189a97c6f36eb99fcb409579e03481f8094e",
+  "tests": {
+    "commands": 12,
+    "passed": 10,
+    "failed": 2,
+    "baseline_same_result": true,
+    "baseline_commit": "8517bbac8eddc3f60ba35a20d54dbabc787e7947",
+    "failures": [
+      "scripts/validate-lmi-musee.mjs: Source manifest is not READY_TO_PUBLISH",
+      "scripts/audit-lmi-musee-finalisation.mjs: Manifest status not READY_TO_PUBLISH"
+    ]
+  },
+  "test_environment": "Docker linux/amd64 via Colima/Rosetta; Node 22.23.4; network disabled; read-only source; temporary /tmp; no production credentials",
+  "services": [
+    {
+      "name": "cdm-collectes-validation-sju9",
+      "id": "srv-d9osr8vavr4c73a5kr6g",
+      "runtime": "python",
+      "suspended": "not_suspended",
+      "repo": "https://github.com/98rjz862kr-alt/cillo-zoho-brigde",
+      "configured_branch": "main",
+      "root_directory": "cdm-v3",
+      "live_deploy": "dep-d9osr9favr4c73a5ks9g",
+      "deployed_commit": "b32f5e24358ff9b78dad39f5e0bcdd4c65f5216d",
+      "deployed_at": "2026-08-04T11:32:45.426883Z",
+      "runtime_version_measured": null,
+      "certificate_store_measured": null,
+      "source_inspection_only": true
+    },
+    {
+      "name": "cillo-zoho-bridge-sju9",
+      "id": "srv-d9osr8vavr4c73a5kr50",
+      "runtime": "node",
+      "suspended": "not_suspended",
+      "repo": "https://github.com/98rjz862kr-alt/cillo-zoho-brigde",
+      "configured_branch": "main",
+      "root_directory": "",
+      "live_deploy": "dep-d9osr9favr4c73a5ks50",
+      "deployed_commit": "b32f5e24358ff9b78dad39f5e0bcdd4c65f5216d",
+      "deployed_at": "2026-08-04T11:32:26.136862Z",
+      "runtime_version_measured": null,
+      "certificate_store_measured": null,
+      "source_inspection_only": true
+    },
+    {
+      "name": "cdm-collectes-validation",
+      "id": "srv-d9osqbmgekts73eoqj1g",
+      "runtime": "python",
+      "suspended": "not_suspended",
+      "repo": "https://github.com/98rjz862kr-alt/cillo-zoho-brigde",
+      "configured_branch": "main",
+      "root_directory": "cdm-v3",
+      "live_deploy": "dep-d9osqbugekts73eoql00",
+      "deployed_commit": "b32f5e24358ff9b78dad39f5e0bcdd4c65f5216d",
+      "deployed_at": "2026-08-04T11:30:48.242144Z",
+      "runtime_version_measured": null,
+      "certificate_store_measured": null,
+      "source_inspection_only": true
+    },
+    {
+      "name": "cillo-zoho-brigde-2",
+      "id": "srv-d8vp91sm0tmc73d3f3sg",
+      "runtime": "node",
+      "suspended": "suspended",
+      "repo": "https://github.com/98rjz862kr-alt/cillo-zoho-brigde",
+      "configured_branch": "main",
+      "root_directory": "",
+      "live_deploy": "dep-d9occoqjnfac73dgnhsg",
+      "deployed_commit": "eb37e474d7bb5917636e1db17bb58e97940d7c13",
+      "deployed_at": "2026-08-03T16:49:15.289674Z",
+      "runtime_version_measured": null,
+      "certificate_store_measured": null,
+      "source_inspection_only": true
+    },
+    {
+      "name": "cillo-zoho-brigde-1",
+      "id": "srv-d8vgstok1i2s73en7r0g",
+      "runtime": "node",
+      "suspended": "not_suspended",
+      "repo": "https://github.com/98rjz862kr-alt/cillo-zoho-brigde",
+      "configured_branch": "main",
+      "root_directory": "",
+      "live_deploy": "dep-d93snd99rddc73aaqo00",
+      "deployed_commit": "24270bb983469e7f0d641785e03c818ea9c0a1a8",
+      "deployed_at": "2026-07-03T14:48:59.505189Z",
+      "runtime_version_measured": null,
+      "certificate_store_measured": null,
+      "source_inspection_only": true
+    },
+    {
+      "name": "cillo-zoho-brigde",
+      "id": "srv-d8vfel7lk1mc738t7qr0",
+      "runtime": "node",
+      "suspended": "not_suspended",
+      "repo": "https://github.com/98rjz862kr-alt/cillo-zoho-brigde",
+      "configured_branch": "main",
+      "root_directory": "",
+      "live_deploy": "dep-d93snd99rddc73aaqntg",
+      "deployed_commit": "24270bb983469e7f0d641785e03c818ea9c0a1a8",
+      "deployed_at": "2026-07-03T14:48:59.44305Z",
+      "runtime_version_measured": null,
+      "certificate_store_measured": null,
+      "source_inspection_only": true
+    }
+  ],
+  "production_modified": false,
+  "registry_push": false,
+  "rollout_authorized": false,
+  "limits": [
+    "Running Node version and certificate stores remain unmeasured.",
+    "NODE_VERSION environment overrides may take precedence over .node-version; none modified.",
+    "Historical deployed commits and suspended services remain unchanged.",
+    "Draft targets current main source, not an automatic replacement of each historical deployed commit."
+  ]
+}
