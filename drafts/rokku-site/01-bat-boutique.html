@@ -17,12 +17,47 @@ main{max-width:1320px;margin:auto;padding:0 6vw}.section{padding:90px 0;border-b
 .footer{background:#081a31;color:#d5dce7;padding:32px 6vw;font:12px/1.7 Arial}
 .tag{display:inline-block;background:#eee5d1;padding:8px 12px;font-size:11px;color:#6c562c;margin:12px 0}
 @media(max-width:980px){.trio,.products{grid-template-columns:repeat(2,1fr)}.world{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.trio,.products,.world{grid-template-columns:1fr}nav{display:block}.links{margin-top:14px}.hero{padding:72px 6vw}.section{padding:63px 0}.panel{min-height:auto}}
+
+#compose{scroll-margin-top:30px}.composer{background:#fff;padding:clamp(20px,5vw,48px);border:1px solid #d5cab7}
+.composer form{display:grid;grid-template-columns:1fr 1fr;gap:19px}.composer label{display:block;font-size:12px;font-weight:bold;margin-bottom:8px}
+.composer select,.composer textarea{width:100%;background:#faf8f4;border:1px solid #c9c3ba;padding:14px;font:15px Arial;color:#162a3e}.composer textarea{min-height:96px;resize:vertical}
+.composer .wide{grid-column:1/-1}.composer button{border:0;background:#143b7d;color:#fff;padding:14px 19px;cursor:pointer;font-weight:bold}
+.composer :is(button,select,textarea):focus-visible{outline:3px solid #d4af37;outline-offset:3px}
+.hint{font:12px/1.6 Arial;color:#5c6572}.selection{border-top:1px solid #c9c3ba;padding-top:28px;margin-top:26px}.selection[hidden],.passport[hidden]{display:none}
+.suggest{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.suggest article{padding:20px;background:#f6f1e8;border-left:3px solid #d4af37}
+.suggest h3{font:500 22px Georgia,serif;margin:0 0 10px}.suggest p{font:13px/1.6 Arial;color:#555}
+.passport{border:1px solid #c7af77;background:#f6f1e8;padding:30px;margin-top:26px}.passport h3{font:500 31px Georgia,serif;margin:10px 0 25px}
+.passport p{white-space:pre-wrap;overflow-wrap:anywhere}.passport button{margin-top:12px}
+.legacy{background:#fff;border-left:4px solid #d4af37;padding:22px;margin:22px 0}.legacy summary{cursor:pointer;font-weight:bold}
+.legacy p{font:13px/1.6 Arial;color:#54616b}
+@media(max-width:750px){.composer form,.suggest{grid-template-columns:1fr}.composer .wide{grid-column:auto}}
+@media print{body>.top,body>nav,body>.hero,body>.band,body>.footer,main>.section:not(#compose),#compose>.kicker,#compose>h2,#compose>.lead,.composer form,.selection,.passport button{display:none!important}.composer{padding:0;border:0}.passport{display:block!important}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style></head><body>
 <div class="top">BAT CONCEPTUEL PRIVÉ — AUCUN ARTICLE EN VENTE · AUCUN PAIEMENT · AUCUNE PUBLICATION</div>
-<nav aria-label="Navigation"><a class="brand" href="#accueil">ROKKU</a><div class="links"><a href="#passages">Les Passages</a><a href="#idees">Les créations</a><a href="#monde">Ateliers du monde</a><a href="#entreprises">Entreprises</a></div></nav>
+<nav aria-label="Navigation"><a class="brand" href="#accueil">ROKKU</a><div class="links"><a href="#passages">Les Passages</a><a href="#compose">Composer</a><a href="#idees">Les créations</a><a href="#monde">Ateliers du monde</a><a href="#entreprises">Entreprises</a></div></nav>
 <header class="hero" id="accueil"><span class="ey">LE PLAISIR D'OFFRIR — MAISON DE CRÉATIONS ET D'ATTENTIONS</span><h1>L'Atlas <em>des Attentions.</em></h1><p>Offrir un monde. Créer un lien. Laisser une trace. Des gestes rares et des créations choisies pour ce qu'ils disent, pas seulement pour ce qu'ils sont.</p><a class="cta" href="#idees">Explorer les idées de cadeaux</a></header>
 <main><section class="section" id="passages"><span class="kicker">Concept signature · ROKKU PASSAGES</span><h2>Un cadeau commence avant l'objet.</h2><p class="lead">Nous imaginons une nouvelle manière de composer une attention : une intention vraie, une main créatrice identifiée et une trace qui peut durer. Les futures créations ne seront proposées à la vente qu'après qualification des artisans et fabrication des prototypes.</p><div class="trio"><article class="panel"><div class="num">01</div><h3>L'intention</h3><p>Pour qui ? Quel souvenir, quelle reconnaissance, quel geste aimeriez-vous transmettre ? ROKKU privilégie le sens avant la catégorie.</p></article><article class="panel"><div class="num">02</div><h3>La main</h3><p>Une création sélectionnée ou commandée, avec son auteur, sa matière, sa technique et son origine documentés — jamais une provenance inventée.</p></article><article class="panel"><div class="num">03</div><h3>La trace</h3><p>Un Passeport d'Attention : message personnel, histoire autorisée de la création, gestes d'entretien et place laissée à la réponse du destinataire.</p></article></div></section>
-<section class="section" id="idees"><span class="kicker">Collection éditoriale · Pistes à sourcer</span><h2>Neuf façons singulières d'offrir.</h2><p class="lead">Ce sont des concepts de cadeaux à tester, et non des produits disponibles. La sélection mondiale viendra après vérification des ateliers, des droits, des matériaux, du prix et de la livraison.</p><div class="toolbar" role="group" aria-label="Filtrer les idées"><button class="filter" data-filter="tous" aria-pressed="true">Toutes les intentions</button><button class="filter" data-filter="mots" aria-pressed="false">Les mots</button><button class="filter" data-filter="savoir" aria-pressed="false">Les savoir-faire</button><button class="filter" data-filter="lien" aria-pressed="false">Les liens</button></div>
+<section class="section" id="compose"><span class="kicker">ROKKU PASSAGES · SIMULATEUR PRIVÉ</span>
+<h2>L'attention commence par l'intention.</h2>
+<p class="lead">Choisissez une intention, une forme et une enveloppe indicative. Le moteur suggère trois territoires de création — sans prix validé, sans commande et sans transmission de données.</p>
+<div class="composer"><form id="rform" autocomplete="off">
+<div><label for="r-intent">Je voudrais...</label><select id="r-intent" required>
+<option value="">Choisir une intention</option><option value="merci">Remercier</option><option value="celebrer">Célébrer</option><option value="transmettre">Transmettre</option><option value="accueillir">Accueillir</option><option value="soutenir">Soutenir</option></select></div>
+<div><label for="r-format">J'aimerais offrir...</label><select id="r-format" required>
+<option value="">Choisir une forme</option><option value="mots">Des mots et de l'édition</option><option value="objet">Un objet d'artisan</option><option value="savoir">Un savoir-faire à découvrir</option><option value="libre">Je suis ouvert aux idées</option></select></div>
+<div><label for="r-budget">Budget envisagé (sans garantie de prix)</label><select id="r-budget">
+<option value="">À chiffrer après devis</option><option value="a">Moins de 50 €</option><option value="b">50–100 €</option><option value="c">Plus de 100 €</option></select></div>
+<div><label for="r-connection">Votre lien</label><select id="r-connection"><option>Personne proche</option><option>Un ami</option><option>Un lien professionnel</option><option>Autre</option></select></div>
+<div class="wide"><label for="r-words">Message facultatif pour le spécimen imprimable</label><textarea id="r-words" maxlength="300" placeholder="Un souvenir, un remerciement, un souhait..."></textarea><p class="hint">Votre texte reste dans cette page, sans sauvegarde ni envoi. N'y saisissez pas d'informations sensibles.</p></div>
+<div class="wide"><button type="submit">Composer trois pistes</button></div>
+</form>
+<div class="selection" id="r-selection" hidden aria-live="polite"><h2>Vos trois pistes</h2><div id="r-suggest" class="suggest"></div>
+<p class="hint">Propositions éditoriales non vendables. Prix, atelier, conformité, délais et livraison à confirmer.</p></div>
+<div class="passport" id="r-passport" hidden><span class="kicker">ROKKU PASSAGES · SPÉCIMEN NON CONTRACTUEL</span><h3>Passeport d'Attention</h3><p><strong>Intention :</strong> <span id="r-previntent"></span></p>
+<p><strong>Idée :</strong> <span id="r-prevgift"></span></p><p id="r-prevwords"></p>
+<p class="hint">Aucune provenance ni signature d'artisan n'est certifiée dans ce spécimen.</p>
+<button id="r-print" type="button">Imprimer le spécimen</button> <button id="r-restart" type="button">Recommencer</button></div></div></section><section class="section" id="idees"><span class="kicker">Collection éditoriale · Pistes à sourcer</span><h2>Neuf façons singulières d'offrir.</h2><p class="lead">Ce sont des concepts de cadeaux à tester, et non des produits disponibles. La sélection mondiale viendra après vérification des ateliers, des droits, des matériaux, du prix et de la livraison.</p><div class="toolbar" role="group" aria-label="Filtrer les idées"><button class="filter" data-filter="tous" aria-pressed="true">Toutes les intentions</button><button class="filter" data-filter="mots" aria-pressed="false">Les mots</button><button class="filter" data-filter="savoir" aria-pressed="false">Les savoir-faire</button><button class="filter" data-filter="lien" aria-pressed="false">Les liens</button></div>
 <div class="products">
 <article class="product" data-group="mots"><div class="art one"><span>La Lettre-Monde</span></div><div class="copy"><small>ROKKU ÉDITIONS · POD</small><h3>La Lettre-Monde</h3><p>Une lettre singulière transformée en objet éditorial, illustrée et imprimée à la demande, à conserver comme un petit livre.</p><p class="note">Pilote envisagé · prototype et prix à établir</p></div></article>
 <article class="product" data-group="savoir"><div class="art two"><span>Deux mains, un geste</span></div><div class="copy"><small>ROKKU ATELIERS · MOD</small><h3>Deux mains, un geste</h3><p>Un objet d'atelier non générique et un récit authentifié qui relie la fabrication à l'intention de celui qui offre.</p><p class="note">Atelier à sélectionner · aucune origine présumée</p></div></article>
@@ -33,9 +68,42 @@ main{max-width:1320px;margin:auto;padding:0 6vw}.section{padding:90px 0;border-b
 <article class="product" data-group="lien"><div class="art seven"><span>Le jour d'après</span></div><div class="copy"><small>ROKKU PASSAGES</small><h3>Le jour d'après</h3><p>Un cadeau qui marque une étape et invite librement à un nouveau projet, avec un second chapitre à écrire.</p><p class="note">Piste éditoriale à tester</p></div></article>
 <article class="product" data-group="savoir"><div class="art eight"><span>La pièce des rencontres</span></div><div class="copy"><small>ROKKU COLLECTOR · MOD</small><h3>La pièce des rencontres</h3><p>Une création originale co-signée par LMI et un artisan indépendant, dans le respect des droits et de sa rémunération.</p><p class="note">Collaboration à contractualiser</p></div></article>
 <article class="product" data-group="mots"><div class="art nine"><span>L'hospitalité du monde</span></div><div class="copy"><small>ROKKU ENTREPRISES</small><h3>L'hospitalité du monde</h3><p>Un objet de bienvenue et des mots justes pour accueillir un collaborateur ou un invité, sans cadeau publicitaire banal.</p><p class="note">Pilote B2B sur devis · pas de commande active</p></div></article>
-</div></section>
+<article class="product" data-group="lien"><div class="art two"><span>Le Cabinet des Horizons</span></div><div class="copy"><small>ROKKU ORIGINES · MOD</small><h3>Le Cabinet des Horizons</h3><p>Une pièce sculpturale utile et un récit qui accompagne un projet de vie.</p><p class="note">Atelier et matières à qualifier</p></div></article>
+<article class="product" data-group="savoir"><div class="art three"><span>L'objet et le geste</span></div><div class="copy"><small>ROKKU ATELIERS</small><h3>L'objet et le geste</h3><p>Une création associée à un enseignement authentifié de son artisan.</p><p class="note">Accords et matériel à qualifier</p></div></article>
+<article class="product" data-group="savoir"><div class="art seven"><span>La Table qui rassemble</span></div><div class="copy"><small>ROKKU DIALOGUES · MOD</small><h3>La Table qui rassemble</h3><p>Une composition d'objets non alimentaires célébrant l'hospitalité.</p><p class="note">Contact alimentaire et provenance à qualifier</p></div></article></div></section>
 <section class="section" id="monde"><span class="kicker">Ouverture internationale · Sourcing à engager</span><h2>Le monde, sans folklore de façade.</h2><p class="lead">Chaque atelier doit être reconnu par ses propres créations. Ces territoires sont des pistes de prospection par technique, et non des fournisseurs déjà retenus.</p><div class="world"><div><b>Afrique de l'Ouest</b><span>Tissage, vannerie, design textile</span></div><div><b>Maroc</b><span>Matières, tissage, décoration</span></div><div><b>Portugal</b><span>Liège, papier, céramique</span></div><div><b>Népal</b><span>Papeterie et fibres</span></div><div><b>Japon</b><span>Textiles et objets d'auteur</span></div><div><b>Mexique</b><span>Arts populaires contemporains</span></div><div><b>Pérou</b><span>Fibres et tissage</span></div><div><b>Inde</b><span>Impression artisanale et papier</span></div></div></section>
-<section class="section" id="entreprises"><span class="kicker">ROKKU ENTREPRISES</span><h2>Remercier autrement.</h2><p class="lead">Accueil d'une nouvelle équipe, transmission d'un savoir, départ, reconnaissance d'un engagement : une attention professionnelle pensée comme un geste humain, avec devis et contrôle de fabrication. Aucun article ni tarif B2B n'est engagé à ce stade.</p></section>
+<details class="legacy"><summary>Catalogue pilote historique ROKKU (juillet 2026) : archives commerciales à requalifier</summary>
+<p>Huit compositions étaient prévues dans quatre familles : Signature (bougie, gourmandise, message), Gourmand (chocolat et papeterie), Maison (textile et senteur), Exception (coffret assemblé à la commande). Le catalogue canonique conservé comporte des prix de travail historiques non validés pour la relance. Ces tarifs et les délais antérieurs ne sont pas présentés comme une offre actuelle. Les familles à denrées, senteurs et objets fragiles nécessitent leurs propres preuves.</p></details><section class="section" id="entreprises"><span class="kicker">ROKKU ENTREPRISES</span><h2>Remercier autrement.</h2><p class="lead">Accueil d'une nouvelle équipe, transmission d'un savoir, départ, reconnaissance d'un engagement : une attention professionnelle pensée comme un geste humain, avec devis et contrôle de fabrication. Aucun article ni tarif B2B n'est engagé à ce stade.</p></section>
 </main><aside class="band"><span class="ey">ROKKU — LE PLAISIR D'OFFRIR</span><h2>Une émotion ne s'importe pas en carton.</h2><p>Elle se compose avec justesse. Notre projet : réunir des œuvres, des personnes et des récits documentés autour d'un vrai geste d'attention.</p><span class="tag">PHASE DE CONCEPTION ET QUALIFICATION</span></aside><footer class="footer">ROKKU · BAT conceptuel privé du 12 novembre 2026 · noindex / nofollow · aucune vente ni paiement · aucune marque d'atelier ou origine commerciale certifiée dans cette page · décisions et recette humaine préalables à toute publication.</footer>
-<script>document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{let f=b.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));document.querySelectorAll(".product").forEach(x=>{x.hidden=!(f==="tous"||x.dataset.group===f)});}));</script>
+<script>document.querySelectorAll(".filter").forEach(b=>b.addEventListener("click",()=>{let f=b.dataset.filter;document.querySelectorAll(".filter").forEach(x=>x.setAttribute("aria-pressed",String(x===b)));document.querySelectorAll(".product").forEach(x=>{x.hidden=!(f==="tous"||x.dataset.group===f)});}));
+const rokkuGifts=[
+["La Lettre-Monde","mots","merci transmettre soutenir celebrer","Une lettre transformée en œuvre éditoriale."],
+["Les mots qui traversent","mots","merci accueillir transmettre","Une attention bilingue sous traduction vérifiée."],
+["La généalogie des gestes","mots","transmettre celebrer","Une mémoire familiale offerte sans folklore."],
+["Deux mains, un geste","objet","merci accueillir celebrer","Une pièce d'atelier et son récit."],
+["Le Cabinet des Horizons","objet","soutenir celebrer","Une pièce qui accompagne un départ."],
+["Le Coffret des Deux Rives","objet","merci transmettre","Deux lieux réunis par une histoire."],
+["L'Atelier chez soi","savoir","celebrer transmettre","L'expérience d'un savoir-faire."],
+["L'objet et le geste","savoir","merci transmettre","Une pièce et la voix de son créateur."],
+["La Table qui rassemble","objet","merci accueillir","L'hospitalité rendue visible."],
+["Le jour d'après","mots","soutenir celebrer","Une étape et son prochain chapitre."],
+["La pièce des rencontres","objet","celebrer merci","Une collaboration originale signée."],
+["L'hospitalité du monde","objet","accueillir","Un geste de bienvenue."]
+];
+const rf=document.getElementById("rform"),rs=document.getElementById("r-selection"),rp=document.getElementById("r-passport");
+rf.addEventListener("submit",ev=>{ev.preventDefault();
+const i=document.getElementById("r-intent").value,f=document.getElementById("r-format").value;
+if(!i||!f)return;
+const top=rokkuGifts.map((g,n)=>({g,n,s:(g[2].split(" ").includes(i)?9:0)+(f==="libre"?1:(f===g[1]?7:0))})).sort((a,b)=>b.s-a.s||a.n-b.n).slice(0,3);
+const out=document.getElementById("r-suggest");out.replaceChildren();
+top.forEach((r,n)=>{let a=document.createElement("article"),h=document.createElement("h3"),p=document.createElement("p");
+h.textContent=(n+1)+". "+r.g[0];p.textContent=r.g[3];a.append(h,p);out.append(a)});
+document.getElementById("r-previntent").textContent=document.querySelector("#r-intent option:checked").textContent;
+document.getElementById("r-prevgift").textContent=top[0].g[0];
+document.getElementById("r-prevwords").textContent=document.getElementById("r-words").value.trim()||"Votre message prendra place ici.";
+rs.hidden=false;rp.hidden=false;rs.scrollIntoView({block:"nearest"});
+});
+document.getElementById("r-print").addEventListener("click",()=>window.print());
+document.getElementById("r-restart").addEventListener("click",()=>{rf.reset();rs.hidden=true;rp.hidden=true;document.getElementById("r-intent").focus()});
+</script>
 </body></html>
